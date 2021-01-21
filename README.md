@@ -16,3 +16,19 @@ Finally, there should be a possibility to integrate an AI advisor within the pla
 2. **Modern UX Design.**
 
 3. **Scalable Platform with AI Advisor Integration.**
+
+4. Multi-User Account Sign Up (Users + Therapists with Profile Badge)
+
+5. Individual User Profile & Vertical User Moment Timelines
+
+6. User Assessment Questionnaire (Profile Details) w/ React Forms
+
+7. Capture everyday moments by allowing users to post bite-sized journal posts
+
+8. Relevant Filter, Tags and Categories
+
+9. Interaction between both user accounts (Comments & Advisors)
+
+10. Therapists / Psychologists can create interactive learning content for users
+
+11. Award post points based on community interaction

@@ -11,6 +11,8 @@ Finally, there should be a possibility to integrate an AI advisor within the pla
 
 # Moment One Requirements
 
--> Progressive Web App (Web Platform) with an Optimized Mobile Website
--> Modern UX Design
--> Scalable Platform with AI Advisor Integration
+-> Progressive Web App (Web Platform) with an Optimized Mobile Website.
+
+-> Modern UX Design.
+
+-> Scalable Platform with AI Advisor Integration.

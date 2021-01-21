@@ -46,7 +46,8 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "devDependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "morgan": "^1.10.0"
   },
   "keywords": [],
   "author": "",

@@ -17,18 +17,17 @@ app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', (request, response) => {
-    return response.status(okCode).json({message: 'hi'})
-});
-
-app.get('*', (request, response) => {
     try {
-        return response.status(notFound).send('404 Page not found');
-    }
+        const body = request.body;
+        const method = request.method;
+
+        if(method === 'GET') {
+            return response.status(okCode).sendFile(__dirname, 'src/App.js');
+        }
+    } 
     
     catch(error) {
-        if(error) {
-            return console.error(`${error}`);
-        }
+
     }
 });
 

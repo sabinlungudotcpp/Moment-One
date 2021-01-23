@@ -16,15 +16,18 @@
     "nodemon": "^2.0.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router": "^5.2.0",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start:server": "nodemon server.js",
-    "start": "react-scripts start --watch",
+    "start": "nodemon server.js",
+    "start-client": "react-scripts start --watch",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "proxy": "http://localhost:8080",
+    "test": "mocha test"
   },
   "eslintConfig": {
     "extends": [
@@ -48,7 +51,12 @@
   "main": "index.js",
   "devDependencies": {
     "axios": "^0.21.1",
-    "morgan": "^1.10.0"
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "morgan": "^1.10.0",
+    "mz": "^2.7.0",
+    "supertest": "^6.1.1",
+    "supertest-as-promised": "^4.0.2"
   },
   "keywords": [],
   "author": "",

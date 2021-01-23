@@ -1,21 +1,20 @@
-import './App.css';
-import React from 'react';
-import Axios from 'axios';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Axios from "axios";
 
-function App() {
-  Axios({
-    method: 'GET',
-    url: "http://localhost:3000/",
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
+export default class App extends Component {
+  constructor(props) {
+    super();
+  }
 
-  return (
-    <div className="App">
-       <h1>Moment</h1>
-      </div>
-  )}
+  componentDidMount() {
+    fetch('http://localhost:8080/fe').then(response => response.json());
+  }
 
-
-export default App;
+  render() {
+    return <div>
+      <h1>Moment One Platform</h1>
+    </div>
+  }
+}

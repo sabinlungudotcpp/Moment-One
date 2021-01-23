@@ -2,10 +2,10 @@ version: '3'
 services: 
   web:
     build: .
-    command: npm run start:server
+    image: sabin2000/momentoneplatform
     restart: always
     ports: 
-      - "3000:3000"
+      - "8080:8080"
     volumes: 
       - /app/node_modules
       - .:/app

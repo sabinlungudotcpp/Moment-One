@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 
-const port = process.env.port || 3000;
+const port = 3000;
 const okCode = 200;
 const notFound = 404;
 
@@ -17,8 +17,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', (request, response) => {
-    return response.sendFile(__dirname, 'public', 'index.html');
-})
+    return response.status(okCode).json({message: 'hi'})
+});
 
 app.get('*', (request, response) => {
     try {

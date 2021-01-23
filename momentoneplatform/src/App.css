@@ -8,11 +8,10 @@
   box-sizing: border-box;
 }
 
-.main-header {
-  padding: 30;
-  margin: 0 auto;
-}
-
 h1 {
   font-family: 'Arial';
+  text-align: center;
+  color: red;
+  font-weight: 300;
+  text-transform: uppercase;
 }

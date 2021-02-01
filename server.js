@@ -28,7 +28,7 @@ app.get('/', (request, response) => {
     
     catch(error) {
         if(error) {
-            return console.log(error);
+            return console.error(error);
         }
     }
 });

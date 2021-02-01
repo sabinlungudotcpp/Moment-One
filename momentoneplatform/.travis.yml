@@ -1,9 +1,0 @@
-sudo: required
-services:
-  - docker
-
-before_install:
-  - docker build -t sabin2000/Moment-One/momentoneplatform -f Dockerfile.dev .
-
-script:
-  - docker run -e CI=true sabin2000/Moment-One/momentoneplatform npm run test -- --coverage

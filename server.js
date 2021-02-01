@@ -18,7 +18,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', (request, response) => {
     try {
-        const body = request.body;
         const method = request.method;
 
         if(method === 'GET') {

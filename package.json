@@ -1,5 +1,5 @@
 {
-  "name": "momentoneplatform",
+  "name": "momentone",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -28,7 +28,7 @@
     "build": "react-scripts build",
     "test": "mocha test",
     "eject": "react-scripts eject",
-    "proxy": "http://localhost:8080"
+    "proxy": "http://localhost:8020"
   },
   "eslintConfig": {
     "extends": [

@@ -4,12 +4,10 @@ const cors = require('cors');
 const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 8080;
-const okCode = 200;
-
+const port = 8020;
 const mongoose = require('mongoose');
-const connectionURI = 'mongodb+srv://admin:N@p1er123@momentone-cl.tbcfu.mongodb.net/MomentOne?retryWrites=true&w=majority';
-app.use(express.static(path.join(__dirname, 'build')));
+const keys = require('./backend/keys/keys');
+
 app.use(morgan('dev'));
 app.use(express.static('public'));
 app.use(cors());
@@ -17,7 +15,7 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.urlencoded({extended: false}));
 
-mongoose.connect(connectionURI, {
+mongoose.connect(keys.mongoURI, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useFindAndModify: true,
@@ -25,32 +23,39 @@ mongoose.connect(connectionURI, {
 });
 
 mongoose.connection.on('connected', () => {
-    console.log('Connected to MongoDB instance');
+    return console.log('Connected to MongoDB instance');
 });
 
 mongoose.connection.on('error', (error) => {
-    console.error('Error connecting to MongoDB -> reason : ', error);
-})
+    return console.error('Error connecting to MongoDB -> reason : ', error);
+});
 
+app.get('/api/v1/momentone/posts', (request, response) => {
+    return response.sendFile(path.join(__dirname, './public/index.html'));
+});
 
-app.get('/', (request, response) => {
+app.get('/api/v1/momentone/posts/:id', (request, response) => {
     try {
-        const method = request.method;
 
-        if(method === 'GET') {
-            return response.status(okCode).sendFile(path.join(__dirname, 'public', 'index.html'));
-        }
     } 
     
     catch(error) {
-        if(error) {
-            return console.error(error);
-        }
+
     }
 });
 
-app.get('/fe', (request, response) => {
-    return response.send('What?');
+app.post('/api/v1/momentone/posts/:id', (request, response) => {
+    try {
+
+    } 
+    
+    catch(error) {
+
+    }
+});
+
+app.patch('/api/v1/momentone/posts/:id', (request, response) => {
+
 })
 
 app.listen(port, (error) => {

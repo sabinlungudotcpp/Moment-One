@@ -34,14 +34,11 @@ mongoose.connection.on('error', (error) => {
 
 
 app.get('/api/v1/momentone/posts', (request, response) => {
-    return response.json({
-        message: 'Posts'
-    })
-});
-
-app.get('/api/v1/momentone/posts/:id', (request, response) => {
     try {
+        const method = request.method;
+        if(method === 'GET') {
 
+        }
     } 
     
     catch(error) {
@@ -49,13 +46,40 @@ app.get('/api/v1/momentone/posts/:id', (request, response) => {
     }
 });
 
+app.get('/api/v1/momentone/posts/:id', async (request, response) => {
+    try {
+        const method = request.method;
+        
+        if(method === 'GET') {
+            const id = request.params.id;
+            const postId = await Post.findById(id);
+
+            return response.status(200).json({postId});
+        }
+    } 
+    
+    catch(error) {
+        if(error) {
+            return response.json({
+                message: error.message
+            });
+        }
+    }
+});
+
 app.post('/api/v1/momentone/posts', async (request, response) => {
     try {
         const method = request.method;
-        const {id, title, description} = request.body;
+        const {title, description} = request.body;
 
+        if(!title || !description) { // If there is no title or description
+            return response.status(500).json({
+                message: 'You must provide a post title and description'
+            });
+        }
+        
         if(method === 'POST') {
-            const newPost = new Post({id, title, description});
+            const newPost = new Post({title, description});
             await newPost.save();
 
             return response.status(201).json({

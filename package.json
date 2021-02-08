@@ -13,10 +13,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "flash": "^1.1.0",
-<<<<<<< HEAD
     "jsonwebtoken": "^8.5.1",
-=======
->>>>>>> 9b213074f0a3e439fe9ebbca6c118ec7da06fe24
     "mongoose": "^5.11.15",
     "nodemon": "^2.0.7",
     "react": "^17.0.1",

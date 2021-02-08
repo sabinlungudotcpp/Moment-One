@@ -6,13 +6,13 @@ const PostSchema = new mongoose.Schema({
         required: true
     },
 
-    title: {
+    title: { // Title of the post
         type: String,
         unique: false,
         required: true
     },
 
-    description: {
+    description: { // Description of the post
         type: String,
         unique: false,
         required: true

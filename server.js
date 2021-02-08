@@ -98,8 +98,69 @@ app.post('/api/v1/momentone/posts', async (request, response) => {
     }
 });
 
-app.patch('/api/v1/momentone/posts/:id', (request, response) => {
+app.patch('/api/v1/momentone/posts/:id', async (request, response) => {
+    try {
+        const method = request.method;
+        const id = request.params.id;
 
+        if(method === 'PATCH') {
+              const updatedPost = await Post.findByIdAndUpdate(id, request.body);
+            
+            return response.json({
+                updatedPost
+            });
+            
+        }
+    } 
+    
+    catch(error) {
+        if(error) {
+            return response.status(422).json({
+                error: error.message
+            });
+        }
+    }
+});
+
+app.delete('/api/v1/momentone/posts', async (request, response) => {
+    try {
+        const method = request.method;
+
+        if(method === 'DELETE') {
+            await Post.deleteMany();
+            
+            return response.status(200).json({
+
+                message: 'All posts deleted successfully'
+            });
+        }
+    } 
+    
+    catch(error) {
+        if(error) {
+            return response.status(500).json({
+                message: error.message
+            });
+        }
+    }
+});
+
+app.delete('/api/v1/momentone/posts/:id', async (request, response) => {
+    try {
+        const method = request.method;
+        const id = request.params.id;
+
+        if(method === 'DELETE') {
+            await Post.findByIdAndDelete(id, request.body);
+            return response.status(200).json({
+                message: 'Post deleted successfully'
+            })
+        }
+    } 
+    
+    catch(error) {
+
+    }
 })
 
 app.listen(port, (error) => {

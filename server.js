@@ -33,11 +33,13 @@ mongoose.connection.on('error', (error) => {
 });
 
 
-app.get('/api/v1/momentone/posts', (request, response) => {
+app.get('/api/v1/momentone/posts', async (request, response) => {
     try {
         const method = request.method;
-        if(method === 'GET') {
 
+        if(method === 'GET') {
+            const allPosts = await Post.find();
+            return response.json({allPosts});
         }
     } 
     

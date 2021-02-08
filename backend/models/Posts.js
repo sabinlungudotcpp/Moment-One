@@ -19,4 +19,4 @@ const PostSchema = new mongoose.Schema({
     }
 });
 
-mongoose.model('PostSchema', PostSchema);
+mongoose.model('Post', PostSchema);

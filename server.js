@@ -1,3 +1,5 @@
+require('./backend/models/Posts');
+const mongoose = require('mongoose');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -5,15 +7,15 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 8020;
-const mongoose = require('mongoose');
 const keys = require('./backend/keys/keys');
+const Post = mongoose.model('Post');
 
-app.use(morgan('dev'));
-app.use(express.static('public'));
-app.use(cors());
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(morgan('dev'));
+app.use(express.static('public'));
+app.use(cors());
 
 mongoose.connect(keys.mongoURI, {
     useCreateIndex: true,
@@ -29,6 +31,7 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on('error', (error) => {
     return console.error('Error connecting to MongoDB -> reason : ', error);
 });
+
 
 app.get('/api/v1/momentone/posts', (request, response) => {
     return response.json({
@@ -46,13 +49,26 @@ app.get('/api/v1/momentone/posts/:id', (request, response) => {
     }
 });
 
-app.post('/api/v1/momentone/posts/:id', (request, response) => {
+app.post('/api/v1/momentone/posts', async (request, response) => {
     try {
+        const method = request.method;
+        const {id, title, description} = request.body;
 
+        if(method === 'POST') {
+            const newPost = new Post({id, title, description});
+            await newPost.save();
+
+            return response.status(201).json({
+                newPost,
+                createdAt: Date.now()
+            });
+        }
     } 
     
     catch(error) {
-
+        if(error) {
+            return console.error(error);
+        }
     }
 });
 

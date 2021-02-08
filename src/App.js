@@ -8,7 +8,7 @@ export default class App extends Component {
 
   render() {
     return <div>
-      <h1>Moment</h1>
+      <h1>Moment One</h1>
     </div>
   }
 }

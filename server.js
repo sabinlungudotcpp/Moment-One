@@ -31,7 +31,9 @@ mongoose.connection.on('error', (error) => {
 });
 
 app.get('/api/v1/momentone/posts', (request, response) => {
-    return response.sendFile(path.join(__dirname, './public/index.html'));
+    return response.json({
+        message: 'hi'
+    })
 });
 
 app.get('/api/v1/momentone/posts/:id', (request, response) => {

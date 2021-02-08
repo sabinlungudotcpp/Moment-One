@@ -7,3 +7,5 @@ before_install:
 
 script:
  - docker run -e CI=true sabin2000/momentone travis_terminate 1
+ - bash build.sh || travis_terminate 1;
+ - bash deploy.sh || travis_terminate 1;

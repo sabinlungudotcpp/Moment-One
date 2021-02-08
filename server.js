@@ -1,4 +1,4 @@
-require('./backend/models/Posts');
+require('./backend/models/PostsModel');
 const mongoose = require('mongoose');
 const express = require('express');
 const morgan = require('morgan');
@@ -9,10 +9,14 @@ const port = 8020;
 const keys = require('./backend/keys/keys');
 const Post = mongoose.model('Post');
 
+const corsOptions = {
+    "Access-Control-Allow-Origin": "*"
+}
+
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(morgan('dev'));
+app.use(morgan('dev')); // Use logger
 app.use(express.static('public'));
 app.use(cors());
 
@@ -31,13 +35,13 @@ mongoose.connection.on('error', (error) => {
     return console.error('Error connecting to MongoDB -> reason : ', error);
 });
 
-app.get('/api/v1/momentone/posts', async (request, response) => {
+app.get('/api/v1/momentone/posts', cors(corsOptions), async (request, response) => {
     try {
         const method = request.method;
 
         if(method === 'GET') {
             const allPosts = await Post.find();
-            return response.json({allPosts});
+            return response.json(allPosts);
         }
     } 
     

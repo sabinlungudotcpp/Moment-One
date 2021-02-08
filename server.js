@@ -32,7 +32,7 @@ mongoose.connection.on('error', (error) => {
 
 app.get('/api/v1/momentone/posts', (request, response) => {
     return response.json({
-        message: 'hi'
+        message: 'Posts'
     })
 });
 

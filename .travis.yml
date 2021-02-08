@@ -6,4 +6,4 @@ before_install:
   - docker build -t sabin2000/momentone .
 
 script:
- - docker run -e CI=true sabin2000/momentone
+ - docker run -e CI=true sabin2000/momentone travis_terminate 1

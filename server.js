@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 8020;
@@ -32,7 +31,6 @@ mongoose.connection.on('error', (error) => {
     return console.error('Error connecting to MongoDB -> reason : ', error);
 });
 
-
 app.get('/api/v1/momentone/posts', async (request, response) => {
     try {
         const method = request.method;
@@ -44,7 +42,11 @@ app.get('/api/v1/momentone/posts', async (request, response) => {
     } 
     
     catch(error) {
-
+        if(error) {
+            return response.status(500).json({
+                message: error.message
+            })
+        }
     }
 });
 
@@ -103,26 +105,31 @@ app.patch('/api/v1/momentone/posts/:id', async (request, response) => {
         const method = request.method;
         const id = request.params.id;
 
+        if(!isNaN(id)) {
+            return response.status(500).json({
+                message: 'ID invalid'
+            });
+        }
+
         if(method === 'PATCH') {
               const updatedPost = await Post.findByIdAndUpdate(id, request.body);
             
             return response.json({
                 updatedPost
             });
-            
         }
     } 
     
     catch(error) {
-        if(error) {
+        if(error) { // IF an error ocurred
             return response.status(422).json({
-                error: error.message
+                error: error.message // Return that error message
             });
         }
     }
 });
 
-app.delete('/api/v1/momentone/posts', async (request, response) => {
+app.delete('/api/v1/momentone/posts', async (request, response) => { // Route for DELETING all posts
     try {
         const method = request.method;
 

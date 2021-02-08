@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 8080;
 const okCode = 200;
-const notFound = 404;
 
 const mongoose = require('mongoose');
 const connectionURI = 'mongodb+srv://admin:N@p1er123@momentone-cl.tbcfu.mongodb.net/MomentOne?retryWrites=true&w=majority';

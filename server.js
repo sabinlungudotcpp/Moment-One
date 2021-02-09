@@ -179,12 +179,8 @@ const deletePostByID = async (request, response) => {
     }
 };
 
-app.get('/api/v1/momentone/posts', getAllPosts);
-app.get('/api/v1/momentone/posts/:id', getPostByID);
-app.post('/api/v1/momentone/posts', createNewPost);
-app.patch('/api/v1/momentone/posts/:id', editPost);
-app.delete('/api/v1/momentone/posts', deleteAllPosts);
-app.delete('/api/v1/momentone/posts/:id', deletePostByID);
+app.route('/api/v1/momentone/posts').get(getAllPosts).post(createNewPost).delete(deleteAllPosts);
+app.route('/api/v1/momentone/posts/:id').get(getPostByID).patch(editPost).delete(deletePostByID);
 
 app.listen(port, (error) => {
     if(!error) {

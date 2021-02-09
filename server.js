@@ -1,4 +1,6 @@
 require('./backend/models/PostsModel');
+require('./backend/models/CommentsModel');
+
 const mongoose = require('mongoose');
 const express = require('express');
 const morgan = require('morgan');
@@ -8,10 +10,7 @@ const app = express();
 const port = 8020;
 const keys = require('./backend/keys/keys');
 const Post = mongoose.model('Post');
-
-const corsOptions = {
-    "Access-Control-Allow-Origin": "*"
-}
+const Comments = mongoose.model('Comments');
 
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
@@ -117,7 +116,7 @@ const editPost = async (request, response) => {
         }
 
         if(method === 'PATCH') {
-              const updatedPost = await Post.findByIdAndUpdate(id, request.body);
+            const updatedPost = await Post.findByIdAndUpdate(id, request.body);
             
             return response.json({
                 updatedPost
@@ -180,23 +179,104 @@ const deletePostByID = async (request, response) => {
 };
 
 const getAllComments = async (request, response) => {
+    try {
+        const method = request.method;
 
+        if(method === 'GET') {
+            const allComments = await Comments.find();
+            return response.status(200).json({allComments});
+        }
+    } 
+    
+    catch(error) {
+        if(error) {
+            return response.status(500).json({
+                message: error.message
+            });
+        }
+    }
 }
 
 const getCommentByID = async (request, response) => {
+    try {
 
+    } 
+    
+    catch(error) {
+        if(error) {
+            return response.status(500).json({
+                message: error.message
+            });
+        }
+    }
 }
 
 const createComment = async (request, response) => {
+    try {
+        const method = request.method;
+        const body = request.body;
 
+        if(method === 'POST') {
+            const newPost = new Comments(body);
+            await newPost.save();
+
+            return response.status(200).json({
+                message: 'Comment Created',
+                sentAt: new Date().toISOString()
+            });
+        }
+    } 
+    
+    catch(error) {
+        if(error) {
+            return response.status(500).json({
+                message: error.message
+            });
+        }
+    }
 }
 
 const editComment = async (request, response) => {
+    try {
+        const method = request.method;
+        const id = request.params.id;
 
+        if(method === 'PATCH') {
+            
+            const updatedComment = await Comments.findByIdAndUpdate(id, request.body);
+            return response.status(200).json({
+               updatedComment,
+               updatedAt: new Date().toISOString()
+            });
+        }
+    } 
+    
+    catch(error) {
+        if(error) {
+            return response.status(500).json({
+                message: error.message
+            });
+        }
+    }
 }
 
 const deleteAllComments = async (request, response) => {
+    try {
+        const method = request.method;
 
+        if(method === 'DELETE') {
+            await Comments.deleteMany();
+
+            return response.status(200).json({
+                message: 'All posts deleted successfully',
+                deletedAt: new Date().toISOString()
+            });
+        }
+    } 
+    
+    catch(error) {
+
+    }
 }
 
 const deleteCommentByID = async (request, response) => {

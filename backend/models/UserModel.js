@@ -1,7 +1,7 @@
 //User model schema for MomentOne platform user accounts
 const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
-	
+
 	username: {
 		type: String, 
 		unique: [true, 'Username taken'],
@@ -31,16 +31,6 @@ const UserSchema = new mongoose.Schema({
 		required: [true, 'Email required'],
 		match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'Invalid email address'], //Regex. Matches email accounts.
 		index: true
-	},
-
-	passwordHash: { //hash of users password
-		type: String,
-		required: true
-	},
-
-	salt: { //password salt
-		type: String,
-		required: true
 	},
 
 	aboutMe: String, 

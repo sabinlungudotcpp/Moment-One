@@ -157,13 +157,7 @@ const deleteAllPosts = async (request, response) => { // Route for DELETING all 
     }
 };
 
-app.get('/api/v1/momentone/posts', getAllPosts);
-app.get('/api/v1/momentone/posts/:id', getPostByID);
-app.post('/api/v1/momentone/posts', createNewPost);
-app.patch('/api/v1/momentone/posts/:id', editPost);
-app.delete('/api/v1/momentone/posts');
-
-app.delete('/api/v1/momentone/posts/:id', async (request, response) => {
+const deletePostByID = async (request, response) => {
     try {
         const method = request.method;
         const id = request.params.id;
@@ -177,9 +171,20 @@ app.delete('/api/v1/momentone/posts/:id', async (request, response) => {
     } 
     
     catch(error) {
-
+        if(error) {
+            return response.status(500).json({
+                message: error.message
+            });
+        }
     }
-})
+};
+
+app.get('/api/v1/momentone/posts', getAllPosts);
+app.get('/api/v1/momentone/posts/:id', getPostByID);
+app.post('/api/v1/momentone/posts', createNewPost);
+app.patch('/api/v1/momentone/posts/:id', editPost);
+app.delete('/api/v1/momentone/posts', deleteAllPosts);
+app.delete('/api/v1/momentone/posts/:id', deletePostByID);
 
 app.listen(port, (error) => {
     if(!error) {

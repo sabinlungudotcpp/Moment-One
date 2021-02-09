@@ -76,10 +76,7 @@ const getPostByID = async (request, response) => {
     }
 };
 
-app.get('/api/v1/momentone/posts', getAllPosts);
-app.get('/api/v1/momentone/posts/:id', getPostByID);
-
-app.post('/api/v1/momentone/posts', async (request, response) => {
+const createNewPost = async (request, response) => {
     try {
         const method = request.method;
         const {title, description} = request.body;
@@ -106,9 +103,9 @@ app.post('/api/v1/momentone/posts', async (request, response) => {
             return console.error(error);
         }
     }
-});
+};
 
-app.patch('/api/v1/momentone/posts/:id', async (request, response) => {
+const editPost = async (request, response) => {
     try {
         const method = request.method;
         const id = request.params.id;
@@ -135,9 +132,9 @@ app.patch('/api/v1/momentone/posts/:id', async (request, response) => {
             });
         }
     }
-});
+};
 
-app.delete('/api/v1/momentone/posts', async (request, response) => { // Route for DELETING all posts
+const deleteAllPosts = async (request, response) => { // Route for DELETING all posts
     try {
         const method = request.method;
 
@@ -145,8 +142,8 @@ app.delete('/api/v1/momentone/posts', async (request, response) => { // Route fo
             await Post.deleteMany();
             
             return response.status(200).json({
-
-                message: 'All posts deleted successfully'
+                message: 'All posts deleted successfully',
+                deletedAt: new Date().toISOString()
             });
         }
     } 
@@ -158,7 +155,13 @@ app.delete('/api/v1/momentone/posts', async (request, response) => { // Route fo
             });
         }
     }
-});
+};
+
+app.get('/api/v1/momentone/posts', getAllPosts);
+app.get('/api/v1/momentone/posts/:id', getPostByID);
+app.post('/api/v1/momentone/posts', createNewPost);
+app.patch('/api/v1/momentone/posts/:id', editPost);
+app.delete('/api/v1/momentone/posts');
 
 app.delete('/api/v1/momentone/posts/:id', async (request, response) => {
     try {

@@ -179,8 +179,35 @@ const deletePostByID = async (request, response) => {
     }
 };
 
+const getAllComments = async (request, response) => {
+
+}
+
+const getCommentByID = async (request, response) => {
+
+}
+
+const createComment = async (request, response) => {
+
+}
+
+const editComment = async (request, response) => {
+
+}
+
+const deleteAllComments = async (request, response) => {
+
+}
+
+const deleteCommentByID = async (request, response) => {
+
+}
+
 app.route('/api/v1/momentone/posts').get(getAllPosts).post(createNewPost).delete(deleteAllPosts);
 app.route('/api/v1/momentone/posts/:id').get(getPostByID).patch(editPost).delete(deletePostByID);
+
+app.route('/api/v1/momentone/comments').get(getAllComments).post(createComment).delete(deleteAllComments);
+app.route('/api/v1/momentone/comments/:id').get(getCommentByID).patch(editComment).delete(deleteCommentByID);
 
 app.listen(port, (error) => {
     if(!error) {

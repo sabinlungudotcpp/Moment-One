@@ -35,7 +35,8 @@ mongoose.connection.on('error', (error) => {
     return console.error('Error connecting to MongoDB -> reason : ', error);
 });
 
-app.get('/api/v1/momentone/posts', cors(corsOptions), async (request, response) => {
+
+const getAllPosts = async (request, response) => {
     try {
         const method = request.method;
 
@@ -52,9 +53,9 @@ app.get('/api/v1/momentone/posts', cors(corsOptions), async (request, response) 
             })
         }
     }
-});
+};
 
-app.get('/api/v1/momentone/posts/:id', async (request, response) => {
+const getPostByID = async (request, response) => {
     try {
         const method = request.method;
         
@@ -73,7 +74,10 @@ app.get('/api/v1/momentone/posts/:id', async (request, response) => {
             });
         }
     }
-});
+};
+
+app.get('/api/v1/momentone/posts', getAllPosts);
+app.get('/api/v1/momentone/posts/:id', getPostByID);
 
 app.post('/api/v1/momentone/posts', async (request, response) => {
     try {

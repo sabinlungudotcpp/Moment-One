@@ -1,4 +1,8 @@
 const express = require('express');
-const router = express.Router();
+const postController = require('../controllers/postController');
+const postRouter = express.Router();
 
-module.exports = router;
+postRouter.route('/').get(postController.getAllPosts).post(postController.createNewPost).delete(postController.deleteAllPosts);
+postRouter.route('/:id').get(postController.getPostByID).patch(postController.editPost).delete(postController.deletePostByID);
+
+module.exports = postRouter;

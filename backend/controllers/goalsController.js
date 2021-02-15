@@ -135,16 +135,43 @@ exports.deleteGoals = async (request, response) => {
     } 
     
     catch(error) {
+        const errorMsg = error.message;
 
+        if(error) { // If there is an error
+            return response.status(unprocessable).json(errorMsg);
+        }
     }
 }
 
 exports.deleteGoalByID = async (request, response) => {
     try {
+        let goalDeleted = false;
+        const id = request.params.id;
+        const url = request.url;
+        const method = request.method;
 
+        if(!id || !isNaN(id)) {
+            return response.status(unprocessable).json({
+                message: 'ID invalid'
+            });
+        }
+
+        if(method === 'DELETE' && url.startsWith(root)) {
+            await Goals.deleteOne(id);
+            goalDeleted = true;
+
+            return response.status(okCode).json({
+                message: 'Goal Deleted',
+                sentAt: new Date().toISOString()
+            });
+        }
     } 
     
     catch(error) {
+        const errorMsg = error.message;
 
+        if(error) {
+            return response.status(notFound).json(errorMsg);
+        }
     }
 }  

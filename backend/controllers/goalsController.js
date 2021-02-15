@@ -86,6 +86,7 @@ exports.createGoal = async (request, response) => { // Function export that crea
 
 exports.editGoal = async (request, response) => {
     try {
+        let goalEdited = false;
         const method = request.method;
         const id = request.params.id;
         const {goal, reason, length, reward} = request.body; // The data from the body.
@@ -98,9 +99,10 @@ exports.editGoal = async (request, response) => {
             });
         }
         
-        if(!isNaN(id)) {
+        if(!isNaN(id) || !id) { // If there is no ID or if it's not a number
             return response.status(500).json({
-                message: 'ID invalid'
+                message: 'ID invalid',
+                sentAt: new Date().toISOString()
             });
         }
 

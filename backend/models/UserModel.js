@@ -15,12 +15,12 @@ const UserSchema = new mongoose.Schema({
 		required: [true, 'Name required']
 	},
 
-	lastName: {
+	lastName: { // Last name of the user
 		type: String,
 		required: [true, 'Name required']
 	},
 
-	dateOfBirth: { 
+	dateOfBirth: { // Date of birth of the user
 		type: Date,
 		required: true
 	},

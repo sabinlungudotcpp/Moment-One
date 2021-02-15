@@ -118,8 +118,10 @@ exports.deleteCommentByID = async (request, response) => {
     try {
         const method = request.method;
         const id = request.params.id;
+
         if(method === 'DELETE') {
             await Comments.findByIdAndDelete(id);
+            
             return response.status(200).json({
                 message: 'Comment deleted successfully',
                 deletedAt: new Date().toISOString()

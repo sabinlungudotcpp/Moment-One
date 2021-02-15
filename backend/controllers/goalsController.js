@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 const Goals = mongoose.model('Goals');
 const okCode = 200;
 
-exports.getAllGoals = async (request, response) => {
+exports.getAllGoals = async (request, response) => { // Function that GETS all the goals from the database
     try {
-        const method = request.method;
+        const method = request.method; // Request method
 
-        if(method === 'GET') {
-            const goals = await Goals.find();
+        if(method === 'GET') { // If there is a GET request
+            const goals = await Goals.find(); // Call .find() to get all the goals
             return response.status(okCode).json(goals);
         }
     } 

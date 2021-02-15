@@ -77,7 +77,7 @@ exports.createGoal = async (request, response) => { // Function export that crea
     
     catch(error) {
         if(error) {
-            return response.status(404).json({
+            return response.status(notFound).json({
                 message: error.message
             });
         }
@@ -88,6 +88,7 @@ exports.editGoal = async (request, response) => {
     try {
         let goalEdited = false;
         const method = request.method;
+        const url = request.url;
         const id = request.params.id;
         const {goal, reason, length, reward} = request.body; // The data from the body.
 
@@ -106,8 +107,8 @@ exports.editGoal = async (request, response) => {
             });
         }
 
-        if(method === 'PATCH') {
-            const updatedGoal = await Goals.findByIdAndUpdate(id, request.body);
+        if(method === 'PATCH' && url.startsWith(root)) {
+            const updatedGoal = await Goals.findByIdAndUpdate(id, request.body); // Update the goal by finding its id and updating the body
             return response.status(okCode).json(updatedGoal);
         }
     } 

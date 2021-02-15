@@ -19,7 +19,19 @@ exports.getAllGoals = async (request, response) => { // Function that GETS all t
 
 exports.getGoalByID = async (request, response) => {
     try {
+        const id = request.id;
+        const method = request.method;
 
+        if(!id) {
+            return response.status(404).json({
+                message: 'Please specify a goal ID'
+            });
+        }
+
+        if(method === 'GET') {
+            const goal = await Goals.findById(id);
+            return response.status(okCode).json(goal);
+        }
     } 
     
     catch(error) {
@@ -29,11 +41,13 @@ exports.getGoalByID = async (request, response) => {
 
 exports.createGoal = async (request, response) => {
     try {
-        
+
     } 
     
     catch(error) {
+        if(error) {
 
+        }
     }
 }
 

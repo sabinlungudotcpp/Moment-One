@@ -41,7 +41,15 @@ exports.getGoalByID = async (request, response) => {
 
 exports.createGoal = async (request, response) => {
     try {
+        const method = request.method;
+        const body = request.body;
 
+        if(method === 'POST') {
+            const newGoal = new Goals(body);
+            await newGoal.save();
+
+            return response.status(201).json(newwGoal);
+        }
     } 
     
     catch(error) {

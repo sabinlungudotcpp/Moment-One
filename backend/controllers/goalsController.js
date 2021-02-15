@@ -42,26 +42,40 @@ exports.getGoalByID = async (request, response) => {
 exports.createGoal = async (request, response) => {
     try {
         const method = request.method;
-        const body = request.body;
+        const {goal, reason, length, reward} = request.body;
 
         if(method === 'POST') {
-            const newGoal = new Goals(body);
-            await newGoal.save();
+            const newGoal = new Goals({goal, reason, length, reward});
+            await newGoal.save(); // Save the goal
 
-            return response.status(201).json(newwGoal);
+            return response.status(201).json(newGoal);
         }
     } 
     
     catch(error) {
         if(error) {
-
+            return response.status(404).json({
+                message: error.message
+            });
         }
     }
 }
 
 exports.editGoal = async (request, response) => {
     try {
+        const method = request.method;
+        const id = request.params.id;
+        
+        if(!id) {
+            return response.status(500).json({
+                message: error.message
+            });
+        }
 
+        if(method === 'PATCH') {
+            const updatedGoal = await Goals.findByIdAndUpdate(id, request.body);
+            return response.status(okCode).json(updatedGoal);
+        }
     } 
     
     catch(error) {

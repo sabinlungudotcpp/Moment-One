@@ -65,13 +65,21 @@ exports.editGoal = async (request, response) => {
     try {
         const method = request.method;
         const id = request.params.id;
+        const {goal, reason, length, reward} = request.body; // The data from the body.
+
+        if(!goal || !reason || !length || !reward) {
+            return response.status(404).json({
+                message: 'Goal must have a goal, reason, length and reward',
+                sentAt: new Date().toISOString()
+            });
+        }
         
         if(!isNaN(id)) {
             return response.status(500).json({
                 message: 'ID invalid'
             });
         }
-        
+
         if(method === 'PATCH') {
             const updatedGoal = await Goals.findByIdAndUpdate(id, request.body);
             return response.status(okCode).json(updatedGoal);
@@ -79,7 +87,11 @@ exports.editGoal = async (request, response) => {
     } 
     
     catch(error) {
+        const msg = error.message;
 
+        if(error) {
+            return response.status(404).json(msg);
+        }
     }
 }
 

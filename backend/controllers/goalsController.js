@@ -31,16 +31,17 @@ exports.getAllGoals = async (request, response) => { // Function that GETS all t
 
 exports.getGoalByID = async (request, response) => {
     try {
-        const id = request.id;
+        const id = request.params.id;
+        const url = request.url;
         const method = request.method;
 
-        if(!id) {
+        if(!id || !isNaN(id)) {
             return response.status(notFound).json({
-                message: 'Please specify a goal ID'
+                message: 'Invalid ID entry'
             });
         }
 
-        if(method === 'GET') {
+        if(method === 'GET' && url.startsWith('/')) {
             const goal = await Goals.findById(id);
             return response.status(okCode).json(goal);
         }

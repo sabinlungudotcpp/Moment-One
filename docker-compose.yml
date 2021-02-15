@@ -5,7 +5,7 @@ services:
     image: sabin2000/momentoneplatform
     restart: always
     ports: 
-      - "8010:8010"
+      - "8000:8000"
     volumes: 
       - /app/node_modules
       - .:/app

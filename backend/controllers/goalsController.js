@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Goals = mongoose.model('Goals');
+const okCode = 200;
 
 exports.getAllGoals = async (request, response) => {
     try {
@@ -7,6 +8,7 @@ exports.getAllGoals = async (request, response) => {
 
         if(method === 'GET') {
             const goals = await Goals.find();
+            return response.status(okCode).json(goals);
         }
     } 
     

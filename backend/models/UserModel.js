@@ -33,32 +33,14 @@ const UserSchema = new mongoose.Schema({
 		index: true
 	},
 
-	aboutMe: String, 
-
-	goals: { //user goals. Could create seperate schema for goals?
-		goal: {
-			type: String,
-			required: true
-		},
-
-		reason: {
-			type: String,
-			required: true
-		},
-
-		length: {
-			type: Number,
-			min: 2,
-			max: 60,
-			required: true
-		},
-
-		reward: {
-			type: String,
-			required: true
-		}
+	password: {
+		type: String,
+		required: [true, 'User must contain a valid password'],
+		min: 8,
+		max: 20
 	},
 
+	aboutMe: String, 
 	therapist: ObjectId, //ObjectId linking to assigned therapists
 	posts: [ObjectId], //Arrey of post ids
 	profileImage: String, //Path to profile picture file 

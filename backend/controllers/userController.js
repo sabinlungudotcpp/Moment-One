@@ -18,7 +18,7 @@ exports.getAllUsers = async (request, response) => { //get all users
 			});
 		}
 	}
-};
+}
 
 exports.getUserById = async (request, response) => { //Get a user by _id 
 	try {
@@ -38,7 +38,7 @@ exports.getUserById = async (request, response) => { //Get a user by _id
 			});
 		}
 	}
-};
+}
 
 exports.getUserByUserName = async (request, request) => { //Get user by username
 	try {
@@ -58,7 +58,7 @@ exports.getUserByUserName = async (request, request) => { //Get user by username
 			});
 		}
 	}
-};
+}
 
 exports.createNewUser = async (request, response) => { //Create a new user
 	try {
@@ -86,7 +86,7 @@ exports.createNewUser = async (request, response) => { //Create a new user
 			return console.error(error);
 		}
 	}
-};
+}
 
 exports.editUser = async (request, response) => {
 	try {
@@ -113,7 +113,7 @@ exports.editUser = async (request, response) => {
 			});
 		}
 	}
-};
+}
 
 exports.deleteAllUsers = async (request, response) => {
 	try {
@@ -133,13 +133,13 @@ exports.deleteAllUsers = async (request, response) => {
 			});
 		}
 	}
-};
+}
 
 exports.deleteUserById = async (request, response) => { //Delete a user by id
 	try {
 		const method = request.method;
 		const id = request.params.id;
-		if(method === 'DELETED') {
+		if(method === 'DELETE') {
 			await User.findByIdAndDelete(id);
 			return response.status(200).json({ //http code 200 (OK)
 				message: 'User deleted successfully',
@@ -154,4 +154,4 @@ exports.deleteUserById = async (request, response) => { //Delete a user by id
 			});
 		}
 	}
-};
+}

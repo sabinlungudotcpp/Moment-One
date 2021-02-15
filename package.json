@@ -28,8 +28,8 @@
     "build": "react-scripts build",
     "test": "mocha test",
     "eject": "react-scripts eject",
-    "proxy": "http://localhost:8020"
-    "compile:sass": "node-sass sass/main.scss css/style.css/w"
+    "proxy": "http://localhost:8020",
+    "compile:sass": "node-sass src/sass/main.scss src/css/style.css"
   },
   "eslintConfig": {
     "extends": [

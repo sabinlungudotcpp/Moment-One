@@ -22,7 +22,15 @@ exports.getAllComments = async (request, response) => {
 
  exports.getCommentByID = async (request, response) => {
     try {
+        const method = request.method;
 
+        if(method === 'GET') {
+            const id = request.id; 
+            const commentId = await Comments.findById(id);
+            return response.status(200).json({
+                commentId
+            });
+        }
     } 
     
     catch(error) {
@@ -40,8 +48,8 @@ exports.getAllComments = async (request, response) => {
         const body = request.body;
 
         if(method === 'POST') {
-            const newPost = new Comments(body);
-            await newPost.save();
+            const newComment = new Comments(body);
+            await newComment.save();
 
             return response.status(200).json({
                 message: 'Comment Created',
@@ -91,17 +99,40 @@ exports.deleteAllComments = async (request, response) => {
             await Comments.deleteMany();
 
             return response.status(200).json({
-                message: 'All posts deleted successfully',
+                message: 'All comments deleted successfully',
                 deletedAt: new Date().toISOString()
             });
         }
     } 
     
     catch(error) {
-
+        if(error) {
+            return response.status(500).json({
+                message: error.message
+            });
+        }
     }
 }
 
 exports.deleteCommentByID = async (request, response) => {
+    try {
+        const method = request.method;
+        const id = request.params.id;
+        if(method === 'DELETE') {
+            await Comments.findByIdAndDelete(id);
+            return response.status(200).json({
+                message: 'Comment deleted successfully',
+                deletedAt: new Date().toISOString()
+            });
+        }
+    }
 
+    catch(error) {
+        if(error) { 
+            return response.status(500).json({
+                message: error.message
+
+            });
+        }
+    }
 }

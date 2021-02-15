@@ -15,10 +15,10 @@ exports.getAllPosts = async (request, response) => {
         if(error) {
             return response.status(500).json({
                 message: error.message
-            })
+            });
         }
     }
-};
+}
 
  exports.getPostByID = async (request, response) => {
     try {
@@ -39,7 +39,7 @@ exports.getAllPosts = async (request, response) => {
             });
         }
     }
-};
+}
 
  exports.createNewPost = async (request, response) => {
     try {
@@ -68,7 +68,7 @@ exports.getAllPosts = async (request, response) => {
             return console.error(error);
         }
     }
-};
+}
 
 exports.editPost = async (request, response) => {
     try {
@@ -97,7 +97,7 @@ exports.editPost = async (request, response) => {
             });
         }
     }
-};
+}
 
  exports.deleteAllPosts = async (request, response) => { // Route for DELETING all posts
     try {
@@ -120,7 +120,7 @@ exports.editPost = async (request, response) => {
             });
         }
     }
-};
+}
 
  exports.deletePostByID = async (request, response) => {
     try {
@@ -131,7 +131,7 @@ exports.editPost = async (request, response) => {
             await Post.findByIdAndDelete(id, request.body);
             return response.status(200).json({
                 message: 'Post deleted successfully'
-            })
+            });
         }
     } 
     
@@ -142,4 +142,4 @@ exports.editPost = async (request, response) => {
             });
         }
     }
-};
+}

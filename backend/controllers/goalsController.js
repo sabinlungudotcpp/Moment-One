@@ -66,12 +66,12 @@ exports.editGoal = async (request, response) => {
         const method = request.method;
         const id = request.params.id;
         
-        if(!id) {
+        if(!isNaN(id)) {
             return response.status(500).json({
-                message: error.message
+                message: 'ID invalid'
             });
         }
-
+        
         if(method === 'PATCH') {
             const updatedGoal = await Goals.findByIdAndUpdate(id, request.body);
             return response.status(okCode).json(updatedGoal);

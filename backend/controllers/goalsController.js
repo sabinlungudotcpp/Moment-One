@@ -2,21 +2,30 @@ const mongoose = require('mongoose');
 const Goals = mongoose.model('Goals');
 const okCode = 200;
 const createdCode = 201;
+const unprocessable = 400;
 const notFound = 404;
-
 
 exports.getAllGoals = async (request, response) => { // Function that GETS all the goals from the database
     try {
         const method = request.method; // Request method
+        const url = request.url;
+        const root = '/';
 
-        if(method === 'GET') { // If there is a GET request
+        if(method === 'GET' && url.startsWith(root)) { // If there is a GET request
             const goals = await Goals.find(); // Call .find() to get all the goals
-            return response.status(okCode).json(goals);
+            return response.status(okCode).json(goals); // Send back the goals
         }
     } 
     
     catch(error) {
+        const errorMsg = error.message;
 
+        if(error) { // If there is an error
+            return response.status(unprocessable).json({
+                errorMsg,
+                sentAt: new Date().toISOString()
+            });
+        }
     }
 };
 
@@ -39,6 +48,9 @@ exports.getGoalByID = async (request, response) => {
     
     catch(error) {
         const errorMsg = error.message;
+        if(error) {
+            return response.status()
+        }
     }
 };
 
@@ -46,9 +58,9 @@ exports.createGoal = async (request, response) => { // Function export that crea
     try {
         let goalCreated = false;
         const method = request.method;
-        const {goal, reason, length, reward} = request.body;
+        const {goal, reason, length, reward} = request.body; // Body of the request
 
-        if(method === 'POST') {
+        if(method === 'POST' && request.url.startsWith('/')) {
             const newGoal = new Goals({goal, reason, length, reward});
             await newGoal.save(); // Save the goal
             goalCreated = true;

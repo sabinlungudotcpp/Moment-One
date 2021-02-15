@@ -27,6 +27,16 @@ exports.getGoalByID = async (request, response) => {
     }
 };
 
+exports.createGoal = async (request, response) => {
+    try {
+        
+    } 
+    
+    catch(error) {
+
+    }
+}
+
 exports.editGoal = async (request, response) => {
     try {
 

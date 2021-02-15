@@ -21,4 +21,6 @@ const GoalSchema = new mongoose.Schema({
         type: String,
         required: [true, 'A goal should have a reward']
     }
-})
+});
+
+export default GoalSchema; // Export the goal schema

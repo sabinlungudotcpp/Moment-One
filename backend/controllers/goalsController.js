@@ -4,12 +4,12 @@ const okCode = 200;
 const createdCode = 201;
 const unprocessable = 400;
 const notFound = 404;
+const root = '/';
 
 exports.getAllGoals = async (request, response) => { // Function that GETS all the goals from the database
     try {
         const method = request.method; // Request method
         const url = request.url;
-        const root = '/';
 
         if(method === 'GET' && url.startsWith(root)) { // If there is a GET request
             const goals = await Goals.find(); // Call .find() to get all the goals
@@ -41,7 +41,7 @@ exports.getGoalByID = async (request, response) => {
             });
         }
 
-        if(method === 'GET' && url.startsWith('/')) {
+        if(method === 'GET' && url.startsWith(root)) {
             const goal = await Goals.findById(id);
             return response.status(okCode).json(goal);
         }
@@ -49,6 +49,7 @@ exports.getGoalByID = async (request, response) => {
     
     catch(error) {
         const errorMsg = error.message;
+
         if(error) {
             return response.status()
         }
@@ -58,10 +59,12 @@ exports.getGoalByID = async (request, response) => {
 exports.createGoal = async (request, response) => { // Function export that creates a new goal
     try {
         let goalCreated = false;
-        const method = request.method;
+        const method = request.method; // The request method
+
+        const url = request.url;
         const {goal, reason, length, reward} = request.body; // Body of the request
 
-        if(method === 'POST' && request.url.startsWith('/')) {
+        if(method === 'POST' && url.startsWith(root)) {
             const newGoal = new Goals({goal, reason, length, reward});
             await newGoal.save(); // Save the goal
             goalCreated = true;
@@ -69,7 +72,6 @@ exports.createGoal = async (request, response) => { // Function export that crea
             if(goalCreated) {
                 return response.status(createdCode).json(newGoal);
             }
-            
         }
     } 
     

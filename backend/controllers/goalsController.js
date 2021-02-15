@@ -100,7 +100,7 @@ exports.editGoal = async (request, response) => {
 
         if(!goal || !reason || !length || !reward) {
 
-            return response.status(404).json({
+            return response.status(unprocessable).json({
                 message: 'Goal must have a goal, reason, length and reward',
                 sentAt: new Date().toISOString()
             });

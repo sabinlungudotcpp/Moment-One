@@ -51,7 +51,7 @@ exports.getGoalByID = async (request, response) => {
         const errorMsg = error.message;
 
         if(error) {
-            return response.status()
+            return response.status(unprocessable).json(errorMsg);
         }
     }
 };
@@ -60,9 +60,15 @@ exports.createGoal = async (request, response) => { // Function export that crea
     try {
         let goalCreated = false;
         const method = request.method; // The request method
-
         const url = request.url;
         const {goal, reason, length, reward} = request.body; // Body of the request
+
+        if(!goal || !reason || !length || reward) {
+            return response.status(unprocessable).json({
+                message: 'Goal must have a goal, reason, length and reward',
+                sentAt: new Date().toISOString()
+            });
+        }
 
         if(method === 'POST' && url.startsWith(root)) {
             const newGoal = new Goals({goal, reason, length, reward});
@@ -101,13 +107,14 @@ exports.editGoal = async (request, response) => {
         }
         
         if(!isNaN(id) || !id) { // If there is no ID or if it's not a number
-            return response.status(500).json({
+            return response.status(unprocessable).json({
                 message: 'ID invalid',
                 sentAt: new Date().toISOString()
             });
         }
 
         if(method === 'PATCH' && url.startsWith(root)) {
+            goalEdited = true;
             const updatedGoal = await Goals.findByIdAndUpdate(id, request.body); // Update the goal by finding its id and updating the body
             return response.status(okCode).json(updatedGoal);
         }

@@ -115,8 +115,11 @@ exports.editGoal = async (request, response) => {
 
         if(method === 'PATCH' && url.startsWith(root)) {
             goalEdited = true;
-            const updatedGoal = await Goals.findByIdAndUpdate(id, request.body); // Update the goal by finding its id and updating the body
-            return response.status(okCode).json(updatedGoal);
+
+            if(goalEdited) {
+                const updatedGoal = await Goals.findByIdAndUpdate(id, request.body); // Update the goal by finding its id and updating the body
+                return response.status(okCode).json(updatedGoal);
+            }
         }
     } 
     
@@ -124,14 +127,24 @@ exports.editGoal = async (request, response) => {
         const msg = error.message;
 
         if(error) {
-            return response.status(404).json(msg);
+            return response.status(notFound).json(msg);
         }
     }
 }
 
 exports.deleteGoals = async (request, response) => {
     try {
+        const method = request.method;
+        const url = request.url;
 
+        if(method === 'DELETE' || url.startsWith(root)) {
+            await Goals.deleteMany();
+
+            return response.status(okCode).json({
+                message: 'Goals deleted successfully',
+                sentAt: new Date().toISOString()
+            });
+        }
     } 
     
     catch(error) {
@@ -157,7 +170,7 @@ exports.deleteGoalByID = async (request, response) => {
         }
 
         if(method === 'DELETE' && url.startsWith(root)) {
-            await Goals.deleteOne(id);
+            await Goals.findByIdAndDelete(id);
             goalDeleted = true;
 
             return response.status(okCode).json({

@@ -15,6 +15,7 @@
     "flash": "^1.1.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.15",
+    "node-sass": "^5.0.0",
     "nodemon": "^2.0.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -28,7 +29,8 @@
     "build": "react-scripts build",
     "test": "mocha test",
     "eject": "react-scripts eject",
-    "proxy": "http://localhost:8020"
+    "proxy": "http://localhost:8020",
+    "compile:sass": "node-sass src/sass/main.scss src/css/style.css"
   },
   "eslintConfig": {
     "extends": [

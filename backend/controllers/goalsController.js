@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const Goals = mongoose.model('Goals');
 const okCode = 200;
+const createdCode = 201;
+const notFound = 404;
+
 
 exports.getAllGoals = async (request, response) => { // Function that GETS all the goals from the database
     try {
@@ -23,7 +26,7 @@ exports.getGoalByID = async (request, response) => {
         const method = request.method;
 
         if(!id) {
-            return response.status(404).json({
+            return response.status(notFound).json({
                 message: 'Please specify a goal ID'
             });
         }
@@ -35,20 +38,25 @@ exports.getGoalByID = async (request, response) => {
     } 
     
     catch(error) {
-
+        const errorMsg = error.message;
     }
 };
 
-exports.createGoal = async (request, response) => {
+exports.createGoal = async (request, response) => { // Function export that creates a new goal
     try {
+        let goalCreated = false;
         const method = request.method;
         const {goal, reason, length, reward} = request.body;
 
         if(method === 'POST') {
             const newGoal = new Goals({goal, reason, length, reward});
             await newGoal.save(); // Save the goal
+            goalCreated = true;
 
-            return response.status(201).json(newGoal);
+            if(goalCreated) {
+                return response.status(createdCode).json(newGoal);
+            }
+            
         }
     } 
     
@@ -68,6 +76,7 @@ exports.editGoal = async (request, response) => {
         const {goal, reason, length, reward} = request.body; // The data from the body.
 
         if(!goal || !reason || !length || !reward) {
+
             return response.status(404).json({
                 message: 'Goal must have a goal, reason, length and reward',
                 sentAt: new Date().toISOString()

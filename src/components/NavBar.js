@@ -1,33 +1,16 @@
 import React, { Component } from "react";
 import { NavLink } from 'react-router-dom';
+
 function Navbar(){
     return(
         
         <div className= "navBar">
             <h1> Moment-One</h1>
-            <NavLink
-                exact
-                activeClassName="navbar__link--active"
-                className="navbar__link"
-                to="/"
-                >
-                Home
-            </NavLink>
+            <NavLink exact activeClassName="navbar__link--active" className="navbar__link" to = "/">Home </NavLink>
 
-            <NavLink
-                exact
-                activeClassName="navbar__link--active"
-                className="navbar__link"
-                to="/YourProfile"
-                >
-                Your Profile
-            </NavLink>
+            <NavLink exact activeClassName="navbar__link--active" className="navbar__link" to="/YourProfile">Your Profile</NavLink>
 
-            <NavLink
-                exact
-                activeClassName="navbar__link--active"
-                className="navbar__link"
-                to="/YourMoments"
+            <NavLink exact activeClassName="navbar__link--active" className="navbar__link" to="/YourMoments"
                 >
                 Your Moments
             </NavLink>
@@ -78,8 +61,6 @@ function Navbar(){
             </NavLink>
         </div>
     )
-
-
 }
 
 export default Navbar;

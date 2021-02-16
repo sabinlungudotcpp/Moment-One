@@ -17,7 +17,7 @@ function App() {
   return (
     <div className = "App">
       <header className = "App-header">
-        <h1> Moment One Home Page</h1>
+        <h1> Moment One Home</h1>
       </header>
     </div>
   )

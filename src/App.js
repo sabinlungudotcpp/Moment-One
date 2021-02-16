@@ -10,7 +10,6 @@ import UserProfile from './components/UserProfile';
 import YourMoments from './components/YourMoments';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
-
 function App() {
   return (
     <Router>

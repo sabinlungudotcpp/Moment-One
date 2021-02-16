@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 8080;
 const okCode = 200;
-const notFound = 404;
 
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(morgan('dev'));
@@ -31,10 +30,6 @@ app.get('/', (request, response) => {
         }
     }
 });
-
-app.get('/fe', (request, response) => {
-    return response.send('What?');
-})
 
 app.listen(port, (error) => {
     if(!error) {

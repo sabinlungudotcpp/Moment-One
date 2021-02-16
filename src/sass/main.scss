@@ -1,0 +1,10 @@
+@import "NavBar";
+@import "App";
+@import "variables";
+body{
+    margin:0%;
+    padding:0.5%;
+    padding-left:0%;
+    height: 100%;
+    background-color: $background;
+}

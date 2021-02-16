@@ -1,0 +1,57 @@
+.navBar {
+  border-radius: 0px 25px 25px 0px;
+  box-shadow: 0 4px 8px 0 rgba(56, 56, 56, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  width: 15%;
+  height: 100%;
+  float: left;
+  margin-left: 0px;
+  background-color: #fff;
+  margin-right: 1%; }
+
+h1 {
+  font-family: "Arial Bold";
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 35px; }
+
+.navbar__link {
+  display: block;
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  width: 80%;
+  font-size: 20px;
+  text-align: left;
+  margin-left: 5%;
+  margin-top: 6px;
+  border-bottom: 3px solid white; }
+
+.navbar__link:hover {
+  transform: translateY(-1px);
+  border-bottom: 3px solid #bfebff;
+  transition: border .3s ease-in-out, transform .3s ease-in-out; }
+
+.navbar__link--active {
+  border-bottom: 3px solid #29b6f6;
+  transition: border .3s ease-in-out; }
+
+.App {
+  width: 100%;
+  height: 1190px; }
+
+.PageContent {
+  width: 84%;
+  height: 100%;
+  float: left;
+  background-color: #fff;
+  border-radius: 25px 25px 25px 25px;
+  box-shadow: 0 4px 8px 0 rgba(56, 56, 56, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.19); }
+
+body {
+  margin: 0%;
+  padding: 0.5%;
+  padding-left: 0%;
+  height: 100%;
+  background-color: #e6e6e6; }

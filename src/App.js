@@ -2,14 +2,14 @@
 import React from "react";
 import "./css/style.css";
 
-import NavBar from './Componenets/NavBar';
-import CommunityMembers from './Componenets/CommunityMembers';
-import CommunityMoments from './Componenets/CommunityMoments';
-import Home from './Componenets/Home';
-import SelfAwareness from './Componenets/SelfAwareness';
-import Settings from './Componenets/Settings';
-import UserProfile from './Componenets/UserProfile';
-import YourMoments from './Componenets/YourMoments';
+import NavBar from './components/NavBar';
+import CommunityMembers from './components/CommunityMembers';
+import CommunityMoments from './components/CommunityMoments';
+import Home from './components/Home';
+import SelfAwareness from './components/SelfAwareness';
+import Settings from './components/Settings';
+import UserProfile from './components/UserProfile';
+import YourMoments from './components/YourMoments';
 
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 

@@ -14,14 +14,7 @@ function Navbar(){
 
             <NavLink exact activeClassName="navbar__link--active" className="navbar__link" to="/CommunityMoments">Community Moments</NavLink>
 
-            <NavLink
-                exact
-                activeClassName="navbar__link--active"
-                className="navbar__link"
-                to="/CommunityMembers"
-                >
-                Community Members
-            </NavLink>
+            <NavLink exact activeClassName="navbar__link--active" className="navbar__link" to="/CommunityMembers">Community Members</NavLink>
 
             <NavLink
                 exact

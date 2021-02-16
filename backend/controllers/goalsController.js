@@ -156,7 +156,7 @@ exports.deleteGoals = async (request, response) => {
     }
 }
 
-exports.deleteGoalByID = async (request, response) => {
+exports.deleteGoalByID = async (request, response) => { // Deletes a goal by its ID
     try {
         let goalDeleted = false;
         const id = request.params.id;

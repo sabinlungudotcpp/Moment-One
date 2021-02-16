@@ -13,6 +13,13 @@ import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 
 function App() {
   return (
+<<<<<<< HEAD
+    <div className = "App">
+      <header className = "App-header">
+        <h1> Moment One Home</h1>
+      </header>
+    </div>
+=======
     <Router>
       <div className = "App">
         
@@ -32,6 +39,7 @@ function App() {
           </div>
       </div>
     </Router>
+>>>>>>> 7b7635b9562f2d5cdd2be0ca6ce3baf7271b5173
   )
 }
 

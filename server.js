@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
+const okCode = 200;
 const port = 8000;
 const keys = require('./backend/keys/keys');
 

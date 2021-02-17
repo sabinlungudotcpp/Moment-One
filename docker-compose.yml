@@ -2,7 +2,7 @@ version: '3'
 services: 
   web:
     build: .
-    image: sabin2000/momentoneplatform
+    image: sabin2000/momentone
     restart: always
     ports: 
       - "8000:8000"

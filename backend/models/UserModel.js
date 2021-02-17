@@ -41,7 +41,9 @@ const UserSchema = new mongoose.Schema({
 	},
 
 	aboutMe: String, 
+	// eslint-disable-next-line no-undef
 	therapist: ObjectId, //ObjectId linking to assigned therapists
+	// eslint-disable-next-line no-undef
 	posts: [ObjectId], //Arrey of post ids
 	profileImage: String, //Path to profile picture file 
 	banner: String //Path to banner picture file

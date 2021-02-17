@@ -1,34 +1,44 @@
+require('./backend/models/postsModel');
+require('./backend/models/commentsModel');
+require('./backend/models/goalsModel');
+const mongoose = require('mongoose');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 8080;
 const okCode = 200;
+const port = 8000;
+const keys = require('./backend/keys/keys');
 
-app.use(express.static(path.join(__dirname, 'build')));
-app.use(morgan('dev'));
-app.use(express.static('public'));
-app.use(cors());
+const commentRouter = require('./backend/routes/commentRoutes');
+const postsRouter = require('./backend/routes/postRoutes');
+const goalsRouter = require('./backend/routes/goalRoutes');
+
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(morgan('dev')); // Use logger
+app.use(express.static('public'));
+app.use(cors());
 
-app.get('/', (request, response) => {
-    try {
-        const method = request.method;
+app.use('/api/v1/momentone/comments', commentRouter);
+app.use('/api/v1/momentone/posts', postsRouter);
+app.use('/api/v1/momentone/goals', goalsRouter);
 
-        if(method === 'GET') {
-            return response.status(okCode).sendFile(path.join(__dirname, 'public', 'index.html'));
-        }
-    } 
-    
-    catch(error) {
-        if(error) {
-            return console.error(error);
-        }
-    }
+mongoose.connect(keys.mongoURI, {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useFindAndModify: true,
+    useUnifiedTopology: true
+});
+
+mongoose.connection.on('connected', () => {
+    return console.log('Connected to MongoDB instance');
+});
+
+mongoose.connection.on('error', (error) => {
+    return console.error('Error connecting to MongoDB -> reason : ', error);
 });
 
 app.listen(port, (error) => {

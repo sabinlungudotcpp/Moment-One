@@ -5,7 +5,15 @@ services:
     image: sabin2000/momentone
     restart: always
     ports: 
-      - "8080:8080"
+      - "8000:8000"
     volumes: 
       - /app/node_modules
       - .:/app
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      MONGO_DB_ROOT_USERNAME: admin
+      MONGO_DB_ROOT_PASSWORD: N@p1er123

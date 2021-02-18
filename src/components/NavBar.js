@@ -69,7 +69,7 @@ function Navbar(){
                     className="navbar__link"
                     to="/"
                     >
-                    Logout
+                    Log-out
                 </NavLink>
             </div>
         </div>

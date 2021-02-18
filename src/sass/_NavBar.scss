@@ -1,0 +1,89 @@
+@import "Variables";
+
+.navbar {
+
+    border-radius: 25px 25px 25px 25px;
+    box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+    width: 290px;
+    height: 98vh;
+    position:absolute;
+    float: left;
+    background-color: $compBack;
+    font-family: all-round-gothic, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+
+    #{&}__link {
+      margin-left:15%;
+      border-radius: 15px 15px 15px 15px;
+      display: block;
+      color: #A2A2A4;
+      padding: 1.5vh 16px;
+      text-decoration: none;
+      width: 60%;
+      text-align: left;
+      margin-top: 1vh;
+      font-weight: bold;
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 22px;
+
+      &:hover {
+        background-color: #E2F2FC;
+        transition: background-color .3s ease-in-out;
+      }
+      &--active {
+        color:#38ABF5;
+        transition: color 1s ease-in-out;
+      }
+    }
+
+    .NavLogo{
+      background-image: url("../imageAssets/Logos/logo.svg");
+      background-repeat: no-repeat, repeat;
+      background-size: 80px 80px;
+      width:80px;
+      height:80px;
+      margin-top: 3vh;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .logout{
+      float:bottom;
+    }
+
+    .profile{
+      margin-top: 5vh;
+      margin-bottom: 5vh;
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 19px;
+      color:#38ABF5;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      width:100%;
+
+      &Img{
+        background-image: url("../imageAssets/Avatars/Animated/Asset33.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 85px 85px;
+        background-color: beige;
+        width:85px;
+        height:85px;
+        border-radius: 50%;
+        border:3px solid #38ABF5;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    
+
+ 
+  }
+
+  

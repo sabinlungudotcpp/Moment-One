@@ -1,28 +1,57 @@
 import React, { Component } from "react";
 import { NavLink } from 'react-router-dom';
-
+//<img src = {logo} className="profileImg"/>
 function Navbar(){
     return(
         
-        <div className= "navBar">
+        <div className= "navbar">
 
-            <h1> Moment-One</h1>
-            <NavLink exact activeClassName="navbar__link--active" className="navbar__link" to = "/">Home </NavLink>
+            <div className = "NavLogo"></div>
+            
 
-            <NavLink exact activeClassName="navbar__link--active" className="navbar__link" to="/YourProfile">Your Profile</NavLink>
-            <NavLink exact activeClassName="navbar__link--active" className="navbar__link" to="/YourMoments">Your Moments</NavLink>
+            <div className = "profile">
+                <div className = "profileImg"></div>
+                <p>@Username</p>
+            </div>
 
-            <NavLink exact activeClassName="navbar__link--active" className="navbar__link" to="/CommunityMoments">Community Moments</NavLink>
+          
+            
+            <NavLink 
+                exact 
+                activeClassName="navbar__link--active" 
+                className="navbar__link" to = "/">
+                Moments 
+            </NavLink>
 
-            <NavLink exact activeClassName="navbar__link--active" className="navbar__link" to="/CommunityMembers">Community Members</NavLink>
+            <NavLink 
+                exact 
+                activeClassName="navbar__link--active" 
+                className="navbar__link" to="/YourProfile">
+                Wellbeing
+            </NavLink>
+            
+            <NavLink 
+                exact 
+                activeClassName="navbar__link--active" 
+                className="navbar__link" 
+                to="/YourMoments">
+                Perspectives
+            </NavLink>
 
-            <NavLink
-                exact
-                activeClassName="navbar__link--active"
-                className="navbar__link"
-                to="/SelfAwareness"
-                >
-                Self Awareness
+            <NavLink 
+                exact 
+                activeClassName="navbar__link--active" 
+                className="navbar__link" 
+                to="/CommunityMoments">
+                Community
+            </NavLink>
+
+            <NavLink 
+                exact 
+                activeClassName="navbar__link--active" 
+                className="navbar__link" 
+                to="/CommunityMembers">
+                Live Chat
             </NavLink>
 
             <NavLink
@@ -33,15 +62,16 @@ function Navbar(){
                 >
                 Settings
             </NavLink>
-
-            <NavLink
-                exact
-                activeClassName="navbar__link--active"
-                className="navbar__link"
-                to="/"
-                >
-                Logout
-            </NavLink>
+            <div className="logout">
+                <NavLink
+                    exact
+                    activeClassName="navbar__link--active"
+                    className="navbar__link"
+                    to="/"
+                    >
+                    Logout
+                </NavLink>
+            </div>
         </div>
     )
 }

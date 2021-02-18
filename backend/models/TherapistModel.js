@@ -52,4 +52,4 @@ const therapistSchema = new mongoose.Schema({
 	banner: string, //Path to banner image
 });
 
-mongoose.model('therapist', therapistSchema);
+mongoose.model('Therapist', therapistSchema);

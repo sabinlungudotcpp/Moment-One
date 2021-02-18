@@ -17,6 +17,6 @@ exports.registerUser = async (request, response) => {
     }
 };
 
-exports.signIn = async (request, response) => {
+exports.signIn = async (request, response) => { // Function to sign users in
 
 };

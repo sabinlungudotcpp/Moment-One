@@ -70,39 +70,6 @@ exports.getUsername = async (request, response) => { //Get user by username
 	}
 }
 
-exports.registerUser = async (request, response) => { //Create a new user
-	try {
-		const method = request.method;
-
-		//Getting signup information from user
-		const {username, email, password} = request.body;
-
-		if (!username || !email || !password ) { //Verifying that all information is present. Can this be written better?
-			return response.status(unprocessable).json({ //http error code 422 (Unprocessable entity). Is this the correct code to use for missing parameters?
-				message: 'Not enough information provided'
-			});
-		}
-
-		if(method === 'POST') {
-
-			const newUser = new User({username, email, password});
-			await newUser.save(); //Saving new user to database
-
-			return response.status(created).json({ //http code 201 (Created)
-				newUser,
-				createdAt: Date.now()
-			});
-		}
-	}
-	
-	catch(error) {
-
-		if(error) {
-			return console.error(error);
-		}
-	}
-}
-
 exports.editUser = async (request, response) => {
 	try {
 		const method = request.method;

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const okCode = 200;
+const created = 201;
 const unprocessable = 422;
 const serverError = 500;
 
@@ -74,24 +75,28 @@ exports.registerUser = async (request, response) => { //Create a new user
 		const method = request.method;
 
 		//Getting signup information from user
-		const {username, firstName, lastName, dateOfBirth, email} = request.body;
+		const {username, email, password} = request.body;
 
-		if (!username || !firstName || !lastName || !dateOfBirth || !email ) { //Verifying that all information is present. Can this be written better?
+		if (!username || !email || !password ) { //Verifying that all information is present. Can this be written better?
 			return response.status(unprocessable).json({ //http error code 422 (Unprocessable entity). Is this the correct code to use for missing parameters?
 				message: 'Not enough information provided'
 			});
 		}
 
 		if(method === 'POST') {
-			const newUser = new User({username, firstName, lastName, dateOfBirth, email});
+
+			const newUser = new User({username, email, password});
 			await newUser.save(); //Saving new user to database
-			return response.status(201).json({ //http code 201 (Created)
+
+			return response.status(created).json({ //http code 201 (Created)
 				newUser,
 				createdAt: Date.now()
 			});
 		}
 	}
-	catch(error){
+	
+	catch(error) {
+
 		if(error) {
 			return console.error(error);
 		}
@@ -101,24 +106,24 @@ exports.registerUser = async (request, response) => { //Create a new user
 exports.editUser = async (request, response) => {
 	try {
 		const method = request.method;
-		const id = request.parmas.id;
+		const id = request.params.id;
 
 		if(!isNaN(id)) { //Tests if id is a number. not(not-a-number)
-			return response.status(500).json({ //http error code 500 (Internal server error). Generic
+			return response.status(serverError).json({ //http error code 500 (Internal server error). Generic
 				message: 'ID invalid'
 			});
 		}
 
 		if(method === 'PATCH') {
 			const updateUser = await User.findByIdAndUpdate(id, request.body); //Finds user by id and then updates with content of request body.
-			return response.status(200).json({ //http code 200 (OK)
+			return response.status(okCode).json({ //http code 200 (OK)
 				updateUser, updatedAt: Date.now()
 			});
 		}
 	}
 	catch(error) {
 		if(error) {
-			return response.status(500).json({ 
+			return response.status(serverError).json({ 
 				message: error.message
 			});
 		}
@@ -127,10 +132,13 @@ exports.editUser = async (request, response) => {
 
 exports.deleteAllUsers = async (request, response) => {
 	try {
+
 		const method = request.method;
 		if(method === 'DELETE') {
+
 			await User.deleteMany(); // Delete all users from database
-			return  response.status(200).json({ //http code 200 (OK)
+
+			return response.status(okCode).json({ //http code 200 (OK)
 				message: 'All users successfully deleted',
 				deletedAt: Date.now()
 			});
@@ -138,7 +146,7 @@ exports.deleteAllUsers = async (request, response) => {
 	}
 	catch(error) {
 		if(error) {
-			return response.status(500).json({ 
+			return response.status(serverError).json({ 
 				message: error.message
 			});
 		}

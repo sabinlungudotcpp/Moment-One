@@ -1,5 +1,6 @@
 //User model schema for MomentOne platform user accounts
 const mongoose = require('mongoose');
+let ObjectId = require('mongodb').ObjectID;
 const UserSchema = new mongoose.Schema({
 
 	username: {
@@ -10,25 +11,10 @@ const UserSchema = new mongoose.Schema({
 		index: true
 	},
 
-	firstName: {
-		type: String,
-		required: [true, 'Name required']
-	},
-
-	lastName: { // Last name of the user
-		type: String,
-		required: [true, 'Name required']
-	},
-
-	dateOfBirth: { // Date of birth of the user
-		type: Date,
-		required: true
-	},
 
 	email: {
 		type: String,
 		unique: [true, 'Email already used'],
-		required: [true, 'Email required'],
 		match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'Invalid email address'], //Regex. Matches email accounts.
 		index: true
 	},
@@ -41,10 +27,8 @@ const UserSchema = new mongoose.Schema({
 	},
 
 	aboutMe: String, 
-	// eslint-disable-next-line no-undef
-	therapist: ObjectId, //ObjectId linking to assigned therapists
-	// eslint-disable-next-line no-undef
-	posts: [ObjectId], //Arrey of post ids
+	therapist: [ObjectId], 
+	posts: [ObjectId], 
 	profileImage: String, //Path to profile picture file 
 	banner: String //Path to banner picture file
 });

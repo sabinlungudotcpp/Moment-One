@@ -11,7 +11,6 @@ const UserSchema = new mongoose.Schema({
 		index: true
 	},
 
-
 	email: {
 		type: String,
 		unique: [true, 'Email already used'],
@@ -26,7 +25,7 @@ const UserSchema = new mongoose.Schema({
 		max: 20
 	},
 
-	aboutMe: String, 
+	aboutMe: String,
 	therapist: [ObjectId], 
 	posts: [ObjectId], 
 	profileImage: String, //Path to profile picture file 

@@ -40,13 +40,13 @@ exports.getUserById = async (request, response) => { //Get a user by _id
 	}
 }
 
-exports.getUserByUserName = async (request, request) => { //Get user by username
+exports.getUserByUserName = async (request, response) => { //Get user by username
 	try {
 		const method = request.method; 
 		if(method === 'GET') {
 			const body = request.body; //Getting the username
 			const userName = await User.findOne().where('username').equals(body); //searches for users using the provided username 
-			return respose.status(200).json({ //http code 200 (OK)
+			return response.status(200).json({ //http code 200 (OK)
 			userName
 			}); 
 		}
@@ -67,7 +67,7 @@ exports.createNewUser = async (request, response) => { //Create a new user
 		//Getting signup information from user
 		const {username, firstName, lastName, dateOfBirth, email} = request.body;
 		if (!username || !firstName || !lastName || !dateOfBirth || !email ) { //Verifying that all information is present. Can this be written better?
-			return respose.status(422).json({ //http error code 422 (Unprocessable entity). Is this the correct code to use for missing parameters?
+			return response.status(422).json({ //http error code 422 (Unprocessable entity). Is this the correct code to use for missing parameters?
 				message: 'Not enough information provided'
 			});
 		}
@@ -77,7 +77,7 @@ exports.createNewUser = async (request, response) => { //Create a new user
 			await newUser.save(); //Saving new user to database
 			return response.status(201).json({ //http code 201 (Created)
 				newUser,
-				createdAt: date.now()
+				createdAt: Date.now()
 			});
 		}
 	}
@@ -102,7 +102,7 @@ exports.editUser = async (request, response) => {
 		if(method === 'PATCH') {
 			const updateUser = await User.findByIdAndUpdate(id, request.body); //Finds user by id and then updates with content of request body.
 			return response.status(200).json({ //http code 200 (OK)
-				updateUser, updatedAt: date.now()
+				updateUser, updatedAt: Date.now()
 			});
 		}
 	}
@@ -122,7 +122,7 @@ exports.deleteAllUsers = async (request, response) => {
 			await User.deleteMany(); // Delete all users from database
 			return  response.status(200).json({ //http code 200 (OK)
 				message: 'All users successfully deleted',
-				deletedAt: date.now()
+				deletedAt: Date.now()
 			});
 		}
 	}
@@ -143,7 +143,7 @@ exports.deleteUserById = async (request, response) => { //Delete a user by id
 			await User.findByIdAndDelete(id);
 			return response.status(200).json({ //http code 200 (OK)
 				message: 'User deleted successfully',
-				deletedAt: date.now()
+				deletedAt: Date.now()
 			});
 		}
 	}

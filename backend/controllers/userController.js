@@ -27,10 +27,13 @@ exports.getAllUsers = async (request, response) => { //get all users
 exports.getUserById = async (request, response) => { //Get a user by _id 
 	try {
 		const method = request.method;
-		if(method === 'GET') {
+		const url = request.url;
+
+		if(method === 'GET' && url.startsWith('/')) {
+
 			const id = request.params.id; //Request parameters
 			const userId = await User.findById(id); 
-			return response.status(200).json({ //http code 200 (OK)
+			return response.status(okCode).json({ //http code 200 (OK)
 			userId
 			}); 
 		}
@@ -57,7 +60,7 @@ exports.getUserByUserName = async (request, response) => { //Get user by usernam
 	}
 	catch(error) {
 		if(error) {
-			return response.status(500).json({ 
+			return response.status(serverError).json({ 
 				message: error.message
 			});
 		}

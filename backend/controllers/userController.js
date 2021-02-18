@@ -27,16 +27,15 @@ exports.getAllUsers = async (request, response) => { //get all users
 
 exports.getUserById = async (request, response) => { //Get a user by _id 
 	try {
+
 		const method = request.method;
 		const url = request.url;
 
 		if(method === 'GET' && url.startsWith('/')) {
-
 			const id = request.params.id; //Request parameters
 			const userId = await User.findById(id); 
-			return response.status(okCode).json({ //http code 200 (OK)
-			userId
-			}); 
+
+			return response.status(okCode).json({userId}); 
 		}
 	}
 	catch(error) {
@@ -88,6 +87,7 @@ exports.editUser = async (request, response) => {
 			});
 		}
 	}
+
 	catch(error) {
 		if(error) {
 			return response.status(serverError).json({ 
@@ -97,7 +97,7 @@ exports.editUser = async (request, response) => {
 	}
 }
 
-exports.deleteAllUsers = async (request, response) => {
+exports.deleteAllUsers = async (request, response) => { // Deletes all the users from the database
 	try {
 
 		const method = request.method;
@@ -111,6 +111,7 @@ exports.deleteAllUsers = async (request, response) => {
 			});
 		}
 	}
+
 	catch(error) {
 		if(error) {
 			return response.status(serverError).json({ 
@@ -124,16 +125,18 @@ exports.deleteUserById = async (request, response) => { //Delete a user by id
 	try {
 		const method = request.method;
 		const id = request.params.id;
+
 		if(method === 'DELETE') {
+
 			await User.findByIdAndDelete(id);
-			return response.status(200).json({ //http code 200 (OK)
+			return response.status(okCode).json({ //http code 200 (OK)
 				message: 'User deleted successfully',
 				deletedAt: Date.now()
 			});
 		}
 	}
 
-	
+
 	catch(error) {
 		if(error) {
 			return response.status(500).json({ 

@@ -13,7 +13,7 @@ exports.getAllTherapists = async (request, response) => { //get all therapists
 		}
 	}
 	catch(error) { //Catching errors
-		if(errorr) {
+		if(error) {
 			return response.status(500).json({ //http error code 500 (Internal Server error)
 				message: error.message
 			});
@@ -45,7 +45,6 @@ exports.createNewTherapist = async (request, response) => { //Create a new thera
 	try {
 		const method = request.method;
 
-		//Getting signup information from therapist
 		const {
 			username,
 			name: {
@@ -90,7 +89,7 @@ exports.createNewTherapist = async (request, response) => { //Create a new thera
 			await newTherapist.save(); //Saving new therapist to database
 			return response.status(201).json({ //http code 201 (Created)
 				newTherapist,
-				createdAt: date.now()
+				createdAt: Date.now()
 			});
 		}
 	}
@@ -104,7 +103,7 @@ exports.createNewTherapist = async (request, response) => { //Create a new thera
 exports.editTherapist = async (request, response) => {
 	try {
 		const method = request.method;
-		const id = request.parmas.id;
+		const id = request.params.id;
 
 		if(!isNaN(id)) { //Tests if id is a number. not(not-a-number)
 			return response.status(500).json({ //http error code 500 (Internal server error). Generic
@@ -115,7 +114,7 @@ exports.editTherapist = async (request, response) => {
 		if(method === 'PATCH') {
 			const updateTherapist = await Therapist.findByIdAndUpdate(id, request.body); //Finds therapist by id and then updates with content of request body.
 			return response.status(200).json({ //http code 200 (OK)
-				updateTherapist, updatedAt: date.now()
+				updateTherapist, updatedAt: Date.now()
 			});
 		}
 	}

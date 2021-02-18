@@ -1,6 +1,8 @@
 require('./backend/models/postsModel');
 require('./backend/models/commentsModel');
 require('./backend/models/goalsModel');
+require('./backend/models/userModel');
+
 const mongoose = require('mongoose');
 const express = require('express');
 const morgan = require('morgan');
@@ -14,6 +16,7 @@ const keys = require('./backend/keys/keys');
 const commentRouter = require('./backend/routes/commentRoutes');
 const postsRouter = require('./backend/routes/postRoutes');
 const goalsRouter = require('./backend/routes/goalRoutes');
+const userRouter = require('./backend/routes/UserRoutes');
 
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
@@ -25,6 +28,7 @@ app.use(cors());
 app.use('/api/v1/momentone/comments', commentRouter);
 app.use('/api/v1/momentone/posts', postsRouter);
 app.use('/api/v1/momentone/goals', goalsRouter);
+app.use('/api/v1/momentone/users', userRouter);
 
 mongoose.connect(keys.mongoURI, {
     useCreateIndex: true,

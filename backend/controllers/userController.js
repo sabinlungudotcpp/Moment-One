@@ -47,10 +47,12 @@ exports.getUserById = async (request, response) => { //Get a user by _id
 	}
 }
 
-exports.getUserByUserName = async (request, response) => { //Get user by username
+exports.getUsername = async (request, response) => { //Get user by username
 	try {
 		const method = request.method; 
+
 		if(method === 'GET') {
+
 			const body = request.body; //Getting the username
 			const userName = await User.findOne().where('username').equals(body); //searches for users using the provided username 
 			return response.status(okCode).json({ //http code 200 (OK)
@@ -67,12 +69,13 @@ exports.getUserByUserName = async (request, response) => { //Get user by usernam
 	}
 }
 
-exports.createNewUser = async (request, response) => { //Create a new user
+exports.registerUser = async (request, response) => { //Create a new user
 	try {
 		const method = request.method;
 
 		//Getting signup information from user
 		const {username, firstName, lastName, dateOfBirth, email} = request.body;
+
 		if (!username || !firstName || !lastName || !dateOfBirth || !email ) { //Verifying that all information is present. Can this be written better?
 			return response.status(unprocessable).json({ //http error code 422 (Unprocessable entity). Is this the correct code to use for missing parameters?
 				message: 'Not enough information provided'

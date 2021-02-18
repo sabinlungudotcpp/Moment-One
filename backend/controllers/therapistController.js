@@ -151,11 +151,13 @@ exports.deleteTherapistById = async (request, response) => { //Delete a therapis
 	try {
 		const method = request.method;
 		const id = request.params.id;
+
 		if(method === 'DELETE') {
+
 			await Therapist.findByIdAndDelete(id);
 			return response.status(200).json({ //http code 200 (OK)
 				message: 'therapist deleted successfully',
-				deletedAt: date.now()
+				deletedAt: Date.now()
 			});
 		}
 	}

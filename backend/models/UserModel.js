@@ -2,7 +2,6 @@
 const mongoose = require('mongoose');
 let ObjectId = require('mongodb').ObjectID;
 const UserSchema = new mongoose.Schema({
-
 	username: {
 		type: String, 
 		unique: [true, 'Username taken'],

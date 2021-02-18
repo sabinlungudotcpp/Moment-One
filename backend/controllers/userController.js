@@ -15,8 +15,8 @@ exports.getAllUsers = async (request, response) => { //get all users
 			});
 		}
 	}
-	catch(error) { //Catching errors
 
+	catch(error) { //Catching errors
 		if(error) {
 			return response.status(serverError).json({ //http error code 500 (Internal Server error)
 				message: error.message
@@ -132,6 +132,8 @@ exports.deleteUserById = async (request, response) => { //Delete a user by id
 			});
 		}
 	}
+
+	
 	catch(error) {
 		if(error) {
 			return response.status(500).json({ 

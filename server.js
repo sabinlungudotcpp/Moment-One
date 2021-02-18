@@ -17,6 +17,7 @@ const commentRouter = require('./backend/routes/commentRoutes');
 const postsRouter = require('./backend/routes/postRoutes');
 const goalsRouter = require('./backend/routes/goalRoutes');
 const userRouter = require('./backend/routes/UserRoutes');
+const authRouter = require('./backend/routes/authRoutes');
 
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
@@ -29,6 +30,7 @@ app.use('/api/v1/momentone/comments', commentRouter);
 app.use('/api/v1/momentone/posts', postsRouter);
 app.use('/api/v1/momentone/goals', goalsRouter);
 app.use('/api/v1/momentone/users', userRouter);
+app.use('/api/v1/momentone/register', authRouter);
 
 mongoose.connect(keys.mongoURI, {
     useCreateIndex: true,

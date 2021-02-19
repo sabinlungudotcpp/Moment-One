@@ -5,7 +5,7 @@ const User = mongoose.model('User');
 const okCode = 200;
 const unprocessable = 422;
 
-exports.registerUser = async (request, response) => {
+exports.registerUser = async (request, response) => { // Controller function to register a user
     try {
         const method = request.method;
         const url = request.url;
@@ -29,6 +29,30 @@ exports.registerUser = async (request, response) => {
     }
 };
 
-exports.signIn = async (request, response) => {
+exports.signIn = async (request, response) => { // Controller function to log in users
+    try {
+        const method = request.method;
+        const {email, password} = request.body;
+
+        if(!email || !password) {
+            return response.status(404).json({
+                message: 'You must provide an e-mail and password',
+                sentAt: new Date().toISOString()
+            });
+        }
+
+        if(method === 'POST') {
+
+        }
+    } 
     
+    catch(error) {
+        if(error) {
+            return response.status(unprocessable).json({
+                errorMsg: error.message,
+                stack: error.stack,
+                sentAt: new Date().toISOString()
+            });
+        }
+    }
 }

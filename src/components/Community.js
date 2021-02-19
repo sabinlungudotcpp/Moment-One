@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 
-function Community() {
+const community = () => {//community component
   return (
-    <div className = "Community">
-      <header className = "Community-header">
-        <h1>Community</h1>
+    
+    <div className = "community">
+      <header className = "community-header">
+        <h1>community</h1>
       </header>
     </div>
   )
 }
 
-export default Community;
+export default community; // Export the community module

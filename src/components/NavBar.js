@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { NavLink } from 'react-router-dom';
+//icon imports
 import homeIcon from '../imageAssets/MenuBarIcons/home.png';
 import chat from '../imageAssets/MenuBarIcons/chat.png';
 import community from '../imageAssets/MenuBarIcons/community.png';
 import perspectives from '../imageAssets/MenuBarIcons/perspectives.png';
 import wellbeing from '../imageAssets/MenuBarIcons/wellbeing.png';
 import logout from '../imageAssets/MenuBarIcons/logout.png';
+
 const Navbar = () => { // Navigation Bar Component
     return (
          <div className= "navbar">
@@ -13,6 +15,7 @@ const Navbar = () => { // Navigation Bar Component
         
             <div className = "profile">
                 <div className = "profileImg"></div>
+                {/* Placeholder : will get current user in future */}
                 <p>@Username</p>
             </div>
 
@@ -25,7 +28,7 @@ const Navbar = () => { // Navigation Bar Component
                         </div>
                         <span className="navbar_items-text">Moments</span>
                     </NavLink>
-
+                    {/*moments sub menu*/}
                     <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to = "/home/yourmoments">
                         <span className="navbar_subitems-text">Your Moments</span>
                     </NavLink>
@@ -62,17 +65,6 @@ const Navbar = () => { // Navigation Bar Component
                         <span className="navbar_items-text">Live-Chat</span>   
                     </NavLink>
                 </li>
-                {/*
-                <li>
-                    <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to="/settings">
-                        <div className = "icon">
-                            <img src= {homeIcon}></img>
-                        </div>
-                        <span className="navbar_items-text">Settings</span>  
-                        
-                    </NavLink>
-                </li>
-                */}
                 <li className="logout">
                     <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to="/logout">
                         <div className = "icon">
@@ -87,4 +79,4 @@ const Navbar = () => { // Navigation Bar Component
     )
 }
 
-export default Navbar;
+export default Navbar; //Exports Navbar

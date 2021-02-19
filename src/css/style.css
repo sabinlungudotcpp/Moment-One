@@ -14,7 +14,7 @@
   .navbar:hover .profile p {
     opacity: 1; }
   .navbar:hover .navbar_link {
-    width: 270px; }
+    width: 250px; }
   .navbar .NavLogo {
     background-image: url("../imageAssets/Logos/logo.svg");
     background-repeat: no-repeat, repeat;
@@ -54,8 +54,6 @@
       opacity: 0; }
   .navbar_items {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -65,7 +63,7 @@
       height: 55px;
       margin-top: auto;
       margin-bottom: auto;
-      margin-left: 14px;
+      margin-left: 0px;
       display: flex;
       flex-direction: column; }
       .navbar_items .icon img {
@@ -86,7 +84,7 @@
   .navbar .logout {
     margin-top: auto; }
   .navbar .navbar_link {
-    width: 270px;
+    width: 220px;
     overflow: hidden;
     font-family: Montserrat;
     font-style: normal;
@@ -97,15 +95,14 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    margin-left: 10px;
-    border-radius: 15px 15px 15px 15px;
-    margin-top: 1vh; }
+    margin-left: 22.5px;
+    border-radius: 30px;
+    margin-top: 1vh;
+    transition: background-color .3s ease-in-out, color 0.5s ease-in-out; }
     .navbar .navbar_link:hover {
-      background-color: #E2F2FC;
-      transition: background-color .3s ease-in-out; }
+      background-color: #E2F2FC; }
     .navbar .navbar_link_active {
-      color: #38ABF5;
-      transition: color 0.5s ease-in-out; }
+      color: rgba(56, 171, 245, 0.7); }
     .navbar .navbar_link_active .icon {
       border-radius: 50%;
       background-color: rgba(56, 171, 245, 0.3);

@@ -19,7 +19,6 @@ module.exports = async (request, response, next) => {
         jwt.verify(token, 'SECRET_KEY', async (error, payload) => { // Verify the JWT TOKEN
 
             if(error) {
-
                 return response.status(forbidden).json({
                     error: error.message,
                     stack: error.stack,
@@ -30,7 +29,6 @@ module.exports = async (request, response, next) => {
             const {userId} = payload;
             const user = await User.findById(userId);
             request.user = user;
-
             next();
         })
     } 

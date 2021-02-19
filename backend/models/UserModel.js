@@ -58,7 +58,26 @@ UserSchema.pre('save', function(next) {
 			})
 		}
 	})
+});
 
-})
+UserSchema.method.comparePasswords = function(providedPassword) {
+	const currentUser = this; // The current user
+
+	return new Promise((resolve, reject) => { // A promise that 
+		bcrypt.compare(currentUser.password, providedPassword, (error, passwordMatch) => { // Compare the current user password with the provided password
+			if(error) {
+				return reject(error);
+			}
+
+			if(!passwordMatch) { // If there is no match
+				return reject(false);
+			}
+
+			else {
+			    resolve(true); // Passwords match so therefore resolve is true
+			}
+		});
+	});
+}
 
 mongoose.model('User', UserSchema);

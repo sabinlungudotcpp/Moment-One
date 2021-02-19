@@ -28,3 +28,7 @@ exports.registerUser = async (request, response) => {
         }
     }
 };
+
+exports.signIn = async (request, response) => {
+    
+}

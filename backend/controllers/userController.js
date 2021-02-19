@@ -27,7 +27,7 @@ exports.getAllUsers = async (request, response) => { //get all users
 	}
 }
 
-exports.getUserById = async (request, response) => { //Get a user by _id 
+exports.getUserById = async (request, response) => { // Get a user by their ID
 	try {
 
 		const method = request.method;
@@ -52,14 +52,13 @@ exports.getUserById = async (request, response) => { //Get a user by _id
 exports.getUsername = async (request, response) => { //Get user by username
 	try {
 		const method = request.method; 
+		const url = request.url;
 
-		if(method === 'GET') {
+		if(method === 'GET' && url.startsWith('/')) {
 
 			const body = request.body; //Getting the username
 			const userName = await User.findOne().where('username').equals(body); //searches for users using the provided username 
-			return response.status(okCode).json({ //http code 200 (OK)
-			userName
-			}); 
+			return response.status(okCode).json({userName}); 
 		}
 	}
 	
@@ -106,10 +105,9 @@ exports.editUser = async (request, response) => {
 
 exports.deleteAllUsers = async (request, response) => { // Deletes all the users from the database
 	try {
-
 		const method = request.method;
-		if(method === 'DELETE') {
 
+		if(method === 'DELETE') {
 			await User.deleteMany(); // Delete all users from database
 
 			return response.status(okCode).json({ //http code 200 (OK)
@@ -144,6 +142,7 @@ exports.deleteUserById = async (request, response) => { //Delete a user by id
 	}
 
 	catch(error) {
+		
 		if(error) {
 			return response.status(serverError).json({ 
 				message: error.message

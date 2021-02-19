@@ -13,6 +13,7 @@ module.exports = async (request, response, next) => {
                 message: 'You must be logged in'
             });
         }
+
         const token = authorization.replace('Bearer ', ''); // Replace the Bearer token with a space
 
         jwt.verify(token, 'SECRET_KEY', async (error, payload) => { // Verify the JWT TOKEN
@@ -25,6 +26,12 @@ module.exports = async (request, response, next) => {
                     sentAt: new Date().toISOString()
                 })
             }
+
+            const {userId} = payload;
+            const user = await User.findById(userId);
+            request.user = user;
+
+            next();
         })
     } 
     

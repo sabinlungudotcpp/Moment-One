@@ -63,7 +63,7 @@
       }
 
       p{
-        transition: opacity 1s linear;
+        transition: opacity 0.7s linear;
         opacity: 0;
       }
     }
@@ -93,12 +93,18 @@
     //navigation labels
     &_items-text{
       white-space: nowrap;
-      display:none;
       margin-left:10px;
+      display:block;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.5s, opacity 0.5s linear;
+      transition-delay: 0.2s;
     }
 
     &:hover .navbar_items-text {
-      display:block;
+
+      visibility: visible;
+      opacity: 1;
     }
     .logout{
       margin-top: auto;
@@ -106,13 +112,13 @@
     //link
 
     #{&}_link {
+      width : 270px;
       overflow: hidden;
       @include montserratFont(Dark,colour(F,gr),22px);
       text-decoration: none;
       display:flex;
       align-items:center;
       margin-left:10px;
-      margin-right: 10px;
       border-radius: 15px 15px 15px 15px;
       margin-top:1vh;
       padding-top: 1vh;

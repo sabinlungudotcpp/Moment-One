@@ -1,54 +1,38 @@
 .navbar {
   border-radius: 25px 25px 25px 25px;
   box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
-  width: 290px;
+  overflow: hidden;
+  width: 100px;
   height: 98vh;
   position: absolute;
   float: left;
   background-color: #FAFAFA;
-  font-family: all-round-gothic, sans-serif;
-  font-style: normal;
-  font-weight: 600; }
-  .navbar .navbar__link {
-    margin-left: 15%;
-    border-radius: 15px 15px 15px 15px;
-    display: block;
-    color: #A2A2A4;
-    padding: 1.5vh 16px;
-    text-decoration: none;
-    width: 60%;
-    text-align: left;
-    margin-top: 1vh;
-    font-weight: bold;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 22px; }
-    .navbar .navbar__link:hover {
-      background-color: #E2F2FC;
-      transition: background-color .3s ease-in-out; }
-    .navbar .navbar__link--active {
-      color: #38ABF5;
-      transition: color 1s ease-in-out; }
+  transition: width 1s ease;
+  transition-delay: 0.2s; }
+  .navbar:hover {
+    width: 290px; }
+  .navbar:hover .profile p {
+    opacity: 1; }
+  .navbar:hover .navbar_link {
+    width: 270px; }
   .navbar .NavLogo {
     background-image: url("../imageAssets/Logos/logo.svg");
     background-repeat: no-repeat, repeat;
     background-size: 80px 80px;
     width: 80px;
     height: 80px;
-    margin-top: 3vh;
+    margin-top: 4vh;
     margin-left: auto;
     margin-right: auto; }
-  .navbar .logout {
-    margin-top: 30vh; }
   .navbar .profile {
-    margin-top: 5vh;
-    margin-bottom: 5vh;
     font-family: Montserrat;
     font-style: normal;
     font-weight: 600;
-    font-size: 19px;
+    font-weight: 700;
     color: #38ABF5;
+    font-size: 19px;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -56,14 +40,68 @@
     .navbar .profileImg {
       background-image: url("../imageAssets/Avatars/Animated/Asset33.svg");
       background-repeat: no-repeat, repeat;
-      background-size: 85px 85px;
+      background-size: 60px 60px;
       background-color: beige;
-      width: 85px;
-      height: 85px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       border: 3px solid #38ABF5;
       margin-left: auto;
-      margin-right: auto; }
+      margin-right: auto;
+      margin-bottom: 1vh; }
+    .navbar .profile p {
+      transition: opacity 1s linear;
+      opacity: 0; }
+  .navbar_items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    height: 65vh; }
+    .navbar_items .icon {
+      width: 35px;
+      height: 35px;
+      background-color: #A2A2A4;
+      border-radius: 50%;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: 22.5px; }
+  .navbar_items-text {
+    white-space: nowrap;
+    display: none;
+    margin-left: 10px; }
+  .navbar:hover .navbar_items-text {
+    display: block; }
+  .navbar .logout {
+    margin-top: auto; }
+  .navbar .navbar_link {
+    overflow: hidden;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-weight: 700;
+    color: #A2A2A4;
+    font-size: 22px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 15px 15px 15px 15px;
+    margin-top: 1vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh; }
+    .navbar .navbar_link:hover {
+      background-color: #E2F2FC;
+      transition: background-color .3s ease-in-out; }
+    .navbar .navbar_link_active {
+      color: #38ABF5;
+      transition: color 0.5s ease-in-out; }
+    .navbar .navbar_link_active .icon {
+      background-color: #38ABF5;
+      transition: background-color 0.5s ease-in-out; }
 
 .App {
   width: 99vw;

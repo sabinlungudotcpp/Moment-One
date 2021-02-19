@@ -1,89 +1,137 @@
 @import "Variables";
-
+@import "functions";
 .navbar {
-
-    border-radius: 25px 25px 25px 25px;
-    box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
-    width: 290px;
+    @include compSetup;
+    overflow: hidden;
+    width: 100px;
     height: 98vh;
     position:absolute;
     float: left;
     background-color: $compBack;
-    font-family: all-round-gothic, sans-serif;
-    font-style: normal;
-    font-weight: 600;
-
-    #{&}__link {
-      margin-left:15%;
-      border-radius: 15px 15px 15px 15px;
-      display: block;
-      color: #A2A2A4;
-      padding: 1.5vh 16px;
-      text-decoration: none;
-      width: 60%;
-      text-align: left;
-      margin-top: 1vh;
-      font-weight: bold;
-
-      font-family: Montserrat;
-      font-style: normal;
-      font-weight: 600;
-      font-size: 22px;
-
-      &:hover {
-        background-color: #E2F2FC;
-        transition: background-color .3s ease-in-out;
-      }
-      &--active {
-        color:#38ABF5;
-        transition: color 1s ease-in-out;
-      }
+    
+    transition: width 1s ease;
+    transition-delay: 0.2s;
+    &:hover{
+      width:290px;
     }
 
+    &:hover .profile p{
+      opacity: 1;
+    }
+    
+    &:hover .navbar_link{
+      width : 270px;
+    }
+    //logo displayed on taskbar
     .NavLogo{
+      
       background-image: url("../imageAssets/Logos/logo.svg");
       background-repeat: no-repeat, repeat;
       background-size: 80px 80px;
+
       width:80px;
       height:80px;
-      margin-top: 3vh;
+      margin-top: 4vh;
       margin-left: auto;
       margin-right: auto;
     }
-
-    .logout{
-      margin-top:30vh;
-    }
-
+    
+    //user profile image and username
     .profile{
+      @include montserratFont(Dark,colour(F,blu),19px);
       margin-top: 5vh;
       margin-bottom: 5vh;
-      font-family: Montserrat;
-      font-style: normal;
-      font-weight: 600;
-      font-size: 19px;
-      color:#38ABF5;
       text-align: center;
       margin-left: auto;
       margin-right: auto;
       width:100%;
 
       &Img{
+
         background-image: url("../imageAssets/Avatars/Animated/Asset33.svg");
         background-repeat: no-repeat, repeat;
-        background-size: 85px 85px;
+        background-size: 60px 60px;
         background-color: beige;
-        width:85px;
-        height:85px;
+        
+        width:60px;
+        height:60px;
         border-radius: 50%;
-        border:3px solid #38ABF5;
+        border:3px solid colour(F,blu);
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 1vh;
+      }
+
+      p{
+        transition: opacity 1s linear;
+        opacity: 0;
       }
     }
-    
 
- 
+    //navigation items
+    &_items{
+      list-style: none;
+      padding:0;
+      margin:0;
+      display:flex;
+      flex-direction: column;
+      align-items:left;
+      height: 65vh;
+
+      .icon{
+        width: 35px;
+        height:35px;
+        background-color: colour(F,gr);
+        border-radius: 50%;
+        margin-top: auto;
+        margin-bottom:auto;
+        margin-left: 22.5px;
+      }
+
+    }
+
+    //navigation labels
+    &_items-text{
+      white-space: nowrap;
+      display:none;
+      margin-left:10px;
+    }
+
+    &:hover .navbar_items-text {
+      display:block;
+    }
+    .logout{
+      margin-top: auto;
+    }
+    //link
+
+    #{&}_link {
+      overflow: hidden;
+      @include montserratFont(Dark,colour(F,gr),22px);
+      text-decoration: none;
+      display:flex;
+      align-items:center;
+      margin-left:10px;
+      margin-right: 10px;
+      border-radius: 15px 15px 15px 15px;
+      margin-top:1vh;
+      padding-top: 1vh;
+      padding-bottom: 1vh;
+
+      &:hover {
+        background-color: colour(F,lblu);
+        transition: background-color .3s ease-in-out;
+      }
+
+      &_active {
+        color:colour(F,blu);
+        transition: color 0.5s ease-in-out;
+      }
+      &_active .icon{
+        background-color:colour(F,blu);
+        transition: background-color 0.5s ease-in-out;
+      }
+    }
   }
 
   

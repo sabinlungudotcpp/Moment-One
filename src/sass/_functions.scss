@@ -1,0 +1,52 @@
+@import "Variables";
+
+@function weight($wight-name){
+    @return map-get($font-wight, $wight-name )
+};
+
+@mixin compSetup{
+    border-radius: 25px 25px 25px 25px;
+    box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+
+}
+
+@function colour($set,$colour){
+
+    @if($set == "P"){
+        @return map-get($P-colour, $colour );
+    }
+    @if($set == "S"){
+        @return map-get($S-colour,$colour);
+    }
+    @if($set == "F"){
+        @return map-get($F-colour,$colour);
+    }
+
+}
+
+
+@mixin gothicFont($wight-name,$colour,$size){
+    font-family: all-round-gothic, sans-serif;
+    font-style: normal;
+    font-weight:weight($wight-name);
+    color:$colour;
+    font-size:$size;
+}
+
+@mixin montserratFont($wight-name,$colour,$size){
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-weight:weight($wight-name);
+    color:$colour;
+    font-size:$size;
+}
+
+@mixin RalewayFont($wight-name,$colour,$size){
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-weight:weight($wight-name);
+    color:$colour;
+    font-size:$size;
+}

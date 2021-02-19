@@ -17,7 +17,6 @@ const Navbar = () => { // Navigation Bar Component
                     <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to = "/home">
                         <div className = "icon"></div>
                         <span className="navbar_items-text">Moments</span>
-                        
                     </NavLink>
 
                 </li>

@@ -1,5 +1,7 @@
 //User model schema for MomentOne platform user accounts
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const BYTES = 10;
 let ObjectId = require('mongodb').ObjectID;
 const UserSchema = new mongoose.Schema({
 	username: {
@@ -30,5 +32,33 @@ const UserSchema = new mongoose.Schema({
 	profileImage: String, //Path to profile picture file 
 	banner: String //Path to banner picture file
 });
+
+UserSchema.pre('save', function(next) {
+	const currentUser = this;
+
+	if(!currentUser.isModified('password')) {
+		return next();
+	}
+
+	bcrypt.hash(BYTES, (error, salt) => {
+		if(error) {
+			return next(error);
+		}
+
+		else {
+			bcrypt.hash(currentUser.password, salt, (error, hash) => {
+				if(error) {
+					return next(error);
+				}
+
+				else {
+					currentUser.password = hash;
+					next();
+				}
+			})
+		}
+	})
+
+})
 
 mongoose.model('User', UserSchema);

@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const BYTES = 10;
 let ObjectId = require('mongodb').ObjectID;
+
 const UserSchema = new mongoose.Schema({
 	username: {
 		type: String, 
@@ -18,8 +19,8 @@ const UserSchema = new mongoose.Schema({
 		index: true
 	},
 
-	password: {
-		type: String,
+	password: { // Password of the user model
+		type: String, // Is a string
 		required: [true, 'User must contain a valid password'],
 		min: 8,
 		max: 20

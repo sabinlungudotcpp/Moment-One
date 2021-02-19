@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = () => { // Navigation Bar Component
     return (
          <div className= "navbar">
             <div className = "NavLogo"></div>
@@ -11,28 +11,10 @@ const Navbar = () => {
                 <p>@Username</p>
             </div>
 
-          
-            <NavLink 
-                exact 
-                activeClassName="navbar__link--active" 
-                className="navbar__link" to = "/">
-                Moments 
-            </NavLink>
-
-            <NavLink 
-                exact 
-                activeClassName="navbar__link--active" 
-                className="navbar__link" to="/YourProfile">
-                Wellbeing
-            </NavLink>
-            
-            <NavLink 
-                exact 
-                activeClassName="navbar__link--active" 
-                className="navbar__link" 
-                to="/YourMoments">
-                Perspectives
-            </NavLink>
+        {/* Navigation Links */}
+            <NavLink exact activeClassName="navbar__link--active" className="navbar__link" to = "/"> Moments</NavLink>
+            <NavLink exact activeClassName="navbar__link--active" className="navbar__link" to="/YourProfile">Wellbeing</NavLink>
+            <NavLink exact activeClassName="navbar__link--active" className="navbar__link" to = "/YourMoments">Perspectives</NavLink>
 
             <NavLink 
                 exact 

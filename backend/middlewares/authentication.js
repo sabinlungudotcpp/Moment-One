@@ -13,11 +13,12 @@ module.exports = async (request, response, next) => {
                 message: 'You must be logged in'
             });
         }
-        const token = authorization.replace('Bearer ', '');
+        const token = authorization.replace('Bearer ', ''); // Replace the Bearer token with a space
 
         jwt.verify(token, 'SECRET_KEY', async (error, payload) => { // Verify the JWT TOKEN
+
             if(error) {
-                
+
                 return response.status(forbidden).json({
                     error: error.message,
                     stack: error.stack,
@@ -30,7 +31,9 @@ module.exports = async (request, response, next) => {
     catch(error) {
         if(error) {
             return response.status(unprocessable).json({
-                message: error.message
+                message: error.message,
+                stack: error.stack,
+                sentAt: new Date().toISOString()
             })
         }
     }

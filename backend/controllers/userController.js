@@ -8,11 +8,11 @@ const serverError = 500;
 exports.getAllUsers = async (request, response) => { //get all users
 	try {
 		const method = request.method;
-		if(method === 'GET') {
+		const url = request.url;
+
+		if(method === 'GET' && url.startsWith('/')) {
 			const allUsers  = await User.find(); //Getting users from the database
-			return response.status(okCode).json({ //http code 200 (OK)
-				allUsers
-			});
+			return response.status(okCode).json({allUsers});
 		}
 	}
 
@@ -62,9 +62,12 @@ exports.getUsername = async (request, response) => { //Get user by username
 	}
 	
 	catch(error) {
+		
 		if(error) {
 			return response.status(serverError).json({ 
-				message: error.message
+				message: error.message,
+				stack: error.stack,
+				sentAt: new Date().toISOString()
 			});
 		}
 	}

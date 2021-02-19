@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
-function SelfAwareness() {
+const SelfAwareness = () => {
   return (
+    
     <div className = "SelfAwareness">
       <header className = "SelfAwareness-header">
         <h1>SelfAwareness</h1>
@@ -10,4 +11,4 @@ function SelfAwareness() {
   )
 }
 
-export default SelfAwareness;
+export default SelfAwareness; // Export the Self Awareness module

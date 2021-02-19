@@ -31,6 +31,7 @@ app.use('/api/v1/momentone/posts', postsRouter);
 app.use('/api/v1/momentone/goals', goalsRouter);
 app.use('/api/v1/momentone/users', userRouter);
 app.use('/api/v1/momentone/register', authRouter);
+app.use('/api/v1/momentone/signin', authRouter);
 
 
 mongoose.connect(keys.mongoURI, {

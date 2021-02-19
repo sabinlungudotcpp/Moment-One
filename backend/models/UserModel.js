@@ -32,21 +32,21 @@ const UserSchema = new mongoose.Schema({
 	banner: String //Path to banner picture file
 });
 
-UserSchema.pre('save', function(next) {
-	const currentUser = this;
+UserSchema.pre('save', function(next) { // Function before saving the
+	const currentUser = this; // The current user
 
-	if(!currentUser.isModified('password')) {
+	if(!currentUser.isModified('password')) { // If the user has not modified their password
 		return next();
 	}
 
-	bcrypt.genSalt(BYTES, (error, salt) => {
-		if(error) {
+	bcrypt.genSalt(BYTES, (error, salt) => { // Generate a salt of 10 BYTES
+		if(error) { // If there is an error
 			return next(error);
 		}
 
-		else {
-			bcrypt.hash(currentUser.password, salt, (error, hash) => {
-				if(error) {
+		else { // Otherwise
+			bcrypt.hash(currentUser.password, salt, (error, hash) => { // Hash the current users password by passing it a salt
+				if(error) { // If there is an error
 					return next(error);
 				}
 

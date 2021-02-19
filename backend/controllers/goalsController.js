@@ -90,12 +90,14 @@ exports.createGoal = async (request, response) => { // Function export that crea
     }
 }
 
-exports.editGoal = async (request, response) => {
+exports.editGoal = async (request, response) => { // Controller function to edit a goal
+
     try {
         let goalEdited = false;
+        
         const method = request.method;
         const url = request.url;
-        const id = request.params.id;
+        const id = request.params.id; // The ID of the goal coming from the params section
         const {goal, reason, length, reward} = request.body; // The data from the body.
 
         if(!goal || !reason || !length || !reward) {
@@ -125,9 +127,13 @@ exports.editGoal = async (request, response) => {
     
     catch(error) {
         const msg = error.message;
+        const stack = error.stack;
 
         if(error) {
-            return response.status(notFound).json(msg);
+            return response.status(notFound).json({
+                message: msg,
+                stack
+            });
         }
     }
 }

@@ -9,14 +9,20 @@ exports.registerUser = async (request, response) => { // Controller function to 
     try {
         const method = request.method;
         const url = request.url;
-        const {username, email, password} = request.body;
+        const {email, password} = request.body;
 
-        if(method === 'POST' && url.startsWith('/')) {
-            const user = new User({username, email, password});
+        if(!email || !password) {
+            return response.status(unprocessable).json({
+                message: 'You must provide an e-mail and password'
+            })
+        }
+
+        if(method === 'POST') {
+            const user = new User({email, password});
             await user.save();
 
             const token = jwt.sign({userId: user._id}, 'SECRET_KEY'); // Sign the JWT
-            return response.status(okCode).json({token});
+            return response.status(okCode).json({email});
         }
     }
     
@@ -36,7 +42,7 @@ exports.signIn = async (request, response) => { // Controller function to log in
         const {email, password} = request.body;
 
         if(!email || !password) {
-            return response.status(404).json({
+            return response.status(unprocessable).json({
                 message: 'You must provide an e-mail and password',
                 sentAt: new Date().toISOString()
             });

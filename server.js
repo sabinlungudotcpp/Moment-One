@@ -33,7 +33,6 @@ app.use('/api/v1/momentone/users', userRouter);
 app.use('/api/v1/momentone/register', authRouter);
 app.use('/api/v1/momentone/signin', authRouter);
 
-
 mongoose.connect(keys.mongoURI, {
     useCreateIndex: true,
     useNewUrlParser: true,
@@ -50,6 +49,7 @@ mongoose.connection.on('error', (error) => {
 });
 
 app.listen(port, (error) => {
+
     if(!error) {
         return console.log(`Listening for requests on port ${port}`);
     }

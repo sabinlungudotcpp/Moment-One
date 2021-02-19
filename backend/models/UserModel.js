@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema({
 	email: {
 		type: String,
 		unique: [true, 'Email already used'],
-		match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'Invalid email address'], //Regex. Matches email accounts.
+		match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'Invalid email address'], // Regex. Matches email accounts.
 		index: true
 	},
 
@@ -28,7 +28,7 @@ const UserSchema = new mongoose.Schema({
 
 	aboutMe: String,
 	therapist: [ObjectId], 
-	posts: [ObjectId], 
+	posts: [ObjectId], // User posts array of objects
 	profileImage: String, //Path to profile picture file 
 	banner: String //Path to banner picture file
 });
@@ -52,7 +52,7 @@ UserSchema.pre('save', function(next) { // Function before saving the
 				}
 
 				else {
-					currentUser.password = hash;
+					currentUser.password = hash; // The user's password is now the hashed password
 					next();
 				}
 			})
@@ -63,14 +63,14 @@ UserSchema.pre('save', function(next) { // Function before saving the
 UserSchema.method.comparePasswords = function(providedPassword) {
 	const currentUser = this; // The current user
 
-	return new Promise((resolve, reject) => { // A promise that 
+	return new Promise((resolve, reject) => { // A promise that takes resolve and reject as parameters
 		bcrypt.compare(currentUser.password, providedPassword, (error, passwordMatch) => { // Compare the current user password with the provided password
 			if(error) {
 				return reject(error);
 			}
 
 			if(!passwordMatch) { // If there is no match
-				return reject(false);
+				return reject(false); // Reject the comparison
 			}
 
 			else {
@@ -80,4 +80,4 @@ UserSchema.method.comparePasswords = function(providedPassword) {
 	});
 }
 
-mongoose.model('User', UserSchema);
+mongoose.model('User', UserSchema); // Model the user schema

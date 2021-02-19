@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-const auth = require('../middlewares/authentication');
 const User = mongoose.model('User');
 const okCode = 200;
 const unprocessable = 422;
@@ -42,7 +41,7 @@ exports.signIn = async (request, response) => { // Controller function to log in
 
         if(!email || !password) {
             return response.status(unprocessable).json({
-                message: 'You must provide an e-mail and password',
+                message: 'You must providhge an e-mail and password',
                 sentAt: new Date().toISOString()
             });
         }
@@ -56,10 +55,10 @@ exports.signIn = async (request, response) => { // Controller function to log in
                 });
             }
 
-            await user.comparePassword(password);
+            await user.comparePasswords(password);
             const token = jwt.sign({userId: user._id}, 'SECRET_KEY');
             return response.status(okCode).json({
-                message: `You are logged in as ${email}`
+                message: `You are logged in as ${email} with token ${token}`
             });
         }
     } 

@@ -19,7 +19,9 @@ exports.getAllUsers = async (request, response) => { //get all users
 	catch(error) { //Catching errors
 		if(error) {
 			return response.status(serverError).json({ //http error code 500 (Internal Server error)
-				message: error.message
+				message: error.message,
+				stack: error.stack,
+				sentAt: new Date().toISOString()
 			});
 		}
 	}

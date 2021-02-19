@@ -28,7 +28,7 @@ const UserSchema = new mongoose.Schema({
 
 	aboutMe: String,
 	therapist: [ObjectId], 
-	posts: [ObjectId], // User posts array of objects
+	posts: [ObjectId], // User posts array of o
 	profileImage: String, //Path to profile picture file 
 	banner: String //Path to banner picture file
 });
@@ -72,10 +72,9 @@ UserSchema.method.comparePasswords = function(providedPassword) {
 			if(!passwordMatch) { // If there is no match
 				return reject(false); // Reject the comparison
 			}
-
-			else {
-			    resolve(true); // Passwords match so therefore resolve is true
-			}
+			
+			resolve(true); // Passwords match so therefore resolve is true
+			
 		});
 	});
 }

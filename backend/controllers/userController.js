@@ -11,6 +11,7 @@ exports.getAllUsers = async (request, response) => { //get all users
 		const url = request.url;
 
 		if(method === 'GET' && url.startsWith('/')) {
+
 			const allUsers  = await User.find(); //Getting users from the database
 			return response.status(okCode).json({allUsers});
 		}
@@ -150,4 +151,44 @@ exports.deleteUserById = async (request, response) => { //Delete a user by id
 			});
 		}
 	}
+}
+
+exports.signIn = async (request, response) => { // Controller function to log in users
+    try {
+        const method = request.method;
+        const {email, password} = request.body;
+
+        if(!email || !password) {
+            return response.status(unprocessable).json({
+                message: 'You must provide an e-mail and password',
+                sentAt: new Date().toISOString()
+            });
+        }
+
+        if(method === 'POST') {
+            const user = await User.findOne({email});
+           
+            if(!user) {
+                return response.status(404).json({
+                    error: 'User not found'
+                });
+            }
+
+            await user.comparePassword(password);
+            const token = jwt.sign({userId: user._id}, 'SECRET_KEY');
+            return response.status(okCode).json({
+                message: `You are logged in as ${email}`
+            });
+        }
+    } 
+    
+    catch(error) {
+        if(error) {
+            return response.status(unprocessable).json({
+                errorMsg: error.message,
+                stack: error.stack,
+                sentAt: new Date().toISOString()
+            });
+        }
+    }
 }

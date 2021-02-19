@@ -8,7 +8,6 @@ const unprocessable = 422;
 exports.registerUser = async (request, response) => { // Controller function to register a user
     try {
         const method = request.method;
-        const url = request.url;
         const {email, password} = request.body;
 
         if(!email || !password) {
@@ -22,7 +21,7 @@ exports.registerUser = async (request, response) => { // Controller function to 
             await user.save();
 
             const token = jwt.sign({userId: user._id}, 'SECRET_KEY'); // Sign the JWT
-            return response.status(okCode).json({email});
+            return response.status(okCode).json({token});
         }
     }
     
@@ -59,7 +58,9 @@ exports.signIn = async (request, response) => { // Controller function to log in
 
             await user.comparePassword(password);
             const token = jwt.sign({userId: user._id}, 'SECRET_KEY');
-            return response.status(okCode).json(email);
+            return response.status(okCode).json({
+                message: `You are logged in as ${email}`
+            });
         }
     } 
     

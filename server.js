@@ -18,6 +18,7 @@ const postsRouter = require('./backend/routes/postRoutes');
 const goalsRouter = require('./backend/routes/goalRoutes');
 const userRouter = require('./backend/routes/UserRoutes');
 const authRouter = require('./backend/routes/authRoutes');
+const authenticate = require('./backend/middlewares/authentication');
 
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));

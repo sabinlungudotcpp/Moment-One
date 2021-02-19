@@ -40,7 +40,7 @@ UserSchema.pre('save', function(next) {
 		return next();
 	}
 
-	bcrypt.hash(BYTES, (error, salt) => {
+	bcrypt.genSalt(BYTES, (error, salt) => {
 		if(error) {
 			return next(error);
 		}

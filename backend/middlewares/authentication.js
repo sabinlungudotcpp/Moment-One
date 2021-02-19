@@ -28,6 +28,7 @@ module.exports = async (request, response, next) => {
 
             const {userId} = payload;
             const user = await User.findById(userId);
+            
             request.user = user;
             next();
         })

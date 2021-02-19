@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
+const authenticate = require('../middlewares/authentication');
 const express = require('express');
 const User = mongoose.model('User');
 const okCode = 200;
@@ -23,7 +24,8 @@ exports.registerUser = async (request, response) => { // Controller function to 
     catch(error) {
         if(error) {
             return response.status(unprocessable).json({
-                message: error.message
+                message: error.message,
+                stack: error.stack
             });
         }
     }
@@ -42,7 +44,9 @@ exports.signIn = async (request, response) => { // Controller function to log in
         }
 
         if(method === 'POST') {
-
+            return response.json({
+                message: 'ok'
+            })
         }
     } 
     

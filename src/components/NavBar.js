@@ -1,21 +1,17 @@
 import React, { Component } from "react";
 import { NavLink } from 'react-router-dom';
-//<img src = {logo} className="profileImg"/>
+
 const Navbar = () => {
-    return(
-        
-        <div className= "navbar">
-
+    return (
+         <div className= "navbar">
             <div className = "NavLogo"></div>
-            
-
+        
             <div className = "profile">
                 <div className = "profileImg"></div>
                 <p>@Username</p>
             </div>
 
           
-            
             <NavLink 
                 exact 
                 activeClassName="navbar__link--active" 

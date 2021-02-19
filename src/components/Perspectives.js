@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 
-const SelfAwareness = () => {
+const Perspectives = () => {
   return (
     
     <div className = "SelfAwareness">
       <header className = "SelfAwareness-header">
-        <h1>SelfAwareness</h1>
+        <h1>Perspectives</h1>
       </header>
     </div>
   )
 }
 
-export default SelfAwareness; // Export the Self Awareness module
+export default Perspectives; // Export the Self Awareness module

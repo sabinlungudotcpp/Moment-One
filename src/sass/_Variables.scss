@@ -1,33 +1,33 @@
 $compBack: #FAFAFA;
 $background: #ffff;
-$text-colour:black;
-$text-colour-light: white;
-$text-colour-grey:lightgray;
+
 
 $P-colour: (
     "db":#5C17CB,
     "lb":#30CDFF,
     "pi":#D92A5C,
     "or":#F77020,
-    "ye":#FFC421,
+    "ye":#FFC421
 );
 
 $S-colour: (
-    "pi":#5C17CB,
-    "lp":#30CDFF,
-    "lb":#D92A5C,
-    "la":#F77020,
-    "lc":#FFC421,
+    "pi":#ff4c6c,
+    "lp":#ffd4e4,
+    "ye":#ffc424,
+    "pu":#4f2d87,
+    "lb":#4acdff
 );
 
-$font:(
-    "Gothic":All Round Gothic,
-    "Raleway":Raleway,
-    "Montserrat":Monserrat
+$F-colour: (
+    "gr":#A2A2A4,
+    "bla":black,
+    "wh":#fff,
+    "blu":#38ABF5,
+    "lblu":#E2F2FC
 );
 
 $font-wight:(
     "light":400,
     "normal":500,
-    "bold": 700
+    "Dark": 700
 )

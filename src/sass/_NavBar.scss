@@ -24,7 +24,6 @@
     }
     //logo displayed on taskbar
     .NavLogo{
-      
       background-image: url("../imageAssets/Logos/logo.svg");
       background-repeat: no-repeat, repeat;
       background-size: 80px 80px;
@@ -79,21 +78,26 @@
       height: 65vh;
 
       .icon{
-        width: 35px;
-        height:35px;
-        background-color: colour(F,gr);
-        border-radius: 50%;
+        width: 55px;
+        height: 55px;
         margin-top: auto;
         margin-bottom:auto;
-        margin-left: 22.5px;
+        margin-left: 14px;
+        display: flex;
+        flex-direction: column;
+        
+        img{
+          margin:auto;
+          width:35px;
+          height:auto;
+        }
       }
-
     }
 
     //navigation labels
     &_items-text{
       white-space: nowrap;
-      margin-left:10px;
+      margin-left:20px;
       display:block;
       visibility: hidden;
       opacity: 0;
@@ -121,8 +125,6 @@
       margin-left:10px;
       border-radius: 15px 15px 15px 15px;
       margin-top:1vh;
-      padding-top: 1vh;
-      padding-bottom: 1vh;
 
       &:hover {
         background-color: colour(F,lblu);
@@ -134,9 +136,30 @@
         transition: color 0.5s ease-in-out;
       }
       &_active .icon{
-        background-color:colour(F,blu);
+        border-radius: 50%;
+        background-color:rgba(colour(F,blu), 0.3);
         transition: background-color 0.5s ease-in-out;
       }
+    }
+
+    .moments{
+      overflow:hidden;
+      height:80px;
+      transition: height 0.5s ease-in-out;
+      transition-delay:0.2s;
+      &:hover{
+        height:130px;
+      }
+    }
+
+    &_subitems-text{
+      margin-top:2%;
+      white-space: nowrap;
+      margin-left:10px;
+      display:block;
+      margin-left: 25%;
+      padding-top: 5px;
+      padding-bottom:5px;
     }
   }
 

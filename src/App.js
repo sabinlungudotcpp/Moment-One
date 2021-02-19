@@ -8,6 +8,7 @@ import home from './components/Home';
 import perspectives from './components/Perspectives';
 import settings from './components/Settings';
 import wellbeing from './components/Wellbeing';
+import yourmoments from './components/YourMoments';
 
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 
@@ -20,6 +21,7 @@ const App = () => { // Main App Component
         <div className = "PageContent">
           <Switch>
             <Route path = "/home" exact component = {home}/>
+            <Route path = "/home/yourmoments" exact component = {yourmoments}/>
             <Route path = "/wellbeing" component = {wellbeing}/>
             <Route path = "/perspectives" component = {perspectives}/>
             <Route path = "/community" component = {community}/>

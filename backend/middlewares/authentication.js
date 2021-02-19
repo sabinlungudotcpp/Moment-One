@@ -27,8 +27,8 @@ module.exports = async (request, response, next) => {
             }
 
             const {userId} = payload;
-            const user = await User.findById(userId);
-            
+            const user = await User.findById(userId); // Find the user by ID for the authentication
+
             request.user = user;
             next();
         })

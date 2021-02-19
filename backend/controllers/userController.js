@@ -74,7 +74,7 @@ exports.getUsername = async (request, response) => { //Get user by username
 	}
 }
 
-exports.editUser = async (request, response) => {
+exports.editUser = async (request, response) => { // Function that edits a user
 
 	try {
 		const method = request.method;
@@ -97,7 +97,8 @@ exports.editUser = async (request, response) => {
 	catch(error) {
 		if(error) {
 			return response.status(serverError).json({ 
-				message: error.message
+				message: error.message,
+				stack: error.stack
 			});
 		}
 	}
@@ -142,7 +143,7 @@ exports.deleteUserById = async (request, response) => { //Delete a user by id
 	}
 
 	catch(error) {
-		
+
 		if(error) {
 			return response.status(serverError).json({ 
 				message: error.message

@@ -60,6 +60,7 @@ exports.getUsername = async (request, response) => { //Get user by username
 			}); 
 		}
 	}
+	
 	catch(error) {
 		if(error) {
 			return response.status(serverError).json({ 
@@ -70,6 +71,7 @@ exports.getUsername = async (request, response) => { //Get user by username
 }
 
 exports.editUser = async (request, response) => {
+
 	try {
 		const method = request.method;
 		const id = request.params.id;
@@ -136,10 +138,9 @@ exports.deleteUserById = async (request, response) => { //Delete a user by id
 		}
 	}
 
-
 	catch(error) {
 		if(error) {
-			return response.status(500).json({ 
+			return response.status(serverError).json({ 
 				message: error.message
 			});
 		}

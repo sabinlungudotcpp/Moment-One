@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from 'react-router-dom';
 //<img src = {logo} className="profileImg"/>
-function Navbar(){
+const Navbar = () => {
     return(
         
         <div className= "navbar">

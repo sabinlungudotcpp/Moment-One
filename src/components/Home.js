@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-function Home() {
+const Home = () => { // Home Component
   return (
     <div className = "Home">
         <h1>Home</h1>
@@ -8,4 +8,4 @@ function Home() {
   )
 }
 
-export default Home;
+export default Home; // Export home

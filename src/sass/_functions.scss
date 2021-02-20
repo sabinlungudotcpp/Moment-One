@@ -1,15 +1,16 @@
 @import "Variables";
 
+//set weights -light -normal - dark
 @function weight($wight-name){
     @return map-get($font-wight, $wight-name )
 };
-
+//default settings for components
 @mixin compSetup{
     border-radius: 25px 25px 25px 25px;
     box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
 
 }
-
+//colours combined
 @function colour($set,$colour){
 
     @if($set == "P"){
@@ -23,8 +24,7 @@
     }
 
 }
-
-
+//font functionality
 @mixin gothicFont($wight-name,$colour,$size){
     font-family: all-round-gothic, sans-serif;
     font-style: normal;
@@ -34,7 +34,7 @@
 }
 
 @mixin montserratFont($wight-name,$colour,$size){
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: 600;
     font-weight:weight($wight-name);
@@ -43,7 +43,7 @@
 }
 
 @mixin RalewayFont($wight-name,$colour,$size){
-    font-family: Raleway;
+    font-family: Raleway, sans-serif;
     font-style: normal;
     font-weight: 600;
     font-weight:weight($wight-name);

@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 
-function LiveChat() {
+const livechat = () => { // livechat Component
   return (
-    <div className = "LiveChat">
-      <header className = "LiveChat-header">
-        <h1>LiveChat</h1>
-      </header>
+    <div className = "livechat">
+        <h1>livechat</h1>
     </div>
   )
 }
 
-export default LiveChat;
+export default livechat; // Export home

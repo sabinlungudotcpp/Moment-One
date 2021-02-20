@@ -1,5 +1,6 @@
 @import "Variables";
 @import "functions";
+
 .navbar {
     @include compSetup;
     overflow: hidden;
@@ -8,23 +9,29 @@
     position:absolute;
     float: left;
     background-color: $compBack;
-    
     transition: width 1s ease;
     transition-delay: 0.2s;
+
+    //when a curser is hovered over the navbar div
     &:hover{
       width:290px;
     }
-
+    //setting visability of username
     &:hover .profile p{
       opacity: 1;
     }
-    
+    //setting width of the navigation links
     &:hover .navbar_link{
-      width : 270px;
+      width : 250px;
     }
+    //setting navigation labels to visable
+    &:hover .navbar_items-text {
+      visibility: visible;
+      opacity: 1;
+    }
+
     //logo displayed on taskbar
     .NavLogo{
-      
       background-image: url("../imageAssets/Logos/logo.svg");
       background-repeat: no-repeat, repeat;
       background-size: 80px 80px;
@@ -36,7 +43,7 @@
       margin-right: auto;
     }
     
-    //user profile image and username
+    //user profile picture and username
     .profile{
       @include montserratFont(Dark,colour(F,blu),19px);
       margin-top: 5vh;
@@ -46,13 +53,12 @@
       margin-right: auto;
       width:100%;
 
+      //profile picture
       &Img{
-
         background-image: url("../imageAssets/Avatars/Animated/Asset33.svg");
         background-repeat: no-repeat, repeat;
         background-size: 60px 60px;
         background-color: beige;
-        
         width:60px;
         height:60px;
         border-radius: 50%;
@@ -61,7 +67,7 @@
         margin-right: auto;
         margin-bottom: 1vh;
       }
-
+      //username
       p{
         transition: opacity 0.7s linear;
         opacity: 0;
@@ -71,72 +77,97 @@
     //navigation items
     &_items{
       list-style: none;
-      padding:0;
-      margin:0;
       display:flex;
       flex-direction: column;
       align-items:left;
       height: 65vh;
 
+      //icon background
       .icon{
-        width: 35px;
-        height:35px;
-        background-color: colour(F,gr);
-        border-radius: 50%;
+        width: 55px;
+        height: 55px;
         margin-top: auto;
         margin-bottom:auto;
-        margin-left: 22.5px;
-      }
+        margin-left: 0px;
+        display: flex;
+        flex-direction: column;
 
+        //icon image
+        img{
+          margin:auto;
+          width:35px;
+          height:auto;
+        }
+      }
     }
 
     //navigation labels
     &_items-text{
       white-space: nowrap;
-      margin-left:10px;
+      margin-left:20px;
       display:block;
       visibility: hidden;
       opacity: 0;
       transition: visibility 0.5s, opacity 0.5s linear;
       transition-delay: 0.2s;
     }
-
-    &:hover .navbar_items-text {
-
-      visibility: visible;
-      opacity: 1;
-    }
+    //moving logout button to the bottom of the menu
     .logout{
       margin-top: auto;
     }
-    //link
-
+    
+    //buttons on the bar
     #{&}_link {
-      width : 270px;
-      overflow: hidden;
       @include montserratFont(Dark,colour(F,gr),22px);
+      width : 220px;
+      overflow: hidden;
       text-decoration: none;
       display:flex;
       align-items:center;
-      margin-left:10px;
-      border-radius: 15px 15px 15px 15px;
+      margin-left:22.5px;
+      border-radius:30px;
       margin-top:1vh;
-      padding-top: 1vh;
-      padding-bottom: 1vh;
+      transition: background-color .3s ease-in-out, color 0.5s ease-in-out;
 
+      //changing link background colour
       &:hover {
         background-color: colour(F,lblu);
-        transition: background-color .3s ease-in-out;
-      }
 
+      }
+      
+      //displaying current page selected to user
       &_active {
-        color:colour(F,blu);
-        transition: color 0.5s ease-in-out;
+        color:rgba(colour(F,blu), 0.7);
+        
       }
       &_active .icon{
-        background-color:colour(F,blu);
+        border-radius: 50%;
+        background-color:rgba(colour(F,blu), 0.3);
         transition: background-color 0.5s ease-in-out;
       }
+    }
+
+    //style specific to the moment dropdown
+    .moments{
+      overflow:hidden;
+      height:80px;
+      transition: height 0.5s ease-in-out;
+      transition-delay:0.2s;
+
+      //extending menu
+      &:hover{
+        height:130px;
+      }
+    }
+    //sub item of moment menu
+    &_subitems-text{
+      margin-top:2%;
+      white-space: nowrap;
+      margin-left:10px;
+      display:block;
+      margin-left: 25%;
+      padding-top: 5px;
+      padding-bottom:5px;
     }
   }
 

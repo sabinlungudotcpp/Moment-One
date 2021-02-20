@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 
-function Wellbeing() {
+const wellbeing = () => {
   return (
-    <div className = "Wellbeing">
-      <header className = "Wellbeing-header">
-        <h1> Wellbeing</h1>
+    
+    <div className = "wellbeing">
+      <header className = "wellbeing-header">
+        <h1>wellbeing</h1>
       </header>
     </div>
   )
 }
 
-export default Wellbeing;
+export default wellbeing; // Export the Self Awareness module

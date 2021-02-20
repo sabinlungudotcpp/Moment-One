@@ -14,7 +14,7 @@
   .navbar:hover .profile p {
     opacity: 1; }
   .navbar:hover .navbar_link {
-    width: 270px; }
+    width: 250px; }
   .navbar .NavLogo {
     background-image: url("../imageAssets/Logos/logo.svg");
     background-repeat: no-repeat, repeat;
@@ -54,23 +54,25 @@
       opacity: 0; }
   .navbar_items {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: left;
     height: 65vh; }
     .navbar_items .icon {
-      width: 35px;
-      height: 35px;
-      background-color: #A2A2A4;
-      border-radius: 50%;
+      width: 55px;
+      height: 55px;
       margin-top: auto;
       margin-bottom: auto;
-      margin-left: 22.5px; }
+      margin-left: 0px;
+      display: flex;
+      flex-direction: column; }
+      .navbar_items .icon img {
+        margin: auto;
+        width: 35px;
+        height: auto; }
   .navbar_items-text {
     white-space: nowrap;
-    margin-left: 10px;
+    margin-left: 20px;
     display: block;
     visibility: hidden;
     opacity: 0;
@@ -82,7 +84,7 @@
   .navbar .logout {
     margin-top: auto; }
   .navbar .navbar_link {
-    width: 270px;
+    width: 220px;
     overflow: hidden;
     font-family: Montserrat;
     font-style: normal;
@@ -93,20 +95,33 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    margin-left: 10px;
-    border-radius: 15px 15px 15px 15px;
+    margin-left: 22.5px;
+    border-radius: 30px;
     margin-top: 1vh;
-    padding-top: 1vh;
-    padding-bottom: 1vh; }
+    transition: background-color .3s ease-in-out, color 0.5s ease-in-out; }
     .navbar .navbar_link:hover {
-      background-color: #E2F2FC;
-      transition: background-color .3s ease-in-out; }
+      background-color: #E2F2FC; }
     .navbar .navbar_link_active {
-      color: #38ABF5;
-      transition: color 0.5s ease-in-out; }
+      color: rgba(56, 171, 245, 0.7); }
     .navbar .navbar_link_active .icon {
-      background-color: #38ABF5;
+      border-radius: 50%;
+      background-color: rgba(56, 171, 245, 0.3);
       transition: background-color 0.5s ease-in-out; }
+  .navbar .moments {
+    overflow: hidden;
+    height: 80px;
+    transition: height 0.5s ease-in-out;
+    transition-delay: 0.2s; }
+    .navbar .moments:hover {
+      height: 130px; }
+  .navbar_subitems-text {
+    margin-top: 2%;
+    white-space: nowrap;
+    margin-left: 10px;
+    display: block;
+    margin-left: 25%;
+    padding-top: 5px;
+    padding-bottom: 5px; }
 
 .App {
   width: 99vw;

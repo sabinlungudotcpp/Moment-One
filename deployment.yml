@@ -8,3 +8,5 @@ spec:
     metadata:
       labels:
         app: moment-one
+    spec:
+      containers:

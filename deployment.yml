@@ -10,3 +10,5 @@ spec:
         app: moment-one
     spec:
       containers:
+        - name: moment-one
+          image: sabin2000/moment-one

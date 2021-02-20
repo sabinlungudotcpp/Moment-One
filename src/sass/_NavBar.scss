@@ -118,14 +118,14 @@
     
     //buttons on the bar
     #{&}_link {
-      @include montserratFont(Dark,colour(F,gr),22px);
+      @include montserratFont(dark,colour(F,gr),22px);
       width : 220px;
       overflow: hidden;
       text-decoration: none;
       display:flex;
       align-items:center;
       margin-left:22.5px;
-      border-radius:30px;
+      border-radius:15px;
       margin-top:1vh;
       transition: background-color .3s ease-in-out, color 0.5s ease-in-out;
 
@@ -141,7 +141,7 @@
         
       }
       &_active .icon{
-        border-radius: 50%;
+        border-radius: 15px;
         background-color:rgba(colour(F,blu), 0.3);
         transition: background-color 0.5s ease-in-out;
       }

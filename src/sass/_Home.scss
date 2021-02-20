@@ -1,0 +1,95 @@
+@import "variables";
+@import "functions";
+@import "images";
+
+.home{
+    height: 96vh;
+    width: calc(100vw -100px);
+    margin-left: 3vw;
+    margin-right:3vw;
+    .header{
+        text-align: left;
+        display:flex;
+        align-items:center;
+        margin-top: 4vh;
+        width:100%;
+        height:40px;
+
+        h1{
+            @include montserratFont(dark,colour(F,bla),40px);
+            white-space: nowrap;
+        }
+    
+        .searchBell{
+            display:flex;
+
+            margin-left: auto;
+            .bellIcon{
+                margin-top: auto;
+                margin-bottom: auto;
+                margin-left:auto;
+                width: 30px;
+                height: 30px;
+                background-size: 30px 30px;
+                background-image: $bell;
+                background-repeat: no-repeat, repeat;
+            };
+            .search{
+                @include montserratFont(dark,colour(F,bla),20px);
+                width:300px;
+                margin:auto;
+                background-color: #F5F5F7;
+                border:none;
+            }
+            .searchbar{
+                display:flex;
+                border-radius: 8px;
+                padding-left: 50px;
+                width:300px;
+                height:40px;
+                background-color: #F5F5F7;
+                margin-right: 40px;
+    
+                textarea:focus, .search:focus{
+                    outline: none;
+                }
+            }
+        };
+    }
+    
+    .content{
+        margin-top: 60px;
+        width:100%;
+        height:100%;
+        display:flex;
+        flex-direction: row;
+        
+        .journal{
+            width:30vw;
+            border-right: solid 3px rgba(colour(F,gr), 0.3);
+            h2{
+                @include montserratFont(dark,colour(P,db),24px);
+            }
+            .wrapper{
+                margin-top: 3vh;
+                .line{
+                    height:3px;
+                    width:40%;
+                    background-color: colour(P,db);
+                }
+            }
+
+        }
+
+        .handbook{
+            
+            @include compSetup;
+            background-color: black;
+            width:30px;
+            height:30px;
+        }
+
+
+
+    }
+}

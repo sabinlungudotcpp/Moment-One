@@ -26,11 +26,11 @@ const Navbar = () => { // Navigation Bar Component
                         <div className = "icon">
                             <img src= {homeIcon}></img>
                         </div>
-                        <span className="navbar_items-text">Moments</span>
+                        <span className="navbar_items-text">Dashboard</span>
                     </NavLink>
                     {/*moments sub menu*/}
-                    <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to = "/home/yourmoments">
-                        <span className="navbar_subitems-text">Your Moments</span>
+                    <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to = "/home/yourjourney">
+                        <span className="navbar_subitems-text">Your journey</span>
                     </NavLink>
                 </li>
                 <li>

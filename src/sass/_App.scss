@@ -2,19 +2,19 @@
 
 .App {
     width:99vw;
-    height: 98vh;
+    height: 99vh;
 }
 
 .PageContent {
-    width: 83vw;
+    width: calc(100vw - 100px);
     height: 100%;
-    margin-left:16vw;
+    margin-left: 100px;
     float: left;
     border-radius: 25px 25px 25px 25px;
+    overflow: hidden;
 }
   
 h1 {
-    
     text-align: center;
     color: colour(F,bla);
     text-transform: uppercase;

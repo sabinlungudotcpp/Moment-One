@@ -4,9 +4,9 @@ const bcrypt = require('bcrypt');
 const BYTES = 10;
 let ObjectId = require('mongodb').ObjectID;
 
-const UserSchema = new mongoose.Schema({
-	username: {
-		type: String, 
+const UserSchema = new mongoose.Schema({ // Creates a new user schema
+	username: { // The Username
+		type: String, // Type is String
 		unique: [true, 'Username taken'],
 		match: [/^[a-zA-Z0-9]+$/, 'Invalid username'], //Regex. Allows Alphanumeric usernames with no special characters.
 		index: true

@@ -1,6 +1,6 @@
 @import "Variables";
 @import "functions";
-
+@import "images";
 .navbar {
     @include compSetup;
     overflow: hidden;
@@ -91,13 +91,28 @@
         margin-left: 0px;
         display: flex;
         flex-direction: column;
+        filter: grayscale(100%);
+        transition: 0.5s ease-in-out;
 
-        //icon image
-        img{
-          margin:auto;
-          width:35px;
-          height:auto;
+        .homeIcon{
+          @include navIcon(home);
         }
+        .wellbeingIcon{
+          @include navIcon(wellbeing);
+        }
+        .perspectivesIcon{
+          @include navIcon(perspectives);
+        }
+        .communityIcon{
+          @include navIcon(community);
+        }
+        .livechatIcon{
+          @include navIcon(chat);
+        }
+        .logoutIcon{
+          @include navIcon(logout);
+        }
+
       }
     }
 
@@ -118,14 +133,14 @@
     
     //buttons on the bar
     #{&}_link {
-      @include montserratFont(Dark,colour(F,gr),22px);
+      @include montserratFont(dark,colour(F,gr),22px);
       width : 220px;
       overflow: hidden;
       text-decoration: none;
       display:flex;
       align-items:center;
       margin-left:22.5px;
-      border-radius:30px;
+      border-radius:15px;
       margin-top:1vh;
       transition: background-color .3s ease-in-out, color 0.5s ease-in-out;
 
@@ -141,16 +156,15 @@
         
       }
       &_active .icon{
-        border-radius: 50%;
-        background-color:rgba(colour(F,blu), 0.3);
-        transition: background-color 0.5s ease-in-out;
+        filter: grayscale(0%);
+        
       }
     }
 
     //style specific to the moment dropdown
     .moments{
       overflow:hidden;
-      height:80px;
+      height:60px;
       transition: height 0.5s ease-in-out;
       transition-delay:0.2s;
 

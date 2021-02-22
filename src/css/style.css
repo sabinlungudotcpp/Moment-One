@@ -1,6 +1,7 @@
 .navbar {
   border-radius: 25px 25px 25px 25px;
   box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+  background-color: #FAFAFA;
   overflow: hidden;
   width: 100px;
   height: 98vh;
@@ -15,6 +16,9 @@
     opacity: 1; }
   .navbar:hover .navbar_link {
     width: 250px; }
+  .navbar:hover .navbar_items-text {
+    visibility: visible;
+    opacity: 1; }
   .navbar .NavLogo {
     background-image: url("../imageAssets/Logos/logo.svg");
     background-repeat: no-repeat, repeat;
@@ -25,10 +29,9 @@
     margin-left: auto;
     margin-right: auto; }
   .navbar .profile {
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: 600;
-    font-weight: 700;
     color: #38ABF5;
     font-size: 19px;
     margin-top: 5vh;
@@ -65,11 +68,51 @@
       margin-bottom: auto;
       margin-left: 0px;
       display: flex;
-      flex-direction: column; }
-      .navbar_items .icon img {
-        margin: auto;
+      flex-direction: column;
+      filter: grayscale(100%);
+      transition: 0.5s ease-in-out; }
+      .navbar_items .icon .homeIcon {
         width: 35px;
-        height: auto; }
+        height: 35px;
+        margin: auto;
+        background-image: url("../imageAssets/MenuBarIcons/home.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 35px 35px; }
+      .navbar_items .icon .wellbeingIcon {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        background-image: url("../imageAssets/MenuBarIcons/wellbeing.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 35px 35px; }
+      .navbar_items .icon .perspectivesIcon {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        background-image: url("../imageAssets/MenuBarIcons/perspectives.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 35px 35px; }
+      .navbar_items .icon .communityIcon {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        background-image: url("../imageAssets/MenuBarIcons/community.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 35px 35px; }
+      .navbar_items .icon .livechatIcon {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        background-image: url("../imageAssets/MenuBarIcons/chat.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 35px 35px; }
+      .navbar_items .icon .logoutIcon {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        background-image: url("../imageAssets/MenuBarIcons/logout.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 35px 35px; }
   .navbar_items-text {
     white-space: nowrap;
     margin-left: 20px;
@@ -78,25 +121,22 @@
     opacity: 0;
     transition: visibility 0.5s, opacity 0.5s linear;
     transition-delay: 0.2s; }
-  .navbar:hover .navbar_items-text {
-    visibility: visible;
-    opacity: 1; }
   .navbar .logout {
     margin-top: auto; }
   .navbar .navbar_link {
-    width: 220px;
-    overflow: hidden;
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: 600;
     font-weight: 700;
     color: #A2A2A4;
     font-size: 22px;
+    width: 220px;
+    overflow: hidden;
     text-decoration: none;
     display: flex;
     align-items: center;
     margin-left: 22.5px;
-    border-radius: 30px;
+    border-radius: 15px;
     margin-top: 1vh;
     transition: background-color .3s ease-in-out, color 0.5s ease-in-out; }
     .navbar .navbar_link:hover {
@@ -104,12 +144,10 @@
     .navbar .navbar_link_active {
       color: rgba(56, 171, 245, 0.7); }
     .navbar .navbar_link_active .icon {
-      border-radius: 50%;
-      background-color: rgba(56, 171, 245, 0.3);
-      transition: background-color 0.5s ease-in-out; }
+      filter: grayscale(0%); }
   .navbar .moments {
     overflow: hidden;
-    height: 80px;
+    height: 60px;
     transition: height 0.5s ease-in-out;
     transition-delay: 0.2s; }
     .navbar .moments:hover {
@@ -125,14 +163,15 @@
 
 .App {
   width: 99vw;
-  height: 98vh; }
+  height: 99vh; }
 
 .PageContent {
-  width: 83vw;
+  width: calc(100vw - 100px);
   height: 100%;
-  margin-left: 16vw;
+  margin-left: 100px;
   float: left;
-  border-radius: 25px 25px 25px 25px; }
+  border-radius: 25px 25px 25px 25px;
+  overflow: hidden; }
 
 h1 {
   text-align: center;
@@ -144,6 +183,89 @@ h1 {
   box-sizing: broder-box;
   margin: 0;
   padding: 0; }
+
+.home {
+  height: 96vh;
+  width: calc(100vw -100px);
+  margin-left: 3vw;
+  margin-right: 3vw; }
+  .home .header {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    margin-top: 4vh;
+    width: 100%;
+    height: 40px; }
+    .home .header h1 {
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      color: black;
+      font-size: 40px;
+      white-space: nowrap; }
+    .home .header .searchBell {
+      display: flex;
+      margin-left: auto; }
+      .home .header .searchBell .bellIcon {
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: auto;
+        width: 30px;
+        height: 30px;
+        background-size: 30px 30px;
+        background-image: url("../imageAssets/Icons/General/bell.svg");
+        background-repeat: no-repeat, repeat; }
+      .home .header .searchBell .search {
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: black;
+        font-size: 20px;
+        width: 300px;
+        margin: auto;
+        background-color: #F5F5F7;
+        border: none; }
+      .home .header .searchBell .searchbar {
+        display: flex;
+        border-radius: 8px;
+        padding-left: 50px;
+        width: 300px;
+        height: 40px;
+        background-color: #F5F5F7;
+        margin-right: 40px; }
+        .home .header .searchBell .searchbar textarea:focus, .home .header .searchBell .searchbar .search:focus {
+          outline: none; }
+  .home .content {
+    margin-top: 60px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row; }
+    .home .content .journal {
+      width: 30vw;
+      border-right: solid 3px rgba(162, 162, 164, 0.3); }
+      .home .content .journal h2 {
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: #5C17CB;
+        font-size: 24px; }
+      .home .content .journal .wrapper {
+        margin-top: 3vh; }
+        .home .content .journal .wrapper .line {
+          height: 3px;
+          width: 40%;
+          background-color: #5C17CB; }
+    .home .content .handbook {
+      border-radius: 25px 25px 25px 25px;
+      box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+      background-color: #FAFAFA;
+      background-color: black;
+      width: 30px;
+      height: 30px; }
 
 body {
   margin-top: 1vh;

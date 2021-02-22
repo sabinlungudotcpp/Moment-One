@@ -51,7 +51,11 @@ exports.getGoalByID = catchAsync(async (request, response, next) => {
         const errorMsg = error.message;
 
         if(error) {
-            return response.status(unprocessable).json(errorMsg);
+            return response.status(unprocessable).json({
+                errorMsg,
+                errorStack: error.stack,
+                error
+            });
         }
     }
 });

@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
 const Goals = mongoose.model('Goals');
+const AppError = require('../../utils/appError');
+const catchAsync = require('../../utils/catchAsync');
 const okCode = 200;
 const createdCode = 201;
 const unprocessable = 400;
 const notFound = 404;
 const root = '/';
 
-exports.getAllGoals = async (request, response) => { // Function that GETS all the goals from the database
+exports.getAllGoals = catchAsync(async (request, response, next) => { // Function that GETS all the goals from the database
     try {
         const method = request.method; // Request method
         const url = request.url;
@@ -27,9 +29,9 @@ exports.getAllGoals = async (request, response) => { // Function that GETS all t
             });
         }
     }
-};
+});
 
-exports.getGoalByID = async (request, response) => {
+exports.getGoalByID = catchAsync(async (request, response, next) => {
     try {
         const id = request.params.id;
         const url = request.url;
@@ -54,7 +56,7 @@ exports.getGoalByID = async (request, response) => {
             return response.status(unprocessable).json(errorMsg);
         }
     }
-};
+});
 
 exports.createGoal = async (request, response) => { // Function export that creates a new goal
     try {

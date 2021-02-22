@@ -34,6 +34,12 @@ app.use('/api/v1/momentone/users', userRouter);
 app.use('/api/v1/momentone/register', authRouter);
 app.use('/api/v1/momentone/signin', authenticate, authRouter);
 
+app.all('*', (request, response) => {
+    return response.status(404).json({
+        message: `Could not find ${request.originalUrl} on this route`
+    });
+})
+
 mongoose.connect(keys.mongoURI, {
     useCreateIndex: true,
     useNewUrlParser: true,

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+const jwt = require('jsonwebtoken');
 const okCode = 200;
 const created = 201;
 const unprocessable = 422;
@@ -156,17 +157,17 @@ exports.deleteUserById = async (request, response) => { //Delete a user by id
 exports.signIn = async (request, response) => { // Controller function to log in users
     try {
         const method = request.method;
-        const {email, password} = request.body;
+        const {username, password} = request.body;
 
-        if(!email || !password) {
+        if(!username || !password) {
             return response.status(unprocessable).json({
-                message: 'You must provide an e-mail and password',
+                message: 'You must provide a username and password',
                 sentAt: new Date().toISOString()
             });
         }
 
         if(method === 'POST') {
-            const user = await User.findOne({email});
+            const user = await User.findOne({username});
            
             if(!user) {
                 return response.status(404).json({
@@ -177,7 +178,7 @@ exports.signIn = async (request, response) => { // Controller function to log in
             await user.comparePassword(password);
             const token = jwt.sign({userId: user._id}, 'SECRET_KEY');
             return response.status(okCode).json({
-                message: `You are logged in as ${email}`
+                message: `You are logged in as ${username}`
             });
         }
     } 

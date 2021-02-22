@@ -147,7 +147,7 @@
       filter: grayscale(0%); }
   .navbar .moments {
     overflow: hidden;
-    height: 60px;
+    height: 65px;
     transition: height 0.5s ease-in-out;
     transition-delay: 0.2s; }
     .navbar .moments:hover {
@@ -171,7 +171,8 @@
   margin-left: 100px;
   float: left;
   border-radius: 25px 25px 25px 25px;
-  overflow: hidden; }
+  overflow-x: visible;
+  overflow-y: hidden; }
 
 h1 {
   text-align: center;
@@ -237,35 +238,123 @@ h1 {
         margin-right: 40px; }
         .home .header .searchBell .searchbar textarea:focus, .home .header .searchBell .searchbar .search:focus {
           outline: none; }
-  .home .content {
-    margin-top: 60px;
-    width: 100%;
+  .home .contentGrid {
+    margin-top: 30px;
+    padding: 30px;
+    min-width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: row; }
-    .home .content .journal {
-      width: 30vw;
-      border-right: solid 3px rgba(162, 162, 164, 0.3); }
-      .home .content .journal h2 {
+    display: grid;
+    gap: 50px;
+    padding-right: 5vw;
+    overflow: hidden;
+    overflow-x: scroll;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-auto-rows: 80vh; }
+    .home .contentGrid .journal {
+      grid-column: span 2/1;
+      height: 80vh;
+      width: 600px;
+      border-right: solid 3px #A2A2A4;
+      padding: 10px; }
+      .home .contentGrid .journal h2 {
         font-family: Montserrat, sans-serif;
         font-style: normal;
         font-weight: 600;
         font-weight: 700;
         color: #5C17CB;
         font-size: 24px; }
-      .home .content .journal .wrapper {
-        margin-top: 3vh; }
-        .home .content .journal .wrapper .line {
-          height: 3px;
-          width: 40%;
-          background-color: #5C17CB; }
-    .home .content .handbook {
+      .home .contentGrid .journal_underline {
+        margin-top: 3%;
+        height: 3px;
+        width: 30%;
+        background-color: #5C17CB; }
+      .home .contentGrid .journal_form {
+        display: flex;
+        width: 100%; }
+        .home .contentGrid .journal_form .jounral_categories {
+          font-family: Montserrat, sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-weight: 700;
+          color: #fff;
+          font-size: 18px;
+          background-color: #38ABF5;
+          border: none;
+          width: 160px;
+          height: 32px;
+          margin-left: auto;
+          margin-top: auto;
+          margin-right: 3vw;
+          border-radius: 8px; }
+    .home .contentGrid .infoWrap {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px;
+      height: 100%;
+      width: 30vw;
+      background-color: blue; }
+    .home .contentGrid .momentForm {
       border-radius: 25px 25px 25px 25px;
       box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
       background-color: #FAFAFA;
-      background-color: black;
-      width: 30px;
-      height: 30px; }
+      margin-left: auto;
+      margin-top: 10px;
+      height: 100%;
+      width: 400px;
+      box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
+      overflow: hidden; }
+      .home .contentGrid .momentForm_top-section {
+        height: 20%;
+        border: 3px solid #30CDFF;
+        border-radius: 25px;
+        text-align: center;
+        padding-top: 20px;
+        box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15); }
+        .home .contentGrid .momentForm_top-section h2 {
+          font-family: Montserrat, sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-weight: 700;
+          color: #5C17CB;
+          font-size: 24px; }
+        .home .contentGrid .momentForm_top-section .feelingWrapper {
+          height: 40%;
+          display: flex;
+          flex: row;
+          margin-top: 5%;
+          margin-left: 10%;
+          margin-right: 10%; }
+          .home .contentGrid .momentForm_top-section .feelingWrapper .feelingSelect {
+            margin-top: auto;
+            margin-bottom: auto;
+            font-family: Montserrat, sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-weight: 700;
+            color: #5C17CB;
+            font-size: 12px;
+            height: 60px;
+            width: 50px;
+            margin: auto; }
+            .home .contentGrid .momentForm_top-section .feelingWrapper .feelingSelect .feelingIcon {
+              width: 50px;
+              height: 50px; }
+      .home .contentGrid .momentForm_center-section {
+        height: 10%;
+        padding: 20px; }
+        .home .contentGrid .momentForm_center-section p {
+          font-family: Montserrat, sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-weight: 700;
+          color: #5C17CB;
+          font-size: 20px; }
+      .home .contentGrid .momentForm_bottom-section {
+        border-radius: 25px;
+        height: 65%;
+        background-color: #5C17CB;
+        background: linear-gradient(46.39deg, #3CCEFD -7.12%, #4685EA 73.87%, #4E4EDB 134.44%);
+        box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25); }
 
 body {
   margin-top: 1vh;

@@ -38,9 +38,7 @@ exports.getGoalByID = catchAsync(async (request, response, next) => {
         const method = request.method;
 
         if(!id || !isNaN(id)) {
-            return response.status(notFound).json({
-                message: 'Invalid ID entry'
-            });
+            return next(new AppError('No ID found'), notFound);
         }
 
         if(method === 'GET' && url.startsWith(root)) {
@@ -58,22 +56,21 @@ exports.getGoalByID = catchAsync(async (request, response, next) => {
     }
 });
 
-exports.createGoal = async (request, response) => { // Function export that creates a new goal
+exports.createGoal = catchAsync(async (request, response, next) => { // Function export that creates a new goal
     try {
         let goalCreated = false;
         const method = request.method; // The request method
-        const url = request.url;
-        const {goal, reason, length, reward} = request.body; // Body of the request
+        const {goal, reason, reward, length} = request.body; // Body of the request
 
-        if(!goal || !reason || !length || reward) {
+        if(!goal || !reason || !reward || !length) {
             return response.status(unprocessable).json({
                 message: 'Goal must have a goal, reason, length and reward',
                 sentAt: new Date().toISOString()
             });
         }
 
-        if(method === 'POST' && url.startsWith(root)) {
-            const newGoal = new Goals({goal, reason, length, reward});
+        if(method === 'POST') {
+            const newGoal = new Goals({goal, reason, reward, length});
             await newGoal.save(); // Save the goal
             goalCreated = true;
 
@@ -90,9 +87,9 @@ exports.createGoal = async (request, response) => { // Function export that crea
             });
         }
     }
-}
+});
 
-exports.editGoal = async (request, response) => { // Controller function to edit a goal
+exports.editGoal = catchAsync(async (request, response) => { // Controller function to edit a goal
 
     try {
         let goalEdited = false;
@@ -138,7 +135,7 @@ exports.editGoal = async (request, response) => { // Controller function to edit
             });
         }
     }
-}
+});
 
 exports.deleteGoals = async (request, response) => {
     try {

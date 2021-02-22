@@ -1,22 +1,13 @@
 
 $logo : url("../imageAssets/Logos/logo.svg");
 
-//navigation bar components
 $navIcons: (
     "logout": url("../imageAssets/MenuBarIcons/logout.svg"),
     "chat":url("../imageAssets/MenuBarIcons/chat.svg"),
     "community":url("../imageAssets/MenuBarIcons/community.svg"),
-    "home":url("../imageAssets/MenuBarIcons/home.svg"),
+    "home":url('../imageAssets/MenuBarIcons/home.svg'),
     "perspectives":url("../imageAssets/MenuBarIcons/perspectives.svg"),
     "wellbeing":url("../imageAssets/MenuBarIcons/wellbeing.svg")
-);
-$navIcons_blue: (
-    "logout": url("../imageAssets/MenuBarIcons/logout-blu.svg"),
-    "chat":url("../imageAssets/MenuBarIcons/chat-blu.svg"),
-    "community":url("../imageAssets/MenuBarIcons/community-blu.svg"),
-    "home":url("../imageAssets/MenuBarIcons/home-blu.svg"),
-    "perspectives":url("../imageAssets/MenuBarIcons/perspectives-blu.svg"),
-    "wellbeing":url("../imageAssets/MenuBarIcons/wellbeing-blu.svg")
 );
 
 @function navIcon($name,$colour){

@@ -68,11 +68,51 @@
       margin-bottom: auto;
       margin-left: 0px;
       display: flex;
-      flex-direction: column; }
-      .navbar_items .icon img {
-        margin: auto;
+      flex-direction: column;
+      filter: grayscale(100%);
+      transition: 0.5s ease-in-out; }
+      .navbar_items .icon .homeIcon {
         width: 35px;
-        height: auto; }
+        height: 35px;
+        margin: auto;
+        background-image: url("../imageAssets/MenuBarIcons/home.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 35px 35px; }
+      .navbar_items .icon .wellbeingIcon {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        background-image: url("../imageAssets/MenuBarIcons/wellbeing.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 35px 35px; }
+      .navbar_items .icon .perspectivesIcon {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        background-image: url("../imageAssets/MenuBarIcons/perspectives.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 35px 35px; }
+      .navbar_items .icon .communityIcon {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        background-image: url("../imageAssets/MenuBarIcons/community.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 35px 35px; }
+      .navbar_items .icon .livechatIcon {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        background-image: url("../imageAssets/MenuBarIcons/chat.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 35px 35px; }
+      .navbar_items .icon .logoutIcon {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        background-image: url("../imageAssets/MenuBarIcons/logout.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 35px 35px; }
   .navbar_items-text {
     white-space: nowrap;
     margin-left: 20px;
@@ -104,12 +144,10 @@
     .navbar .navbar_link_active {
       color: rgba(56, 171, 245, 0.7); }
     .navbar .navbar_link_active .icon {
-      border-radius: 15px;
-      background-color: rgba(56, 171, 245, 0.3);
-      transition: background-color 0.5s ease-in-out; }
+      filter: grayscale(0%); }
   .navbar .moments {
     overflow: hidden;
-    height: 80px;
+    height: 60px;
     transition: height 0.5s ease-in-out;
     transition-delay: 0.2s; }
     .navbar .moments:hover {

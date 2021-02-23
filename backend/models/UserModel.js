@@ -58,15 +58,15 @@ BaseSchema.pre('save', function(next) { // Function before saving the
 	});
 });
 
-BaseSchema.method.comparePasswords = function(providedPassword) {
+BaseSchema.methods.comparePasswords = function(providedPassword) {
 	const currentUser = this; // The current user
 
 	return new Promise((resolve, reject) => { // A promise that takes resolve and reject as parameters
-		bcrypt.compare(currentUser.password, providedPassword, (error, passwordMatch) => { // Compare the current user password with the provided password
+		bcrypt.compare(providedPassword, currentUser.password, (error, passwordMatch) => { // Compare the current user password with the provided password
+
 			if(error) {
 				return reject(error);
 			}
-
 			if(!passwordMatch) { // If there is no match
 				return reject(false); // Reject the comparison
 			}

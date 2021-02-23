@@ -1,7 +1,7 @@
 .navbar {
   border-radius: 25px 25px 25px 25px;
   box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
-  background-color: #FAFAFA;
+  background-color: #F5F5F7;
   overflow: hidden;
   width: 100px;
   height: 98vh;
@@ -211,7 +211,7 @@ h1 {
   height: 82vh;
   display: grid;
   gap: 50px;
-  grid-template-columns: repeat(4, minmax(400px, 1fr)) minmax(1px, 1px);
+  grid-template-columns: repeat(2, minmax(400px, 1fr)) minmax(350px, 1fr) minmax(400px, 1fr) minmax(1px, 1px);
   grid-auto-rows: 80vh; }
   .contentGrid .journal {
     grid-column: span 2;
@@ -235,6 +235,7 @@ h1 {
       display: flex;
       width: 100%; }
       .contentGrid .journal_form .jounral_categories {
+        cursor: pointer;
         font-family: Montserrat, sans-serif;
         font-style: normal;
         font-weight: 600;
@@ -255,11 +256,60 @@ h1 {
     margin-top: 10px;
     height: 100%;
     width: 100%;
-    background-color: pink; }
+    display: flex;
+    flex-direction: column; }
+    .contentGrid .infoWrap .therapists {
+      border-radius: 25px 25px 25px 25px;
+      box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+      background-color: #F5F5F7;
+      height: 378px;
+      width: 80%;
+      padding: 10%; }
+      .contentGrid .infoWrap .therapists p {
+        margin: 0% auto 5% auto;
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: black;
+        font-size: 22px; }
+      .contentGrid .infoWrap .therapists .search {
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: black;
+        font-size: 20px;
+        width: 90%;
+        margin: auto;
+        background-color: #d6dae7;
+        border: none; }
+      .contentGrid .infoWrap .therapists .searchbar {
+        display: flex;
+        border-radius: 8px;
+        padding-left: 50px;
+        width: 85%;
+        height: 40px;
+        background-color: #bbbfce;
+        margin-right: 40px; }
+        .contentGrid .infoWrap .therapists .searchbar textarea:focus, .contentGrid .infoWrap .therapists .searchbar .search:focus {
+          outline: none; }
+    .contentGrid .infoWrap .handbook {
+      border-radius: 25px 25px 25px 25px;
+      box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+      background-color: #F5F5F7;
+      display: flex;
+      margin-top: auto;
+      width: 100%;
+      height: 350px; }
+      .contentGrid .infoWrap .handbook img {
+        margin: auto;
+        width: 60%;
+        height: 60%; }
   .contentGrid .momentForm {
     border-radius: 25px 25px 25px 25px;
     box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
-    background-color: #FAFAFA;
+    background-color: #F5F5F7;
     margin-left: auto;
     margin-top: 10px;
     height: 100%;
@@ -288,6 +338,8 @@ h1 {
         margin-left: 10%;
         margin-right: 10%; }
         .contentGrid .momentForm_top-section .feelingWrapper .feelingSelect {
+          border: none;
+          background-color: #F5F5F7;
           margin-top: auto;
           margin-bottom: auto;
           font-family: Montserrat, sans-serif;
@@ -298,12 +350,20 @@ h1 {
           font-size: 12px;
           height: 60px;
           width: 50px;
-          margin: auto; }
+          margin: auto;
+          transition: 0.2s linear;
+          cursor: pointer; }
+          .contentGrid .momentForm_top-section .feelingWrapper .feelingSelect:hover {
+            translate: 2px; }
+          .contentGrid .momentForm_top-section .feelingWrapper .feelingSelect:hover .feelingIcon {
+            box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.33); }
           .contentGrid .momentForm_top-section .feelingWrapper .feelingSelect .feelingIcon {
+            border-radius: 50%;
+            transition: 0.2s linear;
             width: 50px;
             height: 50px; }
     .contentGrid .momentForm_center-section {
-      height: 10%;
+      height: 15%;
       padding: 20px; }
       .contentGrid .momentForm_center-section p {
         font-family: Montserrat, sans-serif;
@@ -312,12 +372,122 @@ h1 {
         font-weight: 700;
         color: #5C17CB;
         font-size: 20px; }
+      .contentGrid .momentForm_center-section .category_wrap {
+        display: flex;
+        align-content: center;
+        flex-wrap: wrap;
+        width: 100%; }
+        .contentGrid .momentForm_center-section .category_wrap .category_select {
+          font-family: Montserrat, sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-weight: 700;
+          color: #5C17CB;
+          font-size: 20px;
+          white-space: nowrap;
+          background-color: #F5F5F7;
+          border-radius: 25px;
+          height: 30;
+          padding-right: 10px;
+          padding-left: 10px;
+          border: 1.5px solid #5C17CB;
+          margin-right: 5%;
+          margin-top: 5%;
+          cursor: pointer; }
     .contentGrid .momentForm_bottom-section {
       border-radius: 25px;
-      height: 65%;
+      height: 55%;
       background-color: #5C17CB;
       background: linear-gradient(46.39deg, #3CCEFD -7.12%, #4685EA 73.87%, #4E4EDB 134.44%);
-      box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25); }
+      box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25);
+      padding: 10%; }
+      .contentGrid .momentForm_bottom-section p {
+        white-space: nowrap;
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: #fff;
+        font-size: 20px; }
+      .contentGrid .momentForm_bottom-section textarea {
+        border: none;
+        resize: none;
+        width: 96%;
+        padding: 2%;
+        border-radius: 14px;
+        margin-top: 5%;
+        margin-bottom: 5%; }
+      .contentGrid .momentForm_bottom-section .feelings {
+        height: 25%; }
+      .contentGrid .momentForm_bottom-section .mind {
+        height: 10%; }
+      .contentGrid .momentForm_bottom-section .selfAware_wrapper {
+        display: flex;
+        flex: row;
+        align-items: center;
+        /* Rounded sliders */ }
+        .contentGrid .momentForm_bottom-section .selfAware_wrapper .switch {
+          position: relative;
+          display: inline-block;
+          width: 60px;
+          height: 34px;
+          margin-left: auto; }
+        .contentGrid .momentForm_bottom-section .selfAware_wrapper .switch input {
+          opacity: 0;
+          width: 0;
+          height: 0; }
+        .contentGrid .momentForm_bottom-section .selfAware_wrapper .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          -webkit-transition: .4s;
+          transition: .4s; }
+        .contentGrid .momentForm_bottom-section .selfAware_wrapper .slider:before {
+          position: absolute;
+          content: "";
+          height: 26px;
+          width: 26px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          -webkit-transition: .4s;
+          transition: .4s; }
+        .contentGrid .momentForm_bottom-section .selfAware_wrapper input:checked + .slider {
+          background-color: #D72E5E; }
+        .contentGrid .momentForm_bottom-section .selfAware_wrapper input:focus + .slider {
+          box-shadow: 0 0 1px #D72E5E; }
+        .contentGrid .momentForm_bottom-section .selfAware_wrapper input:checked + .slider:before {
+          -webkit-transform: translateX(26px);
+          -ms-transform: translateX(26px);
+          transform: translateX(26px); }
+        .contentGrid .momentForm_bottom-section .selfAware_wrapper .slider.round {
+          border-radius: 34px; }
+        .contentGrid .momentForm_bottom-section .selfAware_wrapper .slider.round:before {
+          border-radius: 50%; }
+      .contentGrid .momentForm_bottom-section .btn_wrapper {
+        display: flex;
+        align-content: center;
+        height: 20%;
+        width: 100%; }
+        .contentGrid .momentForm_bottom-section .btn_wrapper .create {
+          font-family: Montserrat, sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-weight: 700;
+          color: black;
+          font-size: 20px;
+          margin: auto;
+          background-color: white;
+          width: 170px;
+          height: 50px;
+          border-radius: 48px;
+          border: none;
+          box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.33);
+          cursor: pointer; }
 
 .header {
   text-align: left;

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import Header from "./Header";
 
 function yourJourney() {
   return (
-    <div className = "yourJourney">
-      <header className = "yourJourney-header">
-        <h1> yourJourney</h1>
-      </header>
+    <div className = "Page">
+      {/*importing the header component*/}
+      <Header title="Your Journey"/>
+      
     </div>
   )
 }

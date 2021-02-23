@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-
+import Header from "./Header";
 const Perspectives = () => {
   return (
-    
-    <div className = "SelfAwareness">
-      <header className = "SelfAwareness-header">
-        <h1>Perspectives</h1>
-      </header>
+    <div className = "Page">
+      {/*importing the header component*/}
+      <Header title="Perspectives"/>
+      
     </div>
   )
 }

@@ -180,181 +180,195 @@ h1 {
   text-transform: uppercase;
   font-size: 35px; }
 
+.Page {
+  height: 96vh;
+  width: calc(100vw -100px); }
+  .Page .Content {
+    overflow: hidden;
+    overflow-x: scroll;
+    height: 88vh;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    scrollbar-color: #b1b1b1 #fff;
+    scrollbar-width: thin; }
+    .Page .Content::-webkit-scrollbar {
+      width: 4px; }
+    .Page .Content::-webkit-scrollbar-track {
+      background: #f1f1f1; }
+    .Page .Content::-webkit-scrollbar-thumb {
+      background: #888; }
+    .Page .Content::-webkit-scrollbar-thumb:hover {
+      background: #b1b1b1; }
+
 * {
   box-sizing: broder-box;
   margin: 0;
   padding: 0; }
 
-.home {
-  height: 96vh;
-  width: calc(100vw -100px);
-  margin-left: 3vw;
-  margin-right: 3vw; }
-  .home .header {
-    text-align: left;
-    display: flex;
-    align-items: center;
-    margin-top: 4vh;
+.contentGrid {
+  margin-top: 30px;
+  width: calc(94vw - 100px);
+  height: 82vh;
+  display: grid;
+  gap: 50px;
+  grid-template-columns: repeat(4, minmax(400px, 1fr)) minmax(1px, 1px);
+  grid-auto-rows: 80vh; }
+  .contentGrid .journal {
+    grid-column: span 2;
+    height: 80vh;
     width: 100%;
-    height: 40px; }
-    .home .header h1 {
+    border-right: solid 3px #dadada;
+    padding: 10px; }
+    .contentGrid .journal h2 {
       font-family: Montserrat, sans-serif;
       font-style: normal;
       font-weight: 600;
       font-weight: 700;
-      color: black;
-      font-size: 40px;
-      white-space: nowrap; }
-    .home .header .searchBell {
+      color: #5C17CB;
+      font-size: 24px; }
+    .contentGrid .journal_underline {
+      margin-top: 3%;
+      height: 3px;
+      width: 30%;
+      background-color: #5C17CB; }
+    .contentGrid .journal_form {
       display: flex;
-      margin-left: auto; }
-      .home .header .searchBell .bellIcon {
-        margin-top: auto;
-        margin-bottom: auto;
-        margin-left: auto;
-        width: 30px;
-        height: 30px;
-        background-size: 30px 30px;
-        background-image: url("../imageAssets/Icons/General/bell.svg");
-        background-repeat: no-repeat, repeat; }
-      .home .header .searchBell .search {
+      width: 100%; }
+      .contentGrid .journal_form .jounral_categories {
         font-family: Montserrat, sans-serif;
         font-style: normal;
         font-weight: 600;
         font-weight: 700;
-        color: black;
-        font-size: 20px;
-        width: 300px;
-        margin: auto;
-        background-color: #F5F5F7;
-        border: none; }
-      .home .header .searchBell .searchbar {
-        display: flex;
-        border-radius: 8px;
-        padding-left: 50px;
-        width: 300px;
-        height: 40px;
-        background-color: #F5F5F7;
-        margin-right: 40px; }
-        .home .header .searchBell .searchbar textarea:focus, .home .header .searchBell .searchbar .search:focus {
-          outline: none; }
-  .home .contentGrid {
-    margin-top: 30px;
-    padding: 30px;
-    min-width: 100%;
+        color: #fff;
+        font-size: 18px;
+        background-color: #38ABF5;
+        border: none;
+        width: 160px;
+        height: 32px;
+        margin-left: auto;
+        margin-top: auto;
+        margin-right: 3vw;
+        border-radius: 8px; }
+  .contentGrid .infoWrap {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
     height: 100%;
-    display: grid;
-    gap: 50px;
-    padding-right: 5vw;
-    overflow: hidden;
-    overflow-x: scroll;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-auto-rows: 80vh; }
-    .home .contentGrid .journal {
-      grid-column: span 2/1;
-      height: 80vh;
-      width: 600px;
-      border-right: solid 3px #A2A2A4;
-      padding: 10px; }
-      .home .contentGrid .journal h2 {
+    width: 100%;
+    background-color: pink; }
+  .contentGrid .momentForm {
+    border-radius: 25px 25px 25px 25px;
+    box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+    background-color: #FAFAFA;
+    margin-left: auto;
+    margin-top: 10px;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
+    overflow: hidden; }
+    .contentGrid .momentForm_top-section {
+      height: 20%;
+      border: 3px solid #30CDFF;
+      border-radius: 25px;
+      text-align: center;
+      padding-top: 20px;
+      box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15); }
+      .contentGrid .momentForm_top-section h2 {
         font-family: Montserrat, sans-serif;
         font-style: normal;
         font-weight: 600;
         font-weight: 700;
         color: #5C17CB;
         font-size: 24px; }
-      .home .contentGrid .journal_underline {
-        margin-top: 3%;
-        height: 3px;
-        width: 30%;
-        background-color: #5C17CB; }
-      .home .contentGrid .journal_form {
+      .contentGrid .momentForm_top-section .feelingWrapper {
+        height: 40%;
         display: flex;
-        width: 100%; }
-        .home .contentGrid .journal_form .jounral_categories {
-          font-family: Montserrat, sans-serif;
-          font-style: normal;
-          font-weight: 600;
-          font-weight: 700;
-          color: #fff;
-          font-size: 18px;
-          background-color: #38ABF5;
-          border: none;
-          width: 160px;
-          height: 32px;
-          margin-left: auto;
+        flex: row;
+        margin-top: 1.5vh;
+        margin-left: 10%;
+        margin-right: 10%; }
+        .contentGrid .momentForm_top-section .feelingWrapper .feelingSelect {
           margin-top: auto;
-          margin-right: 3vw;
-          border-radius: 8px; }
-    .home .contentGrid .infoWrap {
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 10px;
-      height: 100%;
-      width: 30vw;
-      background-color: blue; }
-    .home .contentGrid .momentForm {
-      border-radius: 25px 25px 25px 25px;
-      box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
-      background-color: #FAFAFA;
-      margin-left: auto;
-      margin-top: 10px;
-      height: 100%;
-      width: 400px;
-      box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
-      overflow: hidden; }
-      .home .contentGrid .momentForm_top-section {
-        height: 20%;
-        border: 3px solid #30CDFF;
-        border-radius: 25px;
-        text-align: center;
-        padding-top: 20px;
-        box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15); }
-        .home .contentGrid .momentForm_top-section h2 {
+          margin-bottom: auto;
           font-family: Montserrat, sans-serif;
           font-style: normal;
           font-weight: 600;
           font-weight: 700;
           color: #5C17CB;
-          font-size: 24px; }
-        .home .contentGrid .momentForm_top-section .feelingWrapper {
-          height: 40%;
-          display: flex;
-          flex: row;
-          margin-top: 5%;
-          margin-left: 10%;
-          margin-right: 10%; }
-          .home .contentGrid .momentForm_top-section .feelingWrapper .feelingSelect {
-            margin-top: auto;
-            margin-bottom: auto;
-            font-family: Montserrat, sans-serif;
-            font-style: normal;
-            font-weight: 600;
-            font-weight: 700;
-            color: #5C17CB;
-            font-size: 12px;
-            height: 60px;
+          font-size: 12px;
+          height: 60px;
+          width: 50px;
+          margin: auto; }
+          .contentGrid .momentForm_top-section .feelingWrapper .feelingSelect .feelingIcon {
             width: 50px;
-            margin: auto; }
-            .home .contentGrid .momentForm_top-section .feelingWrapper .feelingSelect .feelingIcon {
-              width: 50px;
-              height: 50px; }
-      .home .contentGrid .momentForm_center-section {
-        height: 10%;
-        padding: 20px; }
-        .home .contentGrid .momentForm_center-section p {
-          font-family: Montserrat, sans-serif;
-          font-style: normal;
-          font-weight: 600;
-          font-weight: 700;
-          color: #5C17CB;
-          font-size: 20px; }
-      .home .contentGrid .momentForm_bottom-section {
-        border-radius: 25px;
-        height: 65%;
-        background-color: #5C17CB;
-        background: linear-gradient(46.39deg, #3CCEFD -7.12%, #4685EA 73.87%, #4E4EDB 134.44%);
-        box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25); }
+            height: 50px; }
+    .contentGrid .momentForm_center-section {
+      height: 10%;
+      padding: 20px; }
+      .contentGrid .momentForm_center-section p {
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: #5C17CB;
+        font-size: 20px; }
+    .contentGrid .momentForm_bottom-section {
+      border-radius: 25px;
+      height: 65%;
+      background-color: #5C17CB;
+      background: linear-gradient(46.39deg, #3CCEFD -7.12%, #4685EA 73.87%, #4E4EDB 134.44%);
+      box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25); }
+
+.header {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  margin-top: 4vh;
+  width: 100%;
+  height: 40px; }
+  .header h1 {
+    margin-left: 3vw;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-weight: 700;
+    color: black;
+    font-size: 40px;
+    white-space: nowrap; }
+  .header .searchBell {
+    display: flex;
+    margin-left: auto; }
+    .header .searchBell .bellIcon {
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: auto;
+      margin-right: 3vw;
+      width: 30px;
+      height: 30px;
+      background-size: 30px 30px;
+      background-image: url("../imageAssets/Icons/General/bell.svg");
+      background-repeat: no-repeat, repeat; }
+    .header .searchBell .search {
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      color: black;
+      font-size: 20px;
+      width: 300px;
+      margin: auto;
+      background-color: #F5F5F7;
+      border: none; }
+    .header .searchBell .searchbar {
+      display: flex;
+      border-radius: 8px;
+      padding-left: 50px;
+      width: 300px;
+      height: 40px;
+      background-color: #F5F5F7;
+      margin-right: 40px; }
+      .header .searchBell .searchbar textarea:focus, .header .searchBell .searchbar .search:focus {
+        outline: none; }
 
 body {
   margin-top: 1vh;

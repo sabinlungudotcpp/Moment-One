@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-
+import Header from "./Header";
 const community = () => {//community component
   return (
-    
-    <div className = "community">
-      <header className = "community-header">
-        <h1>community</h1>
-      </header>
+    <div className = "Page">
+      {/*importing the header component*/}
+      <Header title="Community"/>
+      
     </div>
   )
 }

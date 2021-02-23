@@ -20,6 +20,7 @@ const goalsRouter = require('./backend/routes/goalRoutes');
 const userRouter = require('./backend/routes/UserRoutes');
 const authRouter = require('./backend/routes/authRoutes');
 const authenticate = require('./backend/middlewares/authentication');
+const loginRouter = require('./backend/routes/loginRoutes');
 
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
@@ -33,7 +34,7 @@ app.use('/api/v1/momentone/posts', postsRouter);
 app.use('/api/v1/momentone/goals', goalsRouter);
 app.use('/api/v1/momentone/users', userRouter);
 app.use('/api/v1/momentone/register', authRouter);
-app.use('/api/v1/momentone/signin', authenticate, authRouter);
+app.use('/api/v1/momentone/signin', authenticate, loginRouter);
 
 app.all('*', (request, response, next) => {
     return response.status(notFound).json({

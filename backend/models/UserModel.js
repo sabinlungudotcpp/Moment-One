@@ -82,9 +82,9 @@ const Base = mongoose.model('Base', BaseSchema); //The base model
 const User = Base.discriminator('User', new mongoose.Schema({ //User schema that inherits from the base schema
 	email: { //Email address for users. Not required and only used if user wants notifications
 		type: String,
-		unique: [true, 'Email already used'],
 		match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'Invalid email address'], // Regex. Matches email accounts.
-		index: true
+		index: true,
+		sparse: true
 	},
 	therapist: { //Mongoose population. Refering to the users assigned therapist 
 		type: mongoose.Schema.Types.ObjectId,
@@ -112,10 +112,11 @@ const Therapist = Base.discriminator('Therapist', new mongoose.Schema({ //Therap
 	contactInfo: { //Therapist contact information
 		email: { //Email required for therpist users
 			type: String,
-			unique: [true, 'Email already used'],
+			//unique: [true, 'Email already used'],
 			required: [true, 'Email required'],
 			match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'Invalid email address'], //Regex. Matches email accounts.
-			index: true
+			index: true,
+			sparse: true
 		},
 		tel: { //Therapistrs phone number
 			type: Number, 

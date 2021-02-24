@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-
+import Header from "./Header";
 const livechat = () => { // livechat Component
   return (
-    <div className = "livechat">
-        <h1>livechat</h1>
-    </div>
+    <div className = "Page">
+    {/*importing the header component*/}
+    <Header title="Live-chat"/>
+    
+  </div>
   )
 }
 

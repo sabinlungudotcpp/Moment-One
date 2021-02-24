@@ -1,12 +1,12 @@
 import React, { Component } from "react";
+import Header from "./Header";
 
 const wellbeing = () => {
   return (
-    
-    <div className = "wellbeing">
-      <header className = "wellbeing-header">
-        <h1>wellbeing</h1>
-      </header>
+    <div className = "Page">
+      {/*importing the header component*/}
+      <Header title="Wellbeing"/>
+      
     </div>
   )
 }

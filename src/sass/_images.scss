@@ -25,3 +25,12 @@ $bell : url("../imageAssets/Icons/General/bell.svg");
 
 //Art
 $handbook : url("../imageAssets/Handbook Illustration/Handbook Illustration.png");
+
+//Feeling Icons
+$feelingIcons:(
+    "great":url("../imageAssets/Mood Tracker/moodGreat.png"),
+    "good":url("../imageAssets/Mood Tracker/moodGood.png"),
+    "meh":url("../imageAssets/Mood Tracker/moodMeh.png"),
+    "bad":url("../imageAssets/Mood Tracker/moodBad.png"),
+    "awful":url("../imageAssets/Mood Tracker/moodAwful.png"),
+)

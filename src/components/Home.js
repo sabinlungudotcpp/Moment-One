@@ -5,7 +5,7 @@ import moodGood from "../imageAssets/Mood Tracker/moodGood.png";
 import moodMeh from "../imageAssets/Mood Tracker/moodMeh.png";
 import moodeBad from "../imageAssets/Mood Tracker/moodBad.png";
 import moodAwful from "../imageAssets/Mood Tracker/moodAwful.png";
-
+import handbook from "../imageAssets/Handbook Illustration/Handbook Illustration.png";
 const Home = () => { // Home Component
   return (
     <div className = "Page">
@@ -23,7 +23,15 @@ const Home = () => { // Home Component
           </div> 
 
           <div className="infoWrap">
-              
+              <div className="therapists">
+                <p>Favourite Therapists</p>
+                <form className="searchbar">
+                  <input type="text" id = "search" className="search"></input>
+                </form>
+              </div>
+              <div className="handbook">
+                <img src={handbook}></img>
+              </div>
           </div> 
           <div className="momentForm">
               <div className="momentForm_top-section">
@@ -31,38 +39,61 @@ const Home = () => { // Home Component
                 <h2>How are you feeling?</h2>
 
                 <div className="feelingWrapper">
-                  <div className="feelingSelect">
+                  <button class="feelingSelect">
                     <img src = {moodGreat} className="feelingIcon"></img>
                     <p>Great</p>
-                  </div>
+                  </button>
 
-                  <div className="feelingSelect">
+                  <button class="feelingSelect">
                     <img src = {moodGood} className="feelingIcon"></img>
                     <p>Good</p>
-                  </div>
+                  </button>
 
-                  <div className="feelingSelect">
+                  <button class="feelingSelect">
                   <img src = {moodMeh} className="feelingIcon"></img>
                     <p>Meh</p>
-                  </div>
+                  </button>
 
-                  <div className="feelingSelect">
+                  <button class="feelingSelect">
                     <img src = {moodeBad} className="feelingIcon"></img>
                     <p>Bad</p>
-                  </div>
+                  </button>
 
-                  <div className="feelingSelect">
+                  <button class="feelingSelect">
                     <img src = {moodAwful} className="feelingIcon"></img>
                     <p>Awful</p>
-                  </div>
+                  </button>
 
 
                 </div>
               </div>
               <div className="momentForm_center-section">
                 <p> Add Category </p>
+                <div className="category_wrap">
+                  <button class="category_select">General</button>
+                  <button class="category_select">Anxiety</button>
+                  <button class="category_select">PTSD</button>
+                  <button class="category_select">Depression</button>
+                  <div></div>
+                  <button class="category_select">Weight Loss</button>
+                </div>
+
               </div>
               <div className="momentForm_bottom-section">
+                <p>What's on your mind today?</p>
+                <textarea className="mind"></textarea>
+                <p>Tell us more about how you feel...</p>
+                <textarea className="feelings"></textarea>
+                <div className="selfAware_wrapper">
+                  <p>Do you feel self aware?</p>
+                  <label class="switch">
+                    <input type="checkbox" checked></input>
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <div className="btn_wrapper">
+                  <button className="create">Create</button>
+                </div>
                 
               </div>
               

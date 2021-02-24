@@ -254,70 +254,16 @@ h1 {
     margin-right: auto;
     margin-top: 10px;
     height: 100%;
-    width: 100%;
-    background-color: pink; }
-  .contentGrid .momentForm {
-    border-radius: 25px 25px 25px 25px;
-    box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
-    background-color: #FAFAFA;
-    margin-left: auto;
-    margin-top: 10px;
-    height: 100%;
-    width: 100%;
-    box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
-    overflow: hidden; }
-    .contentGrid .momentForm_top-section {
-      height: 20%;
-      border: 3px solid #30CDFF;
-      border-radius: 25px;
-      text-align: center;
-      padding-top: 20px;
-      box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15); }
-      .contentGrid .momentForm_top-section h2 {
-        font-family: Montserrat, sans-serif;
-        font-style: normal;
-        font-weight: 600;
-        font-weight: 700;
-        color: #5C17CB;
-        font-size: 24px; }
-      .contentGrid .momentForm_top-section .feelingWrapper {
-        height: 40%;
-        display: flex;
-        flex: row;
-        margin-top: 1.5vh;
-        margin-left: 10%;
-        margin-right: 10%; }
-        .contentGrid .momentForm_top-section .feelingWrapper .feelingSelect {
-          margin-top: auto;
-          margin-bottom: auto;
-          font-family: Montserrat, sans-serif;
-          font-style: normal;
-          font-weight: 600;
-          font-weight: 700;
-          color: #5C17CB;
-          font-size: 12px;
-          height: 60px;
-          width: 50px;
-          margin: auto; }
-          .contentGrid .momentForm_top-section .feelingWrapper .feelingSelect .feelingIcon {
-            width: 50px;
-            height: 50px; }
-    .contentGrid .momentForm_center-section {
-      height: 10%;
-      padding: 20px; }
-      .contentGrid .momentForm_center-section p {
-        font-family: Montserrat, sans-serif;
-        font-style: normal;
-        font-weight: 600;
-        font-weight: 700;
-        color: #5C17CB;
-        font-size: 20px; }
-    .contentGrid .momentForm_bottom-section {
-      border-radius: 25px;
-      height: 65%;
-      background-color: #5C17CB;
-      background: linear-gradient(46.39deg, #3CCEFD -7.12%, #4685EA 73.87%, #4E4EDB 134.44%);
-      box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25); }
+    width: 100%; }
+    .contentGrid .infoWrap .therapists {
+      width: 100%;
+      height: 60%; }
+    .contentGrid .infoWrap .handbook {
+      height: 400px;
+      width: 400px; }
+      .contentGrid .infoWrap .handbook img {
+        height: 50%;
+        width: 50%; }
 
 .header {
   text-align: left;
@@ -369,6 +315,218 @@ h1 {
       margin-right: 40px; }
       .header .searchBell .searchbar textarea:focus, .header .searchBell .searchbar .search:focus {
         outline: none; }
+
+.momentForm {
+  border-radius: 25px 25px 25px 25px;
+  box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+  background-color: #FAFAFA;
+  margin-left: auto;
+  margin-top: 10px;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
+  overflow: hidden; }
+  .momentForm_top-section {
+    height: 20%;
+    border: 3px solid #30CDFF;
+    border-radius: 25px;
+    text-align: center;
+    padding-top: 20px;
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15); }
+    .momentForm_top-section h2 {
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      color: #5C17CB;
+      font-size: 24px; }
+    .momentForm_top-section .feelingWrapper {
+      height: 40%;
+      display: flex;
+      flex: row;
+      margin-top: 1.5vh;
+      margin-left: 10%;
+      margin-right: 10%; }
+      .momentForm_top-section .feelingWrapper .feelingSelect {
+        border: none;
+        background-color: #FAFAFA;
+        margin-top: auto;
+        margin-bottom: auto;
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: #5C17CB;
+        font-size: 12px;
+        height: 60px;
+        width: 50px;
+        margin: auto;
+        transition: 0.2s linear; }
+        .momentForm_top-section .feelingWrapper .feelingSelect .feelingIcon {
+          border-radius: 50%;
+          transition: 0.2s linear;
+          width: 50px;
+          height: 50px;
+          transition: 0.2s linear; }
+          .momentForm_top-section .feelingWrapper .feelingSelect .feelingIcon:focus {
+            translate: 2px;
+            box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.33); }
+        .momentForm_top-section .feelingWrapper .feelingSelect .feelingButton {
+          cursor: pointer;
+          border: none; }
+  .momentForm_center-section {
+    height: 15%;
+    padding: 20px; }
+    .momentForm_center-section p {
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      color: #5C17CB;
+      font-size: 24px; }
+    .momentForm_center-section .category_wrap {
+      display: flex;
+      align-content: center;
+      flex-wrap: wrap;
+      width: 100%; }
+      .momentForm_center-section .category_wrap .category_select {
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: #5C17CB;
+        font-size: 20px;
+        white-space: nowrap;
+        background-color: #FAFAFA;
+        border-radius: 25px;
+        height: 30;
+        padding-right: 10px;
+        padding-left: 10px;
+        border: 1.5px solid #5C17CB;
+        margin-right: 5%;
+        margin-top: 5%;
+        cursor: pointer;
+        transition: 0.2s linear; }
+        .momentForm_center-section .category_wrap .category_select:focus {
+          translate: 2px;
+          box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.33); }
+  .momentForm_bottom-section {
+    border-radius: 25px;
+    height: 55%;
+    background-color: #5C17CB;
+    background: linear-gradient(46.39deg, #3CCEFD -7.12%, #4685EA 73.87%, #4E4EDB 134.44%);
+    box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25);
+    padding: 10%; }
+    .momentForm_bottom-section p {
+      white-space: nowrap;
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      color: #fff;
+      font-size: 20px; }
+    .momentForm_bottom-section .feelings {
+      height: 20%;
+      border: none;
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      font-size: 16px;
+      resize: none;
+      width: 96%;
+      padding: 2%;
+      border-radius: 14px;
+      margin-top: 5%;
+      margin-bottom: 5%;
+      outline: none; }
+    .momentForm_bottom-section .mind {
+      height: 10%;
+      border: none;
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      font-size: 16px;
+      resize: none;
+      width: 96%;
+      padding: 2%;
+      border-radius: 14px;
+      margin-top: 5%;
+      margin-bottom: 5%;
+      outline: none; }
+    .momentForm_bottom-section .selfAware_wrapper {
+      margin-top: 5%;
+      display: flex;
+      flex: row;
+      align-items: center;
+      /* Rounded sliders */ }
+      .momentForm_bottom-section .selfAware_wrapper .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        margin-left: auto; }
+      .momentForm_bottom-section .selfAware_wrapper .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0; }
+      .momentForm_bottom-section .selfAware_wrapper .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s; }
+      .momentForm_bottom-section .selfAware_wrapper .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s; }
+      .momentForm_bottom-section .selfAware_wrapper input:checked + .slider {
+        background-color: #D72E5E; }
+      .momentForm_bottom-section .selfAware_wrapper input:focus + .slider {
+        box-shadow: 0 0 1px #D72E5E; }
+      .momentForm_bottom-section .selfAware_wrapper input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px); }
+      .momentForm_bottom-section .selfAware_wrapper .slider.round {
+        border-radius: 34px; }
+      .momentForm_bottom-section .selfAware_wrapper .slider.round:before {
+        border-radius: 50%; }
+    .momentForm_bottom-section .btn_wrapper {
+      display: flex;
+      align-content: center;
+      height: 20%;
+      width: 100%; }
+      .momentForm_bottom-section .btn_wrapper .create {
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: black;
+        font-size: 20px;
+        margin: auto;
+        background-color: white;
+        width: 170px;
+        height: 50px;
+        border-radius: 48px;
+        border: none;
+        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.33);
+        transition: 0.2s linear;
+        cursor: pointer; }
+        .momentForm_bottom-section .btn_wrapper .create:hover {
+          translate: -2px;
+          box-shadow: none; }
 
 body {
   margin-top: 1vh;

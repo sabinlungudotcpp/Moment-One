@@ -1,0 +1,377 @@
+.navbar {
+  border-radius: 25px 25px 25px 25px;
+  box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+  background-color: #FAFAFA;
+  overflow: hidden;
+  width: 100px;
+  height: 98vh;
+  position: absolute;
+  float: left;
+  background-color: #FAFAFA;
+  transition: width 1s ease;
+  transition-delay: 0.2s; }
+  .navbar:hover {
+    width: 290px; }
+  .navbar:hover .profile p {
+    opacity: 1; }
+  .navbar:hover .navbar_link {
+    width: 250px; }
+  .navbar:hover .navbar_items-text {
+    visibility: visible;
+    opacity: 1; }
+  .navbar .NavLogo {
+    background-image: url("../imageAssets/Logos/logo.svg");
+    background-repeat: no-repeat, repeat;
+    background-size: 80px 80px;
+    width: 80px;
+    height: 80px;
+    margin-top: 4vh;
+    margin-left: auto;
+    margin-right: auto; }
+  .navbar .profile {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    color: #38ABF5;
+    font-size: 19px;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%; }
+    .navbar .profileImg {
+      background-image: url("../imageAssets/Avatars/Animated/Asset33.svg");
+      background-repeat: no-repeat, repeat;
+      background-size: 60px 60px;
+      background-color: beige;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 3px solid #38ABF5;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 1vh; }
+    .navbar .profile p {
+      transition: opacity 0.7s linear;
+      opacity: 0; }
+  .navbar_items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    height: 65vh; }
+    .navbar_items .icon {
+      width: 55px;
+      height: 55px;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: 0px;
+      display: flex;
+      flex-direction: column;
+      filter: grayscale(100%);
+      transition: 0.5s ease-in-out; }
+      .navbar_items .icon .homeIcon {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        background-image: url("../imageAssets/MenuBarIcons/home.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 35px 35px; }
+      .navbar_items .icon .wellbeingIcon {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        background-image: url("../imageAssets/MenuBarIcons/wellbeing.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 35px 35px; }
+      .navbar_items .icon .perspectivesIcon {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        background-image: url("../imageAssets/MenuBarIcons/perspectives.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 35px 35px; }
+      .navbar_items .icon .communityIcon {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        background-image: url("../imageAssets/MenuBarIcons/community.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 35px 35px; }
+      .navbar_items .icon .livechatIcon {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        background-image: url("../imageAssets/MenuBarIcons/chat.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 35px 35px; }
+      .navbar_items .icon .logoutIcon {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        background-image: url("../imageAssets/MenuBarIcons/logout.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 35px 35px; }
+  .navbar_items-text {
+    white-space: nowrap;
+    margin-left: 20px;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s linear;
+    transition-delay: 0.2s; }
+  .navbar .logout {
+    margin-top: auto; }
+  .navbar .navbar_link {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-weight: 700;
+    color: #A2A2A4;
+    font-size: 22px;
+    width: 220px;
+    overflow: hidden;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-left: 22.5px;
+    border-radius: 15px;
+    margin-top: 1vh;
+    transition: background-color .3s ease-in-out, color 0.5s ease-in-out; }
+    .navbar .navbar_link:hover {
+      background-color: #E2F2FC; }
+    .navbar .navbar_link_active {
+      color: rgba(56, 171, 245, 0.7); }
+    .navbar .navbar_link_active .icon {
+      filter: grayscale(0%); }
+  .navbar .moments {
+    overflow: hidden;
+    height: 65px;
+    transition: height 0.5s ease-in-out;
+    transition-delay: 0.2s; }
+    .navbar .moments:hover {
+      height: 130px; }
+  .navbar_subitems-text {
+    margin-top: 2%;
+    white-space: nowrap;
+    margin-left: 10px;
+    display: block;
+    margin-left: 25%;
+    padding-top: 5px;
+    padding-bottom: 5px; }
+
+.App {
+  width: 99vw;
+  height: 99vh; }
+
+.PageContent {
+  width: calc(100vw - 100px);
+  height: 100%;
+  margin-left: 100px;
+  float: left;
+  border-radius: 25px 25px 25px 25px;
+  overflow-x: visible;
+  overflow-y: hidden; }
+
+h1 {
+  text-align: center;
+  color: black;
+  text-transform: uppercase;
+  font-size: 35px; }
+
+.Page {
+  height: 96vh;
+  width: calc(100vw -100px); }
+  .Page .Content {
+    overflow: hidden;
+    overflow-x: scroll;
+    height: 88vh;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    scrollbar-color: #b1b1b1 #fff;
+    scrollbar-width: thin; }
+    .Page .Content::-webkit-scrollbar {
+      width: 4px; }
+    .Page .Content::-webkit-scrollbar-track {
+      background: #f1f1f1; }
+    .Page .Content::-webkit-scrollbar-thumb {
+      background: #888; }
+    .Page .Content::-webkit-scrollbar-thumb:hover {
+      background: #b1b1b1; }
+
+* {
+  box-sizing: broder-box;
+  margin: 0;
+  padding: 0; }
+
+.contentGrid {
+  margin-top: 30px;
+  width: calc(94vw - 100px);
+  height: 82vh;
+  display: grid;
+  gap: 50px;
+  grid-template-columns: repeat(4, minmax(400px, 1fr)) minmax(1px, 1px);
+  grid-auto-rows: 80vh; }
+  .contentGrid .journal {
+    grid-column: span 2;
+    height: 80vh;
+    width: 100%;
+    border-right: solid 3px #dadada;
+    padding: 10px; }
+    .contentGrid .journal h2 {
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      color: #5C17CB;
+      font-size: 24px; }
+    .contentGrid .journal_underline {
+      margin-top: 3%;
+      height: 3px;
+      width: 30%;
+      background-color: #5C17CB; }
+    .contentGrid .journal_form {
+      display: flex;
+      width: 100%; }
+      .contentGrid .journal_form .jounral_categories {
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: #fff;
+        font-size: 18px;
+        background-color: #38ABF5;
+        border: none;
+        width: 160px;
+        height: 32px;
+        margin-left: auto;
+        margin-top: auto;
+        margin-right: 3vw;
+        border-radius: 8px; }
+  .contentGrid .infoWrap {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    height: 100%;
+    width: 100%;
+    background-color: pink; }
+  .contentGrid .momentForm {
+    border-radius: 25px 25px 25px 25px;
+    box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+    background-color: #FAFAFA;
+    margin-left: auto;
+    margin-top: 10px;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
+    overflow: hidden; }
+    .contentGrid .momentForm_top-section {
+      height: 20%;
+      border: 3px solid #30CDFF;
+      border-radius: 25px;
+      text-align: center;
+      padding-top: 20px;
+      box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15); }
+      .contentGrid .momentForm_top-section h2 {
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: #5C17CB;
+        font-size: 24px; }
+      .contentGrid .momentForm_top-section .feelingWrapper {
+        height: 40%;
+        display: flex;
+        flex: row;
+        margin-top: 1.5vh;
+        margin-left: 10%;
+        margin-right: 10%; }
+        .contentGrid .momentForm_top-section .feelingWrapper .feelingSelect {
+          margin-top: auto;
+          margin-bottom: auto;
+          font-family: Montserrat, sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-weight: 700;
+          color: #5C17CB;
+          font-size: 12px;
+          height: 60px;
+          width: 50px;
+          margin: auto; }
+          .contentGrid .momentForm_top-section .feelingWrapper .feelingSelect .feelingIcon {
+            width: 50px;
+            height: 50px; }
+    .contentGrid .momentForm_center-section {
+      height: 10%;
+      padding: 20px; }
+      .contentGrid .momentForm_center-section p {
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: #5C17CB;
+        font-size: 20px; }
+    .contentGrid .momentForm_bottom-section {
+      border-radius: 25px;
+      height: 65%;
+      background-color: #5C17CB;
+      background: linear-gradient(46.39deg, #3CCEFD -7.12%, #4685EA 73.87%, #4E4EDB 134.44%);
+      box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25); }
+
+.header {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  margin-top: 4vh;
+  width: 100%;
+  height: 40px; }
+  .header h1 {
+    margin-left: 3vw;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-weight: 700;
+    color: black;
+    font-size: 40px;
+    white-space: nowrap; }
+  .header .searchBell {
+    display: flex;
+    margin-left: auto; }
+    .header .searchBell .bellIcon {
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: auto;
+      margin-right: 3vw;
+      width: 30px;
+      height: 30px;
+      background-size: 30px 30px;
+      background-image: url("../imageAssets/Icons/General/bell.svg");
+      background-repeat: no-repeat, repeat; }
+    .header .searchBell .search {
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      color: black;
+      font-size: 20px;
+      width: 300px;
+      margin: auto;
+      background-color: #F5F5F7;
+      border: none; }
+    .header .searchBell .searchbar {
+      display: flex;
+      border-radius: 8px;
+      padding-left: 50px;
+      width: 300px;
+      height: 40px;
+      background-color: #F5F5F7;
+      margin-right: 40px; }
+      .header .searchBell .searchbar textarea:focus, .header .searchBell .searchbar .search:focus {
+        outline: none; }
+
+body {
+  margin-top: 1vh;
+  height: 98vh;
+  width: 99vw;
+  background-color: #ffff; }

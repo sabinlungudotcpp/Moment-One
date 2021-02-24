@@ -1,0 +1,13 @@
+@import "NavBar";
+@import "App";
+@import "variables";
+@import "resets";
+@import "Home";
+@import "Header";
+
+body{
+    margin-top:1vh;
+    height: 98vh;
+    width: 99vw;
+    background-color: $background;
+}

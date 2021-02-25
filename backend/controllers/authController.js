@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
+const catchAsync = require('../../utils/catchAsync');
 const jwt = require('jsonwebtoken');
+const AppError = require('../../utils/appError');
 const User = mongoose.model('User');
 const okCode = 200;
 const notFound = 404;
@@ -35,28 +37,22 @@ exports.registerUser = async (request, response) => { // Controller function to 
     }
 };
 
-exports.signIn = async (request, response) => { // Controller function to log in users
+exports.signIn = catchAsync(async (request, response, next) => { // Controller function to log in users
     try {
         const method = request.method;
         const {username, password} = request.body;
 
         if(!username || !password) { // If there is no e-mail or password
-            return response.status(unprocessable).json({
-                message: 'You must provide an e-mail and password',
-                sentAt: new Date().toISOString()
-            });
+            return next(new AppError('You must provide a username and password'), 401);
         }
 
         if(method === 'POST') {
-            const user = await User.findOne({username});
+            const user = await User.findOne({username}); // Find a user
            
-            if(!user) {
-                return response.status(notFound).json({
-                    error: 'User not found'
-                });
+            if(!user || !(await user.comparePasswords(password, user.password))) {
+                return next(new AppError('Incorrect username or password. Please re-enter'), 401);
             }
 
-            await user.comparePasswords(password); // Compare the passwords before signing the users in
             const token = jwt.sign({userId: user._id}, 'SECRET_KEY'); // Sign the JWT with the user ID
             return response.status(okCode).json({
                 message: `You are logged in as ${username} with token ${token}`
@@ -73,4 +69,4 @@ exports.signIn = async (request, response) => { // Controller function to log in
             });
         }
     }
-}
+});

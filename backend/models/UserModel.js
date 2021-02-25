@@ -1,4 +1,3 @@
-//Proposed new User model shema for Moment One platfrom user accounts
 //Includes both ordinary users and therapists
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt'); 
@@ -9,7 +8,6 @@ const options = { //Schema options
 };
 
 const BaseSchema = new mongoose.Schema({ //Base Schema for both user and therapist accounts.
-	//This will store shared information between the two account types 
 	username: { // The Username
 		type: String, // Type is String
 		unique: [true, 'Username taken'], //Only unique usernames accepted. 
@@ -17,16 +15,19 @@ const BaseSchema = new mongoose.Schema({ //Base Schema for both user and therapi
 		min: 3, //Minimum of 3 characters
 		index: true
 	},
+
 	password: { //User password
 		type: String, // Is a string
 		required: [true, 'User must contain a valid password'], //Password required
 		min: 8,
 		max: 20 //Between 8 and 20 characters
 	},
+
 	aboutMe: { //About me section of the user profile
 		type: String, 
 		max:500 //Maximum of 500 characters
 	},
+
 	profileImage: String, //Path to profile image 
 	bannerImage: String //Path to banner image 
 }, options); //Using options for schema
@@ -58,23 +59,8 @@ BaseSchema.pre('save', function(next) { // Function before saving the
 	});
 });
 
-BaseSchema.methods.comparePasswords = function(providedPassword) {
-	const currentUser = this; // The current user
-
-	return new Promise((resolve, reject) => { // A promise that takes resolve and reject as parameters
-		bcrypt.compare(providedPassword, currentUser.password, (error, passwordMatch) => { // Compare the current user password with the provided password
-
-			if(error) {
-				return reject(error);
-			}
-			if(!passwordMatch) { // If there is no match
-				return reject(false); // Reject the comparison
-			}
-			
-			resolve(true); // Passwords match so therefore resolve is true
-			
-		});
-	});
+BaseSchema.methods.comparePasswords = async function(candidatePassword, userPassword) { // Method to compare user passwords
+	return await bcrypt.compare(candidatePassword, userPassword);
 }
 
 const Base = mongoose.model('Base', BaseSchema); //The base model

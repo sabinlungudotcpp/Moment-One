@@ -11,7 +11,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const okCode = 200;
 const notFound = 404;
-const port = 8000;
+const port = 8001;
 const keys = require('./backend/keys/keys');
 
 const commentRouter = require('./backend/routes/commentRoutes');

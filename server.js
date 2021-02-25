@@ -29,6 +29,7 @@ app.use(morgan('dev')); // Use logger
 app.use(express.static('public'));
 app.use(cors());
 
+// Use Middleware Routes
 app.use('/api/v1/momentone/comments', commentRouter);
 app.use('/api/v1/momentone/posts', postsRouter);
 app.use('/api/v1/momentone/goals', goalsRouter);

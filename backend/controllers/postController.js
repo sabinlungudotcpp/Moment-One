@@ -1,20 +1,29 @@
 const mongoose = require('mongoose');
 const Post = mongoose.model('Post');
+const okCode = 200;
+const serverError = 500;
 
 exports.getAllPosts = async (request, response) => {
     try {
         const method = request.method;
 
-        if(method === 'GET') {
-            const allPosts = await Post.find();
-            return response.json(allPosts);
+        if(method === 'GET') { // If there's a GET request
+            const allPosts = await Post.find(); // Retrieve all of the posts
+            return response.json({
+                data: {
+                    numberOfPosts: allPosts.length,
+                    allPosts
+                }
+            });
         }
     } 
     
     catch(error) {
         if(error) {
-            return response.status(500).json({
-                message: error.message
+            return response.status(serverError).json({
+                message: error.message,
+                stack: error.stack,
+                sentAt: new Date().toISOString()
             });
         }
     }
@@ -28,7 +37,7 @@ exports.getAllPosts = async (request, response) => {
             const id = request.params.id;
             const postId = await Post.findById(id);
 
-            return response.status(200).json({postId});
+            return response.status(okCode).json({postId});
         }
     } 
     

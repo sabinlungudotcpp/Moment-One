@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Post = mongoose.model('Post');
 const okCode = 200;
+const createdCode = 201;
 const serverError = 500;
 
 exports.getAllPosts = async (request, response) => { // Controller function to get all the posts
@@ -12,7 +13,7 @@ exports.getAllPosts = async (request, response) => { // Controller function to g
             const allPosts = await Post.find(); // Retrieve all of the posts
             return response.json({
                 data: {
-                    numberOfPosts: allPosts.length,
+                    numberOfPosts: allPosts.length, // Length of the posts
                     posts: allPosts
                 }
             });
@@ -20,7 +21,7 @@ exports.getAllPosts = async (request, response) => { // Controller function to g
     } 
     
     catch(error) {
-        if(error) {
+        if(error) { // If there's an error
             return response.status(serverError).json({
                 message: error.message,
                 stack: error.stack,
@@ -51,13 +52,13 @@ exports.getPostByID = async (request, response) => { // Retrieves a POST BY ITS 
     }
 }
 
-exports.createNewPost = async (request, response) => {
+exports.createNewPost = async (request, response) => { // Controller function to create a new post
     try {
         const method = request.method;
         const {title, description} = request.body;
 
         if(!title || !description) { // If there is no title or description
-            return response.status(500).json({
+            return response.status(serverError).json({
                 message: 'You must provide a post title and description'
             });
         }
@@ -66,7 +67,7 @@ exports.createNewPost = async (request, response) => {
             const newPost = new Post({title, description});
             await newPost.save();
 
-            return response.status(201).json({
+            return response.status(createdCode).json({
                 newPost,
                 createdAt: Date.now()
             });
@@ -86,7 +87,7 @@ exports.editPost = async (request, response) => {
         const id = request.params.id;
 
         if(!isNaN(id)) {
-            return response.status(500).json({
+            return response.status(serverError).json({
                 message: 'ID invalid'
             });
         }
@@ -116,7 +117,7 @@ exports.deleteAllPosts = async (request, response) => { // Route for DELETING al
         if(method === 'DELETE') {
             await Post.deleteMany();
             
-            return response.status(200).json({
+            return response.status(okCode).json({
                 message: 'All posts deleted successfully',
                 deletedAt: new Date().toISOString()
             });
@@ -125,7 +126,7 @@ exports.deleteAllPosts = async (request, response) => { // Route for DELETING al
     
     catch(error) {
         if(error) {
-            return response.status(500).json({
+            return response.status(serverError).json({
                 message: error.message
             });
         }
@@ -139,7 +140,8 @@ exports.deletePostByID = async (request, response) => {
 
         if(method === 'DELETE') {
             await Post.findByIdAndDelete(id, request.body);
-            return response.status(200).json({
+
+            return response.status(okCode).json({
                 message: 'Post deleted successfully'
             });
         }
@@ -147,7 +149,7 @@ exports.deletePostByID = async (request, response) => {
     
     catch(error) {
         if(error) {
-            return response.status(500).json({
+            return response.status(serverError).json({
                 message: error.message
             });
         }

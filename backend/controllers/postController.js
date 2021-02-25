@@ -3,11 +3,12 @@ const Post = mongoose.model('Post');
 const okCode = 200;
 const serverError = 500;
 
-exports.getAllPosts = async (request, response) => {
+exports.getAllPosts = async (request, response) => { 
     try {
         const method = request.method;
 
         if(method === 'GET') { // If there's a GET request
+
             const allPosts = await Post.find(); // Retrieve all of the posts
             return response.json({
                 data: {
@@ -29,7 +30,7 @@ exports.getAllPosts = async (request, response) => {
     }
 }
 
- exports.getPostByID = async (request, response) => {
+exports.getPostByID = async (request, response) => { // Retrieves a POST BY ITS ID
     try {
         const method = request.method;
         
@@ -50,7 +51,7 @@ exports.getAllPosts = async (request, response) => {
     }
 }
 
- exports.createNewPost = async (request, response) => {
+exports.createNewPost = async (request, response) => {
     try {
         const method = request.method;
         const {title, description} = request.body;
@@ -108,7 +109,7 @@ exports.editPost = async (request, response) => {
     }
 }
 
- exports.deleteAllPosts = async (request, response) => { // Route for DELETING all posts
+exports.deleteAllPosts = async (request, response) => { // Route for DELETING all posts
     try {
         const method = request.method;
 
@@ -131,7 +132,7 @@ exports.editPost = async (request, response) => {
     }
 }
 
- exports.deletePostByID = async (request, response) => {
+exports.deletePostByID = async (request, response) => {
     try {
         const method = request.method;
         const id = request.params.id;

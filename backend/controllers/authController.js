@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const AppError = require('../../utils/appError');
 const User = mongoose.model('User');
 const okCode = 200;
-const notFound = 404;
+const unauthorized = 401;
 const unprocessable = 422;
 
 exports.registerUser = async (request, response) => { // Controller function to register a user
@@ -43,14 +43,18 @@ exports.signIn = catchAsync(async (request, response, next) => { // Controller f
         const {username, password} = request.body;
 
         if(!username || !password) { // If there is no e-mail or password
-            return next(new AppError('You must provide a username and password'), 401);
+            return response.status(unauthorized).json({
+                message: 'You must provide an e-mail or password',
+                sentAt: new Date().toISOString()
+            });
         }
 
         if(method === 'POST') {
             const user = await User.findOne({username}); // Find a user
            
             if(!user || !(await user.comparePasswords(password, user.password))) {
-                return response.status(401).json({
+                
+                return response.status(unauthorized).json({
                     message: 'Incorrect e-mail or password',
                     sentAt: new Date().toISOString()
                 })
@@ -66,7 +70,7 @@ exports.signIn = catchAsync(async (request, response, next) => { // Controller f
     catch(error) {
 
         if(error) {
-            
+
             return response.status(unprocessable).json({
                 errorMsg: error.message,
                 stack: error.stack,

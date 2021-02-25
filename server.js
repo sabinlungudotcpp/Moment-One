@@ -3,13 +3,13 @@ require('./backend/models/commentsModel');
 require('./backend/models/goalsModel');
 require('./backend/models/userModel');
 
+// Library IMPORTS
 const mongoose = require('mongoose');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
-const okCode = 200;
 const notFound = 404;
 const port = 8001;
 const keys = require('./backend/keys/keys');
@@ -58,7 +58,7 @@ mongoose.connection.on('error', (error) => {
     return console.error('Error connecting to MongoDB -> reason : ', error);
 });
 
-app.listen(port, (error) => {
+app.listen(port, (error) => { // Listen for requests on the specified port
 
     if(!error) {
         return console.log(`Listening for requests on port ${port}`);

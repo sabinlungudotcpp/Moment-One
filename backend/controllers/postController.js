@@ -3,7 +3,7 @@ const Post = mongoose.model('Post');
 const okCode = 200;
 const serverError = 500;
 
-exports.getAllPosts = async (request, response) => { 
+exports.getAllPosts = async (request, response) => { // Controller function to get all the posts
     try {
         const method = request.method;
 
@@ -13,7 +13,7 @@ exports.getAllPosts = async (request, response) => {
             return response.json({
                 data: {
                     numberOfPosts: allPosts.length,
-                    allPosts
+                    posts: allPosts
                 }
             });
         }

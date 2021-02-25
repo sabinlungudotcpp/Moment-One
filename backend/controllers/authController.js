@@ -23,7 +23,7 @@ exports.registerUser = async (request, response) => { // Controller function to 
             await user.save();
 
             const token = jwt.sign({userId: user._id}, 'SECRET_KEY'); // Sign the JWT
-            return response.status(okCode).json({token});
+            return response.status(okCode).json({token, user});
         }
     }
     
@@ -39,7 +39,7 @@ exports.registerUser = async (request, response) => { // Controller function to 
 
 exports.signIn = catchAsync(async (request, response, next) => { // Controller function to log in users
     try {
-        const method = request.method;
+        const method = request.method; // The request method
         const {username, password} = request.body;
 
         if(!username || !password) { // If there is no e-mail or password
@@ -50,7 +50,10 @@ exports.signIn = catchAsync(async (request, response, next) => { // Controller f
             const user = await User.findOne({username}); // Find a user
            
             if(!user || !(await user.comparePasswords(password, user.password))) {
-                return next(new AppError('Incorrect username or password. Please re-enter'), 401);
+                return response.status(401).json({
+                    message: 'Incorrect e-mail or password',
+                    sentAt: new Date().toISOString()
+                })
             }
 
             const token = jwt.sign({userId: user._id}, 'SECRET_KEY'); // Sign the JWT with the user ID
@@ -61,7 +64,9 @@ exports.signIn = catchAsync(async (request, response, next) => { // Controller f
     } 
     
     catch(error) {
+
         if(error) {
+            
             return response.status(unprocessable).json({
                 errorMsg: error.message,
                 stack: error.stack,

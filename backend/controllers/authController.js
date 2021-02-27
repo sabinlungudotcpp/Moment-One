@@ -7,6 +7,10 @@ const okCode = 200;
 const unauthorized = 401;
 const unprocessable = 422;
 
+const signToken = id => {
+    return jwt.sign({id}, 'SECRET_KEY');
+}
+
 exports.registerUser = async (request, response) => { // Controller function to register a user
     try {
         const method = request.method;
@@ -22,7 +26,7 @@ exports.registerUser = async (request, response) => { // Controller function to 
             const user = new User({username, password});
             await user.save();
 
-            const token = jwt.sign({userId: user._id}, 'SECRET_KEY'); // Sign the JWT
+            const token = signToken(user._id); // Sign the JWT token
             return response.status(okCode).json({token, user});
         }
     }
@@ -40,7 +44,7 @@ exports.registerUser = async (request, response) => { // Controller function to 
 exports.signIn = catchAsync(async (request, response, next) => { // Controller function to log in users
     try {
         const method = request.method; // The request method
-        const {username, password} = request.body;
+        const {username, password} = request.body; // The request body
 
         if(!username || !password) { // If there is no e-mail or password
             return response.status(unauthorized).json({
@@ -78,4 +82,16 @@ exports.signIn = catchAsync(async (request, response, next) => { // Controller f
             });
         }
     }
+});
+
+exports.protect = catchAsync(async(request, response, next) => {
+    let token; // The JWT token
+});
+
+exports.forgotPassword = catchAsync(async(request, response, next) => {
+    // Algorithm below for implementing code for forgetting a user's password
+});
+
+exports.resetPassword = catchAsync(async(request, response, next) => {
+
 });

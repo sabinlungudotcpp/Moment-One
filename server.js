@@ -5,6 +5,9 @@ require('./backend/models/userModel');
 
 // Library IMPORTS
 const mongoose = require('mongoose');
+const xss = require('xss-clean');
+const mongoSanitize = require('express-mongo-sanitize');
+const rateLimit = require('express-rate-limit');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -22,12 +25,21 @@ const authRouter = require('./backend/routes/authRoutes');
 const authenticate = require('./backend/middlewares/authentication');
 const loginRouter = require('./backend/routes/loginRoutes');
 
+const limiter = rateLimit({
+    max: 100,
+    windowMs: 100 * 60 * 100,
+    message: 'Too mamy requests, please try again later'
+});
+
 app.use(bodyParser.json());
+app.use(express.json({limit: '27mb'}));
 app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev')); // Use logger
 app.use(express.static('public'));
 app.use(cors());
+app.use(limiter); // Use the rate limiter
+
 
 // Use Middleware Routes
 app.use('/api/v1/momentone/comments', commentRouter);

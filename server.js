@@ -14,9 +14,8 @@ const morgan = require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
-const notFound = 404;
-const port = 8001;
 
+// Routes Imports
 const commentRouter = require('./backend/routes/commentRoutes');
 const postsRouter = require('./backend/routes/postRoutes');
 const goalsRouter = require('./backend/routes/goalRoutes');
@@ -24,6 +23,9 @@ const userRouter = require('./backend/routes/UserRoutes');
 const authRouter = require('./backend/routes/authRoutes');
 const authenticate = require('./backend/middlewares/authentication');
 const loginRouter = require('./backend/routes/loginRoutes');
+
+const notFound = 404;
+const port = process.env.PORT || 8001;
 
 const limiter = rateLimit({
     max: 100,
@@ -40,7 +42,7 @@ app.use(express.static('public'));
 app.use(mongoSanitize());
 app.use(cors());
 app.use(limiter); // Use the rate limiter
-
+app.use(xss());
 
 // Use Middleware Routes
 app.use('/api/v1/momentone/comments', commentRouter);

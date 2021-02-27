@@ -1,13 +1,8 @@
-//Includes both ordinary users and therapists
 const mongoose = require('mongoose');
+const crypto = require('crypto');
 const bcrypt = require('bcrypt'); 
-const BYTES = 10;
-const options = { //Schema options
-	discriminatorKey: 'type', //Key name
-	collection: 'users' //Collection to be used
-};
 
-const BaseSchema = new mongoose.Schema({ //Base Schema for both user and therapist accounts.
+const userSchema = new mongoose.Schema({ //Base Schema for both user and therapist accounts.
 	username: { // The Username
 		type: String, // Type is String
 		unique: [true, 'Username taken'], //Only unique usernames accepted. 
@@ -23,49 +18,39 @@ const BaseSchema = new mongoose.Schema({ //Base Schema for both user and therapi
 		max: 20 //Between 8 and 20 characters
 	},
 
+	passwordConfirm: {
+		type: String,
+		required: [true, 'You must confirm your passwword']
+	},
+
+	passwordResetExpiry: Date,
+
 	aboutMe: { //About me section of the user profile
 		type: String, 
-		max:500 //Maximum of 500 characters
+		max: 500,
+		required: false
 	},
 
 	profileImage: String, //Path to profile image 
 	bannerImage: String //Path to banner image 
 }, options); //Using options for schema
 
-BaseSchema.pre('save', function(next) { // Function before saving the
+userSchema.pre('save', function(next) { // Function before saving the
 	const currentUser = this; // The current user
 
 	if(!currentUser.isModified('password')) { // If the user has not modified their password
 		return next();
 	}
-
-	bcrypt.genSalt(BYTES, (error, salt) => { // Generate a salt of 10 BYTES
-		if(error) { // If there is an error
-			return next(error);
-		}
-
-		else { // Otherwise
-			bcrypt.hash(currentUser.password, salt, (error, hash) => { // Hash the current users password by passing it a salt
-				if(error) { // If there is an error
-					return next(error);
-				}
-
-				else {
-					currentUser.password = hash; // The user's password is now the hashed password
-					next();
-				}
-			})
-		}
-	});
 });
 
-BaseSchema.methods.comparePasswords = async function(candidatePassword, userPassword) { // Method to compare user passwords
+userSchema.methods.comparePasswords = async function(candidatePassword, userPassword) { // Method to compare user passwords
 	return await bcrypt.compare(candidatePassword, userPassword);
 }
 
 const Base = mongoose.model('Base', BaseSchema); //The base model
 
-const User = Base.discriminator('User', new mongoose.Schema({ //User schema that inherits from the base schema
+/*
+const Therapist = Base.discriminator('User', new mongoose.Schema({ //User schema that inherits from the base schema
 	email: { //Email address for users. Not required and only used if user wants notifications
 		type: String,
 		match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'Invalid email address'], // Regex. Matches email accounts.
@@ -83,6 +68,7 @@ const User = Base.discriminator('User', new mongoose.Schema({ //User schema that
 		ref: 'Goals'
 	}]
 }));
+*/
 
 
 const Therapist = Base.discriminator('Therapist', new mongoose.Schema({ //Therapist schema that inherits from the base schema

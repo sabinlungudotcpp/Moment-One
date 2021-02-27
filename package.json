@@ -26,8 +26,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1",
     "save": "^2.4.0",
-    "web-vitals": "^0.2.4",
-    "xss-clean": "^0.1.1"
+    "web-vitals": "^0.2.4"
   },
   "scripts": {
     "start": "nodemon server.js",
@@ -68,7 +67,8 @@
     "morgan": "^1.10.0",
     "mz": "^2.7.0",
     "supertest": "^6.1.1",
-    "supertest-as-promised": "^4.0.2"
+    "supertest-as-promised": "^4.0.2",
+    "xss-clean": "^0.1.1"
   },
   "keywords": [],
   "author": "",

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Goals = mongoose.model('Goals');
+const Goals = require('../models/goalsModel');
 const AppError = require('../../utils/appError');
 const catchAsync = require('../../utils/catchAsync');
 const okCode = 200;

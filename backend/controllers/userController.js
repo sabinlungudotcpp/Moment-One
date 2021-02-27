@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const User = mongoose.model('User');
+const User = require('../models/userModel');
 const okCode = 200;
 const serverError = 500;
 

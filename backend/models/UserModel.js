@@ -2,9 +2,8 @@ const mongoose = require('mongoose');
 const crypto = require('crypto');
 const bcrypt = require('bcrypt'); 
 const HASH_BYTES = 12;
-const TOKEN_HASH_BYTES = 32;
 
-const userSchema = new mongoose.Schema({ //Base Schema for both user and therapist accounts.
+const userSchema = new mongoose.Schema({ 
 	username: { 
 		type: String,
 		unique: [true, 'Username taken'], 
@@ -13,6 +12,15 @@ const userSchema = new mongoose.Schema({ //Base Schema for both user and therapi
 		index: true,
 		required: [true, 'You must provide your username']
 	},
+
+	aboutMe: {
+		type: String, 
+		max: 500,
+		required: false
+	},
+
+	profileImage: String,
+	bannerImage: String,
 
 	password: { 
 		type: String, 
@@ -27,25 +35,18 @@ const userSchema = new mongoose.Schema({ //Base Schema for both user and therapi
 	},
 
 	passwordResetExpiry: Date,
-
-	aboutMe: {
-		type: String, 
-		max: 500,
-		required: false
-	},
-
-	profileImage: String,
-	bannerImage: String 
 }); 
 
-userSchema.pre('save', function(next) { 
+userSchema.pre('save', async function(next) { 
 	const currentUser = this; 
 
 	if(!currentUser.isModified('password')) {
 		return next();
 	}
 
-	this.password = bcrypt.hash(this.password, HASH_BYTES); // Hash the user password
+	this.password = await bcrypt.hash(this.password, HASH_BYTES); // Hash the user password
+	this.passwordConfirm = undefined;
+	return next();
 });
 
 userSchema.methods.comparePasswords = async function(candidatePassword, userPassword) { // Method to compare user passwords

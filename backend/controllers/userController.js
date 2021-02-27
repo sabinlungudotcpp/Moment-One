@@ -1,9 +1,6 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
-const jwt = require('jsonwebtoken');
 const okCode = 200;
-const created = 201;
-const unprocessable = 422;
 const serverError = 500;
 
 exports.getAllUsers = async (request, response) => { //get all users

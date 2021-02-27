@@ -7,10 +7,6 @@ const okCode = 200;
 const unauthorized = 401;
 const unprocessable = 422;
 
-const signToken = id => {
-    return jwt.sign({id}, 'SECRET_KEY');
-}
-
 exports.registerUser = async (request, response) => { // Controller function to register a user
     try {
         const method = request.method;
@@ -32,6 +28,7 @@ exports.registerUser = async (request, response) => { // Controller function to 
     }
     
     catch(error) {
+        
         if(error) {
             return response.status(unprocessable).json({
                 message: error.message,
@@ -82,16 +79,4 @@ exports.signIn = catchAsync(async (request, response, next) => { // Controller f
             });
         }
     }
-});
-
-exports.protect = catchAsync(async(request, response, next) => {
-    let token; // The JWT token
-});
-
-exports.forgotPassword = catchAsync(async(request, response, next) => {
-    // Algorithm below for implementing code for forgetting a user's password
-});
-
-exports.resetPassword = catchAsync(async(request, response, next) => {
-
 });

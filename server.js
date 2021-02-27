@@ -6,6 +6,7 @@ require('./backend/models/userModel');
 // Library IMPORTS
 const mongoose = require('mongoose');
 const xss = require('xss-clean');
+const keys = require('./backend/keys/keys');
 const mongoSanitize = require('express-mongo-sanitize');
 const rateLimit = require('express-rate-limit');
 const express = require('express');
@@ -15,7 +16,6 @@ const bodyParser = require('body-parser');
 const app = express();
 const notFound = 404;
 const port = 8001;
-const keys = require('./backend/keys/keys');
 
 const commentRouter = require('./backend/routes/commentRoutes');
 const postsRouter = require('./backend/routes/postRoutes');
@@ -37,6 +37,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev')); // Use logger
 app.use(express.static('public'));
+app.use(mongoSanitize());
 app.use(cors());
 app.use(limiter); // Use the rate limiter
 

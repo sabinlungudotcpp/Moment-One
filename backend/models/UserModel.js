@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const crypto = require('crypto');
 const bcrypt = require('bcrypt'); 
+const HASH_BYTES = 12;
+const TOKEN_HASH_BYTES = 32;
 
 const userSchema = new mongoose.Schema({ //Base Schema for both user and therapist accounts.
 	username: { 
@@ -39,9 +41,11 @@ const userSchema = new mongoose.Schema({ //Base Schema for both user and therapi
 userSchema.pre('save', function(next) { 
 	const currentUser = this; 
 
-	if(!currentUser.isModified('password')) { 
+	if(!currentUser.isModified('password')) {
 		return next();
 	}
+
+	this.password = bcrypt.hash(this.password, HASH_BYTES); // Hash the user password
 });
 
 userSchema.methods.comparePasswords = async function(candidatePassword, userPassword) { // Method to compare user passwords

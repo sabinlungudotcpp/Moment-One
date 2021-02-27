@@ -1,0 +1,36 @@
+
+$logo : url("../imageAssets/Logos/logo.svg");
+
+$navIcons: (
+    "logout": url("../imageAssets/MenuBarIcons/logout.svg"),
+    "chat":url("../imageAssets/MenuBarIcons/chat.svg"),
+    "community":url("../imageAssets/MenuBarIcons/community.svg"),
+    "home":url('../imageAssets/MenuBarIcons/home.svg'),
+    "perspectives":url("../imageAssets/MenuBarIcons/perspectives.svg"),
+    "wellbeing":url("../imageAssets/MenuBarIcons/wellbeing.svg")
+);
+
+@function navIcon($name,$colour){
+    @if($colour = "g"){
+        @return map-get($navIcons, $name );
+    }
+    @if($colour == "b"){
+        @return map-get($navIcons_blue, $name );;
+    }
+
+}
+
+//header components
+$bell : url("../imageAssets/Icons/General/bell.svg");
+
+//Art
+$handbook : url("../imageAssets/Handbook Illustration/Handbook Illustration.png");
+
+//Feeling Icons
+$feelingIcons:(
+    "great":url("../imageAssets/Mood Tracker/moodGreat.png"),
+    "good":url("../imageAssets/Mood Tracker/moodGood.png"),
+    "meh":url("../imageAssets/Mood Tracker/moodMeh.png"),
+    "bad":url("../imageAssets/Mood Tracker/moodBad.png"),
+    "awful":url("../imageAssets/Mood Tracker/moodAwful.png"),
+)

@@ -1,26 +1,37 @@
 const mongoose = require('mongoose');
 const Post = mongoose.model('Post');
+const okCode = 200;
+const createdCode = 201;
+const serverError = 500;
 
-exports.getAllPosts = async (request, response) => {
+exports.getAllPosts = async (request, response) => { // Controller function to get all the posts
     try {
         const method = request.method;
 
-        if(method === 'GET') {
-            const allPosts = await Post.find();
-            return response.json(allPosts);
+        if(method === 'GET') { // If there's a GET request
+
+            const allPosts = await Post.find(); // Retrieve all of the posts
+            return response.json({
+                data: {
+                    numberOfPosts: allPosts.length, // Length of the posts
+                    posts: allPosts
+                }
+            });
         }
     } 
     
     catch(error) {
-        if(error) {
-            return response.status(500).json({
-                message: error.message
+        if(error) { // If there's an error
+            return response.status(serverError).json({
+                message: error.message,
+                stack: error.stack,
+                sentAt: new Date().toISOString()
             });
         }
     }
 }
 
- exports.getPostByID = async (request, response) => {
+exports.getPostByID = async (request, response) => { // Retrieves a POST BY ITS ID
     try {
         const method = request.method;
         
@@ -28,7 +39,7 @@ exports.getAllPosts = async (request, response) => {
             const id = request.params.id;
             const postId = await Post.findById(id);
 
-            return response.status(200).json({postId});
+            return response.status(okCode).json({postId});
         }
     } 
     
@@ -41,13 +52,13 @@ exports.getAllPosts = async (request, response) => {
     }
 }
 
- exports.createNewPost = async (request, response) => {
+exports.createNewPost = async (request, response) => { // Controller function to create a new post
     try {
         const method = request.method;
         const {title, description} = request.body;
 
         if(!title || !description) { // If there is no title or description
-            return response.status(500).json({
+            return response.status(serverError).json({
                 message: 'You must provide a post title and description'
             });
         }
@@ -56,7 +67,7 @@ exports.getAllPosts = async (request, response) => {
             const newPost = new Post({title, description});
             await newPost.save();
 
-            return response.status(201).json({
+            return response.status(createdCode).json({
                 newPost,
                 createdAt: Date.now()
             });
@@ -76,7 +87,7 @@ exports.editPost = async (request, response) => {
         const id = request.params.id;
 
         if(!isNaN(id)) {
-            return response.status(500).json({
+            return response.status(serverError).json({
                 message: 'ID invalid'
             });
         }
@@ -99,14 +110,14 @@ exports.editPost = async (request, response) => {
     }
 }
 
- exports.deleteAllPosts = async (request, response) => { // Route for DELETING all posts
+exports.deleteAllPosts = async (request, response) => { // Route for DELETING all posts
     try {
         const method = request.method;
 
         if(method === 'DELETE') {
             await Post.deleteMany();
             
-            return response.status(200).json({
+            return response.status(okCode).json({
                 message: 'All posts deleted successfully',
                 deletedAt: new Date().toISOString()
             });
@@ -115,21 +126,22 @@ exports.editPost = async (request, response) => {
     
     catch(error) {
         if(error) {
-            return response.status(500).json({
+            return response.status(serverError).json({
                 message: error.message
             });
         }
     }
 }
 
- exports.deletePostByID = async (request, response) => {
+exports.deletePostByID = async (request, response) => {
     try {
         const method = request.method;
         const id = request.params.id;
 
         if(method === 'DELETE') {
             await Post.findByIdAndDelete(id, request.body);
-            return response.status(200).json({
+
+            return response.status(okCode).json({
                 message: 'Post deleted successfully'
             });
         }
@@ -137,7 +149,7 @@ exports.editPost = async (request, response) => {
     
     catch(error) {
         if(error) {
-            return response.status(500).json({
+            return response.status(serverError).json({
                 message: error.message
             });
         }

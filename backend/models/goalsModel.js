@@ -12,8 +12,8 @@ const GoalSchema = new mongoose.Schema({
 
     length: {
         type: Number,
-        min: 2,
-        max: 60,
+        minlength: 2,
+        maxlength: 60,
         required: [true, 'A goal must have a length between 2 and 60 days']
     },
 

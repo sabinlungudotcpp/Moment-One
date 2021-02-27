@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
 const Goals = mongoose.model('Goals');
+const AppError = require('../../utils/appError');
+const catchAsync = require('../../utils/catchAsync');
 const okCode = 200;
 const createdCode = 201;
 const unprocessable = 400;
 const notFound = 404;
 const root = '/';
 
-exports.getAllGoals = async (request, response) => { // Function that GETS all the goals from the database
+exports.getAllGoals = catchAsync(async (request, response, next) => { // Function that GETS all the goals from the database
     try {
         const method = request.method; // Request method
         const url = request.url;
@@ -27,18 +29,16 @@ exports.getAllGoals = async (request, response) => { // Function that GETS all t
             });
         }
     }
-};
+});
 
-exports.getGoalByID = async (request, response) => {
+exports.getGoalByID = catchAsync(async (request, response, next) => {
     try {
         const id = request.params.id;
         const url = request.url;
         const method = request.method;
 
         if(!id || !isNaN(id)) {
-            return response.status(notFound).json({
-                message: 'Invalid ID entry'
-            });
+            return next(new AppError('No ID found'), notFound);
         }
 
         if(method === 'GET' && url.startsWith(root)) {
@@ -51,27 +51,30 @@ exports.getGoalByID = async (request, response) => {
         const errorMsg = error.message;
 
         if(error) {
-            return response.status(unprocessable).json(errorMsg);
+            return response.status(unprocessable).json({
+                errorMsg,
+                errorStack: error.stack,
+                error
+            });
         }
     }
-};
+});
 
-exports.createGoal = async (request, response) => { // Function export that creates a new goal
+exports.createGoal = catchAsync(async (request, response, next) => { // Function export that creates a new goal
     try {
         let goalCreated = false;
         const method = request.method; // The request method
-        const url = request.url;
-        const {goal, reason, length, reward} = request.body; // Body of the request
+        const {goal, reason, reward, length} = request.body; // Body of the request
 
-        if(!goal || !reason || !length || reward) {
+        if(!goal || !reason || !reward || !length) {
             return response.status(unprocessable).json({
                 message: 'Goal must have a goal, reason, length and reward',
                 sentAt: new Date().toISOString()
             });
         }
 
-        if(method === 'POST' && url.startsWith(root)) {
-            const newGoal = new Goals({goal, reason, length, reward});
+        if(method === 'POST') {
+            const newGoal = new Goals({goal, reason, reward, length});
             await newGoal.save(); // Save the goal
             goalCreated = true;
 
@@ -88,14 +91,16 @@ exports.createGoal = async (request, response) => { // Function export that crea
             });
         }
     }
-}
+});
 
-exports.editGoal = async (request, response) => {
+exports.editGoal = catchAsync(async (request, response) => { // Controller function to edit a goal
+
     try {
         let goalEdited = false;
+        
         const method = request.method;
         const url = request.url;
-        const id = request.params.id;
+        const id = request.params.id; // The ID of the goal coming from the params section
         const {goal, reason, length, reward} = request.body; // The data from the body.
 
         if(!goal || !reason || !length || !reward) {
@@ -125,12 +130,16 @@ exports.editGoal = async (request, response) => {
     
     catch(error) {
         const msg = error.message;
+        const stack = error.stack;
 
         if(error) {
-            return response.status(notFound).json(msg);
+            return response.status(notFound).json({
+                message: msg,
+                stack
+            });
         }
     }
-}
+});
 
 exports.deleteGoals = async (request, response) => {
     try {

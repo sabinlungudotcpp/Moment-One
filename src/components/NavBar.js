@@ -1,49 +1,82 @@
 import React, { Component } from "react";
 import { NavLink } from 'react-router-dom';
 
-function Navbar(){
-    return(
-        
-        <div className= "navBar">
+const Navbar = () => { // Navigation Bar Component
+    return (
 
-            <h1> Moment-One</h1>
-            <NavLink exact activeClassName="navbar__link--active" className="navbar__link" to = "/">Home </NavLink>
+         <div className= "navbar">
+            <div className = "NavLogo"></div>
+            <div className = "profile">
+                <div className = "profileImg"></div>
+                {/* Placeholder : will get current user in future */}
+                <p>@Username</p>
+            </div>
 
-            <NavLink exact activeClassName="navbar__link--active" className="navbar__link" to="/YourProfile">Your Profile</NavLink>
-            <NavLink exact activeClassName="navbar__link--active" className="navbar__link" to="/YourMoments">Your Moments</NavLink>
+        {/* Navigation Links */}
+            <ul className="navbar_items">
+                <li className="moments">
+                
+                    <NavLink activeClassName="navbar_link_active" className="navbar_link" to = "/home">
+                        <div className = "icon">
+                            <div className ="homeIcon"></div>
+                        </div>
+                        <span className="navbar_items-text">Dashboard</span>
+                    </NavLink>
 
-            <NavLink exact activeClassName="navbar__link--active" className="navbar__link" to="/CommunityMoments">Community Moments</NavLink>
+                    {/*moments sub menu*/}
+                    <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to = "/home/yourjourney">
+                        <span className="navbar_subitems-text">Your journey</span>
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to="/wellbeing">
+                        <div className = "icon">
+                            <div className ="wellbeingIcon"></div>
+                        </div>
+                        <span className="navbar_items-text">Wellbeing</span>
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to = "/perspectives">
+                        <div className = "icon">
+                            <div className ="perspectivesIcon"></div>
+                        </div>
+                        <span className="navbar_items-text">Perspectives</span>
+                    </NavLink>
+                </li>
 
-            <NavLink exact activeClassName="navbar__link--active" className="navbar__link" to="/CommunityMembers">Community Members</NavLink>
+                <li>
+                    <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to="/community">
+                        <div className = "icon">
+                            <div className ="communityIcon"></div>
+                        </div>
+                        <span className="navbar_items-text">Community</span>
+                    </NavLink>
+                </li>
 
-            <NavLink
-                exact
-                activeClassName="navbar__link--active"
-                className="navbar__link"
-                to="/SelfAwareness"
-                >
-                Self Awareness
-            </NavLink>
 
-            <NavLink
-                exact
-                activeClassName="navbar__link--active"
-                className="navbar__link"
-                to="/Settings"
-                >
-                Settings
-            </NavLink>
+                <li>
+                    <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to="livechat">
+                        <div className = "icon">
+                            <div className ="livechatIcon"></div>
+                        </div>
+                        <span className="navbar_items-text">Live-Chat</span>   
+                    </NavLink>
+                </li>
 
-            <NavLink
-                exact
-                activeClassName="navbar__link--active"
-                className="navbar__link"
-                to="/"
-                >
-                Logout
-            </NavLink>
+
+                <li className="logout">
+                    <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to="/logout">
+                        <div className = "icon">
+                            <div className ="logoutIcon"></div>
+                        </div>
+                        <span className="navbar_items-text">Log-Out</span>
+
+                    </NavLink>
+                </li>
+            </ul>
         </div>
     )
 }
 
-export default Navbar;
+export default Navbar; //Exports Navbar

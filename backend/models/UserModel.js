@@ -1,50 +1,131 @@
-//User model schema for MomentOne platform user accounts
+//Includes both ordinary users and therapists
 const mongoose = require('mongoose');
-const UserSchema = new mongoose.Schema({
+const bcrypt = require('bcrypt'); 
+const BYTES = 10;
+const options = { //Schema options
+	discriminatorKey: 'type', //Key name
+	collection: 'users' //Collection to be used
+};
 
-	username: {
-		type: String, 
-		unique: [true, 'Username taken'],
-		required: [true, 'Username required'],
+const BaseSchema = new mongoose.Schema({ //Base Schema for both user and therapist accounts.
+	username: { // The Username
+		type: String, // Type is String
+		unique: [true, 'Username taken'], //Only unique usernames accepted. 
 		match: [/^[a-zA-Z0-9]+$/, 'Invalid username'], //Regex. Allows Alphanumeric usernames with no special characters.
+		min: 3, //Minimum of 3 characters
 		index: true
 	},
 
-	firstName: {
-		type: String,
-		required: [true, 'Name required']
-	},
-
-	lastName: { // Last name of the user
-		type: String,
-		required: [true, 'Name required']
-	},
-
-	dateOfBirth: { // Date of birth of the user
-		type: Date,
-		required: true
-	},
-
-	email: {
-		type: String,
-		unique: [true, 'Email already used'],
-		required: [true, 'Email required'],
-		match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'Invalid email address'], //Regex. Matches email accounts.
-		index: true
-	},
-
-	password: {
-		type: String,
-		required: [true, 'User must contain a valid password'],
+	password: { //User password
+		type: String, // Is a string
+		required: [true, 'User must contain a valid password'], //Password required
 		min: 8,
-		max: 20
+		max: 20 //Between 8 and 20 characters
 	},
 
-	aboutMe: String, 
-	therapist: ObjectId, //ObjectId linking to assigned therapists
-	posts: [ObjectId], //Arrey of post ids
-	profileImage: String, //Path to profile picture file 
-	banner: String //Path to banner picture file
+	aboutMe: { //About me section of the user profile
+		type: String, 
+		max:500 //Maximum of 500 characters
+	},
+
+	profileImage: String, //Path to profile image 
+	bannerImage: String //Path to banner image 
+}, options); //Using options for schema
+
+BaseSchema.pre('save', function(next) { // Function before saving the
+	const currentUser = this; // The current user
+
+	if(!currentUser.isModified('password')) { // If the user has not modified their password
+		return next();
+	}
+
+	bcrypt.genSalt(BYTES, (error, salt) => { // Generate a salt of 10 BYTES
+		if(error) { // If there is an error
+			return next(error);
+		}
+
+		else { // Otherwise
+			bcrypt.hash(currentUser.password, salt, (error, hash) => { // Hash the current users password by passing it a salt
+				if(error) { // If there is an error
+					return next(error);
+				}
+
+				else {
+					currentUser.password = hash; // The user's password is now the hashed password
+					next();
+				}
+			})
+		}
+	});
 });
 
-mongoose.model('User', UserSchema);
+BaseSchema.methods.comparePasswords = async function(candidatePassword, userPassword) { // Method to compare user passwords
+	return await bcrypt.compare(candidatePassword, userPassword);
+}
+
+const Base = mongoose.model('Base', BaseSchema); //The base model
+
+const User = Base.discriminator('User', new mongoose.Schema({ //User schema that inherits from the base schema
+	email: { //Email address for users. Not required and only used if user wants notifications
+		type: String,
+		match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'Invalid email address'], // Regex. Matches email accounts.
+		index: true,
+		sparse: true
+	},
+	therapist: { //Mongoose population. Refering to the users assigned therapist 
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Therapist'
+	},
+	goals: [{ //Arrey of objectIds that refer to the users goals
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Goals'
+	}]
+}));
+
+
+
+const Therapist = Base.discriminator('Therapist', new mongoose.Schema({ //Therapist schema that inherits from the base schema
+	name: { //Therapists name
+		firstName: {
+			type: String,
+			required: [true, 'Firat name required']
+		},
+		lastName: {
+			type: String,
+			required: [true, 'Last name required']
+		}
+	},
+	contactInfo: { //Therapist contact information
+		email: { //Email required for therpist users
+			type: String,
+			//unique: [true, 'Email already used'],
+			required: [true, 'Email required'],
+			match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'Invalid email address'], //Regex. Matches email accounts.
+			index: true,
+			sparse: true
+		},
+		tel: { //Therapistrs phone number
+			type: Number, 
+			required: [true, 'Phone number required']
+		},
+		location: { //Therapists locations
+			city: {
+				type: String,
+				required: [true, 'City required']
+			},
+			country: {
+				type: String,
+				required: [true, 'Country required']
+			}
+		}
+	},
+	users: [{ //Arrey of users that are assigned to this therapist
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User'
+	}]
+}));
+
+module.exports = {
+	User,
+	Therapist
+}

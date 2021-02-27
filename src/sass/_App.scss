@@ -1,0 +1,51 @@
+@import "Variables";
+
+.App {
+    width:99vw;
+    height: 99vh;
+}
+
+.PageContent {
+    width: calc(100vw - 100px);
+    height: 100%;
+    margin-left: 100px;
+    float: left;
+    border-radius: 25px 25px 25px 25px;
+    overflow-x:visible;
+    overflow-y:hidden;
+}
+  
+h1 {
+    text-align: center;
+    color: colour(F,bla);
+    text-transform: uppercase;
+    font-size: 35px;
+}
+.Page{
+    height: 96vh;
+    width: calc(100vw -100px);
+
+.Content{
+    overflow: hidden;
+    overflow-x: scroll;
+    height:88vh;
+    padding-left:3vw;
+    padding-right:3vw;
+    //webkit browser scrollbar
+    &::-webkit-scrollbar{
+        width:4px
+    }
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+      }
+    &::-webkit-scrollbar-thumb {
+        background: #888; 
+      }
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgb(177, 177, 177) 
+      }
+    //firefox scrollbar
+    scrollbar-color: rgb(177, 177, 177) #fff;
+    scrollbar-width: thin;
+    }
+}

@@ -3,19 +3,20 @@ const crypto = require('crypto');
 const bcrypt = require('bcrypt'); 
 
 const userSchema = new mongoose.Schema({ //Base Schema for both user and therapist accounts.
-	username: { // The Username
-		type: String, // Type is String
-		unique: [true, 'Username taken'], //Only unique usernames accepted. 
-		match: [/^[a-zA-Z0-9]+$/, 'Invalid username'], //Regex. Allows Alphanumeric usernames with no special characters.
-		min: 3, //Minimum of 3 characters
-		index: true
+	username: { 
+		type: String,
+		unique: [true, 'Username taken'], 
+		match: [/^[a-zA-Z0-9]+$/, 'Invalid username'], 
+		min: 3, 
+		index: true,
+		required: [true, 'You must provide your username']
 	},
 
-	password: { //User password
-		type: String, // Is a string
-		required: [true, 'User must contain a valid password'], //Password required
+	password: { 
+		type: String, 
+		required: [true, 'You must provide your password'],
 		min: 8,
-		max: 20 //Between 8 and 20 characters
+		max: 20 
 	},
 
 	passwordConfirm: {
@@ -25,26 +26,26 @@ const userSchema = new mongoose.Schema({ //Base Schema for both user and therapi
 
 	passwordResetExpiry: Date,
 
-	aboutMe: { //About me section of the user profile
+	aboutMe: {
 		type: String, 
 		max: 500,
 		required: false
 	},
 
-	profileImage: String, //Path to profile image 
-	bannerImage: String //Path to banner image 
-}, options); //Using options for schema
+	profileImage: String,
+	bannerImage: String 
+}); 
 
-userSchema.pre('save', function(next) { // Function before saving the
-	const currentUser = this; // The current user
+userSchema.pre('save', function(next) { 
+	const currentUser = this; 
 
-	if(!currentUser.isModified('password')) { // If the user has not modified their password
+	if(!currentUser.isModified('password')) { 
 		return next();
 	}
 });
 
 userSchema.methods.comparePasswords = async function(candidatePassword, userPassword) { // Method to compare user passwords
-	return await bcrypt.compare(candidatePassword, userPassword);
+	return await bcrypt.compare(candidatePassword, userPassword); // Compare the passwords before authentication
 }
 
 const User = mongoose.model('User', userSchema);

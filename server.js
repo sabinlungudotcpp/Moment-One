@@ -1,7 +1,8 @@
-
+const express = require('express');
+const app = require('./app');
 const notFound = 404;
 const port = process.env.PORT || 8001;
-
+const localhost = '127.0.0.1';
 
 mongoose.connect(keys.mongoURI, {
     useCreateIndex: true,

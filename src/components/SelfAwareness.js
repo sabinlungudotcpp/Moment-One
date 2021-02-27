@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-function SelfAwareness() {
+function SelfAwareness() { // Self awareness component
   return (
     <div className = "SelfAwareness">
       <header className = "SelfAwareness-header">

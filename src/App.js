@@ -12,7 +12,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
-    
+
     <Router>
       <div className = "App">
 
@@ -21,11 +21,11 @@ function App() {
         <div className = "PageContent">
           <Switch>
             <Route path="/" exact component = {Home}/>
-            <Route path="/CommunityMembers" component={CommunityMembers}/>
-            <Route path="/CommunityMoments" component={CommunityMoments}/>
-            <Route path="/Home" component={Home}/>
+            <Route path="/CommunityMembers" component = {CommunityMembers}/>
+            <Route path="/CommunityMoments" component = {CommunityMoments}/>
+            <Route path="/Home" component = {Home}/>
             <Route path="/SelfAwareness" component={SelfAwareness}/>
-            <Route path="/YourProfile" component={UserProfile}/>
+            <Route path="/YourProfile" component = {UserProfile}/>
             <Route path="/YourMoments" component={YourMoments}/>
             <Route path="/Settings" component={Settings}/>
           </Switch>

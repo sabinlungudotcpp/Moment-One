@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Post = mongoose.model('Post');
+const Post = require('../models/postsModel');
 const okCode = 200;
 const createdCode = 201;
 const serverError = 500;
@@ -10,7 +9,7 @@ exports.getAllPosts = async (request, response) => { // Controller function to g
 
         if(method === 'GET') { // If there's a GET request
 
-            const allPosts = await Post.find(); // Retrieve all of the posts
+            const allPosts = await Post.find();
             return response.json({
                 data: {
                     numberOfPosts: allPosts.length, // Length of the posts

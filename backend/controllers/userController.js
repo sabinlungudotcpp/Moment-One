@@ -1,9 +1,6 @@
 const mongoose = require('mongoose');
-const User = mongoose.model('User');
-const jwt = require('jsonwebtoken');
+const User = require('../models/userModel');
 const okCode = 200;
-const created = 201;
-const unprocessable = 422;
 const serverError = 500;
 
 exports.getAllUsers = async (request, response) => { //get all users
@@ -11,7 +8,7 @@ exports.getAllUsers = async (request, response) => { //get all users
 		const method = request.method;
 		const url = request.url;
 
-		if(method === 'GET' && url.startsWith('/')) {
+		if(method === 'GET' && url.startsWith('/')) { // If there is a GET request
 
 			const allUsers  = await User.find(); //Getting users from the database
 			return response.status(okCode).json({allUsers});

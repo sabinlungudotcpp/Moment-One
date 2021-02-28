@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
+const notFound = 404;
 
 // Routes Imports
 const commentRouter = require('./backend/routes/commentRoutes');

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Goals = mongoose.model('Goals');
-const AppError = require('../../utils/appError');
-const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../utils/appError');
+const catchAsync = require('../utils/catchAsync');
 const okCode = 200;
 const createdCode = 201;
 const unprocessable = 400;
@@ -9,56 +9,33 @@ const notFound = 404;
 const root = '/';
 
 exports.getAllGoals = catchAsync(async (request, response, next) => { // Function that GETS all the goals from the database
-    try {
         const method = request.method; // Request method
         const url = request.url;
 
         if(method === 'GET' && url.startsWith(root)) { // If there is a GET request
-            const goals = await Goals.find(); // Call .find() to get all the goals
+            const goals = await Goals.find();
+
+            if(goals.length === 0) {
+                return next(new AppError('Goals not found'), 404);
+            }
+
             return response.status(okCode).json(goals); // Send back the goals
         }
     } 
-    
-    catch(error) {
-        const errorMsg = error.message;
+);
 
-        if(error) { // If there is an error
-            return response.status(unprocessable).json({
-                errorMsg,
-                sentAt: new Date().toISOString()
-            });
-        }
-    }
-});
 
 exports.getGoalByID = catchAsync(async (request, response, next) => {
-    try {
         const id = request.params.id;
-        const url = request.url;
-        const method = request.method;
+        const goal = await Goals.findById(id);
 
-        if(!id || !isNaN(id)) {
-            return next(new AppError('No ID found'), notFound);
+        if(!goal) {
+            return next(new AppError('No goal found'), 404);
         }
 
-        if(method === 'GET' && url.startsWith(root)) {
-            const goal = await Goals.findById(id);
-            return response.status(okCode).json(goal);
-        }
-    } 
-    
-    catch(error) {
-        const errorMsg = error.message;
-
-        if(error) {
-            return response.status(unprocessable).json({
-                errorMsg,
-                errorStack: error.stack,
-                error
-            });
-        }
+        return response.status(200).json(goal);
     }
-});
+);
 
 exports.createGoal = catchAsync(async (request, response, next) => { // Function export that creates a new goal
     try {

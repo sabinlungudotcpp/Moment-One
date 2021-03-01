@@ -24,6 +24,8 @@ app.use('/api/v1/momentone/comments', commentRouter);
 app.use('/api/v1/momentone/posts', postsRouter);
 app.use('/api/v1/momentone/goals', goalsRouter);
 app.use('/api/v1/momentone/users', userRouter);
+app.use('/api/v1/momentone/register', userRouter);
+app.use('/api/v1/momentone/login', userRouter);
 
 app.all('*', (request, response, next) => {
     return response.status(notFound).json({

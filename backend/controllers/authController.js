@@ -7,6 +7,10 @@ const okCode = 200;
 const unauthorized = 401;
 const unprocessable = 422;
 
+const signToken = (id) => {
+    return jwt.sign({id}, 'SECRET_KEY');
+}
+
 exports.registerUser = async (request, response) => { // Controller function to register a user
     try {
         const method = request.method;

@@ -1,6 +1,7 @@
 import React from "react";
 import axios from'axios';
 
+import JournalMoment from "./journal_moment";
 class momentForm extends React.Component{
     state ={
         Category:'',
@@ -21,48 +22,12 @@ class momentForm extends React.Component{
                 <button class="jounral_categories">Categories</button>
               </form>
             <div className="momentList">
-
-            <div className="moment">
-                <div className="icon"></div>
-                <div className="momentText">
-                    <h2 className="momentTitle">TITLE</h2>
-                    <p>A brief description of the moment will apprear here on a maximum height of two lines...</p>
-                    <p className="dateText">March 1st,2021</p>
-                </div>
-            </div>
-            <div className="moment">
-                <div className="icon"></div>
-                <div className="momentText">
-                    <h2 className="momentTitle">TITLE</h2>
-                    <p>A brief description of the moment will apprear here on a maximum height of two lines...</p>
-                    <p className="dateText">March 1st,2021</p>
-                </div>
-            </div>
-            <div className="moment">
-                <div className="icon"></div>
-                <div className="momentText">
-                    <h2 className="momentTitle">TITLE</h2>
-                    <p>A brief description of the moment will apprear here on a maximum height of two lines...</p>
-                    <p className="dateText">March 1st,2021</p>
-                </div>
-            </div>
-            <div className="moment">
-                <div className="icon"></div>
-                <div className="momentText">
-                    <h2 className="momentTitle">TITLE</h2>
-                    <p>A brief description of the moment will apprear here on a maximum height of two lines...</p>
-                    <p className="dateText">March 1st,2021</p>
-                </div>
-            </div>
-            <div className="moment">
-                <div className="icon"></div>
-                <div className="momentText">
-                    <h2 className="momentTitle">TITLE</h2>
-                    <p>A brief description of the moment will apprear here on a maximum height of two lines...</p>
-                    <p className="dateText">March 1st,2021</p>
-                </div>
-            </div>
-
+            
+            <JournalMoment title="Lockdown woes is the title" content="Oh boy is lockdown boring, this would be the content" date="March 21,2021" />
+            <JournalMoment title="Lockdown woes is the title" content="Oh boy is lockdown boring, this would be the content" date="March 21,2021" />
+            <JournalMoment title="Lockdown woes is the title" content="Oh boy is lockdown boring, this would be the content" date="March 21,2021" />
+            <JournalMoment title="Lockdown woes is the title" content="Oh boy is lockdown boring, this would be the content" date="March 21,2021" />
+            <JournalMoment title="Lockdown woes is the title" content="Oh boy is lockdown boring, this would be the content" date="March 21,2021" />
             </div>
 
 

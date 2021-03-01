@@ -21,6 +21,7 @@
         display:flex;
         width: 100%;
         margin-bottom:10px;
+
         .jounral_categories{
             @include montserratFont(dark,colour(F,wh),18px);
             background-color: colour(F,blu);
@@ -59,11 +60,15 @@
         .moment{
             padding: 10px 0px 10px 5%;
             display:flex;
-            background-color: #F9F9FE;
+            background-color: #F2F5FC;
             border-radius: 25px ;
             margin-bottom:5%;
             margin-right:1%;
-            
+            transition:0.5s linear;
+            cursor: pointer;
+            &:hover{
+                background-color: #DBE3FA;
+            }
             .momentText{
                 width:70%;
                 margin-left:5%;
@@ -75,7 +80,6 @@
                     margin-bottom: 3%;
                 }
                 p{
-
                     @include montserratFont(dark,colour(F,bla),18px);
                 }
 

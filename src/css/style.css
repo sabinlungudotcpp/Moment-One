@@ -222,18 +222,91 @@ h1 {
     display: flex;
     flex-direction: column; }
     .contentGrid .infoWrap .therapists {
-      font-family: Montserrat, sans-serif;
-      font-style: normal;
-      font-weight: 600;
-      font-weight: 700;
-      color: black;
-      font-size: 28px;
+      margin-left: auto;
+      margin-right: auto;
       border-radius: 25px 25px 25px 25px;
       box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
       background-color: #FAFAFA;
-      width: 100%;
-      height: 550px; }
+      width: 400px;
+      height: 550px;
+      display: flex;
+      flex-direction: column;
+      align-content: center; }
+      .contentGrid .infoWrap .therapists p {
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: black;
+        font-size: 28px;
+        margin: 5% 0px 5% 5%; }
+      .contentGrid .infoWrap .therapists .searchbar {
+        display: flex;
+        border-radius: 8px;
+        width: 90%;
+        height: 40px;
+        background-color: #d5d5d6;
+        margin: 0px 0px 5% 5%;
+        padding-left: 10px; }
+        .contentGrid .infoWrap .therapists .searchbar .seachIcon {
+          width: 20px;
+          height: 20px;
+          margin-top: auto;
+          margin-bottom: auto;
+          cursor: pointer; }
+        .contentGrid .infoWrap .therapists .searchbar .search {
+          font-family: Montserrat, sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-weight: 700;
+          color: black;
+          font-size: 20px;
+          width: 90%;
+          margin: auto;
+          background-color: #d5d5d6;
+          border: none; }
+        .contentGrid .infoWrap .therapists .searchbar textarea:focus, .contentGrid .infoWrap .therapists .searchbar .search:focus {
+          outline: none; }
+      .contentGrid .infoWrap .therapists .therapistGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 10%; }
+        .contentGrid .infoWrap .therapists .therapistGrid .therapist {
+          display: flex;
+          flex-direction: column;
+          height: 150px;
+          width: 80px;
+          margin: auto; }
+          .contentGrid .infoWrap .therapists .therapistGrid .therapist p {
+            font-family: Montserrat, sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-weight: 700;
+            color: black;
+            font-size: 20px;
+            margin-left: auto;
+            margin-right: auto; }
+          .contentGrid .infoWrap .therapists .therapistGrid .therapist .qualification {
+            margin-left: auto;
+            margin-right: auto;
+            height: 80px;
+            width: 100%;
+            border-radius: 50%;
+            background-color: #5C17CB;
+            display: flex; }
+            .contentGrid .infoWrap .therapists .therapistGrid .therapist .qualification h2 {
+              margin: auto;
+              font-family: Montserrat, sans-serif;
+              font-style: normal;
+              font-weight: 600;
+              font-weight: 700;
+              color: #fff;
+              font-size: 40px; }
     .contentGrid .infoWrap .handbook {
+      margin-left: auto;
+      margin-right: auto;
       margin-top: auto;
       border-radius: 25px 25px 25px 25px;
       box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
@@ -296,29 +369,38 @@ h1 {
       font-weight: 700;
       color: black;
       font-size: 20px;
-      width: 300px;
+      width: 270px;
       margin: auto;
       background-color: #F5F5F7;
       border: none; }
     .header .searchBell .searchbar {
       display: flex;
       border-radius: 8px;
-      padding-left: 50px;
+      padding-left: 10px;
       width: 300px;
       height: 40px;
       background-color: #F5F5F7;
       margin-right: 40px; }
+      .header .searchBell .searchbar .seachIcon {
+        margin-right: 10px;
+        width: 20px;
+        height: 20px;
+        margin-top: auto;
+        margin-bottom: auto;
+        cursor: pointer; }
       .header .searchBell .searchbar textarea:focus, .header .searchBell .searchbar .search:focus {
         outline: none; }
 
 .momentForm {
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 25px 25px 25px 25px;
   box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
   background-color: #FAFAFA;
   margin-left: auto;
   margin-top: 10px;
   height: 100%;
-  width: 100%;
+  width: 400px;
   box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
   overflow: hidden; }
   .momentForm_top-section {
@@ -587,10 +669,14 @@ h1 {
     .journal .momentList .moment {
       padding: 10px 0px 10px 5%;
       display: flex;
-      background-color: #F9F9FE;
+      background-color: #F2F5FC;
       border-radius: 25px;
       margin-bottom: 5%;
-      margin-right: 1%; }
+      margin-right: 1%;
+      transition: 0.5s linear;
+      cursor: pointer; }
+      .journal .momentList .moment:hover {
+        background-color: #DBE3FA; }
       .journal .momentList .moment .momentText {
         width: 70%;
         margin-left: 5%;

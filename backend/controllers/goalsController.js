@@ -1,13 +1,7 @@
 const mongoose = require('mongoose');
-<<<<<<< HEAD
-const Goals = mongoose.model('Goals');
+const Goals = require('../models/goalsModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
-=======
-const Goals = require('../models/goalsModel');
-const AppError = require('../../utils/appError');
-const catchAsync = require('../../utils/catchAsync');
->>>>>>> defdfce617ba4aff94d5770146e522d084e99f29
 const okCode = 200;
 const createdCode = 201;
 const unprocessable = 400;

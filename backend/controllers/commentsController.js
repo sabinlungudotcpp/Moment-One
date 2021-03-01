@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Comments = require('../models/commentsModel');
+const Comments = require('../models/CommentsModel');
 
 exports.getAllComments = async (request, response) => {
     try {

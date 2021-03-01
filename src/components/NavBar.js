@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => { // Navigation Bar Component
@@ -21,6 +21,7 @@ const Navbar = () => { // Navigation Bar Component
                         </div>
                         <span className="navbar_items-text">Dashboard</span>
                     </NavLink>
+                    
                     {/*moments sub menu*/}
                     <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to = "/home/yourjourney">
                         <span className="navbar_subitems-text">Your journey</span>

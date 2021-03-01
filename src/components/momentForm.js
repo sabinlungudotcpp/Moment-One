@@ -1,5 +1,5 @@
 import React from "react";
-
+import axios from'axios';
 import moodGreat from "../imageAssets/Mood Tracker/moodGreat.png";
 import moodGood from "../imageAssets/Mood Tracker/moodGood.png";
 import moodMeh from "../imageAssets/Mood Tracker/moodMeh.png";
@@ -14,16 +14,30 @@ class momentForm extends React.Component{
         howYouFeel:'',
         selfAware:false,
     }
-
+    resState(){
+        this.setState({
+            currentfeeling:'',
+            category:'',
+            onYourMind:'',
+            howYouFeel:'',
+            selfAware:false,
+        })
+    }
     change = (e) => {
-        e.preventDefault();
         this.setState({
             [e.target.name]: e.target.value
         })
     }
+
+    awareToggle = (e) => {
+        this.setState({
+            [e.target.name]: e.target.checked
+        })
+    }
     onSubmit = (e) =>{
         e.preventDefault();
-        console.log(this.state)
+        console.log(this.state);
+        this.resState();
     }
     render(){
         return (
@@ -31,55 +45,82 @@ class momentForm extends React.Component{
                 <div className="momentForm_top-section">
                     <h2>Good afternoon, Username!</h2>
                     <h2>How are you feeling?</h2>
-        
+                    
                     <div className="feelingWrapper">
 
-                        <div className="feelingSelect">
-                            <input type="image" src={moodGreat} className="feelingIcon" name='currentfeeling' value="Great" onClick={e=>this.change(e)}/>
+                        <label className="feelingSelect">
+                            <input type="radio" name='currentfeeling' value='Great' checked={this.state.currentfeeling==='Great'} onChange={e=>this.change(e)} />
+                            <img src={moodGreat} alt="Great"className="feelingIcon"/>
                             <p>Great</p>
-                        </div>
+                        </label>
 
-                        <div className="feelingSelect"  >
-                            <input type="image" src={moodGood} className="feelingIcon" name='currentfeeling' value="Good" onClick={e=>this.change(e)}/>
+                        <label className="feelingSelect">
+                            <input type="radio"  name='currentfeeling' value='Good' checked={this.state.currentfeeling==='Good'} onChange={e=>this.change(e)}/>
+                            <img src={moodGood} alt="Good" className="feelingIcon" />
                             <p>Good</p>
-                        </div>
-                        <div className="feelingSelect">
-                            <input type="image" src={moodMeh} className="feelingIcon" name='currentfeeling' value="Meh" onClick={e=>this.change(e)}/>
+                        </label>
+
+                        <label className="feelingSelect">
+                            <input type="radio"  name='currentfeeling' value='Meh' checked={this.state.currentfeeling==='Meh'} onChange={e=>this.change(e)} />
+                            <img src={moodMeh} alt="Meh" className="feelingIcon"/>
                             <p>Meh</p>
-                        </div>
-                        <div className="feelingSelect"  >
-                            <input type="image" src={moodeBad} className="feelingIcon" name='currentfeeling' value="Bad" onClick={e=>this.change(e)}/>
+                        </label>
+
+                        <label className="feelingSelect">
+                            <input type="radio"  name='currentfeeling' value='Bad' checked={this.state.currentfeeling==='Bad'} onChange={e=>this.change(e)} />
+                            <img src={moodeBad} alt="Bad" className="feelingIcon"/>
                             <p>Bad</p>
-                        </div>
-                        <div className="feelingSelect"  >
-                            <input type="image" src={moodAwful} className="feelingIcon" name='currentfeeling' value="Awful" onClick={e=>this.change(e)}/>
+                        </label>
+
+                        <label className="feelingSelect">
+                            <input type="radio"  name='currentfeeling' value='Awful' checked={this.state.currentfeeling==='Awful'} onChange={e=>this.change(e)} />
+                            <img src={moodAwful} alt="Awful" className="feelingIcon" />
                             <p>Awful</p>
-                        </div>
+                        </label>
                     </div>
                 </div>
         
                 <div className="momentForm_center-section">
                     <p> Add Category </p>
                     <div className="category_wrap">
-                        <input type="button" class="category_select" name="category" value="General" onClick={e=>this.change(e)}/>
-                        <input type="button" class="category_select" name="category" value="Anxiety" onClick={e=>this.change(e)}/>
-                        <input type="button" class="category_select" name="category" value="PTSD" onClick={e=>this.change(e)}/>
-                        <input type="button" class="category_select" name="category" value="Depression" onClick={e=>this.change(e)}/>
-                        <input type="button" class="category_select" name="category" value="Weight Loss" onClick={e=>this.change(e)}/>
+                        <label className="category_select">
+                            <input type="radio" name='category' value='General' checked={this.state.category==='General'} onChange={e=>this.change(e)} />
+                            <p className = "categoryLabel">General</p>
+                        </label>
+
+                        <label className="category_select">
+                            <input type="radio"  name='category' value='Anxiety' checked={this.state.category==='Anxiety'} onChange={e=>this.change(e)}/>
+                            <p className = "categoryLabel">Anxiety</p>
+                        </label>
+
+                        <label className="category_select">
+                            <input type="radio"  name='category' value='PTSD' checked={this.state.category==='PTSD'} onChange={e=>this.change(e)} />
+                            <p className = "categoryLabel">PTSD</p>
+                        </label>
+
+                        <label className="category_select">
+                            <input type="radio"  name='category' value='Depression' checked={this.state.category==='Depression'} onChange={e=>this.change(e)} />
+                            <p className = "categoryLabel">Depression</p>
+                        </label>
+
+                        <label className="category_select">
+                            <input type="radio"  name='category' value='Weight Loss' checked={this.state.category==='Weight Loss'} onChange={e=>this.change(e)} />
+                            <p className = "categoryLabel">Weight Loss</p>
+                        </label>
                     </div>
                 </div>
         
                 <div className="momentForm_bottom-section">
                     <p>What's on your mind today?</p>
-                    <textarea className="mind" name="onYourMind" onChange={e=>this.change(e)} rows="12" cols="50"/>
+                    <textarea className="mind" value={this.state.onYourMind} name="onYourMind" onChange={e=>this.change(e)} rows="12" cols="50"/>
         
                     <p>Tell us more about how you feel...</p>
-                    <textarea className="feelings" name="howYouFeel" onChange={e=>this.change(e)}/>
+                    <textarea className="feelings" value={this.state.howYouFeel} name="howYouFeel" onChange={e=>this.change(e)}/>
         
                     <div className="selfAware_wrapper">
                         <p>Do you feel self aware?</p>
                         <label class="switch">
-                            <input type="checkbox" checked={e=>this.change(e)} onClick={this.state.selfAware = true}/>
+                            <input type="checkbox" name="selfAware" checked ={this.state.selfAware} onClick={e=>this.awareToggle(e)}/>
                             <span class="slider round"></span>
                         </label>
                     </div>

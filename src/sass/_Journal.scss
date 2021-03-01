@@ -1,0 +1,105 @@
+@import "variables";
+@import "functions";
+@import "images";
+
+.journal{
+    height:85vh;
+    width:100%;
+    border-right: solid 3px colour(F,lgr);
+    margin:0px;
+    overflow: visible;
+    h2{
+        @include montserratFont(dark,colour(P,db),24px);
+    }
+    &_underline{
+        margin-top:3%;
+        height:3px;
+        width:30%;
+        background-color: colour(P,db);
+    }
+    &_form{
+        display:flex;
+        width: 100%;
+        margin-bottom:10px;
+        .jounral_categories{
+            @include montserratFont(dark,colour(F,wh),18px);
+            background-color: colour(F,blu);
+            border:none;
+            width:160px;
+            height:32px;
+            margin-left:auto;
+            margin-top:auto;
+            margin-right:3vw;
+            border-radius:8px;
+        }
+    }
+
+    .momentList{
+        height:75vh;
+        padding-top: 5%;
+        overflow: visible;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar{
+            width:4px
+        }
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+          }
+        &::-webkit-scrollbar-thumb {
+            background: #888; 
+          }
+        &::-webkit-scrollbar-thumb:hover {
+            background: rgb(204, 204, 204) 
+          }
+        //firefox scrollbar
+        scrollbar-color: rgb(204, 204, 204)  #fff;
+        scrollbar-width: thin;
+
+        .moment{
+            padding: 10px 0px 10px 5%;
+            display:flex;
+            background-color: #F9F9FE;
+            border-radius: 25px ;
+            margin-bottom:5%;
+            margin-right:1%;
+            
+            .momentText{
+                width:70%;
+                margin-left:5%;
+                display:flex;
+                flex-direction: column;
+                h2{
+                    margin-top:3%;
+                    @include montserratFont(dark,#4975E6,28px);
+                    margin-bottom: 3%;
+                }
+                p{
+
+                    @include montserratFont(dark,colour(F,bla),18px);
+                }
+
+                .dateText{  
+                    margin-top:auto;
+                    margin-left:auto;
+                    @include montserratFont(dark,colour(F,bla),13px);
+                }
+            }
+
+            .icon{
+                height:150px;
+                width:150px;
+                box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.33);
+                background-color: white;
+                background-size: 120px 120px;
+                background-image: psycIcon("ADHD");
+                background-repeat: no-repeat, repeat;
+                background-position: center;
+                border-radius: 50%;
+                border:5px solid colour(P,ye);
+            }
+        }
+
+    }
+
+}

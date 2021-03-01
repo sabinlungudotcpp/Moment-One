@@ -23,8 +23,7 @@ app.use(cors());
 app.use('/api/v1/momentone/comments', commentRouter);
 app.use('/api/v1/momentone/posts', postsRouter);
 app.use('/api/v1/momentone/goals', goalsRouter);
-app.use('/api/v1/momentone/users/register', userRouter);
-app.use('/api/v1/momentone/users/login', userRouter);
+app.use('/api/v1/momentone/users', userRouter);
 
 app.all('*', (request, response, next) => {
     return response.status(notFound).json({

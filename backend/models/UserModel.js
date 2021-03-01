@@ -29,11 +29,6 @@ const userSchema = new mongoose.Schema({
 		max: 20 
 	},
 
-	passwordConfirm: {
-		type: String,
-		required: [true, 'You must confirm your passwword']
-	},
-
 	passwordResetExpiry: Date,
 }); 
 

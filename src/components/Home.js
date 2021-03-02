@@ -9,12 +9,12 @@ import moodAwful from "../imageAssets/Mood Tracker/moodAwful.png";
 const Home = () => { // Home Component
   return (
     <div className = "Page">
-      {/*importing the header component*/}
-      <Header title="WELCOME BACK,"/>
+      <Header title="Welcome"/>
 
       <div className="Content">
         <div className="contentGrid">
           <div className="journal">
+
               <h2>Your Moments Journal </h2>
               <form className="journal_form">
                 <div className="journal_underline"></div>
@@ -22,15 +22,16 @@ const Home = () => { // Home Component
               </form>
           </div> 
 
-          <div className="infoWrap">
-              
-          </div> 
+          <div className="infoWrap">    
+          </div>
+
           <div className="momentForm">
               <div className="momentForm_top-section">
                 <h2>Good afternoon, Username!</h2>
                 <h2>How are you feeling?</h2>
 
                 <div className="feelingWrapper">
+
                   <div className="feelingSelect">
                     <img src = {moodGreat} className="feelingIcon"></img>
                     <p>Great</p>
@@ -56,9 +57,9 @@ const Home = () => { // Home Component
                     <p>Awful</p>
                   </div>
 
-
                 </div>
               </div>
+
               <div className="momentForm_center-section">
                 <p> Add Category </p>
               </div>
@@ -71,7 +72,6 @@ const Home = () => { // Home Component
         </div>
       </div>
     </div>
-
   )
 }
 

@@ -1,12 +1,9 @@
 import React from "react";
 import "./css/style.css";
-
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Settings from './components/Settings';
 import SelfAwareness from './components/SelfAwareness';
-
-
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 
 const App = () => { // Main App Component
@@ -22,7 +19,7 @@ const App = () => { // Main App Component
             <Route path="/SelfAwareness" component={SelfAwareness}/>
             <Route path="/Settings" component={Settings}/>
           </Switch>
-
+        <a href= "/">Moment</a>
           </div>
       </div>
     </Router>

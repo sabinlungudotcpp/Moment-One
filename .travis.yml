@@ -15,3 +15,5 @@ deploy:
   env: "Momentone-env"
   bucket_name: "elasticbeanstalk-us-east-2-062216347991"
   bucket_path: "Moment-One"
+  on:
+    branch: main

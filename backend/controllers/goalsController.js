@@ -42,6 +42,7 @@ exports.createGoal = catchAsync(async (request, response, next) => { // Function
         let goalCreated = false;
         const method = request.method; // The request method
         const {goal, reason, reward, length} = request.body; // Body of the request
+        const createdBy = request.params.userId;
 
         if(!goal || !reason || !reward || !length) {
             return response.status(unprocessable).json({
@@ -51,7 +52,7 @@ exports.createGoal = catchAsync(async (request, response, next) => { // Function
         }
 
         if(method === 'POST') {
-            const newGoal = new Goals({goal, reason, reward, length});
+            const newGoal = new Goals({goal, reason, reward, length, createdBy});
             await newGoal.save(); // Save the goal
             goalCreated = true;
 

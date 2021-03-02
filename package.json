@@ -28,7 +28,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start:dev": "nodemon server.js",
+    "start": "nodemon server.js",
     "start-client": "react-scripts start --watch",
     "build": "react-scripts build",
     "test": "mocha test",

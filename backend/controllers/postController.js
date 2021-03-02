@@ -1,4 +1,4 @@
-const Post = require('../models/postsModel');
+const Post = require('../models/PostsModel');
 const okCode = 200;
 const createdCode = 201;
 const serverError = 500;

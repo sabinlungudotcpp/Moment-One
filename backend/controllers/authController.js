@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const catchAsync = require('../utils/catchAsync');
 const jwt = require('jsonwebtoken');
-const AppError = require('../utils/appError');
 const User = mongoose.model('User');
 const okCode = 200;
 const unauthorized = 401;
@@ -65,7 +64,7 @@ exports.login = catchAsync(async (request, response, next) => { // Controller fu
                 })
             }
 
-            const token = jwt.sign({userId: user._id}, 'SECRET_KEY'); // Sign the JWT with the user ID
+            const token = signToken(user._id);
             return response.status(okCode).json({
                 message: `You are logged in as ${username} with token ${token}`
             });

@@ -10,7 +10,7 @@ const signToken = (id) => {
     return jwt.sign({id}, 'SECRET_KEY');
 }
 
-exports.registerUser = async (request, response) => { // Controller function to register a user
+exports.registerUser = async (request, response) => { // Controller function to register a userger
     try {
         const method = request.method;
         const {username, password} = request.body;

@@ -54,6 +54,7 @@ exports.getPostByID = async (request, response) => { // Retrieves a POST BY ITS 
 exports.createNewPost = async (request, response) => { // Controller function to create a new post
     try {
         const method = request.method;
+        const createdBy = request.params.userId; //id of user who created post
         const {title, description} = request.body;
 
         if(!title || !description) { // If there is no title or description
@@ -63,7 +64,7 @@ exports.createNewPost = async (request, response) => { // Controller function to
         }
         
         if(method === 'POST') {
-            const newPost = new Post({title, description});
+            const newPost = new Post({title, description, createdBy});
             await newPost.save();
 
             return response.status(createdCode).json({

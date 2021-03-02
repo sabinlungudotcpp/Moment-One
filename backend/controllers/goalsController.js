@@ -157,8 +157,7 @@ exports.deleteGoalByID = async (request, response) => { // Deletes a goal by its
 
         if(method === 'DELETE' && url.startsWith(root)) {
             await Goals.findByIdAndDelete(id);
-            goalDeleted = true;
-
+           
             return response.status(okCode).json({
                 message: 'Goal Deleted',
                 sentAt: new Date().toISOString()

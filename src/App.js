@@ -7,12 +7,12 @@ import SelfAwareness from './components/SelfAwareness';
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 
 const App = () => { // Main App Component
-  
+
   return (
     <Router>
       <div className = "App">
-        <NavBar />
 
+        <NavBar />
         <div className = "PageContent">
           <Switch>
             <Route path="/" exact component = {Home}/>

@@ -19,7 +19,7 @@ const App = () => { // Main App Component
             <Route path="/SelfAwareness" component={SelfAwareness}/>
             <Route path="/Settings" component={Settings}/>
           </Switch>
-        <a href= "/">Moment</a>
+        <a href = "/">Moment</a>
           </div>
       </div>
     </Router>

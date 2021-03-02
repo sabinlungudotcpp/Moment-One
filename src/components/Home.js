@@ -25,8 +25,8 @@ const Home = () => { // Home Component
           <div className="infoWrap">    
           </div>
 
-          <div className="momentForm">
-              <div className="momentForm_top-section">
+          <div className ="momentForm">
+              <div className ="momentForm_top-section">
                 <h2>Good afternoon, Username!</h2>
                 <h2>How are you feeling?</h2>
 

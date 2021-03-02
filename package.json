@@ -31,7 +31,7 @@
     "start": "nodemon server.js",
     "start-client": "react-scripts start --watch",
     "build": "react-scripts build",
-    "test": "mocha test",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "proxy": "http://localhost:8020",
     "compile:sass": "node-sass src/sass/main.scss src/css/style.css"

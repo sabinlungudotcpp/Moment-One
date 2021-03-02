@@ -7,3 +7,6 @@ before_install:
 
 script:
  - docker run -e CI=true sabin2000/momentone npm run test -- --coverage
+
+deploy:
+  

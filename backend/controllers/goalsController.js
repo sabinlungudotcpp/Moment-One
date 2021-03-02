@@ -24,7 +24,6 @@ exports.getAllGoals = catchAsync(async (request, response, next) => { // Functio
     } 
 );
 
-
 exports.getGoalByID = catchAsync(async (request, response, next) => {
         const id = request.params.id;
         const goal = await Goals.findById(id);
@@ -33,7 +32,7 @@ exports.getGoalByID = catchAsync(async (request, response, next) => {
             return next(new AppError('No goal found'), 404);
         }
 
-        return response.status(200).json(goal);
+        return response.status(okCode).json(goal);
     }
 );
 

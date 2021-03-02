@@ -12,14 +12,14 @@ const App = () => { // Main App Component
     <Router>
       <div className = "App">
 
-        <NavBar />
+      <NavBar />
         <div className = "PageContent">
           <Switch>
-            <Route path="/" exact component = {Home}/>
-            <Route path="/Home" component = {Home}/>
-            <Route path="/SelfAwareness" component={SelfAwareness}/>
-            <Route path="/Settings" component={Settings}/>
-          </Switch>
+            <Route path = "/" exact component = {Home}/>
+            <Route path = "/Home" component = {Home}/>
+            <Route path = "/SelfAwareness" component={SelfAwareness}/>
+            <Route path = "/Settings" component={Settings}/>
+        </Switch>
 
         <a href = "/">Moment</a>
           </div>

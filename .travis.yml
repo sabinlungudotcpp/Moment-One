@@ -9,4 +9,9 @@ script:
  - docker run -e CI=true sabin2000/momentone npm run test -- --coverage
 
 deploy:
-  
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "Moment-One"
+  env: "Momentone-env"
+  bucket_name: "elasticbeanstalk-us-east-2-062216347991"
+  bucket_path: "Moment-One"

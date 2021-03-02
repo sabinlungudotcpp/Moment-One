@@ -7,6 +7,7 @@ import SelfAwareness from './components/SelfAwareness';
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 
 const App = () => { // Main App Component
+  
   return (
     <Router>
       <div className = "App">
@@ -19,8 +20,10 @@ const App = () => { // Main App Component
             <Route path="/SelfAwareness" component={SelfAwareness}/>
             <Route path="/Settings" component={Settings}/>
           </Switch>
+
         <a href = "/">Moment</a>
           </div>
+
       </div>
     </Router>
   )

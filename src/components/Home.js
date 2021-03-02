@@ -22,11 +22,12 @@ const Home = () => { // Home Component
               </form>
           </div> 
 
-          <div className="infoWrap">    
+        <div className="infoWrap">    
           </div>
 
           <div className ="momentForm">
               <div className ="momentForm_top-section">
+
                 <h2>Good afternoon, Username!</h2>
                 <h2>How are you feeling?</h2>
 
@@ -35,6 +36,7 @@ const Home = () => { // Home Component
                   <div className="feelingSelect">
                     <img src = {moodGreat} className="feelingIcon"></img>
                     <p>Great</p>
+
                   </div>
 
                   <div className="feelingSelect">
@@ -56,13 +58,13 @@ const Home = () => { // Home Component
                     <img src = {moodAwful} className="feelingIcon"></img>
                     <p>Awful</p>
                   </div>
-
                 </div>
               </div>
 
               <div className="momentForm_center-section">
                 <p> Add Category </p>
               </div>
+
               <div className="momentForm_bottom-section">
                 
               </div>

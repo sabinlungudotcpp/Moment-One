@@ -38,7 +38,7 @@ exports.getGoalByID = catchAsync(async (request, response, next) => {
 
 exports.createGoal = catchAsync(async (request, response, next) => { // Function export that creates a new goal
     try {
-        let goalCreated = false;
+        let goalCreated = false; //test
         const method = request.method; // The request method
         const {goal, reason, reward, length} = request.body; // Body of the request
         const createdBy = request.params.userId;

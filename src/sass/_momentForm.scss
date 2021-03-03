@@ -12,6 +12,7 @@
     box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
     overflow:hidden;
 
+        //top section where user selects their current feeling
         &_top-section{
 
             height:20%;
@@ -69,7 +70,7 @@
                 }
             }
         }
-
+        //section where user selects the category of the moment
         &_center-section{
             height:15%;
             padding:20px;
@@ -110,7 +111,7 @@
                 }
             }   
         }
-
+        //section for user text input and button submission of the form
         &_bottom-section{
 
             border-radius: 25px;
@@ -155,6 +156,7 @@
                 flex:row;
                 align-items:center;
 
+                //slider button for self awareness
                 .switch {
                     position: relative;
                     display: inline-block;
@@ -207,7 +209,6 @@
                     transform: translateX(26px);
                     }
                     
-                    /* Rounded sliders */
                     .slider.round {
                     border-radius: 34px;
                     }
@@ -216,6 +217,7 @@
                     border-radius: 50%;
                 }
             }
+            //form submission button
             .btn_wrapper{
                 display: flex;
                 align-content: center;

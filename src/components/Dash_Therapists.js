@@ -9,6 +9,8 @@ class therapists extends Component {
                   <img className = "seachIcon" src={searchIcon} />
                   <input type="text" id = "search" className="search"></input>
                 </form>
+
+                {/*Temporary filler until axios is implemented */}
             <div className="therapistGrid">
               <div className="therapist">
                 <div className="qualification">

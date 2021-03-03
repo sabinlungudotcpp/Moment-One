@@ -1,16 +1,21 @@
 const mongoose = require('mongoose');
+const catchAsync = require('../utils/catchAsync');
 const jwt = require('jsonwebtoken');
 const User = mongoose.model('User');
 const okCode = 200;
-const notFound = 404;
+const unauthorized = 401;
 const unprocessable = 422;
 
-exports.registerUser = async (request, response) => { // Controller function to register a user
+const signToken = (id) => { // Signs the JWT token
+    return jwt.sign({id}, 'SECRET_KEY');
+}
+
+exports.registerUser = async (request, response) => {
     try {
         const method = request.method;
         const {username, password} = request.body;
 
-        if(!username || !password) { // If there is no username or password
+        if(!username || !password) { // If  is no or password
             return response.status(unprocessable).json({ // Send back an unprocessable response
                 message: 'You must provide an e-mail and password'
             })
@@ -20,12 +25,13 @@ exports.registerUser = async (request, response) => { // Controller function to 
             const user = new User({username, password});
             await user.save();
 
-            const token = jwt.sign({userId: user._id}, 'SECRET_KEY'); // Sign the JWT
-            return response.status(okCode).json({token});
+            const token = signToken(user._id); // Sign the JWT token
+            return response.status(okCode).json({token, user});
         }
     }
     
     catch(error) {
+        
         if(error) {
             return response.status(unprocessable).json({
                 message: error.message,
@@ -35,29 +41,30 @@ exports.registerUser = async (request, response) => { // Controller function to 
     }
 };
 
-exports.signIn = async (request, response) => { // Controller function to log in users
+exports.login = catchAsync(async (request, response, next) => { // Controller function to log in users
     try {
-        const method = request.method;
-        const {username, password} = request.body;
+        const method = request.method; // The request method
+        const {username, password} = request.body; // The request body
 
         if(!username || !password) { // If there is no e-mail or password
-            return response.status(unprocessable).json({
-                message: 'You must provide an e-mail and password',
+            return response.status(unauthorized).json({
+                message: 'You must provide an e-mail or password',
                 sentAt: new Date().toISOString()
             });
         }
 
         if(method === 'POST') {
-            const user = await User.findOne({username});
+            const user = await User.findOne({username}); // Find a user
            
-            if(!user) {
-                return response.status(notFound).json({
-                    error: 'User not found'
-                });
+            if(!user || !(await user.comparePasswords(password, user.password))) {
+                
+                return response.status(unauthorized).json({
+                    message: 'Incorrect e-mail or password',
+                    sentAt: new Date().toISOString()
+                })
             }
 
-            await user.comparePasswords(password); // Compare the passwords before signing the users in
-            const token = jwt.sign({userId: user._id}, 'SECRET_KEY'); // Sign the JWT with the user ID
+            const token = signToken(user._id);
             return response.status(okCode).json({
                 message: `You are logged in as ${username} with token ${token}`
             });
@@ -65,7 +72,9 @@ exports.signIn = async (request, response) => { // Controller function to log in
     } 
     
     catch(error) {
+
         if(error) {
+
             return response.status(unprocessable).json({
                 errorMsg: error.message,
                 stack: error.stack,
@@ -73,4 +82,4 @@ exports.signIn = async (request, response) => { // Controller function to log in
             });
         }
     }
-}
+});

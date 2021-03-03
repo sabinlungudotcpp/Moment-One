@@ -9,8 +9,7 @@ import Therapists from "./Dash_Therapists"
 const Home = () => { // Home Component
   return (
     <div className = "Page">
-      {/*importing the header component*/}
-      <Header title="WELCOME BACK,"/>
+      <Header title="Welcome"/>
 
       <div className="Content">
         <div className="contentGrid">
@@ -22,6 +21,7 @@ const Home = () => { // Home Component
               <div className="handbook">
                 <img src={handbook} alt="Handbook"></img>
                 <p>HandBook</p>
+
               </div>
           </div>
 
@@ -32,7 +32,6 @@ const Home = () => { // Home Component
 
       </div>
     </div>
-
   )
 }
 

@@ -15,7 +15,7 @@ exports.registerUser = async (request, response) => { // Controller function to 
         const method = request.method;
         const {username, password} = request.body;
 
-        if(!username || !password) { // If there is no username or password
+        if(!username || !password) { // If there is no or password
             return response.status(unprocessable).json({ // Send back an unprocessable response
                 message: 'You must provide an e-mail and password'
             })

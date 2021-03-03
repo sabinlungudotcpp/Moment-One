@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Comments = mongoose.model('Comments');
+const Comments = require('../models/CommentsModel');
 
 exports.getAllComments = async (request, response) => {
     try {
@@ -45,10 +45,18 @@ exports.getAllComments = async (request, response) => {
  exports.createComment = async (request, response) => {
     try {
         const method = request.method;
-        const body = request.body;
+        const {title, description} = request.body;
+        const postedOn = request.params.postId; //Getting _id for the post the comment is made on
+        const createdBy = request.params.userId; //Getting _id for the user creating the comment
 
+        if(!title || !description) { // If there is no title or description
+            return response.status(serverError).json({
+                message: 'You must provide a post title and description'
+            });
+        }
+        
         if(method === 'POST') {
-            const newComment = new Comments(body);
+            const newComment = new Comments({title, description, postedOn, createdBy});
             await newComment.save();
 
             return response.status(200).json({

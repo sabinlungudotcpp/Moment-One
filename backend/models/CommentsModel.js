@@ -10,7 +10,21 @@ const commentsSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: false
+    },
+
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+
+    postedOn: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Post'
     }
+},
+{
+    timestamps: true
 });
 
-mongoose.model('Comments', commentsSchema);
+const Comments = mongoose.model('Comments', commentsSchema);
+module.exports = Comments;

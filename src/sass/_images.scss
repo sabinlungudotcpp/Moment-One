@@ -33,4 +33,13 @@ $feelingIcons:(
     "meh":url("../imageAssets/Mood Tracker/moodMeh.png"),
     "bad":url("../imageAssets/Mood Tracker/moodBad.png"),
     "awful":url("../imageAssets/Mood Tracker/moodAwful.png"),
-)
+);
+//icons displayed in journal of moments
+
+$psycologyIcons:(
+    "ADHD":url("../imageAssets/Icons/Psychology/ADHD.svg"),
+);
+
+@function psycIcon($name){
+    @return map-get($psycologyIcons,$name);
+}

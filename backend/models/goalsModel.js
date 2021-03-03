@@ -20,7 +20,18 @@ const GoalSchema = new mongoose.Schema({
     reward: {
         type: String,
         required: [true, 'A goal should have a reward']
+    },
+
+    //Reference to the user who created the goal
+    createdBy: { 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
+},
+{
+    //timestamps for createdAt and updatedAt
+    timestamps: true
 });
 
-mongoose.model('Goals', GoalSchema);
+const Goals = mongoose.model('Goals', GoalSchema);
+module.exports = Goals;

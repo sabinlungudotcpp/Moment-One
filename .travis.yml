@@ -12,7 +12,7 @@ deploy:
   provider: elasticbeanstalk
   region: "us-east-2"
   app: "Moment-One"
-  env: "Momentone-env"
+  env: "Momentone-env-1"
   bucket_name: "elasticbeanstalk-us-east-2-062216347991"
   bucket_path: "Moment-One"
   on:

@@ -21,9 +21,9 @@ class momentForm extends React.Component{
 
               <form className="journal_form">
                 <div className="journal_underline"></div>
-                <button class="journal_categories">Categories</button>
+                <button class="jounral_categories">Categories</button>
               </form>
-
+              
             <div className="momentList">
 
             {/*Temporary filler until axios is implemented */}

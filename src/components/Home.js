@@ -6,7 +6,7 @@ import MomentForm from "./momentForm";
 import JournalDis from "./Journal"
 import Therapists from "./Dash_Therapists"
 
-const Home = () => { // Home Component
+const Home = () => { // Home
   return (
     <div className = "Page">
       <Header title="Welcome"/>

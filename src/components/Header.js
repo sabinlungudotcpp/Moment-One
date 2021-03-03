@@ -3,7 +3,7 @@ import searchIcon from "../imageAssets/Icons/General/search.png"
 const Header = (props) => {
   return (
     <div className = "header">
-    <h1>{props.title}</h1>
+    <h1> {props.title}</h1>
       <div className = "searchBell">
         <form className="searchbar">
           <img className = "seachIcon" src={searchIcon} />

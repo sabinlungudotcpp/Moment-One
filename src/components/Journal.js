@@ -21,10 +21,10 @@ class momentForm extends React.Component{
 
               <form className="journal_form">
                 <div className="journal_underline"></div>
-                <button class="jounral_categories">Categories</button>
+                <button class="journal_categories">Categories</button>
               </form>
               
-            <div className="momentList">
+            <div className = "momentList">
 
             {/*Temporary filler until axios is implemented */}
             <JournalMoment title="Lockdown woes is the title" content="Oh boy is lockdown boring, this would be the content" date="March 21,2021" />

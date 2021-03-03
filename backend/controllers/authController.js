@@ -6,7 +6,7 @@ const okCode = 200;
 const unauthorized = 401;
 const unprocessable = 422;
 
-const signToken = (id) => {
+const signToken = (id) => { // Signs the JWT token
     return jwt.sign({id}, 'SECRET_KEY');
 }
 

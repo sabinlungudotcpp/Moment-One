@@ -7,7 +7,7 @@ import moodeBad from "../imageAssets/Mood Tracker/moodBad.png";
 import moodAwful from "../imageAssets/Mood Tracker/moodAwful.png";
 
 class momentForm extends React.Component {
-    //attributes collected by the form
+   
     state = {
         currentfeeling: '',
         category: '',
@@ -15,7 +15,8 @@ class momentForm extends React.Component {
         howYouFeel: '',
         selfAware: false,
     }
-    //reseting the form after it has been submitted so no page reset is needed
+
+    // Reseting the form after it has been submitted so no page reset is needed
     resState() {
         this.setState({
             currentfeeling: '',
@@ -25,13 +26,14 @@ class momentForm extends React.Component {
             selfAware: false,
         })
     }
-    //updating the state whenever something is changed
+    // Updating the state whenever something is changed
     change = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
-    //updating the state after the self aware button is checked
+
+    // Updating the state after the self aware button is checked
     awareToggle = (e) => {
         this.setState({
             [e.target.name]: e.target.checked
@@ -41,14 +43,13 @@ class momentForm extends React.Component {
     onSubmit = (e) => {
         e.preventDefault();
         console.log(this.state);
-        axios.post('')
-
-
-
+        axios.post('');
         this.resState();
     }
+
     render() {
         return (
+
             <form className="momentForm">
                 <div className="momentForm_top-section">
                     <h2>Good afternoon, Username!</h2>
@@ -87,6 +88,7 @@ class momentForm extends React.Component {
                         </label>
                     </div>
                 </div>
+
                 {/* Section of form for selecting catigory of the moment*/}
                 <div className="momentForm_center-section">
                     <p> Add Category </p>

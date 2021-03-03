@@ -13,15 +13,14 @@ const Home = () => { // Home Component
 
       <div className="Content">
         <div className="contentGrid">
-
           <JournalDis/>
 
           <div className="infoWrap">
                 <Therapists />
               <div className="handbook">
+
                 <img src={handbook} alt="Handbook"></img>
                 <p>HandBook</p>
-
               </div>
           </div>
 

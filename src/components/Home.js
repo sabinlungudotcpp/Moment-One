@@ -6,6 +6,7 @@ import moodMeh from "../imageAssets/Mood Tracker/moodMeh.png";
 import moodeBad from "../imageAssets/Mood Tracker/moodBad.png";
 import moodAwful from "../imageAssets/Mood Tracker/moodAwful.png";
 import handbook from "../imageAssets/Handbook Illustration/Handbook Illustration.png";
+
 const Home = () => { // Home Component
   return (
     <div className = "Page">
@@ -14,17 +15,7 @@ const Home = () => { // Home Component
 
       <div className="Content">
         <div className="contentGrid">
-<<<<<<< HEAD
           <JournalDis/>
-=======
-          <div className="journal">
-              <h2>Your Moments Journal </h2>
-              <form className="journal_form">
-                <div className="journal_underline"></div>
-                <button class="jounral_categories">Categories</button>
-              </form>
-          </div> 
->>>>>>> cae39674314c12afb9fdf18c0932fd56defc934a
 
           <div className="infoWrap">
               <div className="therapists">
@@ -34,13 +25,9 @@ const Home = () => { // Home Component
                 </form>
               </div>
               <div className="handbook">
-<<<<<<< HEAD
 
                 <img src={handbook} alt="Handbook"></img>
                 <p>HandBook</p>
-=======
-                <img src={handbook}></img>
->>>>>>> cae39674314c12afb9fdf18c0932fd56defc934a
               </div>
           </div> 
           <div className="momentForm">

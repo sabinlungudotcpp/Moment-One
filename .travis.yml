@@ -11,10 +11,10 @@ script:
 deploy:
   provider: elasticbeanstalk
   region: "us-east-2"
-  app: "Moment-One"
-  env: "Momentone-env-1"
+  app: "Moment-One-Platform"
+  env: "Momentoneplatform-env"
   bucket_name: "elasticbeanstalk-us-east-2-062216347991"
-  bucket_path: "Moment-One"
+  bucket_path: "Moment-One-Platform"
   on:
     branch: main
   access_key_id: $AWS_ACCESS_KEY

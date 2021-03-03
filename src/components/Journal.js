@@ -5,7 +5,7 @@ import JournalMoment from "./journal_moment";
 class momentForm extends React.Component{
 
     state = {
-        Category:'',
+        Category: '',
     }
 
     change = (e) => {
@@ -17,13 +17,13 @@ class momentForm extends React.Component{
     render(){
         return (
             <div className="journal">
-
               <h2>Your Moments Journal </h2>
 
               <form className="journal_form">
                 <div className="journal_underline"></div>
-                <button class="jounral_categories">Categories</button>
+                <button class="journal_categories">Categories</button>
               </form>
+
             <div className="momentList">
 
             {/*Temporary filler until axios is implemented */}

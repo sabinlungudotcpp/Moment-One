@@ -1,13 +1,13 @@
 import React from "react";
 import Header from "./Header";
-const livechat = () => { // livechat Component
+
+const LiveChat = () => { // Live Chat component
+
   return (
     <div className = "Page">
-    {/*importing the header component*/}
-    <Header title="Live-chat"/>
-    
-  </div>
+       <Header title="Live-chat"/>
+    </div>
   )
 }
 
-export default livechat; // Export home
+export default LiveChat; // Export home

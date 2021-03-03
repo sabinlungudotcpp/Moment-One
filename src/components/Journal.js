@@ -17,7 +17,7 @@ class momentForm extends React.Component{
     render(){
         return (
             <div className="journal">
-              <h2>Your Moments Journal </h2>
+              <h2>Your Moments </h2>
 
               <form className="journal_form">
                 <div className="journal_underline"></div>

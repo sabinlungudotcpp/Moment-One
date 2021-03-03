@@ -22,9 +22,7 @@ const App = () => { // Main App
             <Route path = "/Settings" component={Settings}/>
         </Switch>
 
-        <a href = "/">Moment</a>
-          </div>
-
+        </div>
       </div>
     </Router>
   )

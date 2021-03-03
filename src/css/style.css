@@ -172,7 +172,7 @@
   float: left;
   border-radius: 25px 25px 25px 25px;
   overflow-x: visible;
-  overflow-y: hidden; }
+  overflow: visible; }
 
 h1 {
   text-align: center;
@@ -181,12 +181,12 @@ h1 {
   font-size: 35px; }
 
 .Page {
-  height: 96vh;
+  height: 95vh;
   width: calc(100vw -100px); }
   .Page .Content {
-    overflow: hidden;
+    overflow: visible;
     overflow-x: scroll;
-    height: 88vh;
+    height: 91.5vh;
     padding-left: 3vw;
     padding-right: 3vw;
     scrollbar-color: #b1b1b1 #fff;
@@ -206,118 +206,132 @@ h1 {
   padding: 0; }
 
 .contentGrid {
-  margin-top: 30px;
+  margin-top: 5vh;
   width: calc(94vw - 100px);
   height: 82vh;
   display: grid;
   gap: 50px;
-  grid-template-columns: repeat(4, minmax(400px, 1fr)) minmax(1px, 1px);
+  grid-template-columns: minmax(800px, 2fr) repeat(2, minmax(400px, 1fr)) minmax(1px, 1px);
   grid-auto-rows: 80vh; }
-  .contentGrid .journal {
-    grid-column: span 2;
-    height: 80vh;
-    width: 100%;
-    border-right: solid 3px #dadada;
-    padding: 10px; }
-    .contentGrid .journal h2 {
-      font-family: Montserrat, sans-serif;
-      font-style: normal;
-      font-weight: 600;
-      font-weight: 700;
-      color: #5C17CB;
-      font-size: 24px; }
-    .contentGrid .journal_underline {
-      margin-top: 3%;
-      height: 3px;
-      width: 30%;
-      background-color: #5C17CB; }
-    .contentGrid .journal_form {
-      display: flex;
-      width: 100%; }
-      .contentGrid .journal_form .jounral_categories {
-        font-family: Montserrat, sans-serif;
-        font-style: normal;
-        font-weight: 600;
-        font-weight: 700;
-        color: #fff;
-        font-size: 18px;
-        background-color: #38ABF5;
-        border: none;
-        width: 160px;
-        height: 32px;
-        margin-left: auto;
-        margin-top: auto;
-        margin-right: 3vw;
-        border-radius: 8px; }
   .contentGrid .infoWrap {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
     height: 100%;
     width: 100%;
-    background-color: pink; }
-  .contentGrid .momentForm {
-    border-radius: 25px 25px 25px 25px;
-    box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
-    background-color: #FAFAFA;
-    margin-left: auto;
-    margin-top: 10px;
-    height: 100%;
-    width: 100%;
-    box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
-    overflow: hidden; }
-    .contentGrid .momentForm_top-section {
-      height: 20%;
-      border: 3px solid #30CDFF;
-      border-radius: 25px;
-      text-align: center;
-      padding-top: 20px;
-      box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15); }
-      .contentGrid .momentForm_top-section h2 {
+    display: flex;
+    flex-direction: column; }
+    .contentGrid .infoWrap .therapists {
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 25px 25px 25px 25px;
+      box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+      background-color: #FAFAFA;
+      width: 400px;
+      height: 550px;
+      display: flex;
+      flex-direction: column;
+      align-content: center; }
+      .contentGrid .infoWrap .therapists p {
         font-family: Montserrat, sans-serif;
         font-style: normal;
         font-weight: 600;
         font-weight: 700;
-        color: #5C17CB;
-        font-size: 24px; }
-      .contentGrid .momentForm_top-section .feelingWrapper {
-        height: 40%;
+        color: black;
+        font-size: 28px;
+        margin: 5% 0px 5% 5%; }
+      .contentGrid .infoWrap .therapists .searchbar {
         display: flex;
-        flex: row;
-        margin-top: 1.5vh;
-        margin-left: 10%;
-        margin-right: 10%; }
-        .contentGrid .momentForm_top-section .feelingWrapper .feelingSelect {
+        border-radius: 8px;
+        width: 90%;
+        height: 40px;
+        background-color: #d5d5d6;
+        margin: 0px 0px 5% 5%;
+        padding-left: 10px; }
+        .contentGrid .infoWrap .therapists .searchbar .seachIcon {
+          width: 20px;
+          height: 20px;
           margin-top: auto;
           margin-bottom: auto;
+          cursor: pointer; }
+        .contentGrid .infoWrap .therapists .searchbar .search {
           font-family: Montserrat, sans-serif;
           font-style: normal;
           font-weight: 600;
           font-weight: 700;
-          color: #5C17CB;
-          font-size: 12px;
-          height: 60px;
-          width: 50px;
+          color: black;
+          font-size: 20px;
+          width: 90%;
+          margin: auto;
+          background-color: #d5d5d6;
+          border: none; }
+        .contentGrid .infoWrap .therapists .searchbar textarea:focus, .contentGrid .infoWrap .therapists .searchbar .search:focus {
+          outline: none; }
+      .contentGrid .infoWrap .therapists .therapistGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 10%; }
+        .contentGrid .infoWrap .therapists .therapistGrid .therapist {
+          display: flex;
+          flex-direction: column;
+          height: 150px;
+          width: 80px;
           margin: auto; }
-          .contentGrid .momentForm_top-section .feelingWrapper .feelingSelect .feelingIcon {
-            width: 50px;
-            height: 50px; }
-    .contentGrid .momentForm_center-section {
-      height: 10%;
-      padding: 20px; }
-      .contentGrid .momentForm_center-section p {
+          .contentGrid .infoWrap .therapists .therapistGrid .therapist p {
+            font-family: Montserrat, sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-weight: 700;
+            color: black;
+            font-size: 20px;
+            margin-left: auto;
+            margin-right: auto; }
+          .contentGrid .infoWrap .therapists .therapistGrid .therapist .qualification {
+            margin-left: auto;
+            margin-right: auto;
+            height: 80px;
+            width: 100%;
+            border-radius: 50%;
+            background-color: #5C17CB;
+            display: flex; }
+            .contentGrid .infoWrap .therapists .therapistGrid .therapist .qualification h2 {
+              margin: auto;
+              font-family: Montserrat, sans-serif;
+              font-style: normal;
+              font-weight: 600;
+              font-weight: 700;
+              color: #fff;
+              font-size: 40px; }
+    .contentGrid .infoWrap .handbook {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: auto;
+      border-radius: 25px 25px 25px 25px;
+      box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+      background-color: #FAFAFA;
+      height: 400px;
+      width: 400px;
+      display: flex;
+      flex-direction: column; }
+      .contentGrid .infoWrap .handbook img {
+        margin-top: auto;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5%;
+        height: 50%;
+        width: 50%; }
+      .contentGrid .infoWrap .handbook p {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: auto;
         font-family: Montserrat, sans-serif;
         font-style: normal;
         font-weight: 600;
         font-weight: 700;
-        color: #5C17CB;
-        font-size: 20px; }
-    .contentGrid .momentForm_bottom-section {
-      border-radius: 25px;
-      height: 65%;
-      background-color: #5C17CB;
-      background: linear-gradient(46.39deg, #3CCEFD -7.12%, #4685EA 73.87%, #4E4EDB 134.44%);
-      box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25); }
+        color: black;
+        font-size: 28px; }
 
 .header {
   text-align: left;
@@ -355,20 +369,355 @@ h1 {
       font-weight: 700;
       color: black;
       font-size: 20px;
-      width: 300px;
+      width: 270px;
       margin: auto;
       background-color: #F5F5F7;
       border: none; }
     .header .searchBell .searchbar {
       display: flex;
       border-radius: 8px;
-      padding-left: 50px;
+      padding-left: 10px;
       width: 300px;
       height: 40px;
       background-color: #F5F5F7;
       margin-right: 40px; }
+      .header .searchBell .searchbar .seachIcon {
+        margin-right: 10px;
+        width: 20px;
+        height: 20px;
+        margin-top: auto;
+        margin-bottom: auto;
+        cursor: pointer; }
       .header .searchBell .searchbar textarea:focus, .header .searchBell .searchbar .search:focus {
         outline: none; }
+
+.momentForm {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px 25px 25px 25px;
+  box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+  background-color: #FAFAFA;
+  margin-left: auto;
+  margin-top: 10px;
+  height: 100%;
+  width: 400px;
+  box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
+  overflow: hidden; }
+  .momentForm_top-section {
+    height: 20%;
+    border: 3px solid #30CDFF;
+    border-radius: 25px;
+    text-align: center;
+    padding-top: 20px;
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15); }
+    .momentForm_top-section h2 {
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      color: #5C17CB;
+      font-size: 24px; }
+    .momentForm_top-section .feelingWrapper {
+      height: 40%;
+      display: flex;
+      flex: row;
+      margin-top: 1.5vh;
+      margin-left: 10%;
+      margin-right: 10%; }
+      .momentForm_top-section .feelingWrapper .feelingSelect {
+        border: none;
+        background-color: #FAFAFA;
+        margin-top: auto;
+        margin-bottom: auto;
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: #5C17CB;
+        font-size: 12px;
+        height: 60px;
+        width: 50px;
+        margin: auto;
+        transition: 0.2s linear;
+        cursor: pointer; }
+        .momentForm_top-section .feelingWrapper .feelingSelect .feelingIcon {
+          border-radius: 50%;
+          padding: -1px;
+          transition: 0.2s linear;
+          width: 50px;
+          height: 50px;
+          transition: 0.2s linear;
+          background-color: #FAFAFA; }
+        .momentForm_top-section .feelingWrapper .feelingSelect .feelingButton {
+          cursor: pointer;
+          border: none; }
+        .momentForm_top-section .feelingWrapper .feelingSelect [type=radio]:checked + img {
+          translate: 2px;
+          box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.33); }
+        .momentForm_top-section .feelingWrapper .feelingSelect input {
+          visibility: hidden; }
+  .momentForm_center-section {
+    height: 15%;
+    padding: 20px; }
+    .momentForm_center-section p {
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      color: #5C17CB;
+      font-size: 24px; }
+    .momentForm_center-section .category_wrap {
+      display: flex;
+      align-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+      padding-top: 5%; }
+      .momentForm_center-section .category_wrap .category_select .categoryLabel {
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: #5C17CB;
+        font-size: 20px;
+        white-space: nowrap;
+        display: flex;
+        background-color: #FAFAFA;
+        border-radius: 25px;
+        height: 30;
+        padding-right: 20px;
+        padding-left: 15px;
+        border: 1.5px solid #5C17CB;
+        margin-right: 5%;
+        cursor: pointer;
+        transition: 0.2s linear; }
+      .momentForm_center-section .category_wrap .category_select [type=radio] {
+        margin: 0px;
+        visibility: hidden; }
+      .momentForm_center-section .category_wrap .category_select [type=radio]:checked + p {
+        translate: 2px;
+        box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.33); }
+  .momentForm_bottom-section {
+    border-radius: 25px;
+    height: 55%;
+    background-color: #5C17CB;
+    background: linear-gradient(46.39deg, #3CCEFD -7.12%, #4685EA 73.87%, #4E4EDB 134.44%);
+    box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25);
+    padding: 10%; }
+    .momentForm_bottom-section p {
+      white-space: nowrap;
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      color: #fff;
+      font-size: 20px; }
+    .momentForm_bottom-section .feelings {
+      height: 20%;
+      border: none;
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      font-size: 16px;
+      resize: none;
+      width: 96%;
+      padding: 2%;
+      border-radius: 14px;
+      margin-top: 5%;
+      margin-bottom: 5%;
+      outline: none; }
+    .momentForm_bottom-section .mind {
+      height: 10%;
+      border: none;
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      font-size: 16px;
+      resize: none;
+      width: 96%;
+      padding: 2%;
+      border-radius: 14px;
+      margin-top: 5%;
+      margin-bottom: 5%;
+      outline: none; }
+    .momentForm_bottom-section .selfAware_wrapper {
+      margin-top: 5%;
+      display: flex;
+      flex: row;
+      align-items: center;
+      /* Rounded sliders */ }
+      .momentForm_bottom-section .selfAware_wrapper .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        margin-left: auto; }
+      .momentForm_bottom-section .selfAware_wrapper .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0; }
+      .momentForm_bottom-section .selfAware_wrapper .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s; }
+      .momentForm_bottom-section .selfAware_wrapper .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s; }
+      .momentForm_bottom-section .selfAware_wrapper input:checked + .slider {
+        background-color: #D72E5E; }
+      .momentForm_bottom-section .selfAware_wrapper input:focus + .slider {
+        box-shadow: 0 0 1px #D72E5E; }
+      .momentForm_bottom-section .selfAware_wrapper input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px); }
+      .momentForm_bottom-section .selfAware_wrapper .slider.round {
+        border-radius: 34px; }
+      .momentForm_bottom-section .selfAware_wrapper .slider.round:before {
+        border-radius: 50%; }
+    .momentForm_bottom-section .btn_wrapper {
+      display: flex;
+      align-content: center;
+      height: 20%;
+      width: 100%; }
+      .momentForm_bottom-section .btn_wrapper .create {
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: black;
+        font-size: 20px;
+        margin: auto;
+        background-color: white;
+        width: 170px;
+        height: 50px;
+        border-radius: 48px;
+        border: none;
+        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.33);
+        transition: 0.2s linear;
+        cursor: pointer; }
+        .momentForm_bottom-section .btn_wrapper .create:hover {
+          translate: -2px;
+          box-shadow: none; }
+
+.journal {
+  height: 85vh;
+  width: 100%;
+  border-right: solid 3px #dadada;
+  margin: 0px;
+  overflow: visible; }
+  .journal h2 {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-weight: 700;
+    color: #5C17CB;
+    font-size: 24px; }
+  .journal_underline {
+    margin-top: 3%;
+    height: 3px;
+    width: 30%;
+    background-color: #5C17CB; }
+  .journal_form {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px; }
+    .journal_form .jounral_categories {
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      color: #fff;
+      font-size: 18px;
+      background-color: #38ABF5;
+      border: none;
+      width: 160px;
+      height: 32px;
+      margin-left: auto;
+      margin-top: auto;
+      margin-right: 3vw;
+      border-radius: 8px; }
+  .journal .momentList {
+    height: 75vh;
+    padding-top: 5%;
+    overflow: visible;
+    overflow-y: scroll;
+    scrollbar-color: #cccccc #fff;
+    scrollbar-width: thin; }
+    .journal .momentList::-webkit-scrollbar {
+      width: 4px; }
+    .journal .momentList::-webkit-scrollbar-track {
+      background: #f1f1f1; }
+    .journal .momentList::-webkit-scrollbar-thumb {
+      background: #888; }
+    .journal .momentList::-webkit-scrollbar-thumb:hover {
+      background: #cccccc; }
+    .journal .momentList .moment {
+      padding: 10px 0px 10px 5%;
+      display: flex;
+      background-color: #F2F5FC;
+      border-radius: 25px;
+      margin-bottom: 5%;
+      margin-right: 1%;
+      transition: 0.5s linear;
+      cursor: pointer; }
+      .journal .momentList .moment:hover {
+        background-color: #DBE3FA; }
+      .journal .momentList .moment .momentText {
+        width: 70%;
+        margin-left: 5%;
+        display: flex;
+        flex-direction: column; }
+        .journal .momentList .moment .momentText h2 {
+          margin-top: 3%;
+          font-family: Montserrat, sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-weight: 700;
+          color: #4975E6;
+          font-size: 28px;
+          margin-bottom: 3%; }
+        .journal .momentList .moment .momentText p {
+          font-family: Montserrat, sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-weight: 700;
+          color: black;
+          font-size: 18px; }
+        .journal .momentList .moment .momentText .dateText {
+          margin-top: auto;
+          margin-left: auto;
+          font-family: Montserrat, sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-weight: 700;
+          color: black;
+          font-size: 13px; }
+      .journal .momentList .moment .icon {
+        height: 150px;
+        width: 150px;
+        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.33);
+        background-color: white;
+        background-size: 120px 120px;
+        background-image: url("../imageAssets/Icons/Psychology/ADHD.svg");
+        background-repeat: no-repeat, repeat;
+        background-position: center;
+        border-radius: 50%;
+        border: 5px solid #FFC421; }
 
 body {
   margin-top: 1vh;

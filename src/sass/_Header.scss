@@ -34,24 +34,37 @@
         
         .search {
             @include montserratFont(dark,colour(F,bla),20px);
-            width:300px;
+            width:270px;
             margin:auto;
             background-color: #F5F5F7;
             border:none;
         }
 
-        .searchbar {
+        .searchbar{
+
             display:flex;
             border-radius: 8px;
-            padding-left: 50px;
+            padding-left: 10px;
             width:300px;
             height:40px;
             background-color: #F5F5F7;
             margin-right: 40px;
 
-            textarea:focus, .search:focus {
+
+            .seachIcon{
+                margin-right: 10px;
+                width:20px;
+                height:20px;
+                margin-top: auto;
+                margin-bottom: auto;
+                cursor: pointer;
+            }
+
+            textarea:focus, .search:focus{
+              
                 outline: none;
             }
         }
+
     };
 }

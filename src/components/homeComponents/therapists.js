@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react';
-import searchIcon from "../imageAssets/Icons/General/search.png"
+import searchIcon from "../../imageAssets/Icons/General/search.png"
 
 const Dash_Therapists = () => {
   

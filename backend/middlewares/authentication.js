@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
-const mongoose = require('mongoose');
-const User = mongoose.model('User');
+const User = require('../models/UserModel')
 const forbidden = 401;
 const unprocessable = 422;
 
@@ -29,7 +28,7 @@ module.exports = async (request, response, next) => {
             const {userId} = payload;
             const user = await User.findById(userId); // Find the user by ID for the authentication
 
-            request.user = user;
+            request.User = user;
             next();
         })
     } 

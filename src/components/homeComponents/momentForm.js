@@ -42,7 +42,7 @@ class momentForm extends React.Component {
         e.preventDefault();
         console.log(this.state);
 
-        axios.post('mongodb+srv://admin:N@p1er123@momentone-cl.tbcfu.mongodb.net/MomentOne?retryWrites=true&w=majority')
+        axios.post('http://localhost:8000/users/posts')
             .then(() => {
                 alert('connected')
             })

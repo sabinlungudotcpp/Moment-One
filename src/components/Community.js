@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 
-const Community = () => {//community component
+const Community = () => {
   
   return (
 

@@ -10,6 +10,7 @@ const commentRouter = require('./backend/routes/commentRoutes');
 const postsRouter = require('./backend/routes/postRoutes');
 const goalsRouter = require('./backend/routes/goalRoutes');
 const userRouter = require('./backend/routes/UserRoutes');
+const therapistRouter = require('./backend/routes/therapistRoutes');
 
 app.use(bodyParser.json());
 app.use(express.json({limit: '27mb'}));
@@ -24,6 +25,7 @@ app.use('/api/v1/momentone/comments', commentRouter);
 app.use('/api/v1/momentone/posts', postsRouter);
 app.use('/api/v1/momentone/goals', goalsRouter);
 app.use('/api/v1/momentone/users', userRouter);
+app.use('/api/v1/momentone/therapist', therapistRouter);
 
 app.all('*', (request, response, next) => {
     return response.status(notFound).json({

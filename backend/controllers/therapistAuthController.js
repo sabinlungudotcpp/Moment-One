@@ -14,17 +14,10 @@ const signToken = (id) => {
 exports.registerTherapist = async (request, response, next) => { // Middleware function to register a therapist
     try {
         const method = request.method;
-        const {email, username, password} = request.body;
-
-        if(!email || !username || !password) {
-            return response.status(unprocessable).json({
-                status: 'Fail',
-                message: 'You must provide an e-mail, username or password when registering a Therapist'
-            });
-        }
+        const { firstName, lastName, username, password, passwordConfirm, email, telephone, city, country} = request.body;
 
         if(method === 'POST') {
-            const therapist = new Therapist({email, username, password});
+            const therapist = new Therapist({firstName, lastName, username, password, passwordConfirm, email, telephone, city, country});
             await therapist.save();
 
             const token = signToken(therapist._id);
@@ -38,6 +31,19 @@ exports.registerTherapist = async (request, response, next) => { // Middleware f
                 }
             });
         }
+    } 
+    
+    catch(error) {
+        return response.status(unprocessable).json({
+            message: error.message,
+            stack: error.stack
+        });
+    }
+};
+
+exports.loginTherapists = async (request, response, next) => {
+    try {
+
     } 
     
     catch(error) {

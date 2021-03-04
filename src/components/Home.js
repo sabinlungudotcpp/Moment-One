@@ -1,5 +1,4 @@
 import React from "react";
-
 import Header from "./Header";
 import handbook from "../imageAssets/Handbook Illustration/Handbook Illustration.png";
 import MomentForm from "./momentForm";
@@ -11,25 +10,24 @@ const Home = () => { // Home
     <div className = "Page">
       <Header title="Welcome"/>
 
-      <div className="Content">
-        <div className="contentGrid">
-
+      <div className = "Content">
+        <div className = "contentGrid">
           <JournalDis/>
 
           <div className="infoWrap">
                 <Therapists />
               <div className="handbook">
+
                 <img src={handbook} alt="Handbook"></img>
                 <p>HandBook</p>
-
               </div>
           </div>
 
           <MomentForm />
 
           <div></div>
-        </div>
 
+        </div>
       </div>
     </div>
   )

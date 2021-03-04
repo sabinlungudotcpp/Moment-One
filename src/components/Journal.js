@@ -14,7 +14,8 @@ class momentForm extends React.Component{
         })
     }
 
-    render(){
+    render() {
+
         return (
             <div className="journal">
               <h2>Your Moments </h2>
@@ -32,6 +33,7 @@ class momentForm extends React.Component{
             <JournalMoment title="Lockdown woes is the title" content="Oh boy is lockdown boring, this would be the content" date="March 21,2021" />
             <JournalMoment title="Lockdown woes is the title" content="Oh boy is lockdown boring, this would be the content" date="March 21,2021" />
             <JournalMoment title="Lockdown woes is the title" content="Oh boy is lockdown boring, this would be the content" date="March 21,2021" />
+            
             </div>
           </div>
           )

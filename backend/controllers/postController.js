@@ -54,7 +54,7 @@ exports.getPostByID = async (request, response) => { // Retrieves a POST BY ITS 
 exports.createNewPost = async (request, response) => { // Controller function to create a new post
     try {
         const method = request.method;
-        const createdBy = request.params.userId; //id of user who created post
+        const createdBy = request.User.id; //id of user who created post
         const {title, description, feeling, category, selfAware} = request.body;
 
         if(!title || !description || !feeling || !category || !selfAware) { // If there is no title or description

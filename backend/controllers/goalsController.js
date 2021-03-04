@@ -41,8 +41,7 @@ exports.createGoal = catchAsync(async (request, response, next) => { // Function
         let goalCreated = false; //test
         const method = request.method; // The request method
         const {goal, reason, reward, length} = request.body; // Body of the request
-        const createdBy = request.params.userId;
-
+        const createdBy = request.User.id;
         if(!goal || !reason || !reward || !length) {
             return response.status(unprocessable).json({
                 message: 'Goal must have a goal, reason, length and reward',

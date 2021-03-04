@@ -7,7 +7,7 @@ const unauthorized = 401;
 const unprocessable = 422;
 
 const signToken = (id) => { // Signs the JWT token
-    return jwt.sign({id}, 'SECRET_KEY');
+    return jwt.sign({id}, process.env.JWT_SECRET_KEY);
 }
 
 exports.registerUser = async (request, response) => {
@@ -15,7 +15,7 @@ exports.registerUser = async (request, response) => {
         const method = request.method;
         const {username, password} = request.body;
 
-        if(!username || !password) { // If  is no or 
+        if(!username || !password) {
             return response.status(unprocessable).json({ // Send back an unprocessable response
                 message: 'You must provide an e-mail and password'
             })
@@ -65,6 +65,7 @@ exports.login = catchAsync(async (request, response, next) => { // Controller fu
             }
 
             const token = signToken(user._id);
+
             return response.status(okCode).json({
                 message: `You are logged in as ${username} with token ${token}`
             });

@@ -1,6 +1,8 @@
 //Controller for the therapist therapist model. Moment one platform
 const mongoose = require('mongoose');
 const Therapist = mongoose.model('Therapist')
+const okCode = 200;
+const serverError = 500;
 
 exports.getAllTherapists = async (request, response) => { //get all therapists
 	try {
@@ -24,10 +26,11 @@ exports.getAllTherapists = async (request, response) => { //get all therapists
 exports.getTherapistById = async (request, response) => { //Get a therapist by id 
 	try {
 		const method = request.method;
+		
 		if(method === 'GET') {
 			const id = request.params.id; //Request parameters
 			const therapistId = await Therapist.findById(id); 
-			return response.status(200).json({ //http code 200 (OK)
+			return response.status(okCode).json({ //http code 200 (OK)
 			therapistId
 			}); 
 		}

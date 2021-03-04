@@ -62,8 +62,8 @@ TherapistSchema.pre('save', async function(next) {
 		return next();
 	}
 
-	this.password = await bcrypt.hash(HASH_BYTES)
-	this.passwordConfirm = undefined;
+	this.password = await bcrypt.hash(this.password, HASH_BYTES);
+	this.passwordConfirm = undefined; // Password confirm is undefined
 
 	return next(); // Return the next middleware
 });

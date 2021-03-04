@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
 		required: [true, 'You must provide your username']
 	},
 
-	aboutMe: {
+	aboutMe: { // About me field
 		type: String, 
 		max: 500,
 		required: false

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
+const MIN_LENGTH = 3;
 const HASH_BYTES = 12;
 
 const TherapistSchema = new mongoose.Schema({ //Therapist schema that inherits from the base schema
@@ -17,7 +18,7 @@ const TherapistSchema = new mongoose.Schema({ //Therapist schema that inherits f
 
 	username: { // The username of the therapist model
 		type: String,
-		min: [3, 'You must specify at least 3 characters for your username'],
+		min: [MIN_LENGTH, 'You must specify at least 3 characters for your username'],
 		required: [true, 'As a therapist you must specify your username']
 	},
 

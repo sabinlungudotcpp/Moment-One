@@ -5,8 +5,8 @@ const HASH_BYTES = 12;
 
 const userSchema = new mongoose.Schema({ 
 
-	username: { 
-		type: String,
+	username: { // The username of the user
+		type: String, // Type is a string
 		unique: [true, 'Username taken'], 
 		match: [/^[a-zA-Z0-9]+$/, 'Invalid username'], 
 		min: 3, 

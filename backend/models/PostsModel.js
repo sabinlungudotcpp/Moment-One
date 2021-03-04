@@ -27,18 +27,17 @@ const PostSchema = new mongoose.Schema({
         required: true
     },
 
-    // Field for user stating if they feel self-aware or not
     selfAware: {
         type: Boolean,
         required: true
     },
 
-    //The user that created the post
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }
 },
+
 {
     timestamps: true
 });

@@ -17,7 +17,7 @@ const TherapistSchema = new mongoose.Schema({ //Therapist schema that inherits f
 
 	username: { // The username of the therapist model
 		type: String,
-		min: 3,
+		min: [3, 'You must specify at least 3 characters for your username'],
 		required: [true, 'As a therapist you must specify your username']
 	},
 
@@ -33,7 +33,7 @@ const TherapistSchema = new mongoose.Schema({ //Therapist schema that inherits f
     
 	email: { 
 		type: String,
-		required: [true, 'Email required'],
+		required: [true, 'You must specify your e-mail address'],
 		match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'Invalid email address'], //Regex. Matches email accounts.
 		index: true
 	},

@@ -1,10 +1,10 @@
 import React from "react";
 import axios from 'axios';
-import moodGreat from "../imageAssets/Mood Tracker/moodGreat.png";
-import moodGood from "../imageAssets/Mood Tracker/moodGood.png";
-import moodMeh from "../imageAssets/Mood Tracker/moodMeh.png";
-import moodeBad from "../imageAssets/Mood Tracker/moodBad.png";
-import moodAwful from "../imageAssets/Mood Tracker/moodAwful.png";
+import moodGreat from "../../imageAssets/Mood Tracker/moodGreat.png";
+import moodGood from "../../imageAssets/Mood Tracker/moodGood.png";
+import moodMeh from "../../imageAssets/Mood Tracker/moodMeh.png";
+import moodeBad from "../../imageAssets/Mood Tracker/moodBad.png";
+import moodAwful from "../../imageAssets/Mood Tracker/moodAwful.png";
 
 class momentForm extends React.Component {
     //attributes collected by the form
@@ -41,11 +41,22 @@ class momentForm extends React.Component {
     onSubmit = (e) => {
         e.preventDefault();
         console.log(this.state);
-        axios.post('')
 
+        axios.post('mongodb+srv://admin:N@p1er123@momentone-cl.tbcfu.mongodb.net/MomentOne?retryWrites=true&w=majority')
+            .then(() => {
+                alert('connected')
+            })
+            .catch(() => {
+                alert('not connect')
+            })
 
 
         this.resState();
+    }
+
+    validate() {
+
+        return false;
     }
     render() {
         return (

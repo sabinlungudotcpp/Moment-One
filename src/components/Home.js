@@ -1,10 +1,9 @@
 import React from "react";
-
 import Header from "./Header";
 import handbook from "../imageAssets/Handbook Illustration/Handbook Illustration.png";
-import MomentForm from "./momentForm";
-import JournalDis from "./Journal"
-import Therapists from "./Dash_Therapists"
+import MomentForm from "./homeComponents/momentForm";
+import JournalDis from "./homeComponents/Journal";
+import Therapists from "./homeComponents/therapists";
 
 const Home = () => { // Home Component
   return (

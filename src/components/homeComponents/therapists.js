@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import searchIcon from "../imageAssets/Icons/General/search.png"
+import searchIcon from "../../imageAssets/Icons/General/search.png"
 class therapists extends Component {
     render() {
         return(

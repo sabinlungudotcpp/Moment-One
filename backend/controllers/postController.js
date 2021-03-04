@@ -51,10 +51,10 @@ exports.getPostByID = async (request, response) => { // Retrieves a POST BY ITS 
     }
 }
 
-exports.createNewPost = async (request, response) => { // Controller function to create a new post
+exports.createNewPost = async(request, response) => { // Controller function to create a new post
     try {
         const method = request.method;
-        const createdBy = request.User.id; //id of user who created post
+        
         const {title, description, feeling, category, selfAware} = request.body;
 
         if(!title || !description || !feeling || !category || !selfAware) { // If there is no title or description
@@ -64,7 +64,7 @@ exports.createNewPost = async (request, response) => { // Controller function to
         }
         
         if(method === 'POST') {
-            const newPost = new Post({title, description, feeling, category, selfAware, createdBy});
+            const newPost = new Post({title, description, feeling, category, selfAware});
             await newPost.save();
 
             return response.status(createdCode).json({newPost, createdAt: Date.now()});
@@ -147,7 +147,7 @@ exports.deletePostByID = async (request, response) => {
     catch(error) {
         if(error) {
             return response.status(serverError).json({
-                message: error.message
+                message: `Could not delete the post with id ${request.params.id} as it is not found`
             });
         }
     }

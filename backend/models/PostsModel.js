@@ -30,11 +30,6 @@ const PostSchema = new mongoose.Schema({
     selfAware: {
         type: Boolean,
         required: true
-    },
-
-    createdBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
     }
 },
 

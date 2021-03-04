@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const catchAsync = require('../utils/catchAsync');
 const jwt = require('jsonwebtoken');
 const Therapist = require('../models/therapistModel');
 const okCode = 200;
@@ -67,8 +66,8 @@ exports.loginTherapists = async (request, response, next) => {
             }
 
             const token = signToken(therapist._id);
-            return response.status(okCode).json({
 
+            return response.status(okCode).json({
                 status: 'Logged In Success',
                 message: `You are logged in as ${username} with the token ${token}`,
                 loggedInAt: new Date().toISOString()

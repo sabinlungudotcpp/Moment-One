@@ -37,7 +37,7 @@ class momentForm extends React.Component {
             [e.target.name]: e.target.checked
         })
     }
-    //loging the results, then sending the data to the database via axios
+
     onSubmit = (e) => {
         e.preventDefault();
         console.log(this.state);
@@ -58,13 +58,15 @@ class momentForm extends React.Component {
 
         return false;
     }
+
     render() {
+
         return (
             <form className="momentForm">
                 <div className="momentForm_top-section">
+
                     <h2>Good afternoon, Username!</h2>
                     <h2>How are you feeling?</h2>
-                    {/* Section of form for selecting the current feeling */}
                     <div className="feelingWrapper">
 
                         <label className="feelingSelect">
@@ -98,10 +100,11 @@ class momentForm extends React.Component {
                         </label>
                     </div>
                 </div>
-                {/* Section of form for selecting catigory of the moment*/}
+                
                 <div className="momentForm_center-section">
                     <p> Add Category </p>
                     <div className="category_wrap">
+
                         <label className="category_select">
                             <input type="radio" name='category' value='General' checked={this.state.category === 'General'} onChange={e => this.change(e)} />
                             <p className="categoryLabel">General</p>
@@ -126,9 +129,11 @@ class momentForm extends React.Component {
                             <input type="radio" name='category' value='Weight Loss' checked={this.state.category === 'Weight Loss'} onChange={e => this.change(e)} />
                             <p className="categoryLabel">Weight Loss</p>
                         </label>
+
                     </div>
                 </div>
-                {/* Section for inputing details of the users feelings into textboxes*/}
+                
+
                 <div className="momentForm_bottom-section">
                     <p>What's on your mind today?</p>
                     <textarea className="mind" value={this.state.onYourMind} name="onYourMind" onChange={e => this.change(e)} rows="12" cols="50" />

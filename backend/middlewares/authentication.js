@@ -13,7 +13,7 @@ module.exports = async (request, response, next) => {
             });
         }
 
-        const token = authorization.replace('Bearer ', ' '); // Replace the Bearer token with a space
+        const token = authorization.replace('Bearer ', '')[1];
 
         jwt.verify(token, 'SECRET_KEY', async (error, payload) => { // Verify the JWT TOKEN
 

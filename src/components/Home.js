@@ -5,30 +5,31 @@ import MomentForm from "./homeComponents/momentForm";
 import JournalDis from "./homeComponents/Journal";
 import Therapists from "./homeComponents/therapists";
 
-const Home = () => { // Home Component
+const Home = () => { // Home
   return (
     <div className = "Page">
       <Header title="Welcome"/>
 
-      <div className="Content">
-        <div className="contentGrid">
-
+      <div className = "Content">
+        <div className = "contentGrid">
           <JournalDis/>
 
           <div className="infoWrap">
                 <Therapists />
               <div className="handbook">
+
                 <img src={handbook} alt="Handbook"></img>
                 <p>HandBook</p>
-
               </div>
           </div>
 
           <MomentForm />
 
-          <div></div>
-        </div>
+          <div>
+            
+          </div>
 
+        </div>
       </div>
     </div>
   )

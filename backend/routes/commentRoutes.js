@@ -1,11 +1,13 @@
 const express = require('express');
 const commentController = require('../controllers/commentsController');
+const authenticate = require('../middlewares/authentication');
 const commentsRouter = express.Router();
 
-commentsRouter.route('/').get(commentController.getAllComments).post(commentController.createComment).delete(commentController.deleteAllComments);
+commentsRouter.route('/').get(commentController.getAllComments).delete(commentController.deleteAllComments);
 commentsRouter.route('/:id').get(commentController.getCommentByID).patch(commentController.editComment).delete(commentController.deleteCommentByID);
-commentsRouter.route('/:postId/:userId').post(commentController.createComment);
-//I'm planning to use JWT for the sessions and transfering user info insted of putting it in the url
-//but I've done it this way for now just to test how the models reference each other and how the references are saved.
+
+//Create a comment on a post where :postId is the -id of the post the comment is posted on
+commentsRouter.route('/:postId').post(authenticate, commentController.createComment);
+
 
 module.exports = commentsRouter;

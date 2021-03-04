@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const PostSchema = new mongoose.Schema({
+
     title: { // Title of the post
         type: String,
         unique: false,
@@ -12,14 +13,32 @@ const PostSchema = new mongoose.Schema({
         required: true
     },
 
-    //The user that created the post
+    // User feeling on the post
+    feeling: {
+        type: String,
+        enum: ['Great', 'Good', 'Meh', 'Bad', 'Awful'],
+        required: true
+    },
+
+    // Post category
+    category: {
+        type: String,
+        enum: ['General', 'Anxiety', 'PTSD', 'Depression', 'Weight loss'],
+        required: true
+    },
+
+    selfAware: {
+        type: Boolean,
+        required: true
+    },
+
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }
 },
+
 {
-    //Adds createdAt and updatedAt timestamps for the post
     timestamps: true
 });
 

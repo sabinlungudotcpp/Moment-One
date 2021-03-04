@@ -1,7 +1,8 @@
 import React from "react";
 
-function Settings() {
+const Settings = () => {
   return (
+    
     <div className = "Settings">
       <header className = "Settings-header">
         <h1>Settings</h1>
@@ -10,4 +11,4 @@ function Settings() {
   )
 }
 
-export default Settings;
+export default Settings; // Exports the settings component

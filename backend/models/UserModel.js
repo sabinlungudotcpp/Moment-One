@@ -4,8 +4,9 @@ const bcrypt = require('bcrypt');
 const HASH_BYTES = 12;
 
 const userSchema = new mongoose.Schema({ 
+
 	username: { 
-		type: String,
+		type: String, 
 		unique: [true, 'Username taken'], 
 		match: [/^[a-zA-Z0-9]+$/, 'Invalid username'], 
 		min: 3, 
@@ -13,10 +14,16 @@ const userSchema = new mongoose.Schema({
 		required: [true, 'You must provide your username']
 	},
 
-	aboutMe: {
+	aboutMe: { // About me field
 		type: String, 
 		max: 500,
 		required: false
+	},
+
+	roles: {
+		type: String,
+		enum: ['user', 'admin'],
+		default: 'user'
 	},
 
 	profileImage: String,
@@ -24,9 +31,7 @@ const userSchema = new mongoose.Schema({
 
 	password: { 
 		type: String, 
-		required: [true, 'You must provide your password'],
-		min: 8,
-		max: 20 
+		required: [true, 'You must provide your password']
 	},
 
 	passwordResetExpiry: Date,

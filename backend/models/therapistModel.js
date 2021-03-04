@@ -1,47 +1,77 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
+const MIN_LENGTH = 3;
+const HASH_BYTES = 12;
 
-const Therapist = new mongoose.Schema({ //Therapist schema that inherits from the base schema
-	name: { //Therapists name
-		firstName: {
-			type: String,
-			required: [true, 'Firat name required']
-		},
-		lastName: {
-			type: String,
-			required: [true, 'Last name required']
-		}
-    },
+const TherapistSchema = new mongoose.Schema({ //Therapist schema that inherits from the base schema
+
+	firstName: {
+		type: String,
+		required: [true, 'First name required']
+	},
+
+	lastName: {
+		type: String,
+		required: [true, 'Last name required']
+	},
+
+	username: { // The username of the therapist model
+		type: String,
+		min: [MIN_LENGTH, 'You must specify at least 3 characters for your username'],
+		required: [true, 'As a therapist you must specify your username']
+	},
+
+	password: {
+		type: String,
+		required: [true, 'As a therapist you must provide your password']
+	},
+
+	passwordConfirm: {
+		type: String,
+		required: [true, 'You must confirm your password']
+	},
     
-	contactInfo: { //Therapist contact information
+	email: { 
+		type: String,
+		required: [true, 'You must specify your e-mail address'],
+		match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'Invalid email address'], //Regex. Matches email accounts.
+		index: true
+	},
 
-		email: { //Email required for therpist users
-			type: String,
-			//unique: [true, 'Email already used'],
-			required: [true, 'Email required'],
-			match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'Invalid email address'], //Regex. Matches email accounts.
-			index: true,
-			sparse: true
-		},
+	telephone: {
+		type: Number, 
+		required: [true, 'Phone number required']
+	},
+	
+	city: {
+		type: String,
+		required: [true, 'City required']
+	},
 
-		tel: { //Therapistrs phone number
-			type: Number, 
-			required: [true, 'Phone number required']
-		},
-
-		location: { //Therapists locations
-			city: {
-				type: String,
-				required: [true, 'City required']
-			},
-			country: {
-				type: String,
-				required: [true, 'Country required']
-			}
-		}
+	country: {
+		type: String,
+		required: [true, 'Country required']
 	}
 });
 
-const Therapist = mongoose.model('Therapist', therapistSchema);
-module.exports = Therapist;
+// Pre-middleware hook
+TherapistSchema.pre('save', async function(next) {
+	const currentTherapist = this;
+
+	if(!currentTherapist.isModified('password')) {
+		return next();
+	}
+
+	this.password = await bcrypt.hash(this.password, HASH_BYTES);
+	this.passwordConfirm = undefined; // Password confirm is undefined
+
+	return next(); // Return the next middleware
+});
+
+TherapistSchema.methods.comparePasswords = async function(candidatePassword, userPassword) {
+	return await bcrypt.compare(candidatePassword, userPassword);
+};
+
+const Therapists = mongoose.model('Therapist', TherapistSchema);
+module.exports = Therapists; // Export the module

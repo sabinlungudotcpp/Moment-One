@@ -1,19 +1,22 @@
+
 import React,{Component} from 'react';
 import searchIcon from "../../imageAssets/Icons/General/search.png"
 class therapists extends Component {
     render() {
         return(
             <div className="therapists">
-                <p>Favourite Therapists</p>
-                <form className="searchbar">
-                  <img className = "seachIcon" src={searchIcon} />
-                  <input type="text" id = "search" className="search"></input>
-                </form>
+              <p>Favourite Therapists</p>
 
-                {/*Temporary filler until axios is implemented */}
+              <form className="searchbar">
+                <img className = "seachIcon" src={searchIcon} />
+              <input type="text" id = "search" className="search"></input>
+
+                </form>
+   
             <div className="therapistGrid">
               <div className="therapist">
                 <div className="qualification">
+                
                   <h2>Dr</h2>
                 </div>
                 <p>Name</p>
@@ -59,6 +62,5 @@ class therapists extends Component {
             </div>
         )
     }
-}
-
-export default therapists;
+      
+export default Dash_Therapists;

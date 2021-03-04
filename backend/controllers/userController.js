@@ -27,8 +27,8 @@ exports.getAllUsers = async (request, response) => { //get all users
 }
 
 exports.getUserById = async (request, response) => { // Get a user by their ID
-	try {
 
+	try {
 		const method = request.method;
 		const url = request.url;
 
@@ -49,6 +49,7 @@ exports.getUserById = async (request, response) => { // Get a user by their ID
 }
 
 exports.getUsername = async (request, response) => { //Get user by username
+	
 	try {
 		const method = request.method; 
 		const url = request.url;

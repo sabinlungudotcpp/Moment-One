@@ -15,7 +15,7 @@ exports.registerUser = async (request, response) => {
         const method = request.method;
         const {username, password} = request.body;
 
-        if(!username || !password) { // If  is no or 
+        if(!username || !password) {
             return response.status(unprocessable).json({ // Send back an unprocessable response
                 message: 'You must provide an e-mail and password'
             })
@@ -65,6 +65,7 @@ exports.login = catchAsync(async (request, response, next) => { // Controller fu
             }
 
             const token = signToken(user._id);
+
             return response.status(okCode).json({
                 message: `You are logged in as ${username} with token ${token}`
             });

@@ -2,15 +2,17 @@
 @import "functions";
 @import "images";
 
-.journal{
+.journal {
     height:85vh;
     width:100%;
     border-right: solid 3px colour(F,lgr);
     margin:0px;
     overflow: visible;
-    h2{
+
+    h2 {
         @include montserratFont(dark,colour(P,db),24px);
     }
+
     &_underline{
         margin-top:3%;
         height:3px;
@@ -22,11 +24,11 @@
         width: 100%;
         margin-bottom:10px;
 
-        .jounral_categories{
+        .journal_categories{
             @include montserratFont(dark,colour(F,wh),18px);
             background-color: colour(F,blu);
             border:none;
-            width:160px;
+            width: 160px;
             height:32px;
             margin-left:auto;
             margin-top:auto;

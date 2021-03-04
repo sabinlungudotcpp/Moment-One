@@ -2,14 +2,16 @@
 const mongoose = require('mongoose');
 const Therapist = mongoose.model('Therapist')
 const okCode = 200;
+const notFound = 404;
 const serverError = 500;
 
 exports.getAllTherapists = async (request, response) => { //get all therapists
 	try {
 		const method = request.method;
 		if(method === 'GET') {
+			
 			const allTherapists = await Therapist.find(); //Getting therapists from the database
-			return response.status(200).json({ //http code 200 (OK)
+			return response.status(okCode).json({ //http code 200 (OK)
 				allTherapists
 			});
 		}
@@ -26,18 +28,18 @@ exports.getAllTherapists = async (request, response) => { //get all therapists
 exports.getTherapistById = async (request, response) => { //Get a therapist by id 
 	try {
 		const method = request.method;
+		const url = request.url;
+		const id = request.params.id; //Request parameters
 
-		if(method === 'GET') {
-			const id = request.params.id; //Request parameters
+		if(method === 'GET' && url.startsWith('/')) {
 			const therapistId = await Therapist.findById(id); 
-			return response.status(okCode).json({ //http code 200 (OK)
-			therapistId
-			}); 
+			return response.status(okCode).json({therapistId}); 
 		}
 	}
+
 	catch(error) {
 		if(error) {
-			return response.status(500).json({
+			return response.status(serverError).json({
 				message: error.message
 			});
 		}
@@ -45,9 +47,33 @@ exports.getTherapistById = async (request, response) => { //Get a therapist by i
 }
 
 exports.createNewTherapist = async (request, response) => { //Create a new therapist
-	
-}
+	try {
+		const requestMethod = request.method;
+		const {firstName, lastName, username, password, passwordConfirm, email, telephone, city, country} = request.body;
 
+		if(!firstName || !lastName || !username || !password || !passwordConfirm || !email || !telephone || !city || !country) {
+			return response.status(serverError).json({
+				status: 'Fail',
+				message: 'Some of the fields are missing, please check again',
+				sentAt: new Date().toISOString()
+			});
+		}
+
+		if(requestMethod === 'POST') {
+
+		}
+	} 
+	
+	catch(error) {
+		if(error) {
+			return response.status(404).json({
+				message: error.message,
+				stack: error.stack,
+				sentAt: new Date().toISOString()
+			});
+		}
+	}
+}
 
 exports.editTherapist = async (request, response) => {
 	try {

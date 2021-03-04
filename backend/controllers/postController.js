@@ -67,10 +67,7 @@ exports.createNewPost = async (request, response) => { // Controller function to
             const newPost = new Post({title, description, feeling, category, selfAware, createdBy});
             await newPost.save();
 
-            return response.status(createdCode).json({
-                newPost,
-                createdAt: Date.now()
-            });
+            return response.status(createdCode).json({newPost, createdAt: Date.now()});
         }
     } 
     

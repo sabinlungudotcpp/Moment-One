@@ -14,11 +14,11 @@ const signToken = (id) => {
 exports.registerTherapist = async (request, response, next) => { // Middleware function to register a therapist
     try {
         const method = request.method;
-        const { firstName, lastName, username, password, passwordConfirm, email, telephone, city, country} = request.body;
+        const { firstName, lastName, username, password, passwordConfirm, email, telephone, city, country} = request.body; // The data coming from the body
 
         if(method === 'POST') {
             const therapist = new Therapist({firstName, lastName, username, password, passwordConfirm, email, telephone, city, country});
-            await therapist.save();
+            await therapist.save(); // Save the details to the database
 
             const token = signToken(therapist._id);
 

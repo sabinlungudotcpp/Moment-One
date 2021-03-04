@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const HASH_BYTES = 12;
 
 const userSchema = new mongoose.Schema({ 
+
 	username: { 
 		type: String,
 		unique: [true, 'Username taken'], 
@@ -24,9 +25,7 @@ const userSchema = new mongoose.Schema({
 
 	password: { 
 		type: String, 
-		required: [true, 'You must provide your password'],
-		min: 8,
-		max: 20 
+		required: [true, 'You must provide your password']
 	},
 
 	passwordResetExpiry: Date,

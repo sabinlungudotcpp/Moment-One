@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const PostSchema = new mongoose.Schema({
+
     title: { // Title of the post
         type: String,
         unique: false,
@@ -12,21 +13,21 @@ const PostSchema = new mongoose.Schema({
         required: true
     },
 
-    //User feeling on the post
+    // User feeling on the post
     feeling: {
         type: String,
         enum: ['Great', 'Good', 'Meh', 'Bad', 'Awful'],
         required: true
     },
 
-    //Post category
+    // Post category
     category: {
         type: String,
         enum: ['General', 'Anxiety', 'PTSD', 'Depression', 'Weight loss'],
         required: true
     },
 
-    //Field for user stating if they feel self-aware or not
+    // Field for user stating if they feel self-aware or not
     selfAware: {
         type: Boolean,
         required: true
@@ -39,7 +40,6 @@ const PostSchema = new mongoose.Schema({
     }
 },
 {
-    //Adds createdAt and updatedAt timestamps for the post
     timestamps: true
 });
 

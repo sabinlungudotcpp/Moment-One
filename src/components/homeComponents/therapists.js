@@ -1,9 +1,10 @@
 
-import React,{Component} from 'react';
-import searchIcon from "../../imageAssets/Icons/General/search.png"
-class therapists extends Component {
-    render() {
-        return(
+import React, {Component} from 'react';
+import searchIcon from "../imageAssets/Icons/General/search.png"
+
+const Dash_Therapists = () => {
+  
+        return (
             <div className="therapists">
               <p>Favourite Therapists</p>
 

@@ -42,7 +42,7 @@ class momentForm extends React.Component {
         e.preventDefault();
         console.log(this.state);
 
-        axios.post('http://localhost:8000/users/posts')
+        axios.post('http://localhost:8001/api/v1/momentone/posts')
             .then(() => {
                 alert('connected')
             })

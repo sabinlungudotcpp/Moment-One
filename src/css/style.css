@@ -44,7 +44,7 @@
       background-image: url("../imageAssets/Avatars/Animated/Asset33.svg");
       background-repeat: no-repeat, repeat;
       background-size: 60px 60px;
-      background-color: beige;
+      background-color: brown;
       width: 60px;
       height: 60px;
       border-radius: 50%;
@@ -735,53 +735,96 @@ h1 {
   height: 82vh;
   display: grid;
   gap: 50px;
-  grid-template-columns: minmax(30vw, 1fr) minmax(400px, 1fr) minmax(600px, 1fr) minmax(1px, 1px);
+  grid-template-columns: minmax(500px, 1fr) minmax(400px, 1fr) minmax(800px, 1fr) minmax(1px, 1px);
   grid-auto-rows: 80vh; }
-  .journeyContentGrid .profileWrapper {
-    width: 30vw;
-    height: 400px;
-    overflow: none; }
-    .journeyContentGrid .profileWrapper .profileImg {
-      position: relative;
-      background-image: url("../imageAssets/Avatars/Animated/Asset33.svg");
-      background-repeat: no-repeat, repeat;
-      background-size: 130px 130px;
-      background-color: brown;
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      margin-right: 450px;
-      margin-bottom: 1vh; }
-    .journeyContentGrid .profileWrapper .profile {
-      margin-left: 30px;
-      margin-top: 30px;
-      width: 95%;
-      height: 20vh;
+  .journeyContentGrid .profileMomentsWrap {
+    width: 100%;
+    height: 100%; }
+    .journeyContentGrid .profileMomentsWrap .profile {
       border-radius: 25px 25px 25px 25px;
       box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
       background-color: #FAFAFA;
-      overflow: visible;
-      display: flex;
-      flex-direction: row; }
-      .journeyContentGrid .profileWrapper .profile h1 {
-        margin-top: 2%;
-        margin-left: 25%;
+      border-radius: 75px 25px 25px 25px;
+      width: 100%;
+      height: 25%;
+      overflow: visible; }
+      .journeyContentGrid .profileMomentsWrap .profileContent {
+        width: 100%;
+        text-align: left;
+        display: flex;
+        flex-direction: row; }
+        .journeyContentGrid .profileMomentsWrap .profileContent .titleText {
+          margin-top: 5%;
+          margin-left: 5%; }
+          .journeyContentGrid .profileMomentsWrap .profileContent .titleText h1 {
+            text-align: left;
+            font-family: Montserrat, sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-weight: 700;
+            color: black;
+            font-size: 40px; }
+          .journeyContentGrid .profileMomentsWrap .profileContent .titleText h2 {
+            font-family: Montserrat, sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-weight: 700;
+            color: black;
+            font-size: 20px; }
+        .journeyContentGrid .profileMomentsWrap .profileContent .profileImg {
+          background-image: url("../imageAssets/Avatars/Animated/Asset33.svg");
+          background-repeat: no-repeat, repeat;
+          background-size: 130px 130px;
+          background-color: brown;
+          width: 130px;
+          height: 130px;
+          border-radius: 50%; }
+      .journeyContentGrid .profileMomentsWrap .profile p {
+        margin: 5%;
+        padding-top: 5%;
         font-family: Montserrat, sans-serif;
         font-style: normal;
         font-weight: 600;
         font-weight: 700;
         color: black;
-        font-size: 40px;
-        height: fit-content; }
-      .journeyContentGrid .profileWrapper .profile h2 {
-        font-family: Montserrat, sans-serif;
-        font-style: normal;
-        font-weight: 600;
-        font-weight: 700;
-        color: black;
-        font-size: 20px; }
-      .journeyContentGrid .profileWrapper .profile p {
+        font-size: 20px;
         margin-top: auto; }
+    .journeyContentGrid .profileMomentsWrap .topMoments {
+      margin-top: 30px;
+      height: 76%;
+      width: 100%;
+      border-radius: 25px 25px 25px 25px;
+      box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+      background-color: #FAFAFA; }
+  .journeyContentGrid .community {
+    border-radius: 25px 25px 25px 25px;
+    box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+    background-color: #FAFAFA;
+    width: 90%;
+    height: 80vh;
+    padding: 20px; }
+    .journeyContentGrid .community h1 {
+      font-family: all-round-gothic, sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      color: black;
+      font-size: 30px; }
+  .journeyContentGrid .awarenessGrowthWrap {
+    width: 100%;
+    height: 100%; }
+    .journeyContentGrid .awarenessGrowthWrap .selfAwareness {
+      border-radius: 25px 25px 25px 25px;
+      box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+      background-color: #FAFAFA;
+      height: 50%;
+      width: 100%;
+      margin-bottom: 5%; }
+    .journeyContentGrid .awarenessGrowthWrap .goals {
+      border-radius: 25px 25px 25px 25px;
+      box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+      background-color: #FAFAFA;
+      height: 50%;
+      width: 100%; }
 
 body {
   margin-top: 1vh;

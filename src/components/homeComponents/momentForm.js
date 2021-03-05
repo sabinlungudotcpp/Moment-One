@@ -41,20 +41,21 @@ class momentForm extends React.Component {
 
     validate=()=> {
         
-        if(this.state.currentfeeling == ""){
+        if(this.state.currentfeeling === ""){
             this.setState({error:"Please say how you are feeling"});
             console.log(this.state);
-        }else if(this.state.category == ""){
+        }else if(this.state.category === ""){
             this.setState({error:"Please enter a category"});
             console.log(this.state);
-        }else if(this.state.onYourMind == ""){
+        }else if(this.state.onYourMind === ""){
             this.setState({error:"Please say whats on your mind"});
             console.log(this.state);
-        }else if(this.state.howYouFeel == ""){
+        }else if(this.state.howYouFeel === ""){
             this.setState({error:"Please say how you feel"});
             console.log(this.state);
         }else{
-            this.state.error = '';
+            this.setState({error:""});
+            console.log(this.state);
         }
     }
 
@@ -65,7 +66,7 @@ class momentForm extends React.Component {
 
             this.validate();
 
-            if(this.state.error == ''){
+            if(this.state.error === ""){
 
                 const payload = {
                     title: this.state.onYourMind,

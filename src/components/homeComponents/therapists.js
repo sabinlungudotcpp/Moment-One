@@ -1,5 +1,5 @@
 
-import React, {Component} from 'react';
+import React from 'react';
 import searchIcon from "../../imageAssets/Icons/General/search.png"
 
 const Dash_Therapists = () => {

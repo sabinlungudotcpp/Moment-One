@@ -167,12 +167,12 @@
 
 .PageContent {
   width: calc(100vw - 100px);
-  height: 100%;
+  height: 98vh;
   margin-left: 100px;
   float: left;
   border-radius: 25px 25px 25px 25px;
   overflow-x: visible;
-  overflow: visible; }
+  overflow-y: hidden; }
 
 h1 {
   text-align: center;
@@ -184,9 +184,9 @@ h1 {
   height: 95vh;
   width: calc(100vw -100px); }
   .Page .Content {
-    overflow: visible;
+    overflow-y: none;
     overflow-x: scroll;
-    height: 91.5vh;
+    height: 92vh;
     padding-left: 3vw;
     padding-right: 3vw;
     scrollbar-color: #b1b1b1 #fff;
@@ -211,7 +211,7 @@ h1 {
   height: 82vh;
   display: grid;
   gap: 50px;
-  grid-template-columns: minmax(800px, 2fr) repeat(2, minmax(400px, 1fr)) minmax(1px, 1px);
+  grid-template-columns: minmax(800px, 2fr) minmax(400px, 1fr) minmax(500px, 1fr) minmax(1px, 1px);
   grid-auto-rows: 80vh; }
   .contentGrid .infoWrap {
     margin-left: auto;
@@ -400,7 +400,7 @@ h1 {
   margin-left: auto;
   margin-top: 10px;
   height: 100%;
-  width: 400px;
+  width: 500px;
   box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
   overflow: hidden; }
   .momentForm_top-section {
@@ -470,9 +470,9 @@ h1 {
       display: flex;
       align-content: center;
       flex-wrap: wrap;
-      width: 100%;
-      padding-top: 5%; }
+      width: 100%; }
       .momentForm_center-section .category_wrap .category_select .categoryLabel {
+        margin: 5px;
         font-family: Montserrat, sans-serif;
         font-style: normal;
         font-weight: 600;
@@ -502,7 +502,7 @@ h1 {
     background-color: #5C17CB;
     background: linear-gradient(46.39deg, #3CCEFD -7.12%, #4685EA 73.87%, #4E4EDB 134.44%);
     box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25);
-    padding: 10%; }
+    padding: 40px; }
     .momentForm_bottom-section p {
       white-space: nowrap;
       font-family: Montserrat, sans-serif;
@@ -512,7 +512,7 @@ h1 {
       color: #fff;
       font-size: 20px; }
     .momentForm_bottom-section .feelings {
-      height: 20%;
+      height: 25%;
       border: none;
       font-family: Montserrat, sans-serif;
       font-style: normal;
@@ -524,10 +524,9 @@ h1 {
       padding: 2%;
       border-radius: 14px;
       margin-top: 5%;
-      margin-bottom: 5%;
       outline: none; }
     .momentForm_bottom-section .mind {
-      height: 10%;
+      height: 12%;
       border: none;
       font-family: Montserrat, sans-serif;
       font-style: normal;
@@ -612,13 +611,25 @@ h1 {
         .momentForm_bottom-section .btn_wrapper .create:hover {
           translate: -2px;
           box-shadow: none; }
+    .momentForm_bottom-section .error {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      text-align: center;
+      margin-top: auto;
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      color: #ff4c6c;
+      font-size: 20px; }
 
 .journal {
-  height: 85vh;
+  height: 86vh;
   width: 100%;
   border-right: solid 3px #dadada;
   margin: 0px;
-  overflow: visible; }
+  overflow: hidden; }
   .journal h2 {
     font-family: Montserrat, sans-serif;
     font-style: normal;
@@ -651,7 +662,7 @@ h1 {
       margin-right: 3vw;
       border-radius: 8px; }
   .journal .momentList {
-    height: 75vh;
+    height: 78vh;
     padding-top: 5%;
     overflow: visible;
     overflow-y: scroll;
@@ -717,6 +728,60 @@ h1 {
         background-position: center;
         border-radius: 50%;
         border: 5px solid #FFC421; }
+
+.journeyContentGrid {
+  margin-top: 5vh;
+  width: calc(94vw - 100px);
+  height: 82vh;
+  display: grid;
+  gap: 50px;
+  grid-template-columns: minmax(30vw, 1fr) minmax(400px, 1fr) minmax(600px, 1fr) minmax(1px, 1px);
+  grid-auto-rows: 80vh; }
+  .journeyContentGrid .profileWrapper {
+    width: 30vw;
+    height: 400px;
+    overflow: none; }
+    .journeyContentGrid .profileWrapper .profileImg {
+      position: relative;
+      background-image: url("../imageAssets/Avatars/Animated/Asset33.svg");
+      background-repeat: no-repeat, repeat;
+      background-size: 130px 130px;
+      background-color: brown;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      margin-right: 450px;
+      margin-bottom: 1vh; }
+    .journeyContentGrid .profileWrapper .profile {
+      margin-left: 30px;
+      margin-top: 30px;
+      width: 95%;
+      height: 20vh;
+      border-radius: 25px 25px 25px 25px;
+      box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+      background-color: #FAFAFA;
+      overflow: visible;
+      display: flex;
+      flex-direction: row; }
+      .journeyContentGrid .profileWrapper .profile h1 {
+        margin-top: 2%;
+        margin-left: 25%;
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: black;
+        font-size: 40px;
+        height: fit-content; }
+      .journeyContentGrid .profileWrapper .profile h2 {
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: black;
+        font-size: 20px; }
+      .journeyContentGrid .profileWrapper .profile p {
+        margin-top: auto; }
 
 body {
   margin-top: 1vh;

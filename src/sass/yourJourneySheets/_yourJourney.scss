@@ -1,0 +1,54 @@
+@import "../GenericSheets/functions";
+@import "../GenericSheets/variables";
+
+.journeyContentGrid{
+    margin-top: 5vh;
+    width:calc(94vw - 100px);
+    height:82vh;
+    display: grid;
+    gap:50px;
+    grid-template-columns:minmax(30vw,1fr) minmax(400px,1fr) minmax(600px,1fr) minmax(1px,1px);
+    grid-auto-rows: 80vh;
+
+    .profileWrapper{
+        width:30vw;
+        height:400px;
+        overflow:none;
+        .profileImg{
+            position:relative;
+            background-image: url("../imageAssets/Avatars/Animated/Asset33.svg");
+            background-repeat: no-repeat, repeat;
+            background-size: 130px 130px;
+            background-color: brown;
+            width:130px;
+            height:130px;
+            border-radius: 50%;
+            margin-right: 450px;
+            margin-bottom: 1vh;
+          }
+        .profile{
+            margin-left:30px;
+            margin-top:30px;
+            width:95%;
+            height: 20vh;
+            @include compSetup;
+            overflow:visible;
+            display:flex;
+            flex-direction:row;
+            h1{
+                margin-top: 2%;
+                margin-left: 25%;
+                @include montserratFont(dark,colour(F,bla),40px);
+                height:fit-content;
+            }
+            h2{
+                @include montserratFont(dark,colour(F,bla),20px);
+            }
+            p{
+                margin-top: auto;
+            }
+
+        }
+    }
+
+}

@@ -14,6 +14,7 @@ class momentForm extends React.Component {
         onYourMind: '',
         howYouFeel: '',
         selfAware: false,
+        error:'',
     }
     //reseting the form after it has been submitted so no page reset is needed
     resState() {
@@ -38,26 +39,60 @@ class momentForm extends React.Component {
         })
     }
 
+    validate=()=> {
+        
+        if(this.state.currentfeeling == ""){
+            this.setState({error:"Please say how you are feeling"});
+            console.log(this.state);
+        }else if(this.state.category == ""){
+            this.setState({error:"Please enter a category"});
+            console.log(this.state);
+        }else if(this.state.onYourMind == ""){
+            this.setState({error:"Please say whats on your mind"});
+            console.log(this.state);
+        }else if(this.state.howYouFeel == ""){
+            this.setState({error:"Please say how you feel"});
+            console.log(this.state);
+        }else{
+            this.state.error = '';
+        }
+    }
+
     onSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
 
-        axios.post('http://localhost:8001/api/v1/momentone/posts')
-            .then(() => {
-                alert('connected')
-            })
-            .catch(() => {
-                alert('not connect')
-            })
+            console.log(this.state);
 
+            this.validate();
 
-        this.resState();
+            if(this.state.error == ''){
+
+                const payload = {
+                    title: this.state.onYourMind,
+                    feeling: this.state.howYouFeel,
+                    category: this.state.category,
+                    selfAware: this.state.selfAware,
+                    description: this.state.howYouFeel,
+                }
+                
+                axios({
+                    url:'http://localhost:8001/api/v1/momentone/posts',
+                    method: 'Post',
+                    data:payload
+                })
+                .then(() => {
+                    alert('connected')
+                })
+                .catch(() => {
+                    alert('not connect')
+                })
+
+                this.resState();
+                
+            }
     }
 
-    validate() {
 
-        return false;
-    }
 
     render() {
 
@@ -152,6 +187,7 @@ class momentForm extends React.Component {
                     <div className="btn_wrapper">
                         <button onClick={e => this.onSubmit(e)} className="create">Create</button>
                     </div>
+                    <p id="error" className="error">{this.state.error}</p>
                 </div>
             </form>
 

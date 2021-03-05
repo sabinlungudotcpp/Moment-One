@@ -1,4 +1,4 @@
-@import "Variables";
+@import "./GenericSheets/Variables";
 
 .App {
     width:99vw;
@@ -7,12 +7,12 @@
 
 .PageContent {
     width: calc(100vw - 100px);
-    height: 100%;
+    height: 98vh;
     margin-left: 100px;
     float: left;
     border-radius: 25px 25px 25px 25px;
     overflow-x:visible;
-    overflow: visible;
+    overflow-y:hidden;
 }
   
 h1 {
@@ -27,9 +27,9 @@ h1 {
     width: calc(100vw -100px);
 
 .Content{
-    overflow: visible;
+    overflow-y: none;
     overflow-x: scroll;
-    height:91.5vh;
+    height:92vh;
     padding-left:3vw;
     padding-right:3vw;
     //webkit browser scrollbar

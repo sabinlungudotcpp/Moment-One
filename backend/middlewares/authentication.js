@@ -22,8 +22,9 @@ module.exports = async (request, response, next) => {
                     error: error.message,
                     stack: error.stack,
                     sentAt: new Date().toISOString()
-                })
+                });
             }
+            
             const userId = payload.id; //destructure payload
             const user = await User.findById(userId); // Find the user by ID for the authentication
             

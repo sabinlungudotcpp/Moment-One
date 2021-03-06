@@ -50,7 +50,7 @@ exports.getAllComments = async (request, response) => {
         const createdBy = request.User.id; //Getting _id for the user creating the comment
 
         if(!title || !description) { // If there is no title or description
-            return response.status(serverError).json({
+            return response.status(500).json({
                 message: 'You must provide a post title and description'
             });
         }

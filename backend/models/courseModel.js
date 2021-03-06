@@ -12,7 +12,7 @@ const courseSchema = new mongoose.Schema({
     },
 
     image: {
-        type: Image,
+        type: String,
         required: [true, 'An image is not required for now']
     },
 

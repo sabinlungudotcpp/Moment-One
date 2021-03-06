@@ -13,7 +13,7 @@ const courseSchema = new mongoose.Schema({
 
     image: {
         type: Image,
-        required: [false, 'An image is not required for now']
+        required: [true, 'An image is not required for now']
     },
 
     isCompleted: {

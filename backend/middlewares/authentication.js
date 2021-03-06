@@ -5,6 +5,7 @@ const unprocessable = 422;
 
 module.exports = async (request, response, next) => {
     try {
+        
         const {authorization} = request.headers;
 
         if(!authorization) { // If user is not authorized

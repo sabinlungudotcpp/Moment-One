@@ -14,9 +14,8 @@ module.exports = async (request, response, next) => {
             });
         }
 
-        const token = authorization.replace('Bearer ', '')[1];
-
-        jwt.verify(token, 'SECRET_KEY', async (error, payload) => { // Verify the JWT TOKEN
+        const token = authorization.replace('Bearer ', '');
+        jwt.verify(token, process.env.TOKEN_SECRET, async (error, payload) => { // Verify the JWT TOKEN
 
             if(error) {
                 return response.status(forbidden).json({
@@ -25,10 +24,9 @@ module.exports = async (request, response, next) => {
                     sentAt: new Date().toISOString()
                 })
             }
-
-            const {userId} = payload;
+            const userId = payload.id; //destructure payload
             const user = await User.findById(userId); // Find the user by ID for the authentication
-
+            
             request.User = user;
             next();
         })

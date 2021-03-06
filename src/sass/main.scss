@@ -1,11 +1,12 @@
-@import "NavBar";
+@import "./GenericSheets/NavBar";
 @import "App";
-@import "variables";
-@import "resets";
-@import "Home";
-@import "Header";
-@import "momentForm";
-@import "Journal";
+@import "./GenericSheets/variables";
+@import "./GenericSheets/resets";
+@import "./homePageSheets/Home";
+@import "./GenericSheets/Header";
+@import "./homePageSheets/momentForm";
+@import "./homePageSheets/Journal";
+@import "./yourJourneySheets/yourJourney";
 
 body{
     margin-top:1vh;

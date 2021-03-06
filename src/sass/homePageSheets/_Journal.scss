@@ -1,13 +1,13 @@
-@import "variables";
-@import "functions";
-@import "images";
+@import "../GenericSheets/variables";
+@import "../GenericSheets/functions";
+@import "../GenericSheets/images";
 
 .journal {
-    height:85vh;
+    height:86vh;
     width:100%;
     border-right: solid 3px colour(F,lgr);
     margin:0px;
-    overflow: visible;
+    overflow: hidden;
 
     h2 {
         @include montserratFont(dark,colour(P,db),24px);
@@ -38,7 +38,7 @@
     }
 
     .momentList{
-        height:75vh;
+        height:78vh;
         padding-top: 5%;
         overflow: visible;
         overflow-y: scroll;

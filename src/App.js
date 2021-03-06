@@ -3,7 +3,11 @@ import "./css/style.css";
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Settings from './components/Settings';
-import SelfAwareness from './components/SelfAwareness';
+import Wellbeing from './components/Wellbeing'
+import Perspectives from './components/Perspectives';
+import Community from './components/Community'
+import LiveChat from './components/LiveChat';
+import YourJourney from './components/YourJourney';
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 
 const App = () => { // Main App
@@ -14,11 +18,14 @@ const App = () => { // Main App
       <div className = "App">
          <NavBar />
             <div className = "PageContent">
-
           <Switch>
             <Route path = "/" exact component = {Home}/>
-            <Route path = "/Home" component = {Home}/>
-            <Route path = "/SelfAwareness" component={SelfAwareness}/>
+            <Route path = "/home" exact component = {Home}/>
+            <Route path = "/home/yourJourney" component = {YourJourney}/>
+            <Route path = "/wellbeing" component = {Wellbeing}/>
+            <Route path = "/perspectives" component = {Perspectives}/>
+            <Route path = "/community" component = {Community}/>
+            <Route path = "/liveChat" component = {LiveChat}/>
             <Route path = "/Settings" component = {Settings}/>
         </Switch>
 

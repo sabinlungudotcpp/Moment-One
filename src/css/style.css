@@ -44,7 +44,7 @@
       background-image: url("../imageAssets/Avatars/Animated/Asset33.svg");
       background-repeat: no-repeat, repeat;
       background-size: 60px 60px;
-      background-color: beige;
+      background-color: brown;
       width: 60px;
       height: 60px;
       border-radius: 50%;
@@ -167,12 +167,12 @@
 
 .PageContent {
   width: calc(100vw - 100px);
-  height: 100%;
+  height: 98vh;
   margin-left: 100px;
   float: left;
   border-radius: 25px 25px 25px 25px;
   overflow-x: visible;
-  overflow: visible; }
+  overflow-y: hidden; }
 
 h1 {
   text-align: center;
@@ -184,9 +184,9 @@ h1 {
   height: 95vh;
   width: calc(100vw -100px); }
   .Page .Content {
-    overflow: visible;
+    overflow-y: none;
     overflow-x: scroll;
-    height: 91.5vh;
+    height: 92vh;
     padding-left: 3vw;
     padding-right: 3vw;
     scrollbar-color: #b1b1b1 #fff;
@@ -211,7 +211,7 @@ h1 {
   height: 82vh;
   display: grid;
   gap: 50px;
-  grid-template-columns: minmax(800px, 2fr) repeat(2, minmax(400px, 1fr)) minmax(1px, 1px);
+  grid-template-columns: minmax(800px, 2fr) minmax(400px, 1fr) minmax(500px, 1fr) minmax(1px, 1px);
   grid-auto-rows: 80vh; }
   .contentGrid .infoWrap {
     margin-left: auto;
@@ -400,7 +400,7 @@ h1 {
   margin-left: auto;
   margin-top: 10px;
   height: 100%;
-  width: 400px;
+  width: 500px;
   box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
   overflow: hidden; }
   .momentForm_top-section {
@@ -470,9 +470,9 @@ h1 {
       display: flex;
       align-content: center;
       flex-wrap: wrap;
-      width: 100%;
-      padding-top: 5%; }
+      width: 100%; }
       .momentForm_center-section .category_wrap .category_select .categoryLabel {
+        margin: 5px;
         font-family: Montserrat, sans-serif;
         font-style: normal;
         font-weight: 600;
@@ -502,7 +502,7 @@ h1 {
     background-color: #5C17CB;
     background: linear-gradient(46.39deg, #3CCEFD -7.12%, #4685EA 73.87%, #4E4EDB 134.44%);
     box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25);
-    padding: 10%; }
+    padding: 40px; }
     .momentForm_bottom-section p {
       white-space: nowrap;
       font-family: Montserrat, sans-serif;
@@ -512,7 +512,7 @@ h1 {
       color: #fff;
       font-size: 20px; }
     .momentForm_bottom-section .feelings {
-      height: 20%;
+      height: 25%;
       border: none;
       font-family: Montserrat, sans-serif;
       font-style: normal;
@@ -524,10 +524,9 @@ h1 {
       padding: 2%;
       border-radius: 14px;
       margin-top: 5%;
-      margin-bottom: 5%;
       outline: none; }
     .momentForm_bottom-section .mind {
-      height: 10%;
+      height: 12%;
       border: none;
       font-family: Montserrat, sans-serif;
       font-style: normal;
@@ -612,13 +611,25 @@ h1 {
         .momentForm_bottom-section .btn_wrapper .create:hover {
           translate: -2px;
           box-shadow: none; }
+    .momentForm_bottom-section .error {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      text-align: center;
+      margin-top: auto;
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      color: #ff4c6c;
+      font-size: 20px; }
 
 .journal {
-  height: 85vh;
+  height: 86vh;
   width: 100%;
   border-right: solid 3px #dadada;
   margin: 0px;
-  overflow: visible; }
+  overflow: hidden; }
   .journal h2 {
     font-family: Montserrat, sans-serif;
     font-style: normal;
@@ -651,7 +662,7 @@ h1 {
       margin-right: 3vw;
       border-radius: 8px; }
   .journal .momentList {
-    height: 75vh;
+    height: 78vh;
     padding-top: 5%;
     overflow: visible;
     overflow-y: scroll;
@@ -717,6 +728,103 @@ h1 {
         background-position: center;
         border-radius: 50%;
         border: 5px solid #FFC421; }
+
+.journeyContentGrid {
+  margin-top: 5vh;
+  width: calc(94vw - 100px);
+  height: 82vh;
+  display: grid;
+  gap: 50px;
+  grid-template-columns: minmax(500px, 1fr) minmax(400px, 1fr) minmax(800px, 1fr) minmax(1px, 1px);
+  grid-auto-rows: 80vh; }
+  .journeyContentGrid .profileMomentsWrap {
+    width: 100%;
+    height: 100%; }
+    .journeyContentGrid .profileMomentsWrap .profile {
+      border-radius: 25px 25px 25px 25px;
+      box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+      background-color: #FAFAFA;
+      border-radius: 75px 25px 25px 25px;
+      width: 100%;
+      height: 25%;
+      overflow: visible; }
+      .journeyContentGrid .profileMomentsWrap .profileContent {
+        width: 100%;
+        text-align: left;
+        display: flex;
+        flex-direction: row; }
+        .journeyContentGrid .profileMomentsWrap .profileContent .titleText {
+          margin-top: 5%;
+          margin-left: 5%; }
+          .journeyContentGrid .profileMomentsWrap .profileContent .titleText h1 {
+            text-align: left;
+            font-family: Montserrat, sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-weight: 700;
+            color: black;
+            font-size: 40px; }
+          .journeyContentGrid .profileMomentsWrap .profileContent .titleText h2 {
+            font-family: Montserrat, sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-weight: 700;
+            color: black;
+            font-size: 20px; }
+        .journeyContentGrid .profileMomentsWrap .profileContent .profileImg {
+          background-image: url("../imageAssets/Avatars/Animated/Asset33.svg");
+          background-repeat: no-repeat, repeat;
+          background-size: 130px 130px;
+          background-color: brown;
+          width: 130px;
+          height: 130px;
+          border-radius: 50%; }
+      .journeyContentGrid .profileMomentsWrap .profile p {
+        margin: 5%;
+        padding-top: 5%;
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: black;
+        font-size: 20px;
+        margin-top: auto; }
+    .journeyContentGrid .profileMomentsWrap .topMoments {
+      margin-top: 30px;
+      height: 76%;
+      width: 100%;
+      border-radius: 25px 25px 25px 25px;
+      box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+      background-color: #FAFAFA; }
+  .journeyContentGrid .community {
+    border-radius: 25px 25px 25px 25px;
+    box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+    background-color: #FAFAFA;
+    width: 90%;
+    height: 80vh;
+    padding: 20px; }
+    .journeyContentGrid .community h1 {
+      font-family: all-round-gothic, sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      color: black;
+      font-size: 30px; }
+  .journeyContentGrid .awarenessGrowthWrap {
+    width: 100%;
+    height: 100%; }
+    .journeyContentGrid .awarenessGrowthWrap .selfAwareness {
+      border-radius: 25px 25px 25px 25px;
+      box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+      background-color: #FAFAFA;
+      height: 50%;
+      width: 100%;
+      margin-bottom: 5%; }
+    .journeyContentGrid .awarenessGrowthWrap .goals {
+      border-radius: 25px 25px 25px 25px;
+      box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+      background-color: #FAFAFA;
+      height: 50%;
+      width: 100%; }
 
 body {
   margin-top: 1vh;

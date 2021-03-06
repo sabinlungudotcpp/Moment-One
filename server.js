@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const keys = require('./backend/keys/keys');
 const app = require('./app');
 const port = process.env.PORT || 8001;
+const dotenv = require('dotenv');
+dotenv.config(); //Allowing for environmental variables to be used anywhere
 
 mongoose.connect(keys.mongoURI, {
     useCreateIndex: true,

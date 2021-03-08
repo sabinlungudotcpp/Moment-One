@@ -61,7 +61,7 @@
                         border:none;
                     }
                     [type=radio]:checked + img{
-                        translate: 2px;
+                        translate: 0px -3px;
                         box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.33);
                     }
                     input{
@@ -104,7 +104,7 @@
                         visibility:hidden
                     }
                     [type=radio]:checked + p{
-                        translate: 2px;
+                        translate: 0px -3px;
                         box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.33);
                     }
 
@@ -235,7 +235,7 @@
                     cursor:pointer;
 
                     &:hover{
-                        translate: -2px;
+                        translate: 0px 3px;
                         box-shadow: none;
                     }
                 }

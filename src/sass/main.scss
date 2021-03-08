@@ -7,9 +7,12 @@
 @import "./homePageSheets/momentForm";
 @import "./homePageSheets/Journal";
 @import "./yourJourneySheets/yourJourney";
+@import "./yourJourneySheets/goals";
+@import "./yourJourneySheets/goalComponent";
+@import "./homePageSheets/OverlayMoment";
 
 body{
-    margin-top:1vh;
+    margin-top:0vh;
     height: 98vh;
     width: 99vw;
     background-color: $background;

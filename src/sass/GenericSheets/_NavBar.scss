@@ -11,7 +11,8 @@
     background-color: $compBack;
     transition: width 1s ease;
     transition-delay: 0.2s;
-
+    z-index: 1000;
+    margin-top: 1vh;
     //when a curser is hovered over the navbar div
     &:hover{
       width:290px;

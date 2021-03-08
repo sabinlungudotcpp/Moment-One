@@ -9,7 +9,9 @@
   float: left;
   background-color: #FAFAFA;
   transition: width 1s ease;
-  transition-delay: 0.2s; }
+  transition-delay: 0.2s;
+  z-index: 1000;
+  margin-top: 1vh; }
   .navbar:hover {
     width: 290px; }
   .navbar:hover .profile p {
@@ -163,7 +165,8 @@
 
 .App {
   width: 99vw;
-  height: 99vh; }
+  height: 99vh;
+  z-index: 5; }
 
 .PageContent {
   width: calc(100vw - 100px);
@@ -452,7 +455,7 @@ h1 {
           cursor: pointer;
           border: none; }
         .momentForm_top-section .feelingWrapper .feelingSelect [type=radio]:checked + img {
-          translate: 2px;
+          translate: 0px -3px;
           box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.33); }
         .momentForm_top-section .feelingWrapper .feelingSelect input {
           visibility: hidden; }
@@ -494,7 +497,7 @@ h1 {
         margin: 0px;
         visibility: hidden; }
       .momentForm_center-section .category_wrap .category_select [type=radio]:checked + p {
-        translate: 2px;
+        translate: 0px -3px;
         box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.33); }
   .momentForm_bottom-section {
     border-radius: 25px;
@@ -609,7 +612,7 @@ h1 {
         transition: 0.2s linear;
         cursor: pointer; }
         .momentForm_bottom-section .btn_wrapper .create:hover {
-          translate: -2px;
+          translate: 0px 3px;
           box-shadow: none; }
     .momentForm_bottom-section .error {
       margin-left: auto;
@@ -630,6 +633,26 @@ h1 {
   border-right: solid 3px #dadada;
   margin: 0px;
   overflow: hidden; }
+  .journal #overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    cursor: pointer; }
+  .journal #text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); }
   .journal h2 {
     font-family: Montserrat, sans-serif;
     font-style: normal;
@@ -819,15 +842,124 @@ h1 {
       height: 50%;
       width: 100%;
       margin-bottom: 5%; }
-    .journeyContentGrid .awarenessGrowthWrap .goals {
-      border-radius: 25px 25px 25px 25px;
-      box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
-      background-color: #FAFAFA;
-      height: 50%;
-      width: 100%; }
+
+.goals {
+  border-radius: 25px 25px 25px 25px;
+  box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
+  background-color: #FAFAFA;
+  height: 50%;
+  width: 100%;
+  text-align: left; }
+  .goals .contentWrapper {
+    width: 90%;
+    height: 90%;
+    padding: 5%; }
+    .goals .contentWrapper .goalTitle {
+      font-family: all-round-gothic, sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      color: black;
+      font-size: 30px; }
+    .goals .contentWrapper .goalSubtitile {
+      margin-top: 2%;
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      color: #42427D;
+      font-size: 18px; }
+    .goals .contentWrapper .goalContainer {
+      display: grid;
+      gap: 5%;
+      grid-template-columns: repeat(5, minmax(30%, 1fr));
+      overflow-x: scroll;
+      overflow-y: hidden;
+      margin-top: 5%;
+      width: 105%;
+      height: 80%; }
+      .goals .contentWrapper .goalContainer::-webkit-scrollbar {
+        width: 4px; }
+      .goals .contentWrapper .goalContainer::-webkit-scrollbar-track {
+        background: #f1f1f1; }
+      .goals .contentWrapper .goalContainer::-webkit-scrollbar-thumb {
+        background: #888; }
+      .goals .contentWrapper .goalContainer::-webkit-scrollbar-thumb:hover {
+        background: #cccccc; }
+    .goals .contentWrapper .goalStyle, .goals .contentWrapper .addGoal, .goals .contentWrapper .goalComponent {
+      width: 100%;
+      height: 100%;
+      background-color: #4973E5;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 25px; }
+    .goals .contentWrapper .addGoal {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer; }
+      .goals .contentWrapper .addGoal .plus {
+        margin: auto;
+        margin-bottom: 0px;
+        height: 80px;
+        width: 80px; }
+      .goals .contentWrapper .addGoal .addGoalText {
+        margin-top: 20%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: auto;
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 700;
+        color: #fff;
+        font-size: 28px;
+        width: 60%; }
+    .goals .contentWrapper .goalComponent .percentDis {
+      width: 100%;
+      height: 70%;
+      border-radius: 25px;
+      background-color: #93a8e2; }
+
+.momentOverlay {
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  height: 100%;
+  width: calc(100% - 100px);
+  margin-left: 100px; }
+  .momentOverlay .tab {
+    height: 10vh;
+    width: 10vh;
+    border-radius: 50%;
+    background-color: #FAFAFA;
+    margin: auto;
+    transition: 0.3s linear;
+    display: flex;
+    cursor: pointer; }
+    .momentOverlay .tab:hover {
+      box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+      translate: 0px -5px; }
+    .momentOverlay .tabIcon {
+      margin: auto; }
+  .momentOverlay .momentContainer {
+    background-color: #FAFAFA;
+    margin: auto;
+    height: 60vh;
+    width: 50vw;
+    border-radius: 25px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
+
+.background {
+  position: fixed;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(214, 214, 214, 0.85);
+  z-index: 1000; }
 
 body {
-  margin-top: 1vh;
+  margin-top: 0vh;
   height: 98vh;
   width: 99vw;
   background-color: #ffff; }

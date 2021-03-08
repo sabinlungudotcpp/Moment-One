@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-
+import Goals from "./yourJourneyComponents/goals"
 function yourJourney() {
   return (
     <div className = "Page">
@@ -36,9 +36,8 @@ function yourJourney() {
               <div className="selfAwareness">
                 <h1>Your self-awareness growth</h1>
               </div>
-              <div className="goals">
-                <h1>My goals</h1>
-              </div>
+
+              <Goals />
             </div>
             <div></div>
           </div>

@@ -70,7 +70,7 @@ class momentForm extends React.Component {
 
                 const payload = {
                     title: this.state.onYourMind,
-                    feeling: this.state.howYouFeel,
+                    feeling: this.state.currentfeeling,
                     category: this.state.category,
                     selfAware: this.state.selfAware,
                     description: this.state.howYouFeel,
@@ -79,7 +79,7 @@ class momentForm extends React.Component {
                 axios({
                     url:'http://localhost:8001/api/v1/momentone/posts',
                     method: 'Post',
-                    data:payload
+                    data:payload,
                 })
                 .then(() => {
                     alert('connected')

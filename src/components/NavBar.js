@@ -20,7 +20,7 @@ const Navbar = () => { // Navigation Bar Component
                         <div className = "icon">
                             <div className ="homeIcon"></div>
                         </div>
-                        <span className="navbar_items-text">FADHG</span>
+                        <span className="navbar_items-text">Dashboard</span>
                     </NavLink>
 
                     {/*moments sub menu*/}

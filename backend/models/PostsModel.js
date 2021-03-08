@@ -30,6 +30,12 @@ const PostSchema = new mongoose.Schema({
     selfAware: {
         type: Boolean,
         required: true
+    },
+    
+    //Reference to the user who created the goal
+    createdBy: { 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 },
 

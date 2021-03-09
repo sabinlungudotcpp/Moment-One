@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
 const Goals = require('../models/goalsModel');
+const UserModel = require('../models/UserModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const okCode = 200;
@@ -41,7 +41,7 @@ exports.createGoal = catchAsync(async (request, response, next) => { // Function
         let goalCreated = false; //test
         const method = request.method; // The request method
         const {goal, reason, reward, length} = request.body; // Body of the request
-        const createdBy = request.User.id;
+        const createdBy = request.User.id; //Getting the user _id from the JWT that was verified by authentication.js
         if(!goal || !reason || !reward || !length) {
             return response.status(unprocessable).json({
                 message: 'Goal must have a goal, reason, length and reward',
@@ -53,6 +53,12 @@ exports.createGoal = catchAsync(async (request, response, next) => { // Function
             const newGoal = new Goals({goal, reason, reward, length, createdBy});
             await newGoal.save(); // Save the goal
             goalCreated = true;
+
+            //The new Goal also needs to be added to the user model 
+            await UserModel.findOneAndUpdate(
+                {_id: createdBy}, //Finding the user by _id
+                {$push: {goals: newGoal.id}} //Adding the new goals _id to the posts arrey in the user model
+                );
 
             if(goalCreated) {
                 return response.status(createdCode).json(newGoal);

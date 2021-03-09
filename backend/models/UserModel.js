@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const crypto = require('crypto');
 const bcrypt = require('bcrypt'); 
 const HASH_BYTES = 12;
 
@@ -40,6 +39,12 @@ const userSchema = new mongoose.Schema({
 	posts: [{
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'Posts'
+	}],
+
+	//Arrey that will hold all of the users goals
+	goals: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Goals'
 	}]
 }); 
 

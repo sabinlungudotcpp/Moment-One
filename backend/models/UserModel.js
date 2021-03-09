@@ -35,6 +35,12 @@ const userSchema = new mongoose.Schema({
 	},
 
 	passwordResetExpiry: Date,
+
+	//Arrey that will hold all of the users journal posts
+	posts: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Posts'
+	}]
 }); 
 
 userSchema.pre('save', async function(next) { 

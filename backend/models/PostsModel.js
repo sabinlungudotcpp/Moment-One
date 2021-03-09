@@ -36,7 +36,13 @@ const PostSchema = new mongoose.Schema({
     createdBy: { 
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+
+    //Arrey that will hold all of the post comments
+	comments: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Comments'
+	}]
 },
 
 {

@@ -8,7 +8,7 @@ const unprocessable = 422;
 const serverError = 500;
 
 const signToken = (id) => {
-    return jwt.sign({id}, 'MY_SECRET_KEY');
+    return jwt.sign({id}, process.env.TOKEN_SECRET);
 };
 
 exports.registerTherapist = async (request, response, next) => { // Middleware function to register a therapist

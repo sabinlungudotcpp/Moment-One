@@ -7,8 +7,17 @@
     height:82vh;
     display: grid;
     gap:50px;
-    grid-template-columns:minmax(500px,1fr) minmax(400px,1fr) minmax(800px,1fr) minmax(1px,1px);
+    grid-template-columns:minmax(400px,1fr) minmax(400px,1fr) minmax(800px,1fr) minmax(1px,1px);
     grid-auto-rows: 80vh;
+
+    .title{
+        @include gothicFont(dark,colour(F,bla),30px);
+    }
+    .subtitile{
+        margin-top: 2%;
+        @include montserratFont(dark,#42427D,18px);
+    }
+
     .profileMomentsWrap{
         width:100%;
         height:100%;
@@ -30,28 +39,28 @@
                     margin-left: 5%;
                     h1{
                         text-align: left;
-                        @include montserratFont(dark,colour(F,bla),40px);
+                        @include montserratFont(dark,colour(F,bla),30px);
             
                     }
                     h2{
-                        @include montserratFont(dark,colour(F,bla),20px);
+                        @include montserratFont(dark,colour(F,bla),18px);
                     }
                 }
     
                 .profileImg{
                     background-image: url("../imageAssets/Avatars/Animated/Asset33.svg");
                     background-repeat: no-repeat, repeat;
-                    background-size: 130px 130px;
+                    background-size: 100px 100px;
                     background-color: brown;
-                    width:130px;
-                    height:130px;
+                    width:100px;
+                    height:100px;
                     border-radius: 50%;
                     }
             }
             p{
                 margin:5%;
                 padding-top:5%;
-                @include montserratFont(dark,colour(F,bla),20px);
+                @include montserratFont(dark,colour(F,bla),16px);
                 margin-top: auto;
             }
     

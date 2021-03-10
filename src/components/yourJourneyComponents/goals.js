@@ -18,8 +18,8 @@ class goals extends React.Component{
         return (
             <div className="goals">
                 <div className="contentWrapper">
-                    <h2 className="goalTitle">My goals</h2>
-                    <p className="goalSubtitile">Rememebr you are doing this for yourself!</p>
+                    <h2 className="title">My goals</h2>
+                    <p className="subtitile">Rememebr you are doing this for yourself!</p>
                     {/* need to research a way to translate the goal number into the grid size */}
                     <div className="goalContainer">
                         <div className="addGoal">
@@ -27,10 +27,10 @@ class goals extends React.Component{
                             <p className="addGoalText"> Add a new goal to achieve</p>
                         </div>
 
-                        <GoalComponent />
-                        <GoalComponent />
-                        <GoalComponent />
-                        <GoalComponent />
+                        <GoalComponent title ="title" percent="40"/>
+                        <GoalComponent title ="title" percent="20"/>
+                        <GoalComponent title ="title" percent="60"/>
+                        <GoalComponent title ="title" percent="40"/>
                     </div>
                 </div>
 

@@ -8,7 +8,7 @@
     margin-left:auto;
     margin-top:10px;
     height:100%;
-    width:500px;
+    width:400px;
     box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
     overflow:hidden;
 
@@ -31,15 +31,12 @@
                 height:40%;
                 display:flex;
                 flex:row;
-                margin-top:1.5vh;
                 margin-left:10%;
                 margin-right:10%;
 
                 .feelingSelect{
                     border:none;
                     background-color: $compBack;
-                    margin-top:auto;
-                    margin-bottom:auto;
                     @include montserratFont(dark,colour(P,db),12px);
                     height:60px;
                     width:50px;
@@ -64,8 +61,10 @@
                         translate: 0px -3px;
                         box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.33);
                     }
-                    input{
-                        visibility:hidden
+                    [type=radio]{
+                        visibility:hidden;
+                        height:0px;
+                        width:0px;
                     }
                 }
             }
@@ -82,9 +81,12 @@
                 align-content: center;
                 flex-wrap: wrap;
                 width:100%;
+                margin-top: 2%;
                 .category_select{
+                    margin:1%;
+                    display:flex;
                     .categoryLabel{
-                        margin:5px;
+                        margin:auto;
                         @include montserratFont(dark,colour(P,db),20px);
                         white-space: nowrap;
                         display:flex;
@@ -119,15 +121,15 @@
             background-color: colour(P,db);
             background: linear-gradient(46.39deg, #3CCEFD -7.12%, #4685EA 73.87%, #4E4EDB 134.44%);
             box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25);
-            padding:40px;
+            padding:30px;
             
             p{
                 white-space: nowrap;
-                @include montserratFont(dark,colour(F,wh),20px);
+                @include montserratFont(dark,colour(F,wh),18px);
             }
 
             .feelings{
-                height:25%;
+                height:20%;
                 border:none;
                 @include montserratFont(dark,colour(P,bla),16px);
                 resize: none;
@@ -220,7 +222,7 @@
             .btn_wrapper{
                 display: flex;
                 align-content: center;
-                height:20%;
+                height:15%;
                 width:100%;
                 .create{
                     @include montserratFont(dark,colour(F,bla),20px);
@@ -245,7 +247,6 @@
                 margin-right:auto;
                 width:100%;
                 text-align: center;
-                margin-top:auto;
                 @include montserratFont(dark,colour(S,pi),20px);
             }
         }

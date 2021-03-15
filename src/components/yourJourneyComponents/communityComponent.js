@@ -25,7 +25,7 @@ class ComunityComp extends React.Component{
                     </form>
                     <div className="sectionTitleTop">
                         <h2 className="sectionTitle"> Therapists </h2>
-                        <button className="seeAll">See all ></button>
+                        <button className="seeAll">See all </button>
                     </div>
                     
                     <div className="contentContainer">
@@ -39,7 +39,7 @@ class ComunityComp extends React.Component{
                     <div className="sectionBorder"></div>
                     <div className="sectionTitleTop">
                         <h2 className="sectionTitle"> Supporters </h2>
-                        <button className="seeAll">See all ></button>
+                        <button className="seeAll">See all </button>
                     </div>
                     
                     <div className="contentContainer">

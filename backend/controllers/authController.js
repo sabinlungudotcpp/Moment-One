@@ -7,7 +7,7 @@ const unauthorized = 401;
 const unprocessable = 422;
 
 const signToken = (id) => { // Signs the JWT token
-    return jwt.sign({id}, process.env.TOKEN_SECRET);
+    return jwt.sign({id}, process.env.TOKEN_SECRET, {expiresIn:'28d'});
 }
 
 exports.registerUser = async (request, response) => {

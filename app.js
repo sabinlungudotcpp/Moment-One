@@ -31,7 +31,7 @@ app.use('/api/v1/momentone/users', userRouter);
 app.use('/api/v1/momentone/therapist', therapistRouter);
 app.use('/api/v1/momentone/courses', courseRouter);
 app.use('/api/v1/momentone/search', searchRouter);
-app.use('/api/v1/momentone/discussion', discussionRouter);
+app.use('/api/v1/momentone/discussions', discussionRouter);
 
 app.all('*', (request, response, next) => {
     return response.status(notFound).json({

@@ -56,7 +56,7 @@ userSchema.pre('save', async function(next) {
 	}
 
 	this.password = await bcrypt.hash(this.password, HASH_BYTES); // Hash the user password
-	this.passwordConfirm = undefined;
+	this.passwordConfirm = undefined; // Password confirm dissappears
 	return next();
 });
 

@@ -16,7 +16,7 @@ class momentForm extends React.Component {
         selfAware: false,
         error:'',
     }
-    //reseting the form after it has been submitted so no page reset is needed
+    
     resState() {
         this.setState({
             currentfeeling: '',
@@ -26,7 +26,7 @@ class momentForm extends React.Component {
             selfAware: false,
         })
     }
-    //updating the state whenever something is changed
+   
     change = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -39,18 +39,24 @@ class momentForm extends React.Component {
         })
     }
 
-    validate=()=> {
+    validate = () => {
         
-        if(this.state.currentfeeling === ""){
+        if(this.state.currentfeeling === ""){ 
             this.setState({error:"Please say how you are feeling"});
             console.log(this.state);
-        }else if(this.state.category === ""){
+        }
+        
+        else if(this.state.category === ""){
             this.setState({error:"Please enter a category"});
             console.log(this.state);
-        }else if(this.state.onYourMind === ""){
+        }
+        
+        else if(this.state.onYourMind === ""){
             this.setState({error:"Please say whats on your mind"});
             console.log(this.state);
-        }else if(this.state.howYouFeel === ""){
+        }
+        
+        else if(this.state.howYouFeel === ""){
             this.setState({error:"Please say how you feel"});
             console.log(this.state);
         }else{

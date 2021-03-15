@@ -26,14 +26,18 @@ exports.getAllDiscussions = async (request, response, next) => {
     
     catch(error) {
         if(error) {
-
+            return response.status(notFound).json({
+                status: 'Fail',
+                error
+            });
         }
     }
 };
 
 exports.createDiscussion = async (request, response, next) => {
     try {
-
+        const {title, category, description} = request.body;
+        const method = request.body;
     } 
     
     catch(error) {

@@ -14,7 +14,7 @@ class momentForm extends React.Component {
         onYourMind: '',
         howYouFeel: '',
         selfAware: false,
-        error:'',
+        error: '',
     }
     
     resState() {

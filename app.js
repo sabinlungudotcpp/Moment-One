@@ -13,6 +13,7 @@ const userRouter = require('./backend/routes/UserRoutes');
 const therapistRouter = require('./backend/routes/therapistRoutes');
 const courseRouter = require('./backend/routes/courseRoutes');
 const searchRouter = require('./backend/routes/searchRoutes');
+const discussionRouter = require('./backend/routes/discussionRoutes');
 
 app.use(bodyParser.json());
 app.use(express.json({limit: '27mb'}));
@@ -26,11 +27,11 @@ app.use(cors());
 app.use('/api/v1/momentone/comments', commentRouter);
 app.use('/api/v1/momentone/posts', postsRouter);
 app.use('/api/v1/momentone/goals', goalsRouter);
-
 app.use('/api/v1/momentone/users', userRouter);
 app.use('/api/v1/momentone/therapist', therapistRouter);
 app.use('/api/v1/momentone/courses', courseRouter);
 app.use('/api/v1/momentone/search', searchRouter);
+app.use('/api/v1/momentone/discussion', discussionRouter);
 
 app.all('*', (request, response, next) => {
     return response.status(notFound).json({

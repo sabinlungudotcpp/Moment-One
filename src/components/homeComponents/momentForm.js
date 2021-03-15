@@ -3,7 +3,7 @@ import axios from 'axios';
 import moodGreat from "../../imageAssets/Mood Tracker/moodGreat.png";
 import moodGood from "../../imageAssets/Mood Tracker/moodGood.png";
 import moodMeh from "../../imageAssets/Mood Tracker/moodMeh.png";
-import moodeBad from "../../imageAssets/Mood Tracker/moodBad.png";
+import moodBad from "../../imageAssets/Mood Tracker/moodBad.png";
 import moodAwful from "../../imageAssets/Mood Tracker/moodAwful.png";
 
 class momentForm extends React.Component {
@@ -131,7 +131,7 @@ class momentForm extends React.Component {
 
                         <label className="feelingSelect">
                             <input type="radio" name='currentfeeling' value='Bad' checked={this.state.currentfeeling === 'Bad'} onChange={e => this.change(e)} />
-                            <img src={moodeBad} alt="Bad" className="feelingIcon" />
+                            <img src={moodBad} alt="Bad" className="feelingIcon" />
                             <p>Bad</p>
                         </label>
 

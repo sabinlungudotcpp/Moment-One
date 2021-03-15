@@ -7,7 +7,7 @@
     height:82vh;
     display: grid;
     gap:50px;
-    grid-template-columns:minmax(800px,2fr) minmax(400px,1fr) minmax(500px,1fr) minmax(1px,1px);
+    grid-template-columns:minmax(800px,2fr) minmax(400px,1fr) minmax(400px,1fr) minmax(1px,1px);
     grid-auto-rows: 80vh;
     
     .infoWrap{
@@ -23,7 +23,7 @@
             margin-right:auto;
             @include compSetup;
             width: 400px;
-            height: 550px;
+            height: 650px;
             display:flex;
             flex-direction: column;
             align-content: center;
@@ -37,7 +37,7 @@
                 border-radius: 8px;
                 width:90%;
                 height:40px;
-                background-color: #d5d5d6;
+                background-color: rgba(#9597A1,0.1);;
                 margin: 0px 0px 5% 5%;
                 padding-left: 10px;
                 
@@ -54,7 +54,7 @@
                     @include montserratFont(dark,colour(F,bla),20px);
                     width:90%;
                     margin:auto;
-                    background-color: #d5d5d6;
+                    background: none;
                     border:none;
                 }
 
@@ -63,37 +63,14 @@
                 }
             }
             .therapistGrid{
+                height:100%;
+                width:90%;
                 display: grid;
-                grid-template-columns:repeat( auto-fill, minmax(100px,1fr));
+                grid-template-columns:repeat( auto-fit, minmax(120px,1fr));
+                grid-template-rows:repeat( auto-fit, minmax(120px,1fr)) ;
                 margin-left:5%;
                 margin-right:5%;
                 margin-top: 10%;
-
-                .therapist{
-                    display:flex;
-                    flex-direction: column;
-                    height:150px;
-                    width:80px;
-                    margin:auto;
-                    p{
-                        @include montserratFont(dark,colour(F,bla),20px);
-                        margin-left:auto;
-                        margin-right:auto;
-                    }
-                    .qualification{
-                        margin-left:auto;
-                        margin-right:auto;
-                        height:80px;
-                        width:100%;
-                        border-radius: 50%;
-                        background-color: colour(P,db);
-                        display:flex;
-                        h2{
-                            margin:auto;
-                            @include montserratFont(dark,colour(F,wh),40px);
-                        }
-                    }
-                }
             }
 
         }

@@ -3,8 +3,8 @@ import React from "react";
 class goals extends React.Component{
 
     state = {
-        progress:'70',
-        title:'',
+        progress:this.props.percent + '%',
+        title:this.props.title,
     }
 
     change = (e) => {
@@ -13,12 +13,34 @@ class goals extends React.Component{
         })
     }
 
+    //changes the height of the percentage
+    disPerc = function(){
+        return{
+            height: this.state.progress,
+        }
+    }
+
     render() {
+        let inputStyle = {
+            height: this.state.progress.value
+          };
+          // change code below this line
+
+
 
         return (
             <div className="goalComponent">
-                <div className="percentDis"></div>
-                <h1></h1>
+                <div id="percentDiv" className="percentDis" style={this.disPerc()}>
+                    <div className="goalContent">
+                        <h1>{this.state.title}</h1>
+                        <div className="progressWrap">
+                            <h2>{this.state.progress}</h2>
+                        </div>
+                        <button className="progress">Progress</button>
+                        <button className="checkReward">Check Reward</button>
+                    </div>
+                </div>
+                
             </div>
           )
     }

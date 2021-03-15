@@ -214,7 +214,7 @@ h1 {
   height: 82vh;
   display: grid;
   gap: 50px;
-  grid-template-columns: minmax(800px, 2fr) minmax(400px, 1fr) minmax(500px, 1fr) minmax(1px, 1px);
+  grid-template-columns: minmax(800px, 2fr) minmax(400px, 1fr) minmax(400px, 1fr) minmax(1px, 1px);
   grid-auto-rows: 80vh; }
   .contentGrid .infoWrap {
     margin-left: auto;
@@ -231,7 +231,7 @@ h1 {
       box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
       background-color: #FAFAFA;
       width: 400px;
-      height: 550px;
+      height: 650px;
       display: flex;
       flex-direction: column;
       align-content: center; }
@@ -248,7 +248,7 @@ h1 {
         border-radius: 8px;
         width: 90%;
         height: 40px;
-        background-color: #d5d5d6;
+        background-color: rgba(149, 151, 161, 0.1);
         margin: 0px 0px 5% 5%;
         padding-left: 10px; }
         .contentGrid .infoWrap .therapists .searchbar .seachIcon {
@@ -266,47 +266,19 @@ h1 {
           font-size: 20px;
           width: 90%;
           margin: auto;
-          background-color: #d5d5d6;
+          background: none;
           border: none; }
         .contentGrid .infoWrap .therapists .searchbar textarea:focus, .contentGrid .infoWrap .therapists .searchbar .search:focus {
           outline: none; }
       .contentGrid .infoWrap .therapists .therapistGrid {
+        height: 100%;
+        width: 90%;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        grid-template-rows: repeat(auto-fit, minmax(120px, 1fr));
         margin-left: 5%;
         margin-right: 5%;
         margin-top: 10%; }
-        .contentGrid .infoWrap .therapists .therapistGrid .therapist {
-          display: flex;
-          flex-direction: column;
-          height: 150px;
-          width: 80px;
-          margin: auto; }
-          .contentGrid .infoWrap .therapists .therapistGrid .therapist p {
-            font-family: Montserrat, sans-serif;
-            font-style: normal;
-            font-weight: 600;
-            font-weight: 700;
-            color: black;
-            font-size: 20px;
-            margin-left: auto;
-            margin-right: auto; }
-          .contentGrid .infoWrap .therapists .therapistGrid .therapist .qualification {
-            margin-left: auto;
-            margin-right: auto;
-            height: 80px;
-            width: 100%;
-            border-radius: 50%;
-            background-color: #5C17CB;
-            display: flex; }
-            .contentGrid .infoWrap .therapists .therapistGrid .therapist .qualification h2 {
-              margin: auto;
-              font-family: Montserrat, sans-serif;
-              font-style: normal;
-              font-weight: 600;
-              font-weight: 700;
-              color: #fff;
-              font-size: 40px; }
     .contentGrid .infoWrap .handbook {
       margin-left: auto;
       margin-right: auto;
@@ -403,7 +375,7 @@ h1 {
   margin-left: auto;
   margin-top: 10px;
   height: 100%;
-  width: 500px;
+  width: 400px;
   box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
   overflow: hidden; }
   .momentForm_top-section {
@@ -424,14 +396,11 @@ h1 {
       height: 40%;
       display: flex;
       flex: row;
-      margin-top: 1.5vh;
       margin-left: 10%;
       margin-right: 10%; }
       .momentForm_top-section .feelingWrapper .feelingSelect {
         border: none;
         background-color: #FAFAFA;
-        margin-top: auto;
-        margin-bottom: auto;
         font-family: Montserrat, sans-serif;
         font-style: normal;
         font-weight: 600;
@@ -457,8 +426,10 @@ h1 {
         .momentForm_top-section .feelingWrapper .feelingSelect [type=radio]:checked + img {
           translate: 0px -3px;
           box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.33); }
-        .momentForm_top-section .feelingWrapper .feelingSelect input {
-          visibility: hidden; }
+        .momentForm_top-section .feelingWrapper .feelingSelect [type=radio] {
+          visibility: hidden;
+          height: 0px;
+          width: 0px; }
   .momentForm_center-section {
     height: 15%;
     padding: 20px; }
@@ -473,39 +444,43 @@ h1 {
       display: flex;
       align-content: center;
       flex-wrap: wrap;
-      width: 100%; }
-      .momentForm_center-section .category_wrap .category_select .categoryLabel {
-        margin: 5px;
-        font-family: Montserrat, sans-serif;
-        font-style: normal;
-        font-weight: 600;
-        font-weight: 700;
-        color: #5C17CB;
-        font-size: 20px;
-        white-space: nowrap;
-        display: flex;
-        background-color: #FAFAFA;
-        border-radius: 25px;
-        height: 30;
-        padding-right: 20px;
-        padding-left: 15px;
-        border: 1.5px solid #5C17CB;
-        margin-right: 5%;
-        cursor: pointer;
-        transition: 0.2s linear; }
-      .momentForm_center-section .category_wrap .category_select [type=radio] {
-        margin: 0px;
-        visibility: hidden; }
-      .momentForm_center-section .category_wrap .category_select [type=radio]:checked + p {
-        translate: 0px -3px;
-        box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.33); }
+      width: 100%;
+      margin-top: 2%; }
+      .momentForm_center-section .category_wrap .category_select {
+        margin: 1%;
+        display: flex; }
+        .momentForm_center-section .category_wrap .category_select .categoryLabel {
+          margin: auto;
+          font-family: Montserrat, sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-weight: 700;
+          color: #5C17CB;
+          font-size: 20px;
+          white-space: nowrap;
+          display: flex;
+          background-color: #FAFAFA;
+          border-radius: 25px;
+          height: 30;
+          padding-right: 20px;
+          padding-left: 15px;
+          border: 1.5px solid #5C17CB;
+          margin-right: 5%;
+          cursor: pointer;
+          transition: 0.2s linear; }
+        .momentForm_center-section .category_wrap .category_select [type=radio] {
+          margin: 0px;
+          visibility: hidden; }
+        .momentForm_center-section .category_wrap .category_select [type=radio]:checked + p {
+          translate: 0px -3px;
+          box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.33); }
   .momentForm_bottom-section {
     border-radius: 25px;
     height: 55%;
     background-color: #5C17CB;
     background: linear-gradient(46.39deg, #3CCEFD -7.12%, #4685EA 73.87%, #4E4EDB 134.44%);
     box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25);
-    padding: 40px; }
+    padding: 30px; }
     .momentForm_bottom-section p {
       white-space: nowrap;
       font-family: Montserrat, sans-serif;
@@ -513,9 +488,9 @@ h1 {
       font-weight: 600;
       font-weight: 700;
       color: #fff;
-      font-size: 20px; }
+      font-size: 18px; }
     .momentForm_bottom-section .feelings {
-      height: 25%;
+      height: 20%;
       border: none;
       font-family: Montserrat, sans-serif;
       font-style: normal;
@@ -593,7 +568,7 @@ h1 {
     .momentForm_bottom-section .btn_wrapper {
       display: flex;
       align-content: center;
-      height: 20%;
+      height: 15%;
       width: 100%; }
       .momentForm_bottom-section .btn_wrapper .create {
         font-family: Montserrat, sans-serif;
@@ -619,7 +594,6 @@ h1 {
       margin-right: auto;
       width: 100%;
       text-align: center;
-      margin-top: auto;
       font-family: Montserrat, sans-serif;
       font-style: normal;
       font-weight: 600;
@@ -758,8 +732,22 @@ h1 {
   height: 82vh;
   display: grid;
   gap: 50px;
-  grid-template-columns: minmax(500px, 1fr) minmax(400px, 1fr) minmax(800px, 1fr) minmax(1px, 1px);
+  grid-template-columns: minmax(400px, 1fr) minmax(400px, 1fr) minmax(800px, 1fr) minmax(1px, 1px);
   grid-auto-rows: 80vh; }
+  .journeyContentGrid .title {
+    font-family: all-round-gothic, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    color: black;
+    font-size: 30px; }
+  .journeyContentGrid .subtitile {
+    margin-top: 2%;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-weight: 700;
+    color: #42427D;
+    font-size: 18px; }
   .journeyContentGrid .profileMomentsWrap {
     width: 100%;
     height: 100%; }
@@ -786,21 +774,21 @@ h1 {
             font-weight: 600;
             font-weight: 700;
             color: black;
-            font-size: 40px; }
+            font-size: 30px; }
           .journeyContentGrid .profileMomentsWrap .profileContent .titleText h2 {
             font-family: Montserrat, sans-serif;
             font-style: normal;
             font-weight: 600;
             font-weight: 700;
             color: black;
-            font-size: 20px; }
+            font-size: 18px; }
         .journeyContentGrid .profileMomentsWrap .profileContent .profileImg {
           background-image: url("../imageAssets/Avatars/Animated/Asset33.svg");
           background-repeat: no-repeat, repeat;
-          background-size: 130px 130px;
+          background-size: 100px 100px;
           background-color: brown;
-          width: 130px;
-          height: 130px;
+          width: 100px;
+          height: 100px;
           border-radius: 50%; }
       .journeyContentGrid .profileMomentsWrap .profile p {
         margin: 5%;
@@ -810,7 +798,7 @@ h1 {
         font-weight: 600;
         font-weight: 700;
         color: black;
-        font-size: 20px;
+        font-size: 16px;
         margin-top: auto; }
     .journeyContentGrid .profileMomentsWrap .topMoments {
       margin-top: 30px;
@@ -853,21 +841,8 @@ h1 {
   .goals .contentWrapper {
     width: 90%;
     height: 90%;
-    padding: 5%; }
-    .goals .contentWrapper .goalTitle {
-      font-family: all-round-gothic, sans-serif;
-      font-style: normal;
-      font-weight: 700;
-      color: black;
-      font-size: 30px; }
-    .goals .contentWrapper .goalSubtitile {
-      margin-top: 2%;
-      font-family: Montserrat, sans-serif;
-      font-style: normal;
-      font-weight: 600;
-      font-weight: 700;
-      color: #42427D;
-      font-size: 18px; }
+    padding: 5%;
+    padding-top: 3%; }
     .goals .contentWrapper .goalContainer {
       display: grid;
       gap: 5%;
@@ -876,18 +851,14 @@ h1 {
       overflow-y: hidden;
       margin-top: 5%;
       width: 105%;
-      height: 80%; }
+      height: 80%;
+      -ms-overflow-style: none;
+      scrollbar-width: none; }
       .goals .contentWrapper .goalContainer::-webkit-scrollbar {
-        width: 4px; }
-      .goals .contentWrapper .goalContainer::-webkit-scrollbar-track {
-        background: #f1f1f1; }
-      .goals .contentWrapper .goalContainer::-webkit-scrollbar-thumb {
-        background: #888; }
-      .goals .contentWrapper .goalContainer::-webkit-scrollbar-thumb:hover {
-        background: #cccccc; }
+        display: none; }
     .goals .contentWrapper .goalStyle, .goals .contentWrapper .addGoal, .goals .contentWrapper .goalComponent {
       width: 100%;
-      height: 100%;
+      height: 95%;
       background-color: #4973E5;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       border-radius: 25px; }
@@ -902,7 +873,7 @@ h1 {
         height: 80px;
         width: 80px; }
       .goals .contentWrapper .addGoal .addGoalText {
-        margin-top: 20%;
+        margin-top: 10%;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: auto;
@@ -915,9 +886,65 @@ h1 {
         width: 60%; }
     .goals .contentWrapper .goalComponent .percentDis {
       width: 100%;
-      height: 70%;
+      height: 100%;
       border-radius: 25px;
-      background-color: #93a8e2; }
+      background-color: #93a8e2;
+      z-index: 10;
+      position: relative;
+      overflow: visible; }
+      .goals .contentWrapper .goalComponent .percentDis .goalContent {
+        padding: 5%;
+        padding-top: 10%;
+        z-index: 50;
+        display: flex;
+        flex-direction: column; }
+        .goals .contentWrapper .goalComponent .percentDis .goalContent h1 {
+          font-family: all-round-gothic, sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          color: black;
+          font-size: 25px;
+          text-align: center;
+          min-height: 50px; }
+        .goals .contentWrapper .goalComponent .percentDis .goalContent .progressWrap {
+          margin: auto;
+          margin-top: 5%;
+          width: 5vh;
+          height: 5vh;
+          border: 5px solid black;
+          border-radius: 50%;
+          display: flex; }
+          .goals .contentWrapper .goalComponent .percentDis .goalContent .progressWrap h2 {
+            font-size: 20px;
+            margin: auto; }
+        .goals .contentWrapper .goalComponent .percentDis .goalContent .progress {
+          margin-top: 10%;
+          margin-left: auto;
+          margin-right: auto;
+          background: #000000;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          border-radius: 50px;
+          border: none;
+          height: 5%;
+          width: 65%;
+          padding: 5%;
+          font-family: Montserrat, sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-weight: 700;
+          color: #fff;
+          font-size: 18px; }
+        .goals .contentWrapper .goalComponent .percentDis .goalContent .checkReward {
+          margin: auto;
+          margin-top: 10%;
+          font-family: Montserrat, sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-weight: 700;
+          color: #fff;
+          font-size: 20px;
+          background: none;
+          border: none; }
 
 .momentOverlay {
   position: fixed;
@@ -929,8 +956,8 @@ h1 {
   width: calc(100% - 100px);
   margin-left: 100px; }
   .momentOverlay .tab {
-    height: 10vh;
-    width: 10vh;
+    height: 8vh;
+    width: 8vh;
     border-radius: 50%;
     background-color: #FAFAFA;
     margin: auto;
@@ -942,13 +969,117 @@ h1 {
       translate: 0px -5px; }
     .momentOverlay .tabIcon {
       margin: auto; }
+    .momentOverlay .tab button {
+      height: 100px;
+      width: 100px; }
   .momentOverlay .momentContainer {
     background-color: #FAFAFA;
     margin: auto;
-    height: 60vh;
+    height: 70vh;
     width: 50vw;
     border-radius: 25px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex; }
+    .momentOverlay .momentContainer .momentContent {
+      width: 65%;
+      height: 100%;
+      display: flex;
+      flex-direction: column; }
+      .momentOverlay .momentContainer .momentContent .feelingImg {
+        float: center;
+        height: 5vh;
+        width: 5vh;
+        margin-top: 3vh;
+        margin-left: auto;
+        margin-right: auto; }
+      .momentOverlay .momentContainer .momentContent .momentTitle {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 3vh;
+        width: 80%;
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 500;
+        color: black;
+        font-size: 33px;
+        text-align: left; }
+      .momentOverlay .momentContainer .momentContent .devider {
+        margin-top: 3vh;
+        margin-bottom: 2vh;
+        width: 15%;
+        height: 5px;
+        left: 110px;
+        top: 279px;
+        margin-left: 10%;
+        background: #515151; }
+      .momentOverlay .momentContainer .momentContent .momentDesc {
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-weight: 500;
+        color: black;
+        font-size: 20px;
+        line-height: 172.9%;
+        letter-spacing: 0.03em; }
+    .momentOverlay .momentContainer .rightSection {
+      height: 100%;
+      width: 35%;
+      display: flex;
+      flex-direction: column; }
+      .momentOverlay .momentContainer .rightSection .user {
+        height: 15%;
+        width: 100%;
+        background-color: #5F69FB;
+        border-radius: 0px 25px 0px 0px;
+        display: flex;
+        flex-direction: row; }
+        .momentOverlay .momentContainer .rightSection .user .profileImg {
+          margin: auto 5% auto 5%;
+          background-image: url("../imageAssets/Avatars/Animated/Asset33.svg");
+          background-repeat: no-repeat, repeat;
+          background-size: 3vh 3vh;
+          background-color: brown;
+          width: 3vh;
+          height: 3vh;
+          border-radius: 50%; }
+        .momentOverlay .momentContainer .rightSection .user .username {
+          font-family: Montserrat, sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-weight: 700;
+          color: #fff;
+          font-size: 20px;
+          margin: auto 5% auto 0%; }
+        .momentOverlay .momentContainer .rightSection .user .userLevel {
+          margin: auto auto auto 0%;
+          display: flex;
+          flex-direction: row;
+          margin-left: auto; }
+          .momentOverlay .momentContainer .rightSection .user .userLevel h3 {
+            margin-top: auto;
+            margin-bottom: auto;
+            font-family: Montserrat, sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-weight: 700;
+            color: #fff;
+            font-size: 35px; }
+          .momentOverlay .momentContainer .rightSection .user .userLevel .crownIcon {
+            background-image: url("../imageAssets/Icons/General/crown.svg");
+            background-repeat: no-repeat, repeat;
+            background-size: 3vh 3vh;
+            width: 3vh;
+            height: 3vh;
+            margin-top: auto;
+            margin-bottom: auto; }
+      .momentOverlay .momentContainer .rightSection .comments {
+        height: 85%;
+        width: 100%;
+        border-left: 3px solid lightgray; }
 
 .background {
   position: fixed;
@@ -957,6 +1088,115 @@ h1 {
   height: 100%;
   background-color: rgba(214, 214, 214, 0.85);
   z-index: 1000; }
+
+.selfAwareness {
+  height: 50%;
+  width: 100%;
+  text-align: left; }
+  .selfAwareness .contentWrapper {
+    width: 90%;
+    height: 90%;
+    padding: 5%; }
+
+.communityComponent {
+  height: 100%;
+  width: 100%;
+  text-align: left; }
+  .communityComponent .contentWrapper {
+    width: 90%;
+    height: 35%;
+    padding: 5%; }
+    .communityComponent .contentWrapper .sectionTitleTop {
+      margin-top: 5%;
+      display: flex;
+      flex-direction: row; }
+      .communityComponent .contentWrapper .sectionTitleTop .seeAll {
+        font-family: all-round-gothic, sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        color: black;
+        font-size: 18px;
+        margin-left: auto;
+        border: none;
+        background: none;
+        cursor: pointer; }
+    .communityComponent .contentWrapper .sectionBorder {
+      width: 100%;
+      height: 5%;
+      border-top: 2px solid rgba(0, 0, 0, 0.1); }
+    .communityComponent .contentWrapper .sectionTitle {
+      font-family: all-round-gothic, sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      color: black;
+      font-size: 25px; }
+  .communityComponent .contentContainer {
+    width: 100%;
+    height: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+  .communityComponent .searchbar {
+    display: flex;
+    border-radius: 8px;
+    width: 100%;
+    height: 30px;
+    background-color: rgba(149, 151, 161, 0.1);
+    padding-left: 10px;
+    margin-top: 1vh; }
+    .communityComponent .searchbar .seachIcon {
+      width: 20px;
+      height: 20px;
+      margin-top: auto;
+      margin-bottom: auto;
+      cursor: pointer; }
+    .communityComponent .searchbar .search {
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      color: black;
+      font-size: 20px;
+      width: 90%;
+      margin: auto;
+      background: none;
+      border: none; }
+    .communityComponent .searchbar textarea:focus, .communityComponent .searchbar .search:focus {
+      outline: none; }
+
+#userBubble {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  width: 120px;
+  margin: auto; }
+  #userBubble p {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-weight: 700;
+    color: black;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto; }
+  #userBubble .title {
+    margin-left: auto;
+    margin-right: auto;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: #5C17CB;
+    display: flex; }
+    #userBubble .title h2 {
+      margin: auto;
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-weight: 700;
+      color: #fff;
+      font-size: 40px; }
 
 body {
   margin-top: 0vh;

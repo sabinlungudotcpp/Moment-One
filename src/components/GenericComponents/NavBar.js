@@ -6,11 +6,10 @@ const Navbar = () => { // Navigation Bar Component
     return (
 
          <div className= "navbar">
-                <div className = "NavLogo"></div>
-                    <div className = "profile">
-                <div className = "profileImg"></div>
-                {/* Placeholder : will get current user in future */}
-                <p>@Username</p>
+             <div className ="navbar_header">
+                <div className = "NavLogo">
+             </div>
+             <h2 className="navTitle">MomentOne</h2>
             </div>
 
         {/* Navigation Links */}
@@ -61,10 +60,10 @@ const Navbar = () => { // Navigation Bar Component
                         <div className = "icon">
                             <div className ="livechatIcon"></div>
                         </div>
-                        <span className="navbar_items-text">Live-Chat</span>   
+                        <span className="navbar_items-text">Chat</span>   
                     </NavLink>
                 </li>
-
+                {/*
                 <li className="logout">
                     <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to="/logout">
                         <div className = "icon">
@@ -73,8 +72,13 @@ const Navbar = () => { // Navigation Bar Component
                         <span className="navbar_items-text">Log-Out</span>
 
                     </NavLink>
-                </li>
+                </li>*/}
             </ul>
+            <div className="navFooter">
+                <p>MomentOne Dashboard</p>
+                <p>© 2021 All Rights Reserved</p>
+            </div>
+            
         </div>
     )
 }

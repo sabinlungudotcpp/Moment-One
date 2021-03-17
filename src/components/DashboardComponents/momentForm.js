@@ -67,7 +67,7 @@ const MomentForm = () => {
             resState();   
         }*/
 
-        await axios.post('http://localhost:4000/posts',{values});
+        await axios.post('http://localhost:8080/posts',{values});
         setValues('');
 
     }

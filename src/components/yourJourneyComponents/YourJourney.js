@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "./Header";
-import Goals from "./yourJourneyComponents/goals"
-import SelfAwareness from "./yourJourneyComponents/selfAwarenessGraph"
-import CommunityComponent from "./yourJourneyComponents/communityComponent";
+import Header from "../GenericComponents/Header";
+import Goals from "./goals"
+import SelfAwareness from "./selfAwarenessGraph"
+import CommunityComponent from "./communityComponent";
 
 function yourJourney() {
   return (

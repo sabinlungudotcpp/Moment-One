@@ -1,13 +1,13 @@
 import React from "react";
 import "./css/style.css";
-import NavBar from './components/NavBar';
-import Home from './components/Home';
+import NavBar from './components/GenericComponents/NavBar';
+import Home from './components/DashboardComponents/Dashboard';
 import Settings from './components/Settings';
 import Wellbeing from './components/Wellbeing'
 import Perspectives from './components/Perspectives';
 import Community from './components/Community'
 import LiveChat from './components/LiveChat';
-import YourJourney from './components/YourJourney';
+import YourJourney from './components/yourJourneyComponents/YourJourney';
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 
 const App = () => { // Main App

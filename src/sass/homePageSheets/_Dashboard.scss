@@ -4,10 +4,10 @@
 .contentGrid{
     margin-top: 5vh;
     width:calc(94vw - 100px);
-    height:82vh;
+    height:83vh;
     display: grid;
     gap:50px;
-    grid-template-columns:minmax(800px,2fr) minmax(400px,1fr) minmax(400px,1fr) minmax(1px,1px);
+    grid-template-columns:minmax(600px,1fr) minmax(800px,3fr);
     grid-auto-rows: 80vh;
     
     .infoWrap{

@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./Header";
+import Header from "./GenericComponents/Header";
 const Perspectives = () => {
   return (
     <div className = "Page">

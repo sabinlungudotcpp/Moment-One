@@ -6,17 +6,16 @@
     margin-right:auto;
     @include compSetup;
     margin-left:auto;
-    margin-top:10px;
     height:100%;
-    width:400px;
+    width:100%;
     box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
     overflow:hidden;
-
+    border-radius: 25px;
         //top section where user selects their current feeling
         &_top-section{
 
-            height:20%;
-            border:3px solid colour(P,lb);
+            height:25%;
+            border:3px solid colour(P,db);
             border-radius: 25px;
             text-align: center;
             padding-top:20px;
@@ -24,7 +23,7 @@
 
 
             h2{
-                @include montserratFont(dark,colour(P,db),24px);
+                @include montserratFont(dark,colour(P,db),33px);
             }
 
             .feelingWrapper{
@@ -37,9 +36,9 @@
                 .feelingSelect{
                     border:none;
                     background-color: $compBack;
-                    @include montserratFont(dark,colour(P,db),12px);
-                    height:60px;
-                    width:50px;
+                    @include montserratFont(dark,colour(P,db),20px);
+                    height:80px;
+                    width:70px;
                     margin:auto;
                     transition:0.2s linear;
                     cursor: pointer;
@@ -48,8 +47,8 @@
                         border-radius: 50%;
                         padding:-1px;
                         transition:0.2s linear;
-                        width:50px;
-                        height:50px;
+                        width:70px;
+                        height:70px;
                         transition:0.2s linear;
                         background-color: $compBack;
                     }
@@ -71,7 +70,7 @@
         }
         //section where user selects the category of the moment
         &_center-section{
-            height:15%;
+            height:12%;
             padding:20px;
             p{
                 @include montserratFont(dark,colour(P,db),24px);
@@ -95,7 +94,9 @@
                         height:30;
                         padding-right:20px;
                         padding-left:15px;
-                        border:1.5px solid colour(P,db);
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+                        border: 1.5px solid #201FDF;
                         margin-right:5%;
                         cursor: pointer;
                         transition:0.2s linear;
@@ -119,19 +120,21 @@
             border-radius: 25px;
             height:55%;
             background-color: colour(P,db);
-            background: linear-gradient(46.39deg, #3CCEFD -7.12%, #4685EA 73.87%, #4E4EDB 134.44%);
+            background: linear-gradient(149.49deg, #464EE2 39.55%, #9456F2 132.89%);
             box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25);
-            padding:30px;
+            padding-left:10%;
+            padding-right: 10%;
+            padding-top:3vh;
             
             p{
                 white-space: nowrap;
-                @include montserratFont(dark,colour(F,wh),18px);
+                @include montserratFont(600,colour(F,wh),25px);
             }
 
             .feelings{
-                height:20%;
+                height:9vh;
                 border:none;
-                @include montserratFont(dark,colour(P,bla),16px);
+                @include montserratFont(400,colour(P,bla),18px);
                 resize: none;
                 width:96%;
                 padding:2%;
@@ -140,9 +143,9 @@
                 outline: none;
             }
             .mind{
-                height:12%;
+                height:3vh;
                 border:none;
-                @include montserratFont(dark,colour(P,bla),16px);
+                @include montserratFont(400,colour(P,bla),18px);
                 resize: none;
                 width:96%;
                 padding:2%;
@@ -197,11 +200,11 @@
                     }
                     
                     input:checked + .slider {
-                    background-color: #D72E5E;
+                    background-color: colour(P,ye);
                     }
                     
                     input:focus + .slider {
-                    box-shadow: 0 0 1px #D72E5E;
+                    box-shadow: 0 0 1px colour(P,ye);
                     }
                     
                     input:checked + .slider:before {
@@ -225,11 +228,11 @@
                 height:15%;
                 width:100%;
                 .create{
-                    @include montserratFont(dark,colour(F,bla),20px);
+                    @include montserratFont(dark,colour(F,bla),28px);
                     margin:auto;
-                    background-color: white;
-                    width:170px;
-                    height:50px;
+                    background-color: colour(P,ye);
+                    width:230px;
+                    height:70px;
                     border-radius: 48px;
                     border:none;
                     box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.33);

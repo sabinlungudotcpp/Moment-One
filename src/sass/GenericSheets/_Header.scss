@@ -2,24 +2,18 @@
 @import "functions";
 @import "images";
 
-.header {
+.headerTop {
     text-align: left;
     display:flex;
     align-items:center;
-    margin-top: 4vh;
     width:100%;
-    height:40px;
-
-    h1 {
-        margin-left: 3vw;
-        @include montserratFont(dark,colour(F,bla),40px);
-        white-space: nowrap;
-    }
+    height:6vh;
+    background-color: $compBack;
 
     .searchBell {
         display:flex;
-        margin-left: auto;
-
+        margin-right: auto;
+        margin-left: 3vw;
         .bellIcon {
             margin-top: auto;
             margin-bottom: auto;
@@ -31,40 +25,80 @@
             background-image: $bell;
             background-repeat: no-repeat, repeat;
         };
-        
+    }
+
+    .searchbar{
+
+        display:flex;
+        padding-left: 10px;
+        width:50%;
+        height:40px;
+        margin-right: 40px;
+        margin-left: 3vh;
+        background: #FDFDFD;
+        border: 1px solid #EBEBEB;
+        box-sizing: border-box;
+        border-radius: 8px;
+
+        .seachIcon{
+            margin-right: 10px;
+            width:20px;
+            height:20px;
+            margin-top: auto;
+            margin-bottom: auto;
+            cursor: pointer;
+        }
+
         .search {
             @include montserratFont(dark,colour(F,bla),20px);
-            width:270px;
+            width:95%;
             margin:auto;
-            background-color: #F5F5F7;
+            background-color: #FDFDFD;
             border:none;
         }
 
-        .searchbar{
-
-            display:flex;
-            border-radius: 8px;
-            padding-left: 10px;
-            width:300px;
-            height:40px;
-            background-color: #F5F5F7;
-            margin-right: 40px;
-
-
-            .seachIcon{
-                margin-right: 10px;
-                width:20px;
-                height:20px;
-                margin-top: auto;
-                margin-bottom: auto;
-                cursor: pointer;
-            }
-
-            textarea:focus, .search:focus{
-              
-                outline: none;
-            }
+        textarea:focus, .search:focus{
+            
+            outline: none;
         }
+    }
 
-    };
+    
+}
+.headerBottom{
+    height:2vh;
+    padding-top:2vh;
+    padding-bottom: 2vh;
+    display:flex;
+    flex-direction: column;
+
+    h1 {
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-right: auto;
+        margin-left: 3vw;
+        margin-left: 3vw;
+        @include PoppinsFont(600,colour(F,bla),28px);
+        white-space: nowrap;
+    }
+    .subtitleWrapper{
+        display: flex;
+        flex-direction: row;
+        width:15vw;
+        .blueTitle{
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 3vw;
+            @include PoppinsFont(500,colour(P,db),16px);
+            white-space: nowrap;
+        }
+        .grayTitle{
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-right: auto;
+            @include PoppinsFont(500,colour(F,gr),16px);
+            white-space: nowrap;
+        }
+    }
+
 }

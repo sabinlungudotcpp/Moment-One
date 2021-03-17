@@ -5,14 +5,16 @@
     @include compSetup;
     overflow: hidden;
     width: 100px;
-    height: 98vh;
+    height: 100vh;
     position:absolute;
     float: left;
     background-color: $compBack;
     transition: width 1s ease;
     transition-delay: 0.2s;
     z-index: 1000;
-    margin-top: 1vh;
+    box-shadow: 18px 4px 35px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
     //when a curser is hovered over the navbar div
     &:hover{
       width:290px;
@@ -23,60 +25,52 @@
     }
     //setting width of the navigation links
     &:hover .navbar_link{
-      width : 250px;
+      width : 290px;
     }
     //setting navigation labels to visable
     &:hover .navbar_items-text {
       visibility: visible;
       opacity: 1;
     }
-
-    //logo displayed on taskbar
-    .NavLogo{
-      background-image: url("../imageAssets/Logos/logo.svg");
-      background-repeat: no-repeat, repeat;
-      background-size: 80px 80px;
-
-      width:80px;
-      height:80px;
-      margin-top: 4vh;
-      margin-left: auto;
-      margin-right: auto;
+    &:hover .navTitle{
+      visibility: visible;
+      opacity: 1;
     }
-    
-    //user profile picture and username
-    .profile{
-      @include montserratFont(Dark,colour(F,blu),19px);
-      margin-top: 5vh;
-      margin-bottom: 5vh;
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-      width:100%;
 
-      //profile picture
-      &Img{
-        background-image: url("../imageAssets/Avatars/Animated/Asset33.svg");
+    &_header{
+      box-shadow: 18px 4px 35px rgba(0, 0, 0, 0.02);
+      height:6vh;
+      display:flex;
+      width:290px;
+      //logo displayed on taskbar
+      .NavLogo{
+        background-image: url("../imageAssets/Logos/logo.svg");
         background-repeat: no-repeat, repeat;
         background-size: 60px 60px;
-        background-color: brown;
         width:60px;
         height:60px;
-        border-radius: 50%;
-        border:3px solid colour(F,blu);
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 1vh;
+        margin-top: 3vh;
+        margin-top: auto;
+        margin-bottom:auto;
+        margin-left: 20px;
       }
-      //username
-      p{
-        transition: opacity 0.7s linear;
+
+      .navTitle{
+        @include RalewayFont(dark,colour(F,db),22px);
+        margin-top: auto;
+        margin-bottom:auto;
+        margin-left: 14px;
         opacity: 0;
+        transition: visibility 0.5s, opacity 0.5s linear;
+        transition-delay: 0.2s;
       }
     }
+
+    
 
     //navigation items
     &_items{
+      margin-top: 3vh;
       list-style: none;
       display:flex;
       flex-direction: column;
@@ -85,8 +79,9 @@
 
       //icon background
       .icon{
-        width: 55px;
-        height: 55px;
+        
+        width: 50px;
+        height: 50px;
         margin-top: auto;
         margin-bottom:auto;
         margin-left: 0px;
@@ -119,6 +114,7 @@
 
     //navigation labels
     &_items-text{
+      
       white-space: nowrap;
       margin-left:20px;
       display:block;
@@ -134,26 +130,28 @@
     
     //buttons on the bar
     #{&}_link {
-      @include montserratFont(dark,colour(F,gr),22px);
+      @include PoppinsFont(500,colour(F,gr),18px);
       width : 220px;
       overflow: hidden;
       text-decoration: none;
       display:flex;
       align-items:center;
-      margin-left:22.5px;
-      border-radius:15px;
+      padding-left:17.5px;
       margin-top:1vh;
-      transition: background-color .3s ease-in-out, color 0.5s ease-in-out;
-
+      border-left:5px solid #FFFF;
+      transition: .3s ease-in-out, color 0.5s ease-in-out;
+      
       //changing link background colour
       &:hover {
-        background-color: colour(F,lblu);
-
+        background-color: #FAFBFF;
+        border-left:5px solid colour(P,db);
       }
       
       //displaying current page selected to user
       &_active {
-        color:rgba(colour(F,blu), 0.7);
+        background-color: #FAFBFF;
+        border-left:5px solid colour(P,db);
+        @include PoppinsFont(600,colour(P,db),18px);
         
       }
       &_active .icon{
@@ -165,7 +163,7 @@
     //style specific to the moment dropdown
     .moments{
       overflow:hidden;
-      height:65px;
+      height:70px;
       transition: height 0.5s ease-in-out;
       transition-delay:0.2s;
 
@@ -184,6 +182,18 @@
       padding-top: 5px;
       padding-bottom:5px;
     }
+
+    .navFooter{
+      margin-top: auto;
+      @include PoppinsFont(500,colour(F,gr),12px);
+      width:90%;
+      margin-left: 5%;
+      margin-bottom: 1vh;
+      p{
+        margin-top: 0.5vh;
+      }
+    }
+
   }
 
   

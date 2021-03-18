@@ -16,7 +16,7 @@
             flex-direction: row;
 
             .seeAll{
-                @include gothicFont(normal,colour(F,bla),18px);
+                @include PoppinsFont(normal,colour(F,bla),18px);
                 margin-left: auto;
                 border:none;
                 background: none;
@@ -29,7 +29,7 @@
             border-top: 2px solid rgba(0, 0, 0, 0.1);
         }
         .sectionTitle{
-            @include gothicFont(dark,colour(F,bla),25px);
+            @include PoppinsFont(dark,colour(F,bla),25px);
         }
     }
     .contentContainer{

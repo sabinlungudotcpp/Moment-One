@@ -23,7 +23,7 @@
 
 
             h2{
-                @include montserratFont(dark,colour(P,db),33px);
+                @include montserratFont(dark,colour(P,db),28px);
             }
 
             .feelingWrapper{
@@ -47,8 +47,8 @@
                         border-radius: 50%;
                         padding:-1px;
                         transition:0.2s linear;
-                        width:70px;
-                        height:70px;
+                        width:60px;
+                        height:60px;
                         transition:0.2s linear;
                         background-color: $compBack;
                     }
@@ -70,7 +70,7 @@
         }
         //section where user selects the category of the moment
         &_center-section{
-            height:12%;
+            height:15%;
             padding:20px;
             p{
                 @include montserratFont(dark,colour(P,db),24px);
@@ -128,18 +128,18 @@
             
             p{
                 white-space: nowrap;
-                @include montserratFont(600,colour(F,wh),25px);
+                @include montserratFont(600,colour(F,wh),20px);
             }
 
             .feelings{
-                height:9vh;
+                height:8vh;
                 border:none;
                 @include montserratFont(400,colour(P,bla),18px);
                 resize: none;
                 width:96%;
                 padding:2%;
                 border-radius: 14px ;
-                margin-top:5%;
+                margin-top:2%;
                 outline: none;
             }
             .mind{
@@ -150,12 +150,12 @@
                 width:96%;
                 padding:2%;
                 border-radius: 14px ;
-                margin-top:5%;
-                margin-bottom: 5%;
+                margin-top:2%;
+                margin-bottom: 2%;
                 outline: none;
             }
             .selfAware_wrapper{
-                margin-top: 5%;
+                margin-top: 1%;
                 display:flex;
                 flex:row;
                 align-items:center;
@@ -250,7 +250,7 @@
                 margin-right:auto;
                 width:100%;
                 text-align: center;
-                @include montserratFont(dark,colour(S,pi),20px);
+                @include montserratFont(dark,red,20px);
             }
         }
 }

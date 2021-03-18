@@ -14,7 +14,7 @@ const Navbar = () => { // Navigation Bar Component
 
         {/* Navigation Links */}
             <ul className="navbar_items">
-                <li className="moments">
+                <li >{/*</ul>className="moments"*/}
                 
                     <NavLink activeClassName="navbar_link_active" className="navbar_link" to = "/home">
                         <div className = "icon">
@@ -22,10 +22,10 @@ const Navbar = () => { // Navigation Bar Component
                         </div>
                         <span className="navbar_items-text">Dashboard</span>
                     </NavLink>
-
+                    {/*
                     <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to = "/home/yourjourney">
                         <span className="navbar_subitems-text">Your journey</span>
-                    </NavLink>
+                    </NavLink> */}
                 </li>
 
                 <li>

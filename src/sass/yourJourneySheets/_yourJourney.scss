@@ -11,7 +11,7 @@
     grid-auto-rows: 80vh;
 
     .title{
-        @include gothicFont(dark,colour(F,bla),30px);
+        @include PoppinsFont(dark,colour(F,bla),30px);
     }
     .subtitile{
         margin-top: 2%;
@@ -80,7 +80,7 @@
         height:80vh;
         padding:20px;
         h1{
-            @include gothicFont(dark,colour(F,bla),30px);
+            @include PoppinsFont(dark,colour(F,bla),30px);
         }
     }
     

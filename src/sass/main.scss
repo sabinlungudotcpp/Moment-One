@@ -13,10 +13,12 @@
 @import "./yourJourneySheets/selfAwareness";
 @import "./yourJourneySheets/_community";
 @import "./GenericSheets/userBubble";
+@import "./perspectiveSheets/perspectives";
+@import "./perspectiveSheets/formCard";
 
 body{
     margin-top:0vh;
-    height: 98vh;
-    width: 99vw;
+    height: 100vh;
+    width: 100vw;
     background-color: $background;
 }

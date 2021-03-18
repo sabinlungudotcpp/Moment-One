@@ -10,28 +10,13 @@
     height:6vh;
     background-color: $compBack;
 
-    .searchBell {
-        display:flex;
-        margin-right: auto;
-        margin-left: 3vw;
-        .bellIcon {
-            margin-top: auto;
-            margin-bottom: auto;
-            margin-left:auto;
-            margin-right:3vw;
-            width: 30px;
-            height: 30px;
-            background-size: 30px 30px;
-            background-image: $bell;
-            background-repeat: no-repeat, repeat;
-        };
-    }
 
     .searchbar{
 
         display:flex;
         padding-left: 10px;
-        width:50%;
+        width:30%;
+        min-width: 300px;
         height:40px;
         margin-right: 40px;
         margin-left: 3vh;
@@ -50,7 +35,7 @@
         }
 
         .search {
-            @include montserratFont(dark,colour(F,bla),20px);
+            @include PoppinsFont(500,colour(F,bla),20px);
             width:95%;
             margin:auto;
             background-color: #FDFDFD;
@@ -58,21 +43,47 @@
         }
 
         textarea:focus, .search:focus{
-            
             outline: none;
+        }
+    }
+
+    .navIcons{
+        list-style: none;
+        display:flex;
+        height: 100%;
+        width:30%;
+
+        .header_link{
+            @include PoppinsFont(500,colour(F,bla),14px);
+            margin:auto;
+            width:100px;
+            height:100%;
+            display:flex;
+            cursor: pointer;
+            text-decoration: none;
+            transition:0.3s linear;
+            &:hover{
+                background-color: #FAFBFF;
+            }
+            p{
+                margin:auto;
+            }
+            &_active{
+                @include PoppinsFont(500,colour(P,db),14px);
+            }
         }
     }
 
     
 }
 .headerBottom{
-    height:2vh;
+    height:3vh;
     padding-top:2vh;
     padding-bottom: 2vh;
     display:flex;
     flex-direction: column;
 
-    h1 {
+    h2 {
         margin-top: auto;
         margin-bottom: auto;
         margin-right: auto;

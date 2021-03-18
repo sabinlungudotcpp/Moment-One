@@ -6,7 +6,7 @@ import Settings from './components/Settings';
 import Wellbeing from './components/Wellbeing'
 import Perspectives from './components/Perspectives/Perspectives';
 import Community from './components/Community'
-import LiveChat from './components/LiveChat';
+import LiveChat from './components/chatComponents/LiveChat';
 import YourJourney from './components/yourJourneyComponents/Profile';
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 

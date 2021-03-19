@@ -70,10 +70,17 @@ exports.deleteAccountById = async (request, response) => {
         //Testing request method
         if(request.method === 'DELETE') {
 
-            await accountModel.findByIdAndDelete(request.params.id); //Finding user by _id in url
-            return response.status(200).json({ //Response with http ok code
-                message: 'Account deleted'
-            });
+            //Finding user by _id in url and if found saved to constant 'check'. Account is then deleted.
+            const check = await accountModel.findByIdAndDelete(request.params.id); 
+            if(check) { //Testing to see if check is empty
+                return response.status(200).json({ //Response with http ok code
+                    message: 'Account deleted'
+                });
+            } else { //if check is empty then account couldn't be found and deleted from the _id provided
+                return response.status(404).json({
+                    message: 'Account not found'
+                });
+            }
         }
     }
     //catching all errors

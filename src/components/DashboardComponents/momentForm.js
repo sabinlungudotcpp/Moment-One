@@ -7,8 +7,8 @@ import moodeBad from "../../imageAssets/Mood Tracker/moodBad.png";
 import moodAwful from "../../imageAssets/Mood Tracker/moodAwful.png";
 
 const MomentForm = () => {
-    const {title, description, category, selfAware} = useState('');
-    const [moment, setMoment] = useState({title, description, category, selfAware});
+    const {feeling, title, description, category, selfAware} = useState('');
+    const [moment, setMoment] = useState({feeling, title, description, category, selfAware});
 
     const onSubmit = async (e) => { // When submitting the form
         e.preventDefault();
@@ -21,6 +21,7 @@ const MomentForm = () => {
                 <div className = "momentForm_top-section">
                     <h2>Good afternoon, Username!</h2>
                     <h2>How are you feeling?</h2>
+
                     {/* Section of form for selecting the current feeling */}
                     <div className="feelingWrapper">
 
@@ -98,7 +99,7 @@ const MomentForm = () => {
                     <div className="selfAware_wrapper">
                         <p>Do you feel self aware?</p>
                         <label class="switch">
-                            <input type="checkbox" name="selfAware" onClick ={moment.selfAware} />
+                            <input type="checkbox" name="selfAware" onClick ={e => e.target.value} />
                             <span class="slider round"></span>
                         </label>
                     </div>

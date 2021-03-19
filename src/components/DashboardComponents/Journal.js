@@ -15,23 +15,17 @@ class momentForm extends React.Component{
         date:Date.now,
       }
     }
-    //this.getPosts();
-    this.handleInput = this.handleInput.bind(this);
+    this.getPosts();
     this.addItem = this.addItem.bind(this);
   }
 
   getPosts(){
-    axios.get('http://localhost:8080/posts').then(res =>{
+    axios.get('http://localhost:8001/api/v1/momentone/posts').then(res =>{
       console.log(res);
-    })
-  }
-  handleInput(e){
-    this.setState({
-      currentItem:{
-        title:'Lockdown woes is the title',
-        content:'Oh boy is lockdown boring, this would be the content ',
-        key:'',
-      }
+      this.setState({
+        items:res.data.data.posts,
+      })
+      console.log(this.state.items[0])
     })
   }
 
@@ -44,8 +38,8 @@ class momentForm extends React.Component{
     this.setState({
       items:newItems,
       currentItem:{
-        title:'Lockdown woes is the title',
-        content:'Oh boy is lockdown boring, this would be the content ',
+        title:'',
+        content:'',
         date:'',
       }
     })
@@ -83,9 +77,6 @@ class momentForm extends React.Component{
 
             <div className="journal">
             <div className = "momentList">
-            <form onSubmit={this.addItem}>
-            <button type='submit'>add</button>
-            </form>
             
             <JournalMoment items={this.state.items} />
 

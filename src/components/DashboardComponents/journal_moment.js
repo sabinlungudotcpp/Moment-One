@@ -11,8 +11,8 @@ export default function Moment(props) {
                     <div className="momentText">
 
                         <h2 className="momentTitle">{item.title}</h2>
-                        <p>{item.content}</p>
-                        <p className="dateText">{item.key}</p>
+                        <p>{item.description}</p>
+                        <p className="dateText">{item.createdAt}</p>
                     </div>
                     <MomentOverlay open={isOpen} onClose={() => setIsOpen(false)}/>
                 </div>

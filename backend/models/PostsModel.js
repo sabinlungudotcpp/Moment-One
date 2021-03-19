@@ -32,10 +32,10 @@ const PostSchema = new mongoose.Schema({
         required: true
     },
     
-    //Reference to the user who created the goal
+    //Reference to the Account that created the post
     createdBy: { 
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'Account'
     },
 
     //Arrey that will hold all of the post comments

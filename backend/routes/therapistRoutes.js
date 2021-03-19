@@ -1,12 +1,11 @@
-const express = require('express');
-const therapistAuthController = require('../controllers/therapistAuthController');
+const therapistRouter = require('express').Router(); //Creating therapist router
 const therapistController = require('../controllers/therapistController');
-const therapistRouter = express.Router();
+const accountController = require('../controllers/accountController');
+const authController = require('../controllers/authController');
 
-therapistRouter.route('/register').post(therapistAuthController.registerTherapist);
-therapistRouter.route('/login').post(therapistAuthController.loginTherapists);
+//Therapist routes
+therapistRouter.route('/').get(therapistController.getAllTherapists);
+therapistRouter.route('/:id').get(accountController.getAccountById).delete(accountController.deleteAccountById).patch(accountController.editAccount);
+therapistRouter.route('/register').post(authController.registerTherapist);
 
-therapistRouter.route('/').get(therapistController.getAllTherapists).delete(therapistController.deleteAllTherapists);
-therapistRouter.route('/:id').get(therapistController.getTherapistById).patch(therapistController.editTherapist).delete(therapistController.deleteTherapistById);
-
-module.exports = therapistRouter;
+module.exports = therapistRouter; //Exporting the thertapist router

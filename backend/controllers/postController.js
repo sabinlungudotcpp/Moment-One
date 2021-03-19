@@ -1,5 +1,5 @@
-const Post = require('../models/PostsModel');
-const UserModel = require('../models/UserModel');
+const postModel = require('../models/PostsModel');
+const account = require('../models/accountModel');
 const okCode = 200;
 const createdCode = 201;
 const serverError = 500;
@@ -10,7 +10,7 @@ exports.getAllPosts = async (request, response) => { // Controller function to g
 
         if(method === 'GET') { // If there's a GET request
 
-            const allPosts = await Post.find();
+            const allPosts = await postModel.find();
             return response.json({
                 data: {
                     numberOfPosts: allPosts.length, // Length of the posts
@@ -37,7 +37,7 @@ exports.getPostByID = async (request, response) => { // Retrieves a POST BY ITS 
         
         if(method === 'GET') {
             const id = request.params.id;
-            const postId = await Post.findById(id);
+            const postId = await postModel.findById(id);
 
             return response.status(okCode).json({postId});
         }
@@ -66,11 +66,11 @@ exports.createNewPost = async(request, response) => { // Controller function to 
         }
         
         if(method === 'POST') {
-            const newPost = new Post({title, description, feeling, category, selfAware, createdBy});
+            const newPost = new postModel({title, description, feeling, category, selfAware, createdBy});
             await newPost.save();
             
             //The new post also needs to be added to the user model 
-            await UserModel.findOneAndUpdate(
+            await account.findOneAndUpdate(
                 {_id: createdBy}, //Finding the user by _id
                 {$push: {posts: newPost.id}} //Adding the new posts _id to the posts arrey in the user model
                 );
@@ -98,7 +98,7 @@ exports.editPost = async (request, response) => {
         }
 
         if(method === 'PATCH') {
-            const updatedPost = await Post.findByIdAndUpdate(id, request.body);
+            const updatedPost = await postModel.findByIdAndUpdate(id, request.body);
             
             return response.json({
                 updatedPost
@@ -120,7 +120,7 @@ exports.deleteAllPosts = async (request, response) => { // Route for DELETING al
         const method = request.method;
 
         if(method === 'DELETE') {
-            await Post.deleteMany();
+            await postModel.deleteMany();
             
             return response.status(okCode).json({
                 message: 'All posts deleted successfully',
@@ -144,7 +144,7 @@ exports.deletePostByID = async (request, response) => {
         const id = request.params.id;
 
         if(method === 'DELETE') {
-            await Post.findByIdAndDelete(id, request.body);
+            await postModel.findByIdAndDelete(id, request.body);
 
             return response.status(okCode).json({
                 message: 'Post deleted successfully'

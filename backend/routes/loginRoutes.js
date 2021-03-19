@@ -1,8 +1,6 @@
-const express = require('express');
-const authenticate = require('../middlewares/authentication');
+const loginRouter = require('express').Router(); //Creating the login router
 const authController = require('../controllers/authController');
-const loginRouter = express.Router(); // The authentication router.
 
-loginRouter.route('/').post(authenticate, authController.signIn);
+loginRouter.route('/').post(authController.login); //Directing request to the login function
     
-module.exports = loginRouter;
+module.exports = loginRouter; //exporting the router

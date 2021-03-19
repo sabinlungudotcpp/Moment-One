@@ -23,6 +23,8 @@ class momentForm extends React.Component{
   getPosts(){
     axios.get('http://localhost:8001/api/v1/momentone/posts').then(res =>{
       console.log(res);
+      this.setState({items: res.data});
+      console.log(this.state.items);
     })
   }
   handleInput(e){

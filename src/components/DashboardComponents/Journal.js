@@ -15,16 +15,14 @@ class momentForm extends React.Component{
         date:Date.now,
       }
     }
-    this.getPosts();
+    //this.getPosts();
     this.handleInput = this.handleInput.bind(this);
     this.addItem = this.addItem.bind(this);
   }
 
   getPosts(){
-    axios.get('http://localhost:8001/api/v1/momentone/posts').then(res =>{
+    axios.get('http://localhost:8080/posts').then(res =>{
       console.log(res);
-      this.setState({items: res.data});
-      console.log(this.state.items);
     })
   }
   handleInput(e){

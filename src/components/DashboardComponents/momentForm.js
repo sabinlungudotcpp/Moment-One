@@ -98,7 +98,7 @@ const MomentForm = () => {
                     <textarea className="mind" value = {e => e.target.value} name="title" onChange={handleMoment} rows="12" cols="50" />
 
                     <p>Tell us more about how you feel...</p>
-                    <textarea className="feelings" value = {handleMoment} name="description" onChange={e => e.target.value} />
+                    <textarea className="feelings" value = {moment.description} name="description" onChange={e => e.target.value} />
 
                     <div className="selfAware_wrapper">
                         <p>Do you feel self aware?</p>

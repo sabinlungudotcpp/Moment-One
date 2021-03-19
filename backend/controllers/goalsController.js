@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Goals = require('../models/goalsModel');
+const goalsModel = require('../models/goalsModel');
+const userModel = require('../models/userModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const okCode = 200;
@@ -13,7 +13,7 @@ exports.getAllGoals = catchAsync(async (request, response, next) => { // Functio
         const url = request.url;
 
         if(method === 'GET' && url.startsWith(root)) { // If there is a GET request
-            const goals = await Goals.find();
+            const goals = await goalsModel.find();
 
             if(goals.length === 0) {
                 return next(new AppError('Goals not found'), 404);
@@ -26,7 +26,7 @@ exports.getAllGoals = catchAsync(async (request, response, next) => { // Functio
 
 exports.getGoalByID = catchAsync(async (request, response, next) => {
         const id = request.params.id;
-        const goal = await Goals.findById(id);
+        const goal = await goalsModel.findById(id);
 
         if(!goal) {
             return next(new AppError('No goal found'), 404);
@@ -38,10 +38,14 @@ exports.getGoalByID = catchAsync(async (request, response, next) => {
 
 exports.createGoal = catchAsync(async (request, response, next) => { // Function export that creates a new goal
     try {
-        let goalCreated = false; //test
         const method = request.method; // The request method
         const {goal, reason, reward, length} = request.body; // Body of the request
-        const createdBy = request.User.id;
+        const createdBy = request.User.id; //Getting the user _id from the JWT that was verified by authentication.js
+        if(request.User.type !== 'User') {
+            return response.status(unprocessable).json({
+                message: 'Only users can create goals'
+            });
+        }
         if(!goal || !reason || !reward || !length) {
             return response.status(unprocessable).json({
                 message: 'Goal must have a goal, reason, length and reward',
@@ -50,13 +54,16 @@ exports.createGoal = catchAsync(async (request, response, next) => { // Function
         }
 
         if(method === 'POST') {
-            const newGoal = new Goals({goal, reason, reward, length, createdBy});
+            const newGoal = new goalsModel({goal, reason, reward, length, createdBy});
             await newGoal.save(); // Save the goal
-            goalCreated = true;
 
-            if(goalCreated) {
-                return response.status(createdCode).json(newGoal);
-            }
+            //The new Goal also needs to be added to the user model 
+            await userModel.findOneAndUpdate(
+                {_id: createdBy}, //Finding the user by _id
+                {$push: {goals: newGoal.id}} //Adding the new goals _id to the posts arrey in the user model
+                );
+
+            return response.status(createdCode).json(newGoal);
         }
     } 
     
@@ -98,7 +105,7 @@ exports.editGoal = catchAsync(async (request, response) => { // Controller funct
             goalEdited = true;
 
             if(goalEdited) {
-                const updatedGoal = await Goals.findByIdAndUpdate(id, request.body); // Update the goal by finding its id and updating the body
+                const updatedGoal = await goalsModel.findByIdAndUpdate(id, request.body); // Update the goal by finding its id and updating the body
                 return response.status(okCode).json(updatedGoal);
             }
         }
@@ -123,7 +130,7 @@ exports.deleteGoals = async (request, response) => {
         const url = request.url;
 
         if(method === 'DELETE' || url.startsWith(root)) {
-            await Goals.deleteMany();
+            await goalsModel.deleteMany();
 
             return response.status(okCode).json({
                 message: 'Goals deleted successfully',
@@ -154,7 +161,7 @@ exports.deleteGoalByID = async (request, response) => { // Deletes a goal by its
         }
 
         if(method === 'DELETE' && url.startsWith(root)) {
-            await Goals.findByIdAndDelete(id);
+            await goalsModel.findByIdAndDelete(id);
            
             return response.status(okCode).json({
                 message: 'Goal Deleted',

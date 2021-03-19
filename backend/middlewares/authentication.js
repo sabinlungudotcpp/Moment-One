@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const User = require('../models/UserModel')
+const account = require('../models/accountModel');
 const forbidden = 401;
 const unprocessable = 422;
 
@@ -26,7 +26,7 @@ module.exports = async (request, response, next) => {
             }
             
             const userId = payload.id; //destructure payload
-            const user = await User.findById(userId); // Find the user by ID for the authentication
+            const user = await account.findById(userId); // Find the user by ID for the authentication
             
             request.User = user;
             next();

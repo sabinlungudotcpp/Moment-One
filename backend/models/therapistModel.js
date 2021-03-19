@@ -1,11 +1,10 @@
+//Therapist user model for the momentone platform
+//This model inherits from the accountModel
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-const crypto = require('crypto');
-const MIN_LENGTH = 3;
-const HASH_BYTES = 12;
+const account = require('./accountModel');
 
-const TherapistSchema = new mongoose.Schema({ //Therapist schema that inherits from the base schema
-
+//Therapist model that inherits from the accountModel
+const therapist = account.discriminator('Therapist', new mongoose.Schema({ 
 	firstName: {
 		type: String,
 		required: [true, 'First name required']
@@ -14,29 +13,6 @@ const TherapistSchema = new mongoose.Schema({ //Therapist schema that inherits f
 	lastName: {
 		type: String,
 		required: [true, 'Last name required']
-	},
-
-	username: { // The username of the therapist model
-		type: String,
-		min: [MIN_LENGTH, 'You must specify at least 3 characters for your username'],
-		required: [true, 'As a therapist you must specify your username']
-	},
-
-	password: {
-		type: String,
-		required: [true, 'As a therapist you must provide your password']
-	},
-
-	passwordConfirm: {
-		type: String,
-		required: [true, 'You must confirm your password']
-	},
-    
-	email: { 
-		type: String,
-		required: [true, 'You must specify your e-mail address'],
-		match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'Invalid email address'], //Regex. Matches email accounts.
-		index: true
 	},
 
 	telephone: {
@@ -53,25 +29,6 @@ const TherapistSchema = new mongoose.Schema({ //Therapist schema that inherits f
 		type: String,
 		required: [true, 'Country required']
 	}
-});
+}));
 
-// Pre-middleware hook
-TherapistSchema.pre('save', async function(next) {
-	const currentTherapist = this;
-
-	if(!currentTherapist.isModified('password')) {
-		return next();
-	}
-
-	this.password = await bcrypt.hash(this.password, HASH_BYTES);
-	this.passwordConfirm = undefined; // Password confirm is undefined
-
-	return next(); // Return the next middleware
-});
-
-TherapistSchema.methods.comparePasswords = async function(candidatePassword, userPassword) {
-	return await bcrypt.compare(candidatePassword, userPassword);
-};
-
-const Therapists = mongoose.model('Therapist', TherapistSchema);
-module.exports = Therapists; // Export the module
+module.exports = therapist; // Export the module

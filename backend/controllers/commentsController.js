@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
 const Comments = require('../models/CommentsModel');
+const PostModel = require('../models/PostsModel');
 
 exports.getAllComments = async (request, response) => {
     try {
@@ -58,6 +58,12 @@ exports.getAllComments = async (request, response) => {
         if(method === 'POST') {
             const newComment = new Comments({title, description, postedOn, createdBy});
             await newComment.save();
+            
+            //The new Goal also needs to be added to the user model 
+            await PostModel.findOneAndUpdate(
+                {_id: postedOn}, //Finding the user by _id
+                {$push: {comments: newComment.id}} //Adding the new goals _id to the posts arrey in the user model
+                );
 
             return response.status(200).json({
                 message: 'Comment Created',

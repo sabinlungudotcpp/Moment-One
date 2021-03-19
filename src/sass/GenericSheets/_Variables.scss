@@ -1,23 +1,14 @@
 //variables
-$compBack: #FAFAFA;
-$background: #ffff;
+$compBack: #ffff;
+$background: #F9F9F9;
 
 //primary colours
 $P-colour: (
-    "db":#5C17CB,
-    "lb":#30CDFF,
-    "pi":#D72E5E,
-    "or":#F77020,
-    "ye":#FFC421
-);
-
-//secondary colours
-$S-colour: (
-    "pi":#ff4c6c,
-    "lp":#ffd4e4,
-    "ye":#ffc424,
-    "pu":#4f2d87,
-    "lb":#4acdff
+    "db":#2F4CDD,
+    "or":#FF6D4D,
+    "dg":#3E4954,
+    "ye":#FEC339,
+    "lg":#F4F5F9
 );
 
 //font colours
@@ -27,7 +18,8 @@ $F-colour: (
     "wh":#fff,
     "blu":#38ABF5,
     "lblu":#E2F2FC,
-    "lgr":#dadada
+    "lgr":#dadada,
+    "db":#3C4469,
 );
 
 //font weights

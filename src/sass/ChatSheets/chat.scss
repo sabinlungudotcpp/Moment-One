@@ -1,0 +1,132 @@
+@import "../GenericSheets/Variables";
+@import "../GenericSheets/functions";
+.pageContent{
+    display:flex;
+    margin-top: 3vh;
+    .chatWindow{
+        margin:auto;
+        width: 90vw;
+        height:80vh;
+        background-color: $compBack;
+        border-radius: 20px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        display:flex;
+        .contacts{
+            width:20%;
+            height:100%;
+            z-index: 550;
+            .searchbar{
+                margin-top: 2vh;
+                display:flex;
+                padding-left: 10px;
+                width:90%;
+                height:40px;
+                margin-right: 40px;
+                margin-left: 5%;
+                background: #FDFDFD;
+                border: 1px solid #EBEBEB;
+                box-sizing: border-box;
+                border-radius: 8px;
+        
+                .seachIcon{
+                    margin-right: 10px;
+                    width:20px;
+                    height:20px;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    cursor: pointer;
+                }
+        
+                .search {
+                    @include PoppinsFont(500,colour(F,bla),20px);
+                    width:95%;
+                    margin:auto;
+                    background-color: #FDFDFD;
+                    border:none;
+                }
+        
+                textarea:focus, .search:focus{
+                    outline: none;
+                }
+            }
+            .contacts_list{
+                overflow-y: scroll;
+                height:93%;
+            }
+        }
+        .chat{
+            width:80%;
+            height:100%;
+            background-color: rgba($background,0.5);
+            .messageBox{
+                height:85%;
+                width:100%;
+                .overlay{
+                    width:72%;
+                    height:10%;
+                    border-radius: 0px 20px 0px 0px;
+                    position:absolute;
+                    background-color: rgba($background,0.5);
+                    box-shadow: 2px 10px 14px -2px rgba(0,0,0,0.26);
+                    display:flex;
+                    z-index: 500;
+                    h1{
+                        margin:auto auto auto 5%;
+                        @include PoppinsFont(500,colour(P,dg),30px);
+                    }
+                }
+            }
+            .messageInput{
+                height:10%;
+                .messageBox{
+                    margin-top: 2vh;
+                    display:flex;
+                    padding-left: 10px;
+                    width:90%;
+                    height:90%;
+                    margin-right: 40px;
+                    margin-left: 5%;
+                    background: #FDFDFD;
+                    border: 1px solid #EBEBEB;
+                    box-sizing: border-box;
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+}
+.contact{
+    width:100%;
+    height:120px;
+    border-bottom: 3px solid colour(P,lg);
+    display:flex;
+    flex-direction: row;
+
+    .icon{
+        height:87px;
+        width:87px;
+        border-radius: 50%;
+        background-color: brown; //placeholder
+        margin-left:5%;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .textContent{
+        margin:auto;
+        margin-left: 5%;
+        margin-right:5%;
+        .username{
+            @include PoppinsFont(500,colour(F,bla),22px);
+            display:flex;
+            p{
+                margin:auto 0px auto auto;
+                @include PoppinsFont(500,colour(F,bla),14px);
+            }
+        }
+
+        .lastmsg{
+            @include PoppinsFont(400,colour(F,bla),18px);
+            line-height: 22px
+        }
+    }
+}

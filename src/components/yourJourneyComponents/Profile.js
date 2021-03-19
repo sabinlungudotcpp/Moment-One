@@ -1,5 +1,8 @@
 import React from "react";
-import Header from "./Header";
+import Header from "../GenericComponents/Header";
+import Goals from "./goals"
+import SelfAwareness from "./selfAwarenessGraph"
+import CommunityComponent from "./communityComponent";
 
 function yourJourney() {
   return (
@@ -30,15 +33,13 @@ function yourJourney() {
 
 
             <div className="community">
-              <h1>My Community</h1>
+              <CommunityComponent />
             </div>
             <div className="awarenessGrowthWrap">
-              <div className="selfAwareness">
-                <h1>Your self-awareness growth</h1>
-              </div>
-              <div className="goals">
-                <h1>My goals</h1>
-              </div>
+
+              <SelfAwareness />
+              <Goals />
+
             </div>
             <div></div>
           </div>

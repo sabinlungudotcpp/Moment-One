@@ -30,7 +30,19 @@ const PostSchema = new mongoose.Schema({
     selfAware: {
         type: Boolean,
         required: true
-    }
+    },
+    
+    //Reference to the Account that created the post
+    createdBy: { 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Account'
+    },
+
+    // Array that will hold all of the post comments
+	comments: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Comments'
+	}]
 },
 
 {

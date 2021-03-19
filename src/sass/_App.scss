@@ -1,13 +1,14 @@
 @import "./GenericSheets/Variables";
 
 .App {
-    width:99vw;
-    height: 99vh;
+    width:100vw;
+    height: 100vh;
+    z-index: 5;
 }
 
 .PageContent {
     width: calc(100vw - 100px);
-    height: 98vh;
+    height: 100vh;
     margin-left: 100px;
     float: left;
     border-radius: 25px 25px 25px 25px;
@@ -27,7 +28,7 @@ h1 {
     width: calc(100vw -100px);
 
 .Content{
-    overflow-y: none;
+    overflow-y: hidden;
     overflow-x: scroll;
     height:92vh;
     padding-left:3vw;

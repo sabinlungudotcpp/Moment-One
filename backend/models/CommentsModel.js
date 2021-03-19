@@ -12,17 +12,20 @@ const commentsSchema = new mongoose.Schema({
         unique: false
     },
 
+    //Store _id for the Account that created the comment
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'Account'
     },
 
+    //Store _id for the Post the comment was posted on 
     postedOn: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Post'
     }
 },
 {
+    //createdAt and updatedAt time stamps
     timestamps: true
 });
 

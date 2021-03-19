@@ -7,10 +7,7 @@
 };
 //default settings for components
 @mixin compSetup{
-    border-radius: 25px 25px 25px 25px;
-    box-shadow: 2px 0px 4px rgba(191, 190, 190, 0.69);
     background-color: $compBack;
-
 }
 //colours combined
 @function colour($set,$colour){
@@ -27,15 +24,8 @@
 
 }
 //font functionality
-@mixin gothicFont($wight-name,$colour,$size){
-    font-family: all-round-gothic, sans-serif;
-    font-style: normal;
-    font-weight:weight($wight-name);
-    color:$colour;
-    font-size:$size;
-}
-
 @mixin montserratFont($wight-name,$colour,$size){
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600&display=swap');
     font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: 600;
@@ -45,19 +35,28 @@
 }
 
 @mixin RalewayFont($wight-name,$colour,$size){
-    font-family: Raleway, sans-serif;
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap');
+    font-family: 'Raleway', sans-serif;
     font-style: normal;
-    font-weight: 600;
-    font-weight:weight($wight-name);
+    font-weight: 800;
+    color:$colour;
+    font-size:$size;
+}
+
+@mixin PoppinsFont($wight-name,$colour,$size){
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: $wight-name;
     color:$colour;
     font-size:$size;
 }
 
 @mixin navIcon($name){
-    width: 35px;
-    height: 35px;
+    width: 20px;
+    height: 20px;
     margin:auto;
     background-image: map-get($navIcons , $name );
     background-repeat: no-repeat, repeat;
-    background-size: 35px 35px;
+    background-size: 20px 20px;
 }

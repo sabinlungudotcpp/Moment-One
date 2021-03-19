@@ -6,17 +6,16 @@
     margin-right:auto;
     @include compSetup;
     margin-left:auto;
-    margin-top:10px;
     height:100%;
-    width:500px;
+    width:100%;
     box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
     overflow:hidden;
-
+    border-radius: 25px;
         //top section where user selects their current feeling
         &_top-section{
 
-            height:20%;
-            border:3px solid colour(P,lb);
+            height:25%;
+            border:3px solid colour(P,db);
             border-radius: 25px;
             text-align: center;
             padding-top:20px;
@@ -24,25 +23,22 @@
 
 
             h2{
-                @include montserratFont(dark,colour(P,db),24px);
+                @include montserratFont(dark,colour(P,db),28px);
             }
 
             .feelingWrapper{
                 height:40%;
                 display:flex;
                 flex:row;
-                margin-top:1.5vh;
                 margin-left:10%;
                 margin-right:10%;
 
                 .feelingSelect{
                     border:none;
                     background-color: $compBack;
-                    margin-top:auto;
-                    margin-bottom:auto;
-                    @include montserratFont(dark,colour(P,db),12px);
-                    height:60px;
-                    width:50px;
+                    @include montserratFont(dark,colour(P,db),20px);
+                    height:80px;
+                    width:70px;
                     margin:auto;
                     transition:0.2s linear;
                     cursor: pointer;
@@ -51,8 +47,8 @@
                         border-radius: 50%;
                         padding:-1px;
                         transition:0.2s linear;
-                        width:50px;
-                        height:50px;
+                        width:60px;
+                        height:60px;
                         transition:0.2s linear;
                         background-color: $compBack;
                     }
@@ -61,11 +57,13 @@
                         border:none;
                     }
                     [type=radio]:checked + img{
-                        translate: 2px;
+                        translate: 0px -3px;
                         box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.33);
                     }
-                    input{
-                        visibility:hidden
+                    [type=radio]{
+                        visibility:hidden;
+                        height:0px;
+                        width:0px;
                     }
                 }
             }
@@ -82,9 +80,12 @@
                 align-content: center;
                 flex-wrap: wrap;
                 width:100%;
+                margin-top: 2%;
                 .category_select{
+                    margin:1%;
+                    display:flex;
                     .categoryLabel{
-                        margin:5px;
+                        margin:auto;
                         @include montserratFont(dark,colour(P,db),20px);
                         white-space: nowrap;
                         display:flex;
@@ -93,7 +94,9 @@
                         height:30;
                         padding-right:20px;
                         padding-left:15px;
-                        border:1.5px solid colour(P,db);
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+                        border: 1.5px solid #201FDF;
                         margin-right:5%;
                         cursor: pointer;
                         transition:0.2s linear;
@@ -104,7 +107,7 @@
                         visibility:hidden
                     }
                     [type=radio]:checked + p{
-                        translate: 2px;
+                        translate: 0px -3px;
                         box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.33);
                     }
 
@@ -117,40 +120,42 @@
             border-radius: 25px;
             height:55%;
             background-color: colour(P,db);
-            background: linear-gradient(46.39deg, #3CCEFD -7.12%, #4685EA 73.87%, #4E4EDB 134.44%);
+            background: linear-gradient(149.49deg, #464EE2 39.55%, #9456F2 132.89%);
             box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25);
-            padding:40px;
+            padding-left:10%;
+            padding-right: 10%;
+            padding-top:3vh;
             
             p{
                 white-space: nowrap;
-                @include montserratFont(dark,colour(F,wh),20px);
+                @include montserratFont(600,colour(F,wh),20px);
             }
 
             .feelings{
-                height:25%;
+                height:8vh;
                 border:none;
-                @include montserratFont(dark,colour(P,bla),16px);
+                @include montserratFont(400,colour(P,bla),18px);
                 resize: none;
                 width:96%;
                 padding:2%;
                 border-radius: 14px ;
-                margin-top:5%;
+                margin-top:2%;
                 outline: none;
             }
             .mind{
-                height:12%;
+                height:3vh;
                 border:none;
-                @include montserratFont(dark,colour(P,bla),16px);
+                @include montserratFont(400,colour(P,bla),18px);
                 resize: none;
                 width:96%;
                 padding:2%;
                 border-radius: 14px ;
-                margin-top:5%;
-                margin-bottom: 5%;
+                margin-top:2%;
+                margin-bottom: 2%;
                 outline: none;
             }
             .selfAware_wrapper{
-                margin-top: 5%;
+                margin-top: 1%;
                 display:flex;
                 flex:row;
                 align-items:center;
@@ -195,11 +200,11 @@
                     }
                     
                     input:checked + .slider {
-                    background-color: #D72E5E;
+                    background-color: colour(P,ye);
                     }
                     
                     input:focus + .slider {
-                    box-shadow: 0 0 1px #D72E5E;
+                    box-shadow: 0 0 1px colour(P,ye);
                     }
                     
                     input:checked + .slider:before {
@@ -220,14 +225,14 @@
             .btn_wrapper{
                 display: flex;
                 align-content: center;
-                height:20%;
+                height:15%;
                 width:100%;
                 .create{
-                    @include montserratFont(dark,colour(F,bla),20px);
+                    @include montserratFont(dark,colour(F,bla),28px);
                     margin:auto;
-                    background-color: white;
-                    width:170px;
-                    height:50px;
+                    background-color: colour(P,ye);
+                    width:230px;
+                    height:70px;
                     border-radius: 48px;
                     border:none;
                     box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.33);
@@ -235,7 +240,7 @@
                     cursor:pointer;
 
                     &:hover{
-                        translate: -2px;
+                        translate: 0px 3px;
                         box-shadow: none;
                     }
                 }
@@ -245,8 +250,7 @@
                 margin-right:auto;
                 width:100%;
                 text-align: center;
-                margin-top:auto;
-                @include montserratFont(dark,colour(S,pi),20px);
+                @include montserratFont(dark,red,20px);
             }
         }
 }

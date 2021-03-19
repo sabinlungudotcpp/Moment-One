@@ -8,7 +8,8 @@ import moodMeh from "../../imageAssets/Mood Tracker/moodMeh.png";
 import moodBad from "../../imageAssets/Mood Tracker/moodBad.png";
 import moodAwful from "../../imageAssets/Mood Tracker/moodAwful.png";
 
-export default function Model(props){
+const MomentOverlay = (props) => {
+
     const[state, setState] = useState({
         feeling:"great",
         title:"Title",
@@ -89,3 +90,5 @@ export default function Model(props){
 
     )
 }
+
+export default MomentOverlay;

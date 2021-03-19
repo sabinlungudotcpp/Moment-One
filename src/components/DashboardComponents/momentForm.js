@@ -30,13 +30,13 @@ const MomentForm = () => {
                     <div className="feelingWrapper">
 
                         <label className="feelingSelect">
-                            <input type="radio" name='feeling' value ='Great' onChange={handleMoment} />
+                            <input type="radio" name='feeling' value ='Great' onChange={e => e.target.value} />
                             <img src = {moodGreat} alt="Great" className="feelingIcon" />
                             <p>Great</p>
                         </label>
 
                         <label className="feelingSelect">
-                            <input type="radio" name='feeling' value='Good' onChange={handleMoment} />
+                            <input type="radio" name='feeling' value='Good' onChange={e => e.target.value} />
                             <img src = {moodGood} alt="Good" className="feelingIcon" />
                             <p>Good</p>
                         </label>
@@ -91,14 +91,14 @@ const MomentForm = () => {
                         </label>
                     </div>
                 </div>
-                {/* Section for inputing details of the users feelings into textboxes*/}
+
                 <div className ="momentForm_bottom-section">
 
                     <p>What's on your mind today?</p>
-                    <textarea className="mind" value = {e => e.target.value} name="title" onChange={handleMoment} rows="12" cols="50" />
+                    <textarea className="mind" value = {description} name="title" onChange={handleMoment} rows="12" cols="50" />
 
                     <p>Tell us more about how you feel...</p>
-                    <textarea className="feelings" value = {handleMoment} name="description" onChange={e => e.target.value} />
+                    <textarea className="feelings" value = {e => e.target.value} name = "description" onChange={e => e.target.value} />
 
                     <div className="selfAware_wrapper">
                         <p>Do you feel self aware?</p>

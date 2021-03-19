@@ -16,25 +16,29 @@ const App = () => { // Main App
 
     <Router>
       <div className = "App">
-         <NavBar />
+        <NavBar />
+
             <div className = "PageContent">
+            
           <Switch>
             <Route path = "/" exact component = {Home}/>
             <Route path = "/home" exact component = {Home}/>
             {/*<Route path = "/home/yourJourney" component = {YourJourney}/>*/}
-            <Route path = "/wellbeing" component = {Wellbeing}/>
-            <Route path = "/perspectives" component = {Perspectives}/>
-            <Route path = "/community" component = {Community}/>
-            <Route path = "/liveChat" component = {LiveChat}/>
-            <Route path = "/Settings" component = {Settings}/>
-            <Route path = "/about" exact component = {Home}/>
-            <Route path = "/tools" exact component = {Home}/>
-            <Route path = "/help" exact component = {Home}/>
+            <Route path = "/wellbeing" component = {Wellbeing} />
+            <Route path = "/perspectives" component = {Perspectives} />
+            <Route path = "/community" component = {Community} />
+            <Route path = "/liveChat" component = {LiveChat} />
+            <Route path = "/Settings" component = {Settings} />
+            <Route path = "/about" exact component = {Home} />
+            <Route path = "/tools" exact component = {Home} />
+            <Route path = "/help" exact component = {Home} />
         </Switch>
+
 
         </div>
       </div>
     </Router>
+
   )
 }
 

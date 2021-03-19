@@ -9,23 +9,20 @@ const Navbar = () => { // Navigation Bar Component
              <div className ="navbar_header">
                 <div className = "NavLogo">
              </div>
-                 <h2 className="navTitle">MomentOne</h2>
+
+                 <h2 className = "navTitle">Moment One</h2>
             </div>
 
         {/* Navigation Links */}
             <ul className="navbar_items">
-                <li >{/*</ul>className="moments"*/}
-                
+                <li>
                     <NavLink activeClassName="navbar_link_active" className="navbar_link" to = "/home">
                         <div className = "icon">
                             <div className ="homeIcon"></div>
                         </div>
+                        
                         <span className="navbar_items-text">Dashboard</span>
                     </NavLink>
-                    {/*
-                    <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to = "/home/yourjourney">
-                        <span className="navbar_subitems-text">Your journey</span>
-                    </NavLink> */}
                 </li>
 
                 <li>
@@ -44,6 +41,7 @@ const Navbar = () => { // Navigation Bar Component
                         <div className = "icon">
                             <div className ="perspectivesIcon"></div>
                         </div>
+
                         <span className="navbar_items-text">Perspectives</span>
                     </NavLink>
                 </li>

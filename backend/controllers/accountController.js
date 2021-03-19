@@ -28,6 +28,7 @@ exports.getAccountById = async (request, response) => {
         if(request.method === 'GET') {
 
             const account = await accountModel.findById(request.params.id); //finding the account from the _id in the url
+
             if(!account){ //Testing to see if account was found
                 return response.status(404).json({ //Not found
                     message: 'Account not found'
@@ -67,16 +68,17 @@ exports.editAccount = async (request, response) => {
 
 exports.deleteAccountById = async (request, response) => {
     try {
-        //Testing request method
         if(request.method === 'DELETE') {
 
-            //Finding user by _id in url and if found saved to constant 'check'. Account is then deleted.
-            const check = await accountModel.findByIdAndDelete(request.params.id); 
-            if(check) { //Testing to see if check is empty
+            const check = await accountModel.findByIdAndDelete(request.params.id);
+             
+            if(check) { 
                 return response.status(200).json({ //Response with http ok code
                     message: 'Account deleted'
                 });
-            } else { //if check is empty then account couldn't be found and deleted from the _id provided
+            } 
+            
+            else { //if check is empty then account couldn't be found and deleted from the _id provided
                 return response.status(404).json({
                     message: 'Account not found'
                 });

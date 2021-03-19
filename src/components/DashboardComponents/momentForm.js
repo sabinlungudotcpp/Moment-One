@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import axios from 'axios';
 import moodGreat from "../../imageAssets/Mood Tracker/moodGreat.png";
 import moodGood from "../../imageAssets/Mood Tracker/moodGood.png";
@@ -6,74 +6,17 @@ import moodMeh from "../../imageAssets/Mood Tracker/moodMeh.png";
 import moodeBad from "../../imageAssets/Mood Tracker/moodBad.png";
 import moodAwful from "../../imageAssets/Mood Tracker/moodAwful.png";
 
-class momentForm extends React.Component {
-    constructor(props){
-        super(props);
-            this.state={
-                moment:{
-                    title: '',
-                    description: '',
-                    category: '',
-                    feeling: '',
-                    selfAware: false,
-                }
-            }
-        
-    }
-    //attributes collected by the form
-    state = {
+const MomentForm = () => {
+    const [moment, setMoment] = useState('');
 
-    }
-    //reseting the form after it has been submitted so no page reset is needed
-    resState() {
-        this.setState({
-            moment:{
-                title: '',
-                description: '',
-                category: '',
-                feeling: '',
-                selfAware: false,
-            }
-        })
-    }
-    //updating the state whenever something is changed
-    change = (e) => {
-        this.setState({
-            moment:{
-                ...this.state.moment,
-                [e.target.name]: e.target.value
-            }
-        })
-    }
-    //updating the state after the self aware button is checked
-    awareToggle = (e) => {
-        this.setState({
-            moment:{
-                ...this.state.moment,
-                [e.target.name]: e.target.checked
-            }
-        })
-    }
-    
-    //loging the results, then sending the data to the database via axios
-    onSubmit = async (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
-        console.log(this.state);
-
-    
-        await axios.post('http://localhost:8001/api/v1/momentone/posts',this.state.moment);
-
-
-        if(this.state.error === ""){
-            this.resState();   
-        }
-
-
-        this.resState();
+        await axios.post('http://localhost:8001/api/v1/momentone/posts', moment);
     }
-    render() {
+
         return (
-            <form className="momentForm" onSubmit={e => this.onSubmit(e)}>
+
+            <form className="momentForm" onSubmit={onSubmit(e => e.target.value)}>
                 <div className="momentForm_top-section">
                     <h2>Good afternoon, Username!</h2>
                     <h2>How are you feeling?</h2>
@@ -81,33 +24,35 @@ class momentForm extends React.Component {
                     <div className="feelingWrapper">
 
                         <label className="feelingSelect">
-                            <input type="radio" name='feeling' value='Great' checked={this.state.moment.feeling === 'Great'} onChange={e => this.change(e)} />
-                            <img src={moodGreat} alt="Great" className="feelingIcon" />
+                            <input type="radio" name='feeling' value='Great' checked={moment === 'Great'} onChange={e => e.target.value} />
+                            <img src = {moodGreat} alt="Great" className="feelingIcon" />
                             <p>Great</p>
                         </label>
 
                         <label className="feelingSelect">
-                            <input type="radio" name='feeling' value='Good' checked={this.state.moment.feeling === 'Good'} onChange={e => this.change(e)} />
+                            <input type="radio" name='feeling' value='Good' checked={moment === 'Good'} onChange={e => this.change(e)} />
                             <img src={moodGood} alt="Good" className="feelingIcon" />
                             <p>Good</p>
                         </label>
 
                         <label className="feelingSelect">
-                            <input type="radio" name='feeling' value='Meh' checked={this.state.moment.feeling === 'Meh'} onChange={e => this.change(e)} />
+                            <input type="radio" name='feeling' value='Meh' checked={moment === 'Meh'} onChange={e => this.change(e)} />
                             <img src={moodMeh} alt="Meh" className="feelingIcon" />
                             <p>Meh</p>
                         </label>
 
                         <label className="feelingSelect">
-                            <input type="radio" name='feeling' value='Bad' checked={this.state.moment.feeling === 'Bad'} onChange={e => this.change(e)} />
+                            <input type="radio" name='feeling' value='Bad' checked={moment === 'Bad'} onChange={e => this.change(e)} />
                             <img src={moodeBad} alt="Bad" className="feelingIcon" />
                             <p>Bad</p>
                         </label>
 
                         <label className="feelingSelect">
-                            <input type="radio" name='feeling' value='Awful' checked={this.state.moment.feeling === 'Awful'} onChange={e => this.change(e)} />
+                            <input type="radio" name='feeling' value='Awful' checked={moment=== 'Awful'} onChange={e => this.change(e)} />
                             <img src={moodAwful} alt="Awful" className="feelingIcon" />
                             <p>Awful</p>
+
+
                         </label>
                     </div>
                 </div>
@@ -142,7 +87,8 @@ class momentForm extends React.Component {
                     </div>
                 </div>
                 {/* Section for inputing details of the users feelings into textboxes*/}
-                <div className="momentForm_bottom-section">
+                <div className ="momentForm_bottom-section">
+
                     <p>What's on your mind today?</p>
                     <textarea className="mind" value={this.state.moment.title} name="title" onChange={e => this.change(e)} rows="12" cols="50" />
 
@@ -158,13 +104,14 @@ class momentForm extends React.Component {
                     </div>
                     {/*Button for submitting the form*/}
                     <div className="btn_wrapper">
-                        <button type='submit' className="create">Create</button>
+                        <button type = 'submit' className="create">Create</button>
                     </div>
+
+                    
                 </div>
             </form>
 
         )
     }
-}
 
-export default momentForm;
+export default MomentForm;

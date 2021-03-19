@@ -19,17 +19,17 @@ module.exports = async (request, response) => {
             const result = await account.find({
                 username: { //Searching based on username
                     $regex: search, //Using the regex option to look for users with the search query. This means that user only needs to enter part of the username
-                    $options: 'i' //Setting the regex to not be case sensitve
+                    $options: 'i' //Setting the regex to not be case sensitive
                 }
             }).select('username'); //Telling the find query to only return the username field. _id is also included 
 
-            //testing to check if the arrey is empty
+            //testing to check if the Array is empty
             if (result.length === 0) {
                 return response.status(404).json({ //returning an error if no matches were found
                     message: 'No matching results'
                 });
             }
-            //returning the list of usernames if the arrey is not empty
+            //returning the list of usernames if the Array is not empty
             else {
                 return response.status(200).json(result);
             }

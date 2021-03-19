@@ -23,11 +23,11 @@ h1 {
     font-size: 35px;
 }
 
-.Page{
+.Page {
     height: 95vh;
     width: calc(100vw -100px);
 
-.Content{
+.Content {
     overflow-y: hidden;
     overflow-x: scroll;
     height:92vh;
@@ -37,12 +37,15 @@ h1 {
     &::-webkit-scrollbar{
         width:4px
     }
+
     &::-webkit-scrollbar-track {
         background: #f1f1f1; 
       }
+
     &::-webkit-scrollbar-thumb {
         background: #888; 
       }
+      
     &::-webkit-scrollbar-thumb:hover {
         background: rgb(177, 177, 177) 
       }

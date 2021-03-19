@@ -44,7 +44,7 @@ const MomentForm = () => {
                         </label>
 
                         <label className="feelingSelect">
-                            <input type="radio" name='feeling' value='Bad' onChange={e => e.target.value} />
+                            <input type="radio" name='feeling' value='Bad' onChange = {e => e.target.value} />
                             <img src={moodeBad} alt="Bad" className="feelingIcon" />
                             <p>Bad</p>
                         </label>

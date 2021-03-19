@@ -3,6 +3,7 @@ import JournalMoment from "./journal_moment";
 import totalMoments from "../../imageAssets/Icons/General/totalMoments.png";
 import answersRecieved from "../../imageAssets/Icons/General/answersRecieved.png";
 import graph from "../../imageAssets/Icons/General/graph.png";
+import axios from "axios";
 class momentForm extends React.Component{
   constructor(props){
     super(props);
@@ -14,10 +15,16 @@ class momentForm extends React.Component{
         date:Date.now,
       }
     }
+    this.getPosts();
     this.handleInput = this.handleInput.bind(this);
     this.addItem = this.addItem.bind(this);
   }
 
+  getPosts(){
+    axios.get('http://localhost:8001/api/v1/momentone/posts').then(res =>{
+      console.log(res);
+    })
+  }
   handleInput(e){
     this.setState({
       currentItem:{
@@ -27,6 +34,7 @@ class momentForm extends React.Component{
       }
     })
   }
+
     
   addItem(e){
     e.preventDefault();
@@ -40,15 +48,12 @@ class momentForm extends React.Component{
         content:'Oh boy is lockdown boring, this would be the content ',
         date:'',
       }
-    }
-    )
-    
+    })
     }
   
 
 
     render() {
-
         return (
           <div>
             <div className="momentsAnswersWrap">

@@ -9,6 +9,11 @@ import moodAwful from "../../imageAssets/Mood Tracker/moodAwful.png";
 const MomentForm = () => {
     const [moment, setMoment] = useState('');
 
+    const handleMoment = (e) => {
+        e.preventDefault();
+        setMoment(moment);
+    }
+
     const onSubmit = async (e) => {
         e.preventDefault();
         await axios.post('http://localhost:8001/api/v1/momentone/posts', moment);
@@ -16,7 +21,7 @@ const MomentForm = () => {
 
         return (
 
-            <form className="momentForm" onSubmit={onSubmit(e => e.target.value)}>
+            <form className = "momentForm" onSubmit= {onSubmit}>
                 <div className="momentForm_top-section">
                     <h2>Good afternoon, Username!</h2>
                     <h2>How are you feeling?</h2>
@@ -24,64 +29,63 @@ const MomentForm = () => {
                     <div className="feelingWrapper">
 
                         <label className="feelingSelect">
-                            <input type="radio" name='feeling' value='Great' checked={moment === 'Great'} onChange={e => e.target.value} />
+                            <input type="radio" name='feeling' value ='Great' onChange={handleMoment} />
                             <img src = {moodGreat} alt="Great" className="feelingIcon" />
                             <p>Great</p>
                         </label>
 
                         <label className="feelingSelect">
-                            <input type="radio" name='feeling' value='Good' checked={moment === 'Good'} onChange={e => this.change(e)} />
-                            <img src={moodGood} alt="Good" className="feelingIcon" />
+                            <input type="radio" name='feeling' value='Good' onChange={handleMoment} />
+                            <img src = {moodGood} alt="Good" className="feelingIcon" />
                             <p>Good</p>
                         </label>
 
                         <label className="feelingSelect">
-                            <input type="radio" name='feeling' value='Meh' checked={moment === 'Meh'} onChange={e => this.change(e)} />
+                            <input type="radio" name='feeling' value='Meh' checked={moment === 'Meh'} onChange = {e => e.target.value} />
                             <img src={moodMeh} alt="Meh" className="feelingIcon" />
                             <p>Meh</p>
                         </label>
 
                         <label className="feelingSelect">
-                            <input type="radio" name='feeling' value='Bad' checked={moment === 'Bad'} onChange={e => this.change(e)} />
+                            <input type="radio" name='feeling' value='Bad' onChange={e => e.target.value} />
                             <img src={moodeBad} alt="Bad" className="feelingIcon" />
                             <p>Bad</p>
                         </label>
 
                         <label className="feelingSelect">
-                            <input type="radio" name='feeling' value='Awful' checked={moment=== 'Awful'} onChange={e => this.change(e)} />
+                            <input type="radio" name='feeling' value='Awful' onChange={e => e.target.value} />
                             <img src={moodAwful} alt="Awful" className="feelingIcon" />
                             <p>Awful</p>
-
-
                         </label>
                     </div>
                 </div>
-                {/* Section of form for selecting catigory of the moment*/}
+
+                {/* Section of form for selecting category of the moment*/}
                 <div className="momentForm_center-section">
                     <p> Add Category </p>
                     <div className="category_wrap">
                         <label className="category_select">
-                            <input type="radio" name='category' value='General' checked={this.state.moment.category === 'General'} onChange={e => this.change(e)} />
+                            <input type="radio" name='category' value='General' onChange={e => e.target.value} />
                             <p className="categoryLabel">General</p>
                         </label>
 
                         <label className="category_select">
-                            <input type="radio" name='category' value='Anxiety' checked={this.state.moment.category === 'Anxiety'} onChange={e => this.change(e)} />
+                            <input type="radio" name='category' value='Anxiety' onChange={e => e.target.value} />
                             <p className="categoryLabel">Anxiety</p>
                         </label>
 
                         <label className="category_select">
-                            <input type="radio" name='category' value='PTSD' checked={this.state.moment.category === 'PTSD'} onChange={e => this.change(e)} />
+                            <input type="radio" name='category' value='PTSD' onChange = {e => e.target.value} />
                             <p className="categoryLabel">PTSD</p>
                         </label>
 
                         <label className="category_select">
-                            <input type="radio" name='category' value='Depression' checked={this.state.moment.category === 'Depression'} onChange={e => this.change(e)} />
+                            <input type="radio" name='category' value='Depression' onChange ={e => e.target.value} />
                             <p className="categoryLabel">Depression</p>
                         </label>
 
                         <label className="category_select">
-                            <input type="radio" name='category' value='Weight Loss' checked={this.state.moment.category === 'Weight Loss'} onChange={e => this.change(e)} />
+                            <input type="radio" name='category' value='Weight Loss' onChange = {e => e.target.value} />
                             <p className="categoryLabel">Weight Loss</p>
                         </label>
                     </div>
@@ -90,15 +94,15 @@ const MomentForm = () => {
                 <div className ="momentForm_bottom-section">
 
                     <p>What's on your mind today?</p>
-                    <textarea className="mind" value={this.state.moment.title} name="title" onChange={e => this.change(e)} rows="12" cols="50" />
+                    <textarea className="mind" value = {e => e.target.value} name="title" onChange={handleMoment} rows="12" cols="50" />
 
                     <p>Tell us more about how you feel...</p>
-                    <textarea className="feelings" value={this.state.moment.description} name="description" onChange={e => this.change(e)} />
+                    <textarea className="feelings" value = {handleMoment} name="description" onChange={e => e.target.value} />
 
                     <div className="selfAware_wrapper">
                         <p>Do you feel self aware?</p>
                         <label class="switch">
-                            <input type="checkbox" name="selfAware" checked={this.state.selfAware} onClick={e => this.awareToggle(e)} />
+                            <input type="checkbox" name="selfAware" onClick ={e => e.target.value} />
                             <span class="slider round"></span>
                         </label>
                     </div>

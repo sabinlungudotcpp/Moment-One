@@ -8,6 +8,10 @@ import moodAwful from "../../imageAssets/Mood Tracker/moodAwful.png";
 
 const MomentForm = () => {
     const [moment, setMoment] = useState('');
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [category, setCategory] = useState('');
+    const [selfAware, setSelfAware] = useState(false);
 
     const handleMoment = (e) => {
         e.preventDefault();
@@ -41,7 +45,7 @@ const MomentForm = () => {
                         </label>
 
                         <label className="feelingSelect">
-                            <input type="radio" name='feeling' value='Meh' checked={moment === 'Meh'} onChange = {e => e.target.value} />
+                            <input type="radio" name='feeling' value='Meh' onChange = {e => e.target.value} />
                             <img src={moodMeh} alt="Meh" className="feelingIcon" />
                             <p>Meh</p>
                         </label>

@@ -8,17 +8,14 @@ import moodAwful from "../../imageAssets/Mood Tracker/moodAwful.png";
 
 const MomentForm = () => {
     const [moment, setMoment] = useState('');
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [category, setCategory] = useState('');
-    const [selfAware, setSelfAware] = useState(false);
+    const {title, description, category, selfAware} = useState('');
 
     const handleMoment = (e) => {
         e.preventDefault();
         setMoment(moment);
     }
 
-    const onSubmit = async (e) => {
+    const onSubmit = async (e) => { // When submitting the form
         e.preventDefault();
         await axios.post('http://localhost:8001/api/v1/momentone/posts', moment);
     }
@@ -26,7 +23,7 @@ const MomentForm = () => {
         return (
 
             <form className = "momentForm" onSubmit= {onSubmit}>
-                <div className="momentForm_top-section">
+                <div className = "momentForm_top-section">
                     <h2>Good afternoon, Username!</h2>
                     <h2>How are you feeling?</h2>
                     {/* Section of form for selecting the current feeling */}
@@ -69,7 +66,7 @@ const MomentForm = () => {
                     <p> Add Category </p>
                     <div className="category_wrap">
                         <label className="category_select">
-                            <input type="radio" name='category' value='General' onChange={e => e.target.value} />
+                            <input type="radio" name='category' value='General' onChange ={e => e.target.value} />
                             <p className="categoryLabel">General</p>
                         </label>
 

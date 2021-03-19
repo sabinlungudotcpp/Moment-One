@@ -7,8 +7,8 @@ import moodeBad from "../../imageAssets/Mood Tracker/moodBad.png";
 import moodAwful from "../../imageAssets/Mood Tracker/moodAwful.png";
 
 const MomentForm = () => {
-    const [moment, setMoment] = useState('');
     const {title, description, category, selfAware} = useState('');
+    const [moment, setMoment] = useState({title, description, category, selfAware});
 
     const handleMoment = (e) => {
         e.preventDefault();

@@ -11,36 +11,48 @@ import moodAwful from "../../imageAssets/Mood Tracker/moodAwful.png";
 const MomentOverlay = (props) => {
 
     const[state, setState] = useState({
-        feeling:"great",
-        title:"Title",
-        desc:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+        feeling: "Great",
+        title: "Title",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
         date:"9th march",
         username:"@username",
         userLevel:"3",
     });
+
     //returns nothing if the open value is false
     if(!props.open) return null
 
     //converts the feeling stored in state to a usable image
-    function showFeel($feeling){
-        if($feeling ==="meh"){
+    function showFeel($feeling) {
+        if($feeling ==="meh") {
             return moodMeh
-        }else if($feeling ==="great"){
+        }
+        
+        else if($feeling ==="great"){
             return moodGreat
-        }else if($feeling ==="good"){
+        }
+
+        else if($feeling ==="good"){
             return moodGood
-        }else if($feeling ==="bad"){
+        }
+        
+        else if($feeling ==="bad"){
             return moodBad
-        }else if($feeling ==="awful"){
+        }
+
+        else if($feeling ==="awful"){
             return moodAwful
-        }else{
+        }
+        
+        else{
             console.log("Feeling not found");
         }
     }
+
     function returnMoment($direction){
 
     }
-    //creating a portal to a seperate div to root
+    
     return ReactDom.createPortal(
         <>
         <div className="background" ></div>

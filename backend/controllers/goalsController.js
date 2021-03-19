@@ -41,11 +41,13 @@ exports.createGoal = catchAsync(async (request, response, next) => { // Function
         const method = request.method; // The request method
         const {goal, reason, reward, length} = request.body; // Body of the request
         const createdBy = request.User.id; //Getting the user _id from the JWT that was verified by authentication.js
+
         if(request.User.type !== 'User') {
             return response.status(unprocessable).json({
                 message: 'Only users can create goals'
             });
         }
+
         if(!goal || !reason || !reward || !length) {
             return response.status(unprocessable).json({
                 message: 'Goal must have a goal, reason, length and reward',
@@ -124,7 +126,7 @@ exports.editGoal = catchAsync(async (request, response) => { // Controller funct
     }
 });
 
-exports.deleteGoals = async (request, response) => {
+exports.deleteGoals = async (request, response) => { // Deletes all the goals
     try {
         const method = request.method;
         const url = request.url;

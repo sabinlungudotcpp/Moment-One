@@ -1,6 +1,7 @@
 @import "Variables";
 @import "functions";
 @import "images";
+
 .navbar {
     @include compSetup;
     overflow: hidden;
@@ -27,11 +28,12 @@
     &:hover .navbar_link{
       width : 290px;
     }
-    //setting navigation labels to visable
+    //setting navigation labels to visible
     &:hover .navbar_items-text {
       visibility: visible;
       opacity: 1;
     }
+
     &:hover .navTitle{
       visibility: visible;
       opacity: 1;
@@ -42,7 +44,7 @@
       height:6vh;
       display:flex;
       width:290px;
-      //logo displayed on taskbar
+    
       .NavLogo{
         background-image: url("../imageAssets/Logos/logo.svg");
         background-repeat: no-repeat, repeat;
@@ -66,10 +68,7 @@
       }
     }
 
-    
-
-    //navigation items
-    &_items{
+     &_items {
       margin-top: 3vh;
       list-style: none;
       display:flex;
@@ -90,24 +89,29 @@
         filter: grayscale(100%);
         transition: 0.5s ease-in-out;
 
-        .homeIcon{
+        .homeIcon {
           @include navIcon(home);
         }
+
         .wellbeingIcon{
           @include navIcon(wellbeing);
         }
+
         .perspectivesIcon{
           @include navIcon(perspectives);
         }
+
         .communityIcon{
           @include navIcon(community);
         }
+
         .livechatIcon{
           @include navIcon(chat);
         }
+
         .logoutIcon{
           @include navIcon(logout);
-        }
+       }
 
       }
     }
@@ -172,6 +176,7 @@
         height:130px;
       }
     }
+
     //sub item of moment menu
     &_subitems-text{
       margin-top:2%;
@@ -193,7 +198,4 @@
         margin-top: 0.5vh;
       }
     }
-
   }
-
-  

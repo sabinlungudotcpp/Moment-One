@@ -12,26 +12,20 @@ class momentForm extends React.Component{
       currentItem:{
         title:'Lockdown woes is the title',
         content:'Oh boy is lockdown boring, this would be the content ',
-        date:Date.now,
+        date: new Date().toISOString()
       }
     }
-    //this.getPosts();
-    this.handleInput = this.handleInput.bind(this);
+    this.getPosts();
     this.addItem = this.addItem.bind(this);
   }
 
   getPosts(){
-    axios.get('http://localhost:8080/posts').then(res =>{
-      console.log(res);
-    })
-  }
-  handleInput(e){
-    this.setState({
-      currentItem:{
-        title:'Lockdown woes is the title',
-        content:'Oh boy is lockdown boring, this would be the content ',
-        key:'',
-      }
+    axios.get('http://localhost:8001/api/v1/momentone/posts').then(res =>{
+      this.setState({
+        items:res.data.data.posts,
+        momentNo:res.data.data.numberOfPosts,
+      })
+      console.log(this.state.items[0])
     })
   }
 
@@ -44,8 +38,8 @@ class momentForm extends React.Component{
     this.setState({
       items:newItems,
       currentItem:{
-        title:'Lockdown woes is the title',
-        content:'Oh boy is lockdown boring, this would be the content ',
+        title:'',
+        content:'',
         date:'',
       }
     })
@@ -62,7 +56,7 @@ class momentForm extends React.Component{
                   <img src={totalMoments}/>
                 </div>
                 <div className="textWrap">
-                  <h1 className="number">15</h1>
+                  <h1 className="number">{this.state.momentNo}</h1>
                   <p className="subTitle">Total Moments</p>
                   <p className="percent"><img src={graph}/> 4% (30days)</p>
                 </div>
@@ -83,9 +77,6 @@ class momentForm extends React.Component{
 
             <div className="journal">
             <div className = "momentList">
-            <form onSubmit={this.addItem}>
-            <button type='submit'>add</button>
-            </form>
             
             <JournalMoment items={this.state.items} />
 

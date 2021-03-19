@@ -61,7 +61,7 @@ class momentForm extends React.Component {
         console.log(this.state);
 
     
-        await axios.post('http://localhost:8080/posts',this.state.moment);
+        await axios.post('http://localhost:8001/api/v1/momentone/posts',this.state.moment);
 
 
         if(this.state.error === ""){

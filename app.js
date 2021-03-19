@@ -23,7 +23,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev')); // Use logger
 app.use(express.static('public'));
-app.use(cors());
+app.use('*', cors());
 
 // Use Middleware Routes
 app.use('/api/v1/momentone/account', accountRouter);

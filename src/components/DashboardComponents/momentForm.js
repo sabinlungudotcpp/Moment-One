@@ -10,11 +10,6 @@ const MomentForm = () => {
     const {title, description, category, selfAware} = useState('');
     const [moment, setMoment] = useState({title, description, category, selfAware});
 
-    const handleMoment = (e) => {
-        e.preventDefault();
-        setMoment(moment);
-    }
-
     const onSubmit = async (e) => { // When submitting the form
         e.preventDefault();
         await axios.post('http://localhost:8001/api/v1/momentone/posts', moment);
@@ -95,15 +90,15 @@ const MomentForm = () => {
                 <div className ="momentForm_bottom-section">
 
                     <p>What's on your mind today?</p>
-                    <textarea className="mind" value = {description} name="title" onChange={handleMoment} rows="12" cols="50" />
+                    <textarea className="mind" value = {moment.title} name="title" onChange = {e => e.target.value} rows="12" cols="50" />
 
                     <p>Tell us more about how you feel...</p>
-                    <textarea className="feelings" value = {e => e.target.value} name = "description" onChange={e => e.target.value} />
+                    <textarea className="feelings" value = {moment.description} name = "description" onChange={e => e.target.value} />
 
                     <div className="selfAware_wrapper">
                         <p>Do you feel self aware?</p>
                         <label class="switch">
-                            <input type="checkbox" name="selfAware" onClick ={e => e.target.value} />
+                            <input type="checkbox" name="selfAware" onClick ={moment.selfAware} />
                             <span class="slider round"></span>
                         </label>
                     </div>

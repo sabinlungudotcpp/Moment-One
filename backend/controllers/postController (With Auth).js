@@ -1,4 +1,5 @@
 const postModel = require('../models/PostsModel');
+const account = require('../models/accountModel');
 const okCode = 200;
 const createdCode = 201;
 const serverError = 500;
@@ -56,7 +57,7 @@ exports.createNewPost = async(request, response) => { // Controller function to 
         const method = request.method;
         
         const {title, description, feeling, category, selfAware} = request.body;
-        //const createdBy = request.User.id; //Getting user _id for the user creating the post
+        const createdBy = request.User.id; //Getting user _id for the user creating the post
 
         if(!title || !description || !feeling || !category || !selfAware) { // If there is no title or description
             return response.status(serverError).json({
@@ -65,8 +66,14 @@ exports.createNewPost = async(request, response) => { // Controller function to 
         }
         
         if(method === 'POST') {
-            const newPost = new postModel({title, description, feeling, category, selfAware});
+            const newPost = new postModel({title, description, feeling, category, selfAware, createdBy});
             await newPost.save();
+            
+            //The new post also needs to be added to the user model 
+            await account.findOneAndUpdate(
+                {_id: createdBy}, //Finding the user by _id
+                {$push: {posts: newPost.id}} //Adding the new posts _id to the posts arrey in the user model
+                );
 
             return response.status(createdCode).json({newPost, createdAt: Date.now()});
         }

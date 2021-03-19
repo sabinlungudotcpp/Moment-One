@@ -4,16 +4,48 @@ import totalMoments from "../../imageAssets/Icons/General/totalMoments.png";
 import answersRecieved from "../../imageAssets/Icons/General/answersRecieved.png";
 import graph from "../../imageAssets/Icons/General/graph.png";
 class momentForm extends React.Component{
-
-    state = {
-        Category: '',
+  constructor(props){
+    super(props);
+    this.state={
+      items:[],
+      currentItem:{
+        title:'Lockdown woes is the title',
+        content:'Oh boy is lockdown boring, this would be the content ',
+        date:Date.now,
+      }
     }
+    this.handleInput = this.handleInput.bind(this);
+    this.addItem = this.addItem.bind(this);
+  }
 
-    change = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
+  handleInput(e){
+    this.setState({
+      currentItem:{
+        title:'Lockdown woes is the title',
+        content:'Oh boy is lockdown boring, this would be the content ',
+        key:'',
+      }
+    })
+  }
+    
+  addItem(e){
+    e.preventDefault();
+    const newItem = this.state.currentItem;
+    console.log(newItem);
+    const newItems=[...this.state.items,newItem];
+    this.setState({
+      items:newItems,
+      currentItem:{
+        title:'Lockdown woes is the title',
+        content:'Oh boy is lockdown boring, this would be the content ',
+        date:'',
+      }
     }
+    )
+    
+    }
+  
+
 
     render() {
 
@@ -46,13 +78,12 @@ class momentForm extends React.Component{
 
             <div className="journal">
             <div className = "momentList">
-            {/*Temporary filler until axios is implemented */}
-            <JournalMoment title="Lockdown woes is the title" content="Oh boy is lockdown boring, this would be the content" date="March 21,2021" />
-            <JournalMoment title="Lockdown woes is the title" content="Oh boy is lockdown boring, this would be the content" date="March 21,2021" />
-            <JournalMoment title="Lockdown woes is the title" content="Oh boy is lockdown boring, this would be the content" date="March 21,2021" />
-            <JournalMoment title="Lockdown woes is the title" content="Oh boy is lockdown boring, this would be the content" date="March 21,2021" />
-            <JournalMoment title="Lockdown woes is the title" content="Oh boy is lockdown boring, this would be the content" date="March 21,2021" />
+            <form onSubmit={this.addItem}>
+            <button type='submit'>add</button>
+            </form>
             
+            <JournalMoment items={this.state.items} />
+
             </div>
           </div>
           </div>

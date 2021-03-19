@@ -9,20 +9,17 @@ import moodAwful from "../../imageAssets/Mood Tracker/moodAwful.png";
 class momentForm extends React.Component {
     constructor(props){
         super(props);
-            this.state={
-                moment:{
-                    title: '',
-                    description: '',
-                    category: '',
-                    feeling: '',
-                    selfAware: false,
-                }
-            }
         
-    }
-    //attributes collected by the form
-    state = {
-
+        this.state={
+            moment:{
+                title: '',
+                description: '',
+                category: '',
+                feeling: '',
+                selfAware: false,
+            }
+        }
+        
     }
     //reseting the form after it has been submitted so no page reset is needed
     resState() {

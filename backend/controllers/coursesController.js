@@ -2,7 +2,6 @@ const Course = require('../models/courseModel');
 const okCode = 200;
 const createdCode = 201;
 const notFound = 404;
-const serverError = 500;
 
 exports.getAllCourses = async (request, response, next) => {
     try {

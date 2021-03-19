@@ -28,14 +28,19 @@ const Navbar = () => { // Navigation Bar Component
                         <span className="navbar_subitems-text">Your journey</span>
                     </NavLink>
                 </li>
+
                 <li>
-                    <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to="/wellbeing">
+                    <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to = "/wellbeing">
+
                         <div className = "icon">
                             <div className ="wellbeingIcon"></div>
                         </div>
+
                         <span className="navbar_items-text">Wellbeing</span>
                     </NavLink>
                 </li>
+
+
                 <li>
                     <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to = "/perspectives">
                         <div className = "icon">
@@ -44,6 +49,7 @@ const Navbar = () => { // Navigation Bar Component
                         <span className="navbar_items-text">Perspectives</span>
                     </NavLink>
                 </li>
+                
 
                 <li>
                     <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to="/community">

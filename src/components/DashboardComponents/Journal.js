@@ -24,6 +24,7 @@ class momentForm extends React.Component{
       console.log(res);
       this.setState({
         items:res.data.data.posts,
+        momentNo:res.data.data.numberOfPosts,
       })
       console.log(this.state.items[0])
     })
@@ -56,7 +57,7 @@ class momentForm extends React.Component{
                   <img src={totalMoments}/>
                 </div>
                 <div className="textWrap">
-                  <h1 className="number">15</h1>
+                  <h1 className="number">{this.state.momentNo}</h1>
                   <p className="subTitle">Total Moments</p>
                   <p className="percent"><img src={graph}/> 4% (30days)</p>
                 </div>

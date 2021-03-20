@@ -40,7 +40,7 @@ exports.createGoal = catchAsync(async (request, response, next) => { // Function
     try {
         const method = request.method; // The request method
         const {goal, reason, reward, length} = request.body; // Body of the request
-        const createdBy = request.User.id; //Getting the user _id from the JWT that was verified by authentication.js
+        const createdBy = request.account.id; //Getting the user _id from the JWT that was verified by authentication.js
 
         if(request.User.type !== 'User') {
             return response.status(unprocessable).json({

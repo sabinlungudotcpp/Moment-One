@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const account = require('../models/accountModel');
+const accountModel = require('../models/accountModel');
 const forbidden = 401;
 const unprocessable = 422;
 
@@ -25,10 +25,9 @@ module.exports = async (request, response, next) => {
                 });
             }
             
-            const userId = payload.id; //destructure payload
-            const user = await account.findById(userId); // Find the user by ID for the authentication
+            const account = await accountModel.findById(payload.id); // Find the user by ID for the authentication
             
-            request.User = user;
+            request.account = account;
             next();
         })
     } 

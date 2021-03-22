@@ -3,6 +3,7 @@ import Header from "../GenericComponents/Header";
 import YourDiscussions from "./YourDiscus";
 import MoreDiscussions from "./moreDiscussions";
 import NewDiscussion from "./newDiscussion";
+//displays community forms to the user
 const Perspectives = () => {
   return (
     <div className = "Page">
@@ -10,16 +11,13 @@ const Perspectives = () => {
       <Header title="Forum Discussions" blueTitle="Your Participants " grayTitle="&nbsp;| Your Questions"/>
       <div className = "contnet">
         <div className="pageScroll">
-          <YourDiscussions/>
+          <YourDiscussions/> {/* users posted discussions */}
           <div className="discussionWrap">
-            <MoreDiscussions />
-            <NewDiscussion />
+            <MoreDiscussions />     {/* current top discussions */}
+            <NewDiscussion />   {/* new disucssion form */}
           </div>
-
         </div>
-
       </div>
-      
     </div>
   )
 }

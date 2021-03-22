@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./GenericComponents/Header";
-
+import Header from "../GenericComponents/Header";
+//displays user with wellbeing information
 const wellbeing = () => {
 
   return (

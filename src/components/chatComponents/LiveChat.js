@@ -10,22 +10,17 @@ const LiveChat = () => { // Live Chat component
       <div className="pageContent">
         <div className = "chatWindow">
           <div className = "contacts">
+            {/* allows user to search contacts */}
             <form className="searchbar">
               <input type="text" id = "search" className = "search" placeholder="Search..."></input>
-              <img className = "seachIcon" src = {searchIcon} />
+              <img className = "seachIcon" src = {searchIcon} alt="search"/>
             </form>
+            {/* displays the recent contacts of the user */}
             <div className="contacts_list">
-              <Contact username="username" lastMsg="Last message on a line.." age="2h"/>
-              <Contact username="username" lastMsg="Last message on a line.." age="2h"/>
-              <Contact username="username" lastMsg="Last message on a line.." age="2h"/>
-              <Contact username="username" lastMsg="Last message on a line.." age="2h"/>
-              <Contact username="username" lastMsg="Last message on a line.." age="2h"/>
-              <Contact username="username" lastMsg="Last message on a line.." age="2h"/>
-              <Contact username="username" lastMsg="Last message on a line.." age="2h"/>
-              <Contact username="username" lastMsg="Last message on a line.." age="2h"/>
               <Contact username="username" lastMsg="Last message on a line.." age="2h"/>
             </div>
           </div>
+          {/* Where the chat bubbles are displayed*/}
           <div className ="chat">
             <div className="messageBox">
               <div className = "overlay">

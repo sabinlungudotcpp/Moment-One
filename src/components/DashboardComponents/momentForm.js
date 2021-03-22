@@ -78,7 +78,7 @@ class momentForm extends React.Component {
                     <div className="feelingWrapper">
 
                         <label className="feelingSelect">
-                            <input type="radio" name='feeling' value ='Great' onChange = {e => e.target.value} />
+                            <input type="radio" name='feeling' value ='Great' onChange = {e => this.change(e)} />
                             <img src = {moodGreat} alt="Great" className="feelingIcon" />
                             <p>Great</p>
                         </label>

@@ -21,9 +21,9 @@ const discussionSchema = new mongoose.Schema({
         type: String
     },
 
-    isLiked: {
-        type: Boolean,
-        default: false
+    likes: {
+        type: Number,
+        required: [true, 'Discussion must have likes']
     }
 });
 

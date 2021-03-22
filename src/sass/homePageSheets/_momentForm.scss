@@ -250,7 +250,7 @@
                 margin-right:auto;
                 width:100%;
                 text-align: center;
-                @include montserratFont(dark,red,20px);
+                @include montserratFont(dark, colour(P,ye),20px);
             }
         }
 }

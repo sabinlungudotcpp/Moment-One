@@ -6,6 +6,11 @@ const discussionSchema = new mongoose.Schema({
         required: [true, 'Discussion must contain a valid title']
     },
 
+    content: {
+        type: String,
+        required: [true, 'A discussion must content']
+    },
+
     category: {
         type: String,
         required: [true, 'A discussion must have a valid category'],

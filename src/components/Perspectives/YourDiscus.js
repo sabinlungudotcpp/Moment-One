@@ -22,14 +22,6 @@ const Perspectives = () => {
           {getPosts()}
             <div className="contentWrapper">
                 <div className="formContainer">
-                    <FormCard 
-                    title="My new Road to Self-Awareness" 
-                    category="PTSD" 
-                    content="A very fine addition to the not over plentiful supply of good restaurants in this part of west London."
-                    username="username"
-                    level="3"
-                    likes="560"
-                    />
                     {/* returns list of divs, when given array of retrieved items*/}
                     <FormCard items={items}/>
 

@@ -1,5 +1,11 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
+/**
+ * @fileoverview: Component which returns the navigation bar to be rendered
+ * @author: Ryan Spowart
+ * @component App() - Returns JSX
+ * @requires: npm install react-router-dom
+ */
 
 const Navbar = () => { // Navigation Bar Component
 

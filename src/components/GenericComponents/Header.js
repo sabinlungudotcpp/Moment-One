@@ -1,7 +1,13 @@
 import React from "react";
 import searchIcon from "../../imageAssets/Icons/General/search.png"
 import { NavLink } from 'react-router-dom';
-//header component for all the pages
+/**
+ * @fileoverview: Component which returns the header for pages to render
+ * @author: Ryan Spowart
+ * @param {props}:title - page title  |blueTitle - subitle that appears in blue text | grayTitle - subtitle that appears in gray text
+ * @component App() - Returns JSX
+ * @requires: npm install react-router-dom
+ */
 const Dashboard = (props) => {
   return (
     <>

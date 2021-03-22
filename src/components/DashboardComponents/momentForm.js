@@ -16,7 +16,7 @@ class momentForm extends React.Component {
                 description: '',
                 category: '',
                 feeling: '',
-                selfAware: false,
+                selfAware: true,
             }
         }
         
@@ -47,7 +47,7 @@ class momentForm extends React.Component {
         this.setState({
             moment:{
                 ...this.state.moment,
-                [e.target.name]: e.target.checked
+                [e.target.name]: !this.state.selfAware,
             }
         })
     }
@@ -149,7 +149,7 @@ class momentForm extends React.Component {
                     <div className="selfAware_wrapper">
                         <p>Do you feel self aware?</p>
                         <label class="switch">
-                            <input type="checkbox" name="selfAware" checked={this.state.selfAware} onClick={e => this.awareToggle(e)} />
+                            <input type="checkbox" name="selfAware" onClick={e => this.awareToggle(e)} />
                             <span class="slider round"></span>
                         </label>
                     </div>

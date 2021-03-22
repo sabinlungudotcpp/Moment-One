@@ -9,6 +9,13 @@ import Community from './components/communityComponents/Community'
 import LiveChat from './components/chatComponents/LiveChat';
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 
+/**
+ * @fileoverview: The main App component that returns JSX which renders routes that users are able to take within the web app, i.e navigation between links
+ * @author: Sabin Constantin Lungu, Ryan Spowart
+ * @param: N/A
+ * @requires: npm install react-router-dom
+ */
+
 const App = () => { // Main App Component
 
   return (
@@ -16,6 +23,7 @@ const App = () => { // Main App Component
     <Router>
       <div className = "App">
         <NavBar />
+
 
             
           <div className = "PageContent">

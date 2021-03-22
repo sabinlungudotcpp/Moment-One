@@ -12,7 +12,6 @@ class momentForm extends React.Component {
 
         super(props);
         
-<<<<<<< HEAD
         this.state = { // State for the moment form
             moment: {
                 title: '', // Title of the moment
@@ -20,15 +19,6 @@ class momentForm extends React.Component {
                 category: '', // Category of the moment
                 feeling: '', // User feeling attribute
                 selfAware: false,
-=======
-        this.state={
-            moment:{
-                title: '',
-                description: '',
-                category: '',
-                feeling: '',
-                selfAware: true,
->>>>>>> e770bca86e23d75bfbe05fd35a5cebff203aa7ed
             }
         }
     }
@@ -58,16 +48,8 @@ class momentForm extends React.Component {
     awareToggle = (e) => {
 
         this.setState({
-<<<<<<< HEAD
             moment: {...this.state.moment, [e.target.name]: e.target.checked}
         });
-=======
-            moment:{
-                ...this.state.moment,
-                [e.target.name]: !this.state.selfAware,
-            }
-        })
->>>>>>> e770bca86e23d75bfbe05fd35a5cebff203aa7ed
     }
     
     // Log the results and post the results over to the database
@@ -93,13 +75,8 @@ class momentForm extends React.Component {
                     {/* Section of form for selecting the current feeling */}
                     <div className="feelingWrapper">
 
-<<<<<<< HEAD
                         <label className = "feelingSelect">
                             <input type="radio" name='feeling' value ='Great' onChange = {e => e.target.value} />
-=======
-                        <label className="feelingSelect">
-                            <input type="radio" name='feeling' value ='Great' onChange = {e => this.change(e)} />
->>>>>>> e770bca86e23d75bfbe05fd35a5cebff203aa7ed
                             <img src = {moodGreat} alt="Great" className="feelingIcon" />
                             <p>Great</p>
                         </label>

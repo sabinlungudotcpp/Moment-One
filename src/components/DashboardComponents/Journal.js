@@ -11,15 +11,9 @@ class momentForm extends React.Component {
 
     super(props);
 
-<<<<<<< HEAD
     this.state = { 
       items:[],
       currentItem:{
-=======
-    this.state ={
-      items:[], //journam moments to be displayed
-      currentItem:{ //current item being added
->>>>>>> e770bca86e23d75bfbe05fd35a5cebff203aa7ed
         title:'Lockdown woes is the title',
         content:'Oh boy is lockdown boring, this would be the content ',
         date: new Date().toLocaleString()
@@ -43,7 +37,6 @@ class momentForm extends React.Component {
     })
   }
 
-<<<<<<< HEAD
   addItem(e){
     e.preventDefault();
     const newItem = this.state.currentItem;
@@ -61,8 +54,6 @@ class momentForm extends React.Component {
   
 
 
-=======
->>>>>>> e770bca86e23d75bfbe05fd35a5cebff203aa7ed
     render() {
         return (
           <div>

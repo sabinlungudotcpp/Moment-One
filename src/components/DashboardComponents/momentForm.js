@@ -6,10 +6,17 @@ import moodMeh from "../../imageAssets/Mood Tracker/moodMeh.png";
 import moodeBad from "../../imageAssets/Mood Tracker/moodBad.png";
 import moodAwful from "../../imageAssets/Mood Tracker/moodAwful.png";
 
+/**
+ * @fileoverview: The Moment Form stores all of the JSX for rendering the feelings form to the user to fill out
+ * @author: Sabin Constantin Lungu, Ryan Spowart
+ * @param {props}: The props parameter is used to store properties from other components that are rendered on this screen
+ * @component App() - Returns JSX
+ * @requires: npm install react-router-dom
+ */
+
 class momentForm extends React.Component {
 
     constructor(props) { // Constructor for the moment form
-
         super(props);
         
         this.state = { // State for the moment form
@@ -21,9 +28,7 @@ class momentForm extends React.Component {
                 selfAware: false,
             }
         }
-
     }
-    
 
     // Resets the form after submission
     resState() {
@@ -43,7 +48,8 @@ class momentForm extends React.Component {
      */
 
     validate() {
-        if(this.state.moment.title===''){
+
+        if(this.state.moment.title === ' ') { // If the title is empty
             return "Please enter whats on your mind";
         }
         
@@ -59,7 +65,7 @@ class momentForm extends React.Component {
             return "please enter how you are feeling";
         }
         
-        else{
+        else {
             return '';
         }
     }
@@ -99,6 +105,7 @@ class momentForm extends React.Component {
 
             <form className = "momentForm" onSubmit={e => this.onSubmit(e)}>
                 <div className="momentForm_top-section">
+                    
                     <h2>Good afternoon, Username!</h2>
                     <h2>How are you feeling?</h2>
 
@@ -111,17 +118,20 @@ class momentForm extends React.Component {
                             <p>Great</p>
                         </label>
 
-                        <label className="feelingSelect">
+
+                        <label className = "feelingSelect">
                             <input type="radio" name='feeling' value='Good' checked={this.state.moment.feeling === 'Good'} onChange={e => this.change(e)} />
                             <img src={moodGood} alt="Good" className="feelingIcon" />
                             <p>Good</p>
                         </label>
 
-                        <label className="feelingSelect">
+
+                        <label className = "feelingSelect">
                             <input type="radio" name='feeling' value='Meh' checked={this.state.moment.feeling === 'Meh'} onChange={e => this.change(e)} />
                             <img src={moodMeh} alt="Meh" className="feelingIcon" />
                             <p>Meh</p>
                         </label>
+
 
                         <label className="feelingSelect">
                             <input type="radio" name='feeling' value='Bad' checked={this.state.moment.feeling === 'Bad'} onChange={e => this.change(e)} />
@@ -129,16 +139,18 @@ class momentForm extends React.Component {
                             <p>Bad</p>
                         </label>
 
+
                         <label className="feelingSelect">
                             <input type="radio" name='feeling' value='Awful' checked={this.state.moment.feeling === 'Awful'} onChange={e => this.change(e)} />
                             <img src={moodAwful} alt="Awful" className="feelingIcon" />
                             <p>Awful</p>
                         </label>
+
+
                     </div>
                 </div>
 
                 {/* Section of form for selecting catigory of the moment*/}
-
                 <div className="momentForm_center-section">
                     <p> Add Category </p>
                     <div className="category_wrap">
@@ -170,6 +182,7 @@ class momentForm extends React.Component {
 
                     </div>
                 </div>
+
                 {/* Section for inputing details of the users feelings into textboxes*/}
                 <div className="momentForm_bottom-section">
                     <p>What's on your mind today?</p>
@@ -185,11 +198,13 @@ class momentForm extends React.Component {
                             <span class="slider round"></span>
                         </label>
                     </div>
+
                     {/*Button for submitting the form*/}
                     <div className="btn_wrapper">
                         <button type='submit' className="create">Create</button>
                     </div>
-                    <p className="error">{this.state.error}</p>
+
+                    <p className = "error">{this.state.error}</p>
 
                 </div>
             </form>

@@ -48,7 +48,7 @@ class momentForm extends React.Component {
         content:'',
         date:'',
       }
-    })
+      })
     }
   
 

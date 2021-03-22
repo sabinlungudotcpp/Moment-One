@@ -1,8 +1,7 @@
 import React,{useState} from "react";
 import axios from 'axios';
-//form for creating a new discussion, adding it to the database
-const NewDiscussion = () => {
-    //creating state
+
+const NewDiscussion = () => { // New Discussion Component
     const [state, setState] = useState({
         discussion:{
             title:'',
@@ -13,6 +12,7 @@ const NewDiscussion = () => {
 
     //updating the state whenever something is changed
     const change = (e) => {
+
         setState({
             discussion:{
                 ...state.discussion,
@@ -20,11 +20,10 @@ const NewDiscussion = () => {
             }
         })
     }
-    //submitting to database
-    const onSubmit = async (e) => {
+    
+    const onSubmit = async (e) => { // Submits the discussion data to the database
         e.preventDefault();
-        console.log(state.discussion)
-        await axios.post('http://localhost:8001/api/v1/momentone/discussions',state.discussion);
+        await axios.post('http://localhost:8001/api/v1/momentone/discussions', state.discussion);
     }
 
     return (

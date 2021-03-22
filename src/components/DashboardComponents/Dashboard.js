@@ -3,7 +3,7 @@ import Header from "../GenericComponents/Header";
 import MomentForm from "./momentForm";
 import JournalDis from "./Journal";
 
-const Home = () => { // Home
+const Home = (props) => { // Home Component
   return (
     <div className = "Page">
       <Header title="Your Moments Dashboard" grayTitle="Welcome username"/>

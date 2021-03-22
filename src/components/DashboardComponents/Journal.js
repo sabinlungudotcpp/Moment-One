@@ -6,11 +6,12 @@ import graph from "../../imageAssets/Icons/General/graph.png";
 import axios from "axios";
 
 class momentForm extends React.Component {
+  
   constructor(props) {
 
     super(props);
 
-    this.state ={
+    this.state = { 
       items:[],
       currentItem:{
         title:'Lockdown woes is the title',
@@ -37,11 +38,9 @@ class momentForm extends React.Component {
 
   addItem(e){
     e.preventDefault();
-
     const newItem = this.state.currentItem;
-    console.log(newItem);
+    const newItems = [...this.state.items,newItem];
 
-    const newItems=[...this.state.items,newItem];
     this.setState({
       items:newItems,
       currentItem:{

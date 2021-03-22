@@ -10,7 +10,7 @@ import LiveChat from './components/chatComponents/LiveChat';
 import YourJourney from './components/yourJourneyComponents/Profile';
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 
-const App = () => { // Main App
+const App = () => { // Main App Component
 
   return (
 
@@ -18,7 +18,8 @@ const App = () => { // Main App
       <div className = "App">
         <NavBar />
 
-            <div className = "PageContent">
+            
+          <div className = "PageContent">
             
           <Switch>
             <Route path = "/" exact component = {Home}/>
@@ -34,9 +35,9 @@ const App = () => { // Main App
             <Route path = "/help" exact component = {Home} />
         </Switch>
 
-
         </div>
       </div>
+
     </Router>
 
   )

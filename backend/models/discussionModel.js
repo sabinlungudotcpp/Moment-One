@@ -12,7 +12,7 @@ const discussionSchema = new mongoose.Schema({
     },
 
     date: {
-        type: Date.now(),
+        type: Date,
         required: [true, 'A discussion must have a date']
     },
 

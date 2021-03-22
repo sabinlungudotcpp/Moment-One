@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import Header from "../GenericComponents/Header";
 import MomentForm from "./momentForm";
 import JournalDis from "./Journal";

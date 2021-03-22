@@ -20,11 +20,6 @@ const moreDiscussions = () => {
                     likes="250k"
                     content="We recently had dinner with friends at David CC and we all walked away with a great experience. Good food, pleasant environment, personal attention through all the evening. Thanks to the team and we will be back!"
                     />
-                    <Discussion />
-                    <Discussion />
-                    <Discussion />
-                    <Discussion />
-                    <Discussion />
             </div>
             <button className="loadMore"><p>Load More</p><img src={loadMoreIcon} alt="moreIcon"/></button>
         </div>

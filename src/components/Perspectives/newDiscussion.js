@@ -7,7 +7,10 @@ const NewDiscussion = () => {
         discussion:{
             title:'',
             category:'',
-            description:'',
+            content:'',
+            date:Date.now(),
+            likes:0,
+            
         }
     });
 
@@ -44,7 +47,7 @@ const NewDiscussion = () => {
                 <p>Anything on your mind? Ask the community and expand your self-awarness knowledge.</p>
                 {/* title and description input */}
                 <textarea className="titleInput" name="title" rows="1" cols="50" placeholder="Title..." onChange={e => change(e)}/>
-                <textarea className="textInput" name="description" rows="5" cols="50" placeholder="Description..." onChange={e => change(e)}/>
+                <textarea className="textInput" name="content" rows="5" cols="50" placeholder="Content..." onChange={e => change(e)}/>
                 </div>
                 {/* category input */}
                 <div className="category_wrap">

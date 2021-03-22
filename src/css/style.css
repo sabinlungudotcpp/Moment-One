@@ -52,6 +52,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
@@ -1387,7 +1388,7 @@ h1 {
       font-size: 40px; }
 
 .newDiscussion {
-  height: 50vh;
+  height: 70vh;
   width: 20%;
   min-width: 350px;
   background-color: #3E4954;
@@ -1424,7 +1425,11 @@ h1 {
         font-size: 12px; }
   .newDiscussion .formWrapper {
     padding: 2vh;
-    padding-bottom: 0px; }
+    padding-bottom: 0px;
+    margin: auto;
+    height: 50%;
+    display: flex;
+    flex-direction: column; }
     .newDiscussion .formWrapper h2 {
       font-family: 'Poppins', sans-serif;
       font-style: normal;
@@ -1432,6 +1437,7 @@ h1 {
       color: #fff;
       font-size: 28px; }
     .newDiscussion .formWrapper p {
+      margin-bottom: auto;
       font-family: 'Poppins', sans-serif;
       font-style: normal;
       font-weight: 400;
@@ -1442,6 +1448,26 @@ h1 {
       margin-top: 1vh;
       margin-bottom: 1vh; }
     .newDiscussion .formWrapper .textInput {
+      margin: auto;
+      width: 96%;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      color: black;
+      font-size: 18px;
+      line-height: 26px;
+      letter-spacing: -0.24px;
+      resize: none;
+      padding: 2%;
+      border-radius: 10px;
+      margin-top: 2%;
+      margin-bottom: 2%;
+      outline: none;
+      background-color: #F4F5F9;
+      height: 50%; }
+    .newDiscussion .formWrapper .titleInput {
+      margin: auto;
       width: 96%;
       border: none;
       font-family: 'Poppins', sans-serif;
@@ -1517,7 +1543,7 @@ h1 {
   .pageScroll .formContainer {
     overflow-y: hidden;
     overflow-x: scroll;
-    height: 25vh;
+    height: 35vh;
     width: 96%;
     margin-left: 3vw;
     margin-top: 3vh;

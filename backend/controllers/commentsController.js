@@ -47,7 +47,7 @@ exports.getAllComments = async (request, response) => {
         const method = request.method;
         const {title, description} = request.body;
         const postedOn = request.params.postId; //Getting _id for the post the comment is made on
-        const createdBy = request.User.id; //Getting _id for the user creating the comment
+        const createdBy = request.account.id; //Getting _id for the user creating the comment
 
         if(!title || !description) { // If there is no title or description
             return response.status(500).json({

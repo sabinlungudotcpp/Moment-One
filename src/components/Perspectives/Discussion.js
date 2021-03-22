@@ -1,5 +1,6 @@
 import React from "react";
 import likeIcon from "../../imageAssets/Icons/General/likeIcon.png"
+//returns divs of all discussion to the super class
 const Discussion = (props) => {
 
     return (
@@ -15,7 +16,7 @@ const Discussion = (props) => {
                     <p>{props.category}</p>
                 </div>
                 <div className = "likes">
-                    <img src={likeIcon}/>
+                    <img src={likeIcon} alt="likes"/>
                     <p>{props.likes} Like it</p>
                 </div>
             </div>

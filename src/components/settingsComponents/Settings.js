@@ -1,5 +1,5 @@
 import React from "react";
-
+//page displays user with settings
 const Settings = () => {
   return (
     

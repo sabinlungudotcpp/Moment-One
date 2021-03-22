@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./GenericComponents/Header";
+import Header from "../GenericComponents/Header";
 
 const Community = () => {
   

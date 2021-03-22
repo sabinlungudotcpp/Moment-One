@@ -1,4 +1,4 @@
-import react, {useState} from 'react';
+import {useState} from 'react';
 import ReactDom from 'react-dom';
 import tabRight from "../../imageAssets/Icons/General/tabRight.png";
 import tabLeft from "../../imageAssets/Icons/General/tabLeft.png";
@@ -7,7 +7,7 @@ import moodGood from "../../imageAssets/Mood Tracker/moodGood.png";
 import moodMeh from "../../imageAssets/Mood Tracker/moodMeh.png";
 import moodBad from "../../imageAssets/Mood Tracker/moodBad.png";
 import moodAwful from "../../imageAssets/Mood Tracker/moodAwful.png";
-
+//Generates an overlay over the top of the page where a full detailed moment is displayed
 const MomentOverlay = (props) => {
 
     const[state, setState] = useState({
@@ -24,6 +24,7 @@ const MomentOverlay = (props) => {
 
     //converts the feeling stored in state to a usable image
     function showFeel($feeling) {
+        setState({feeling:"Great"});
         if($feeling ==="meh") {
             return moodMeh
         }
@@ -58,12 +59,12 @@ const MomentOverlay = (props) => {
         <div className="background" ></div>
         <div className="momentOverlay">
             <button className="tab">
-                <img className="tabIcon" src={tabLeft}/>
+                <img className="tabIcon" src={tabLeft} alt="img"/>
             </button>
 
             <div className="momentContainer">
                 <div className="momentContent">
-                    <img src={showFeel(state.feeling)} className="feelingImg"/>
+                    <img src={showFeel(state.feeling)} className="feelingImg" alt="img"/>
                     <h1 className="momentTitle">{state.title}</h1>
                     <div className="devider"></div>
                     <p className="momentDesc">{state.desc}</p>
@@ -90,7 +91,7 @@ const MomentOverlay = (props) => {
             </div>
 
             <div className="tab"onClick={returnMoment(+1)}>
-                <img className="tabIcon" src={tabRight}/>
+                <img className="tabIcon" src={tabRight} alt="img"/>
                 
             </div>
             <button onClick={() => {props.onClose()}}>close</button>

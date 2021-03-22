@@ -5,10 +5,10 @@ import moodGood from "../../imageAssets/Mood Tracker/moodGood.png";
 import moodMeh from "../../imageAssets/Mood Tracker/moodMeh.png";
 import moodeBad from "../../imageAssets/Mood Tracker/moodBad.png";
 import moodAwful from "../../imageAssets/Mood Tracker/moodAwful.png";
-//form for user inoput of their moments
+
 class momentForm extends React.Component {
 
-    constructor(props){
+    constructor(props) { // Constructor for the moment form
 
         super(props);
         
@@ -38,17 +38,29 @@ class momentForm extends React.Component {
         })
     }
 
+    /**
+     * @function: The validate function is used to validate the form entry fields. If they are left empty, an error message is displayed
+     */
+
     validate() {
         if(this.state.moment.title===''){
-            return "Please enter whats on your mind"
-        }else if(this.state.moment.description ===''){
-            return "Please say how you feel"
-        }else if(this.state.category ===''){
-            return "please enter a category"
-        }else if(this.state.feeling ===''){
-            return "please enter how you are feeling"
-        }else{
-            return ''
+            return "Please enter whats on your mind";
+        }
+        
+        else if(this.state.moment.description === '') {
+            return "Please say how you feel";
+        }
+        
+        else if(this.state.category ==='') {
+            return "please enter a category";
+        }
+        
+        else if(this.state.feeling === '') {
+            return "please enter how you are feeling";
+        }
+        
+        else{
+            return '';
         }
     }
 
@@ -71,16 +83,18 @@ class momentForm extends React.Component {
     // Log the results and post the results over to the database
     onSubmit = async (e) => {
         e.preventDefault();
-        console.log(this.state);
+
         this.setState({error:this.validate()});
-        if( this.state.error === ''){
+
+        if( this.state.error === '') {
+
             await axios.post('http://localhost:8001/api/v1/momentone/posts',this.state.moment);
             this.resState();   
         }
-
     }
 
-    render() {
+    render() { // Renders JSX on the screen
+
         return (
 
             <form className = "momentForm" onSubmit={e => this.onSubmit(e)}>

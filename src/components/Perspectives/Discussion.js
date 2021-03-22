@@ -22,6 +22,8 @@ const Discussion = (props) => {
                     <img src={likeIcon} alt="likes"/>
                     <p>{props.likes} Like it</p>
                 </div>
+
+                
             </div>
         </div>
         )

@@ -57,21 +57,28 @@ class momentForm extends React.Component {
           <div>
             <div className="momentsAnswersWrap">
               {/* displays total moments to the user */}
+
               <div className="totalMoments">
                 <div className="imgBack">
                   <img src={totalMoments} alt="img"/>
                 </div>
+
                 <div className="textWrap">
                   <h1 className="number">{this.state.momentNo}</h1>
                   <p className="subTitle">Total Moments</p>
                   <p className="percent"><img src={graph} alt="img"/> 4% (30days)</p>
                 </div>
               </div>
+
+
               {/* displays answers recieved */}
+              
               <div className="answersRecieved">
                 <div className="imgBack">
                   <img src={answersRecieved} alt="img"/>
-                  </div>
+                </div>
+
+
                   <div className="textWrap">
                   <h1 className="number">15</h1>
                   <p className="subTitle">Answers Recieved</p>

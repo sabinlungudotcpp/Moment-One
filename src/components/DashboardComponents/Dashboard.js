@@ -13,6 +13,7 @@ import JournalDis from "./Journal";
 
 const Dashboard = (props) => { // Home Component
   return (
+    
     <div className = "Page">
       <Header title="Your Moments Dashboard" grayTitle="Welcome username"/>
 

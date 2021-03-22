@@ -33,14 +33,14 @@ class momentForm extends React.Component {
     // Resets the form after submission
     resState() {
         this.setState({
-            moment:{
+            moment : {
                 title: '',
                 description: '',
                 category: '',
                 feeling: '',
                 selfAware: false,
             }
-        })
+        });
     }
 
     /**
@@ -105,7 +105,7 @@ class momentForm extends React.Component {
 
             <form className = "momentForm" onSubmit={e => this.onSubmit(e)}>
                 <div className="momentForm_top-section">
-                    
+
                     <h2>Good afternoon, Username!</h2>
                     <h2>How are you feeling?</h2>
 
@@ -131,7 +131,6 @@ class momentForm extends React.Component {
                             <img src={moodMeh} alt="Meh" className="feelingIcon" />
                             <p>Meh</p>
                         </label>
-
 
                         <label className="feelingSelect">
                             <input type="radio" name='feeling' value='Bad' checked={this.state.moment.feeling === 'Bad'} onChange={e => this.change(e)} />
@@ -171,7 +170,7 @@ class momentForm extends React.Component {
                         </label>
 
                         <label className="category_select">
-                            <input type="radio" name='category' value='Depression' checked={this.state.moment.category === 'Depression'} onChange={e => this.change(e)} />
+                            <input type="radio" name='category' value='Depression' checked = {this.state.moment.category === 'Depression'} onChange={e => this.change(e)} />
                             <p className="categoryLabel">Depression</p>
                         </label>
 

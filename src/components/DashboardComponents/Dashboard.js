@@ -2,12 +2,14 @@ import React,{useState} from "react";
 import Header from "../GenericComponents/Header";
 import MomentForm from "./momentForm";
 import JournalDis from "./Journal";
+
 //The Dashboard page, where the user can create and see their moments
 const Dashboard = () => { 
 
   function updateState (){
     console.log("State updated")
   }
+
 
   return (
     <div className = "Page">

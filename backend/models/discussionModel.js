@@ -28,7 +28,7 @@ const discussionSchema = new mongoose.Schema({
 
     likes: {
         type: Number,
-        required: [true, 'Discussion must have likes']
+        required: [false, 'Discussion must have likes']
     }
 });
 

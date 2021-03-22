@@ -6,7 +6,6 @@ import graph from "../../imageAssets/Icons/General/graph.png";
 import axios from "axios";
 
 class momentForm extends React.Component {
-  
   constructor(props) {
 
     super(props);

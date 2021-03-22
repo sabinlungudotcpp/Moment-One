@@ -42,9 +42,9 @@ const App = () => { // Main App Component
             <Route path = "/help" exact component = {Home} />
         </Switch>
 
+
         </div>
       </div>
-
     </Router>
 
   )

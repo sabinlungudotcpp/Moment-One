@@ -5,7 +5,7 @@ import moodGood from "../../imageAssets/Mood Tracker/moodGood.png";
 import moodMeh from "../../imageAssets/Mood Tracker/moodMeh.png";
 import moodeBad from "../../imageAssets/Mood Tracker/moodBad.png";
 import moodAwful from "../../imageAssets/Mood Tracker/moodAwful.png";
-
+//form for user inoput of their moments
 class momentForm extends React.Component {
 
     constructor(props){
@@ -21,7 +21,9 @@ class momentForm extends React.Component {
                 selfAware: false,
             }
         }
+
     }
+    
 
     // Resets the form after submission
     resState() {
@@ -34,6 +36,20 @@ class momentForm extends React.Component {
                 selfAware: false,
             }
         })
+    }
+
+    validate() {
+        if(this.state.moment.title===''){
+            return "Please enter whats on your mind"
+        }else if(this.state.moment.description ===''){
+            return "Please say how you feel"
+        }else if(this.state.category ===''){
+            return "please enter a category"
+        }else if(this.state.feeling ===''){
+            return "please enter how you are feeling"
+        }else{
+            return ''
+        }
     }
 
     //updating the state whenever something is changed
@@ -55,13 +71,13 @@ class momentForm extends React.Component {
     // Log the results and post the results over to the database
     onSubmit = async (e) => {
         e.preventDefault();
-        await axios.post('http://localhost:8001/api/v1/momentone/posts', this.state.moment);
-
-        if(this.state.error === "") {
+        console.log(this.state);
+        this.setState({error:this.validate()});
+        if( this.state.error === ''){
+            await axios.post('http://localhost:8001/api/v1/momentone/posts',this.state.moment);
             this.resState();   
         }
 
-        this.resState();
     }
 
     render() {
@@ -155,11 +171,11 @@ class momentForm extends React.Component {
                             <span class="slider round"></span>
                         </label>
                     </div>
-
                     {/*Button for submitting the form*/}
                     <div className="btn_wrapper">
                         <button type='submit' className="create">Create</button>
                     </div>
+                    <p className="error">{this.state.error}</p>
 
                 </div>
             </form>

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Header from "../GenericComponents/Header";
 import MomentForm from "./momentForm";
 import JournalDis from "./Journal";
@@ -11,9 +11,10 @@ const Dashboard = (props) => { // Home Component
       <div className = "Content">
         <div className = "contentGrid">
           {/* displays the moment form input*/}
-          <MomentForm />
+          <MomentForm/>
           {/* displays the journal, total moments and answers */}
           <JournalDis/>
+
           <div>
             
           </div>

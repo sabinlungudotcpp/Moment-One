@@ -11,6 +11,11 @@ const discussionSchema = new mongoose.Schema({
         required: [true, 'A discussion must content']
     },
 
+    date: {
+        type: Date.now(),
+        required: [true, 'A discussion must have a date']
+    },
+
     category: {
         type: String,
         required: [true, 'A discussion must have a valid category'],

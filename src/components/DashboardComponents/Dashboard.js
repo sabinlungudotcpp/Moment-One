@@ -3,6 +3,14 @@ import Header from "../GenericComponents/Header";
 import MomentForm from "./momentForm";
 import JournalDis from "./Journal";
 
+/**
+ * @fileoverview: The Dashboard.js component file is responsible for rendering the dashboard on the website which returns a form where users can post how they are feeling
+ * @author: Sabin Constantin Lungu, Ryan Spowart
+ * @param {props}: The props parameter is used to store properties from other components that are rendered on this screen
+ * @component App() - Returns JSX
+ * @requires: npm install react-router-dom
+ */
+
 const Dashboard = (props) => { // Home Component
   return (
     <div className = "Page">

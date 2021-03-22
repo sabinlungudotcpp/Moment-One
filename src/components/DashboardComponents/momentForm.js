@@ -5,10 +5,10 @@ import moodGood from "../../imageAssets/Mood Tracker/moodGood.png";
 import moodMeh from "../../imageAssets/Mood Tracker/moodMeh.png";
 import moodeBad from "../../imageAssets/Mood Tracker/moodBad.png";
 import moodAwful from "../../imageAssets/Mood Tracker/moodAwful.png";
-//form for user inoput of their moments
+
 class momentForm extends React.Component {
 
-    constructor(props){
+    constructor(props) { // Constructor for the moment form
 
         super(props);
         

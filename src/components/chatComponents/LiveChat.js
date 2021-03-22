@@ -2,6 +2,14 @@ import React from "react";
 import Header from "../GenericComponents/Header";
 import searchIcon from "../../imageAssets/Icons/General/search.png"
 import Contact from "./contact"
+
+    /**
+ * @fileoverview: returns the live chat page that displays a users contacts and allows chatting with a person
+ * @author: Ryan Spowart
+ * @component App() - Returns JSX
+ * @requires: react axios
+ */
+
 const LiveChat = () => { // Live Chat component
 
   return (

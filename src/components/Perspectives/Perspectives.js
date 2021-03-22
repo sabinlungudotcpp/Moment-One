@@ -3,7 +3,12 @@ import Header from "../GenericComponents/Header";
 import YourDiscussions from "./YourDiscus";
 import MoreDiscussions from "./moreDiscussions";
 import NewDiscussion from "./newDiscussion";
-//displays community forms to the user
+    /**
+ * @fileoverview: returns the perspectives page that shows the users own discussions and the most popular discussions by likes
+ * @author: Ryan Spowart
+ * @component App() - Returns JSX
+ * @requires: react
+ */
 const Perspectives = () => {
   return (
     <div className = "Page">

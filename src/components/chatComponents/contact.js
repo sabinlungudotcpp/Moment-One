@@ -1,4 +1,11 @@
 import React from "react";
+    /**
+ * @fileoverview: returns a contact
+ * @author: Ryan Spowart
+ * @param {props}: Username - the contatcts username | lastmsg - the last message sent between the user viewing the contact and the contact
+ * @component App() - Returns JSX
+ * @requires: react
+ */
 
 const contact = (props) => { // Live Chat component
 

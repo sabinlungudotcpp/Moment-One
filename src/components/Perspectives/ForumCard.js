@@ -1,6 +1,12 @@
 import React from "react";
 import likes from "../../imageAssets/Icons/General/likesWhite.png";
-//cards that display a users form discussions
+/**
+ * @fileoverview: Component which returns a series of of divs displaying the fourum cards on the page
+ * @author: Ryan Spowart
+ * @param {props}: items - and array of all the data needed to generate the discussions
+ * @component App() - Returns JSX
+ * @requires: react
+ */
 const formCard = (props) => {
     //const items = props.items;
     return (   

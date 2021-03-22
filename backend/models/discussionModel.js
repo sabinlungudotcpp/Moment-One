@@ -22,10 +22,6 @@ const discussionSchema = new mongoose.Schema({
         enum: ['Anxiety', 'Burnout', 'PTSD', 'Weight Loss', 'Depression', 'Self Care', 'Eating-Disorder']
     },
 
-    description: { // The description of the discussion
-        type: String
-    },
-
     likes: {
         type: Number,
         required: [false, 'Discussion must have likes']

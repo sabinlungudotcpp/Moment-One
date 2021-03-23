@@ -13,7 +13,9 @@ const questionSchema = new mongoose.Schema({
     },
 
     answers: {
-        type: String
+        type: String,
+        enum: [''],
+        required: [true, 'You must provide an answer to the starting question']
     },
 
     nextQuestions: {

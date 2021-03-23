@@ -10,9 +10,11 @@ const LiveChat = () => { // Live Chat component
       <div className="pageContent">
         <div className = "chatWindow">
           <div className = "contacts">
+
             <form className="searchbar">
               <input type="text" id = "search" className = "search" placeholder="Search..."></input>
               <img className = "seachIcon" src = {searchIcon} />
+
             </form>
             <div className="contacts_list">
               <Contact username="username" lastMsg="Last message on a line.." age="2h"/>
@@ -26,6 +28,7 @@ const LiveChat = () => { // Live Chat component
               <Contact username="username" lastMsg="Last message on a line.." age="2h"/>
             </div>
           </div>
+          
           <div className ="chat">
             <div className="messageBox">
               <div className = "overlay">

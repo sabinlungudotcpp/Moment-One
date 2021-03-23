@@ -51,29 +51,25 @@ class momentForm extends React.Component {
             }
         })
     }
-    
-    //loging the results, then sending the data to the database via axios
+
     onSubmit = async (e) => {
         e.preventDefault();
-        console.log(this.state);
-
-    
         await axios.post('http://localhost:8001/api/v1/momentone/posts',this.state.moment);
 
-
-        if(this.state.error === ""){
+        if(this.state.error === "") {
             this.resState();   
         }
 
-
         this.resState();
     }
+
     render() {
         return (
             <form className="momentForm" onSubmit={e => this.onSubmit(e)}>
                 <div className="momentForm_top-section">
                     <h2>Good afternoon, Username!</h2>
                     <h2>How are you feeling?</h2>
+                    
                     {/* Section of form for selecting the current feeling */}
                     <div className="feelingWrapper">
 

@@ -1,7 +1,6 @@
 
-export default function Model(props){
-    //this will eventially be clickable to a users
-    return(
+const UserBubble = (props) => {
+    return (
         <>
             <div id="userBubble">
                 <div className="title">
@@ -12,3 +11,5 @@ export default function Model(props){
         </>
     )
 }
+
+export default UserBubble;

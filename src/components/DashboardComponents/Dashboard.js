@@ -6,16 +6,15 @@ import JournalDis from "./Journal";
 const Home = () => { // Home
   return (
     <div className = "Page">
-      <Header title="Your Moments Dashboard" grayTitle="Welcome username"/>
+      <Header title="Your Moments Dashboard" grayTitle = "Welcome username"/>
 
       <div className = "Content">
         <div className = "contentGrid">
-          <MomentForm />
-          <JournalDis/>
+            <MomentForm />
+            <JournalDis/>
           <div>
             
           </div>
-
         </div>
       </div>
     </div>

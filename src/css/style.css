@@ -52,6 +52,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
@@ -103,7 +104,8 @@
     box-shadow: 18px 4px 35px rgba(0, 0, 0, 0.02);
     height: 6vh;
     display: flex;
-    width: 290px; }
+    width: 290px;
+    margin-top: 1vh; }
     .navbar_header .NavLogo {
       background-image: url("../imageAssets/Logos/logo.svg");
       background-repeat: no-repeat, repeat;
@@ -513,11 +515,11 @@ h1 {
   overflow: hidden;
   border-radius: 25px; }
   .momentForm_top-section {
-    height: 25%;
+    height: 20%;
     border: 3px solid #2F4CDD;
     border-radius: 25px;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 2%;
     box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15); }
     .momentForm_top-section h2 {
       font-family: Montserrat, sans-serif;
@@ -525,9 +527,9 @@ h1 {
       font-weight: 600;
       font-weight: 700;
       color: #2F4CDD;
-      font-size: 28px; }
+      font-size: 25px; }
     .momentForm_top-section .feelingWrapper {
-      height: 40%;
+      height: 30%;
       display: flex;
       flex: row;
       margin-left: 10%;
@@ -545,13 +547,16 @@ h1 {
         width: 70px;
         margin: auto;
         transition: 0.2s linear;
-        cursor: pointer; }
+        cursor: pointer;
+        display: flex;
+        flex-direction: column; }
         .momentForm_top-section .feelingWrapper .feelingSelect .feelingIcon {
+          margin: auto;
           border-radius: 50%;
           padding: -1px;
           transition: 0.2s linear;
-          width: 60px;
-          height: 60px;
+          width: 50px;
+          height: 50px;
           transition: 0.2s linear;
           background-color: #ffff; }
         .momentForm_top-section .feelingWrapper .feelingSelect .feelingButton {
@@ -704,7 +709,8 @@ h1 {
       display: flex;
       align-content: center;
       height: 15%;
-      width: 100%; }
+      width: 100%;
+      margin-top: 2%; }
       .momentForm_bottom-section .btn_wrapper .create {
         font-family: Montserrat, sans-serif;
         font-style: normal;
@@ -725,6 +731,7 @@ h1 {
           translate: 0px 3px;
           box-shadow: none; }
     .momentForm_bottom-section .error {
+      margin-top: 5%;
       margin-left: auto;
       margin-right: auto;
       width: 100%;
@@ -733,7 +740,7 @@ h1 {
       font-style: normal;
       font-weight: 600;
       font-weight: 700;
-      color: red;
+      color: #FEC339;
       font-size: 20px; }
 
 .momentsAnswersWrap {
@@ -1387,7 +1394,7 @@ h1 {
       font-size: 40px; }
 
 .newDiscussion {
-  height: 50vh;
+  height: 70vh;
   width: 20%;
   min-width: 350px;
   background-color: #3E4954;
@@ -1424,7 +1431,11 @@ h1 {
         font-size: 12px; }
   .newDiscussion .formWrapper {
     padding: 2vh;
-    padding-bottom: 0px; }
+    padding-bottom: 0px;
+    margin: auto;
+    height: 50%;
+    display: flex;
+    flex-direction: column; }
     .newDiscussion .formWrapper h2 {
       font-family: 'Poppins', sans-serif;
       font-style: normal;
@@ -1432,6 +1443,7 @@ h1 {
       color: #fff;
       font-size: 28px; }
     .newDiscussion .formWrapper p {
+      margin-bottom: auto;
       font-family: 'Poppins', sans-serif;
       font-style: normal;
       font-weight: 400;
@@ -1442,6 +1454,26 @@ h1 {
       margin-top: 1vh;
       margin-bottom: 1vh; }
     .newDiscussion .formWrapper .textInput {
+      margin: auto;
+      width: 96%;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      color: black;
+      font-size: 18px;
+      line-height: 26px;
+      letter-spacing: -0.24px;
+      resize: none;
+      padding: 2%;
+      border-radius: 10px;
+      margin-top: 2%;
+      margin-bottom: 2%;
+      outline: none;
+      background-color: #F4F5F9;
+      height: 50%; }
+    .newDiscussion .formWrapper .titleInput {
+      margin: auto;
       width: 96%;
       border: none;
       font-family: 'Poppins', sans-serif;
@@ -1517,7 +1549,7 @@ h1 {
   .pageScroll .formContainer {
     overflow-y: hidden;
     overflow-x: scroll;
-    height: 25vh;
+    height: 35vh;
     width: 96%;
     margin-left: 3vw;
     margin-top: 3vh;

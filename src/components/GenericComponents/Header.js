@@ -1,17 +1,25 @@
 import React from "react";
 import searchIcon from "../../imageAssets/Icons/General/search.png"
 import { NavLink } from 'react-router-dom';
-const Dashboard = (props) => { // Header component
+/**
+ * @fileoverview: Component which returns the header for pages to render
+ * @author: Ryan Spowart
+ * @param {props}:title - page title  |blueTitle - subitle that appears in blue text | grayTitle - subtitle that appears in gray text
+ * @component App() - Returns JSX
+ * @requires: npm install react-router-dom
+ */
+const Dashboard = (props) => {
   return (
     <>
     <div className = "headerTop">
       <form className="searchbar">
         <input type="text" id = "search" className = "search" placeholder="Search..."></input>
-        <img className = "seachIcon" src = {searchIcon} />
+        <img className = "seachIcon" src = {searchIcon} alt="search"/>
       </form>
       
       <ul className="navIcons">
         <li>
+          {/* navigation links */}
         <NavLink className="header_link" activeClassName="header_link_active" to = "/about">
           <p>About</p>
         </NavLink>
@@ -29,6 +37,7 @@ const Dashboard = (props) => { // Header component
       </ul>
 
     </div>
+    {/* page title */}
     <div className = "headerBottom">
       <h2> {props.title} </h2>
       <div className ="subtitleWrapper">

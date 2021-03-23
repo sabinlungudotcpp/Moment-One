@@ -6,19 +6,25 @@ const discussionSchema = new mongoose.Schema({
         required: [true, 'Discussion must contain a valid title']
     },
 
+    content: {
+        type: String,
+        required: [true, 'A discussion must content']
+    },
+
+    date: {
+        type: Date,
+        required: [true, 'A discussion must have a date']
+    },
+
     category: {
         type: String,
         required: [true, 'A discussion must have a valid category'],
         enum: ['Anxiety', 'Burnout', 'PTSD', 'Weight Loss', 'Depression', 'Self Care', 'Eating-Disorder']
     },
 
-    description: { // The description of the discussion
-        type: String
-    },
-
-    isLiked: {
-        type: Boolean,
-        default: false
+    likes: {
+        type: Number,
+        required: [false, 'Discussion must have likes']
     }
 });
 

@@ -2,15 +2,22 @@ import React from "react";
 import "./css/style.css";
 import NavBar from './components/GenericComponents/NavBar';
 import Home from './components/DashboardComponents/Dashboard';
-import Settings from './components/Settings';
-import Wellbeing from './components/Wellbeing'
+import Settings from './components/settingsComponents/Settings';
+import Wellbeing from './components/wellbeingComponents/Wellbeing'
 import Perspectives from './components/Perspectives/Perspectives';
-import Community from './components/Community'
+import Community from './components/communityComponents/Community'
 import LiveChat from './components/chatComponents/LiveChat';
-import YourJourney from './components/yourJourneyComponents/Profile';
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 
-const App = () => { // Main App
+/**
+ * @fileoverview: The main App component that returns JSX which renders routes that users are able to take within the web app, i.e navigation between links
+ * @author: Sabin Constantin Lungu, Ryan Spowart
+ * @param: N/A
+ * @component App() - Returns JSX
+ * @requires: npm install react-router-dom
+ */
+
+const App = () => { // Main App Component
 
   return (
 
@@ -18,7 +25,7 @@ const App = () => { // Main App
       <div className = "App">
         <NavBar />
 
-            <div className = "PageContent">
+          <div className = "PageContent">
             
           <Switch>
             <Route path = "/" exact component = {Home}/>

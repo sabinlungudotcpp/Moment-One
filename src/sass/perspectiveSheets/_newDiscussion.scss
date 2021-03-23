@@ -1,7 +1,7 @@
 @import "../GenericSheets/Variables";
 @import "../GenericSheets/functions";
 .newDiscussion{
-    height:50vh;
+    height:70vh;
     width:20%;
     min-width: 350px;
     background-color: colour(P,dg);
@@ -37,10 +37,16 @@
     .formWrapper{
         padding:2vh;
         padding-bottom: 0px;
+        margin:auto;
+        height:50%;
+        display:flex;
+        flex-direction: column;
         h2{
+            
             @include PoppinsFont(600,colour(F,wh),28px);
         }
         p{
+            margin-bottom: auto;
             @include PoppinsFont(400,colour(F,wh),18px);
             line-height: 26px;
             letter-spacing: -0.24px;
@@ -48,6 +54,7 @@
             margin-bottom: 1vh;
         }
         .textInput{
+            margin:auto;
             width:96%;
             border:none;
             @include PoppinsFont(500,colour(F,bla),18px);
@@ -60,6 +67,23 @@
             margin-bottom: 2%;
             outline: none;
             background-color: colour(P,lg);
+            height:50%;
+        }
+        .titleInput{
+            margin:auto;
+            width:96%;
+            border:none;
+            @include PoppinsFont(500,colour(F,bla),18px);
+            line-height: 26px;
+            letter-spacing: -0.24px;
+            resize: none;
+            padding:2%;
+            border-radius: 10px ;
+            margin-top:2%;
+            margin-bottom: 2%;
+            outline: none;
+            background-color: colour(P,lg);
+            
         }
     }
     .category_wrap{

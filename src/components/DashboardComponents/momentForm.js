@@ -73,8 +73,8 @@ class momentForm extends React.Component {
     //updating the state whenever something is changed
     change = (e) => {
 
-        this.setState({
-            moment: { ...this.state.moment, [e.target.name]: e.target.value} // Sets the state of the variables by spreading all the values from the moment object
+        this.setState({// Sets the state of the variables by spreading all the values from the moment object
+            moment: { ...this.state.moment, [e.target.name]: e.target.value} 
         })
     }
 
@@ -85,14 +85,6 @@ class momentForm extends React.Component {
             moment: {...this.state.moment, [e.target.name]: e.target.checked}
         });
     }
-<<<<<<< HEAD
-
-    onSubmit = async (e) => {
-        e.preventDefault();
-        await axios.post('http://localhost:8001/api/v1/momentone/posts',this.state.moment);
-
-        if(this.state.error === "") {
-=======
     
     // Log the results and post the results over to the database
     onSubmit = async (e) => {
@@ -103,20 +95,12 @@ class momentForm extends React.Component {
         if( this.state.error === '') {
 
             await axios.post('http://localhost:8001/api/v1/momentone/posts',this.state.moment);
->>>>>>> df6e252241f1d7ce896f184ec3844077fde98137
             this.resState();   
         }
     }
 
-<<<<<<< HEAD
-        this.resState();
-    }
-
-    render() {
-=======
     render() { // Renders JSX on the screen
 
->>>>>>> df6e252241f1d7ce896f184ec3844077fde98137
         return (
 
             <form className = "momentForm" onSubmit={e => this.onSubmit(e)}>
@@ -124,11 +108,7 @@ class momentForm extends React.Component {
 
                     <h2>Good afternoon, Username!</h2>
                     <h2>How are you feeling?</h2>
-<<<<<<< HEAD
-                    
-=======
 
->>>>>>> df6e252241f1d7ce896f184ec3844077fde98137
                     {/* Section of form for selecting the current feeling */}
                     <div className="feelingWrapper">
 

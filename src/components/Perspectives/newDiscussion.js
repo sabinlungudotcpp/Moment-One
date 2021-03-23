@@ -1,6 +1,12 @@
 import React,{useState} from "react";
 import axios from 'axios';
-//form for creating a new discussion, adding it to the database
+    /**
+ * @fileoverview: returns a form which allows entry of discussion and upload to database
+ * @author: Ryan Spowart
+ * @component App() - Returns JSX
+ * @requires: useState
+ */
+
 const NewDiscussion = () => {
     //creating state
     const [state, setState] = useState({

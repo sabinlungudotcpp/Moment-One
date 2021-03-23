@@ -5,18 +5,20 @@ import answersRecieved from "../../imageAssets/Icons/General/answersRecieved.png
 import graph from "../../imageAssets/Icons/General/graph.png";
 import axios from "axios";
 
+    /**
+ * @fileoverview: returns a component that contains a list of journal moments
+ * @author: Ryan Spowart
+ * @param {props}: no props are passed into this class
+ * @component App() - Returns JSX
+ * @requires: react axios
+ */
 class momentForm extends React.Component {
   constructor(props) {
 
     super(props);
 
-<<<<<<< HEAD
-    this.state = {
-=======
     this.state = { 
->>>>>>> df6e252241f1d7ce896f184ec3844077fde98137
       items:[],
-
       currentItem:{
         title:'Lockdown woes is the title',
         content:'Oh boy is lockdown boring, this would be the content ',
@@ -44,10 +46,7 @@ class momentForm extends React.Component {
   addItem(e){
     e.preventDefault();
     const newItem = this.state.currentItem;
-<<<<<<< HEAD
-=======
     const newItems = [...this.state.items,newItem];
->>>>>>> df6e252241f1d7ce896f184ec3844077fde98137
 
     this.setState({
       items:newItems,
@@ -55,18 +54,12 @@ class momentForm extends React.Component {
         title:'',
         content:'',
         date:'',
-<<<<<<< HEAD
-         }
-      })
-=======
       }
 
       });
->>>>>>> df6e252241f1d7ce896f184ec3844077fde98137
     }
   
     render() {
-
         return (
           <div>
             <div className="momentsAnswersWrap">
@@ -80,18 +73,6 @@ class momentForm extends React.Component {
                 <div className="textWrap">
                   <h1 className="number">{this.state.momentNo}</h1>
                   <p className="subTitle">Total Moments</p>
-<<<<<<< HEAD
-                  <p className="percent"> <img src={graph} /> 4% (30days)</p>
-                </div>
-                
-              </div>
-
-              <div className="answersRecieved">
-                <div className="imgBack">
-                  <img src={answersRecieved}/>
-
-                  </div>
-=======
                   <p className="percent"><img src={graph} alt="img"/> 4% (30days)</p>
                 </div>
               </div>
@@ -104,7 +85,6 @@ class momentForm extends React.Component {
                   <img src={answersRecieved} alt="img"/>
                 </div>
 
->>>>>>> df6e252241f1d7ce896f184ec3844077fde98137
 
                   <div className="textWrap">
                   <h1 className="number">15</h1>

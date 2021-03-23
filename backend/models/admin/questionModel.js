@@ -14,7 +14,7 @@ const questionSchema = new mongoose.Schema({
         required: [true, 'You must provide an age']
     },
 
-    gender: {
+    gender: { // Gender of the person
         type: String,
         enum: ['Male', 'Female', 'Non-Binary'],
         required: [true, 'A gender is required']
@@ -24,6 +24,10 @@ const questionSchema = new mongoose.Schema({
         type: String,
         enum: ['Yes', 'No', 'Potentially'],
         required: [true, 'You must provide an answer to the question']
+    },
+
+    nextQuestion: {
+        
     }
 });
 

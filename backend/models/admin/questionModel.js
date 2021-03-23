@@ -2,32 +2,23 @@ const mongoose = require('mongoose');
 
 const questionSchema = new mongoose.Schema({
 
-    questionText: {
-        type: String,
-        enum: ['Have you ever had suicidal thoughts?'],
-        required: [true, 'Question must be present']
+    startingQuestion: {
+        type: Boolean,
+
+        questionText: {
+            id: Number,
+            type: String,
+            enum: ['What is your age ?', 'Have you had any suicidal thoughts ?'],
+            required: [true, 'Question text must be provided']
+        }
     },
 
-    age: {
-        type: String,
-        enum: ['6-18', '18-35', '35-60', '60+'],
-        required: [true, 'You must provide an age']
+    answers: {
+       
     },
 
-    gender: { // Gender of the person
-        type: String,
-        enum: ['Male', 'Female', 'Non-Binary'],
-        required: [true, 'A gender is required']
-    },
+    outcome: {
 
-    answerText: {
-        type: String,
-        enum: ['Yes', 'No', 'Potentially'],
-        required: [true, 'You must provide an answer to the question']
-    },
-
-    nextQuestion: {
-        
     }
 });
 

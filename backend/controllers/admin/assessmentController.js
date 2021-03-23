@@ -1,5 +1,4 @@
 const Assessment = require('../../models/admin/assessmentModel');
-const Question = require('../../models/admin/questionModel');
 const express = require('express');
 const okCode = 200;
 const createdCode = 201;
@@ -49,7 +48,7 @@ exports.createAssessment = async (request, response, next) => {
         }
 
         if(method === 'POST') {
-            const newAssessment = new Assessment(new Question({title, startingQuestion, nextQuestion, outcome}))
+            const newAssessment = new Assessment({title, startingQuestion, nextQuestion, outcome});
 
             return response.status(createdCode).json({
                 assessment: {

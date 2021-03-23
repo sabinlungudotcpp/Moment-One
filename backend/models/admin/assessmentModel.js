@@ -7,7 +7,7 @@ const assessmentSchema = new mongoose.Schema({ // The assessment schema
         required: [true, 'An assessment must have a title']
     },
 
-    questions: [Questions]
+    questions: [{type: mongoose.Schema.ObjectId, ref: 'questionSchema'}]
 });
 
 const Assessment = mongoose.model('Assessment', assessmentSchema);

@@ -14,8 +14,8 @@ const questionSchema = new mongoose.Schema({
 
     answers: {
         type: String,
-        enum: [''],
-        default: 'Yes',
+        enum: ['6-18', ''],
+        default: 'No',
         required: [true, 'You must provide an answer to the starting question']
     },
 

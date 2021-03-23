@@ -2,23 +2,30 @@ const mongoose = require('mongoose');
 
 const questionSchema = new mongoose.Schema({
 
-    startingQuestion: {
+    startingQuestion: { // The starting question for the assessment
         type: Boolean,
 
-        questionText: {
-            id: Number,
-            type: String,
-            enum: ['What is your age ?', 'Have you had any suicidal thoughts ?'],
-            required: [true, 'Question text must be provided']
+        questionText: { // The question text
+            type: String, // Type is a string
+            enum: ['What is your age ?', 'Have you had any suicidal thoughts ?', 'What is your gender?'], // Default questions starting with the age
+            required: [true, 'Question must be provided'] // Field is required
         }
     },
 
     answers: {
-       
+        type: String
+    },
+
+    nextQuestions: {
+        type: String,
+        required: [true, 'Next question must be provided']
     },
 
     outcome: {
-
+        type: String,
+        default: 'Lorem Ipsum',
+        enum: ['We realized that the app may not suit your needs'],
+        required: [true, 'Outcome must be provided']
     }
 });
 

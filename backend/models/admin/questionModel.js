@@ -15,6 +15,7 @@ const questionSchema = new mongoose.Schema({
     answers: {
         type: String,
         enum: [''],
+        default: 'Yes'
         required: [true, 'You must provide an answer to the starting question']
     },
 

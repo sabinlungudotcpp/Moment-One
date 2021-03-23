@@ -7,7 +7,7 @@ const questionSchema = new mongoose.Schema({
 
         questionText: { // The question text
             type: String, // Type is a string
-            enum: ['What is your age ?', 'Have you had any suicidal thoughts ?', 'What is your gender?'], // Default questions starting with the age
+            enum: ['How old are you ?', 'Have you had any suicidal thoughts ?', 'What is your gender?'], // Default questions starting with the age
             required: [true, 'Question must be provided'] // Field is required
         }
     },

@@ -5,7 +5,8 @@ const assessmentSchema = new mongoose.Schema({
 
     questions: { // Assessment stores an array of questions
         type: String,
-        questionData: [Questions]
+        questionData: [Questions],
+        required: [true, 'In order to create an assessment, you must pass the question data']
     }
 });
 

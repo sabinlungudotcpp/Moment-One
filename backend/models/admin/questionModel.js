@@ -1,25 +1,20 @@
 const mongoose = require('mongoose');
-
 const questionSchema = new mongoose.Schema({
 
     startingQuestion: { // The starting question for the assessment
-        type: Boolean,
-
-        questionText: { // The question text
-            type: String, // Type is a string
-            enum: ['How old are you ?', 'Have you had any suicidal thoughts ?', 'What is your gender?'], // Default questions starting with the age
-            required: [true, 'Question must be provided'] // Field is required
-        }
+        type: String, // Type is a string
+        enum: ['How old are you ?', 'Have you had any suicidal thoughts ?', 'What is your gender?'], // Default questions starting with the age
+        required: [true, 'Question must be provided'] // Field is required
     },
 
-    answers: {
+      answer: {
         type: String,
-        enum: ['6-18', ''],
+        enum: ['6-18'],
         default: 'No',
         required: [true, 'You must provide an answer to the starting question']
     },
 
-    nextQuestions: {
+    nextQuestion: {
         type: String,
         required: [true, 'Next question must be provided']
     },
@@ -32,5 +27,5 @@ const questionSchema = new mongoose.Schema({
     }
 });
 
-const Questions = mongoose.model('Questions', questionSchema); // Creates a Questions model by passing in the schema
-module.exports = Questions; // Exports the question model
+const Questions = mongoose.model('Questions', questionSchema);
+module.exports = Questions;

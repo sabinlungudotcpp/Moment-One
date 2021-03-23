@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
-const Questions = mongoose.model('Questions');
+const Questions = require('./questionModel').schema;
 
-const assessmentSchema = new mongoose.Schema({
+const assessmentSchema = new mongoose.Schema({ // The assessment schema
     title: {
         type: String,
         required: [true, 'An assessment must have a title']
     },
 
-    questionData: [Questions]
+    questions: [Questions]
 });
 
 const Assessment = mongoose.model('Assessment', assessmentSchema);

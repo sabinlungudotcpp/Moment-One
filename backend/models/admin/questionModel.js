@@ -32,5 +32,5 @@ const questionSchema = new mongoose.Schema({
     }
 });
 
-const Questions = mongoose.model('Questions', questionSchema);
+const Questions = mongoose.model('Questions', questionSchema); // Creates a Questions model by passing in the schema
 module.exports = Questions; // Exports the question model

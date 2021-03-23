@@ -59,12 +59,7 @@ exports.createGoal = catchAsync(async (request, response, next) => { // Function
             const newGoal = new goalsModel({goal, reason, reward, length, createdBy});
             await newGoal.save(); // Save the goal
 
-            //The new Goal also needs to be added to the user model 
-            await userModel.findOneAndUpdate(
-                {_id: createdBy}, //Finding the user by _id
-                {$push: {goals: newGoal.id}} //Adding the new goals _id to the posts arrey in the user model
-                );
-
+            await userModel.findOneAndUpdate({_id: createdBy}, {$push: {goals: newGoal.id}});
             return response.status(createdCode).json(newGoal);
         }
     } 

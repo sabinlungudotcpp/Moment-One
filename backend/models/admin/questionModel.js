@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const questionSchema = new mongoose.Schema({
+const {Schema} = require('mongoose');
+
+const questionSchema = new Schema({
 
     startingQuestion: { // The starting question for the assessment
         type: String, // Type is a string

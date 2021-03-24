@@ -16,6 +16,7 @@ const courseRouter = require('./backend/routes/courseRoutes');
 const searchRouter = require('./backend/routes/searchRoutes');
 const loginRouter = require('./backend/routes/loginRoutes');
 const discussionRouter = require('./backend/routes/discussionRoutes');
+const questionRouter = require('./backend/routes/admin/questionRoutes');
 const assessmentRouter = require('./backend/routes/admin/assessmentRoutes');
 
 app.use(bodyParser.json());
@@ -37,6 +38,7 @@ app.use('/api/v1/momentone/courses', courseRouter);
 app.use('/api/v1/momentone/search', searchRouter);
 app.use('/api/v1/momentone/login', loginRouter);
 app.use('/api/v1/momentone/discussions', discussionRouter);
+app.use('/api/v1/momentone/admin/questions', questionRouter);
 app.use('/api/v1/momentone/admin/assessment', assessmentRouter);
 
 app.all('*', (request, response, next) => {

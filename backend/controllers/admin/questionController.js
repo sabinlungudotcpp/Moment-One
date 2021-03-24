@@ -1,6 +1,7 @@
 const Question = require('../../models/admin/questionModel');
 const okCode = 200;
 const createdCode = 201;
+const deleted = 204;
 const notFound = 404;
 
 exports.getAllQuestions = async (request, response, next) => { // Allows Admins to view all the assessments created
@@ -82,9 +83,18 @@ exports.editQuestion = async (request, response, next) => { // Allows admins to 
    }
 }
 
-exports.deleteQuestion = async (request, response, next) => {
+exports.deleteQuestions = async (request, response, next) => {
     try {
+        const method = request.method;
 
+        if(method === 'DELETE') {
+            await Question.deleteMany();
+
+            return response.status(deleted).json({
+                message: 'Questions Deleted Successfully',
+                deletedAt: new Date().toISOString()
+            })
+        }
     } 
     
     catch(error) {

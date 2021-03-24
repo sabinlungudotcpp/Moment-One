@@ -47,6 +47,12 @@ const accountSchema = new mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId, //_id of the post will be stored here 
 		ref: 'Posts' 
 	}],
+
+	//Arrey that will hold all of the users chats
+	chats: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Chat'
+	}],
     
     //Path to profile image 
     profileImage: String,

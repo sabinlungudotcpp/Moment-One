@@ -14,7 +14,7 @@ const Perspectives = () => {
     <div className = "Page">
       {/*importing the header component*/}
       <Header title="Forum Discussions" blueTitle="Your Participants " grayTitle="&nbsp;| Your Questions"/>
-      <div className = "contnet">
+      <div className = "content">
         <div className="pageScroll">
           <YourDiscussions/> {/* users posted discussions */}
           <div className="discussionWrap">

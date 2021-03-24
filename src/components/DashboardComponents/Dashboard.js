@@ -15,23 +15,19 @@ const Dashboard = (props) => { // Home Component
   return (
     
     <div className = "Page">
-      <Header title="Your Moments Dashboard" grayTitle = "Welcome username"/>
+      <Header title="Your Moments Dashboard" grayTitle="Welcome username"/>
 
-      <div className = "Content">
+      <div className = "content">
         <div className = "contentGrid">
-<<<<<<< HEAD
-            <MomentForm />
-            <JournalDis/>
-=======
           {/* displays the moment form input*/}
           <MomentForm/>
           {/* displays the journal, total moments and answers */}
           <JournalDis/>
 
->>>>>>> df6e252241f1d7ce896f184ec3844077fde98137
           <div>
             
           </div>
+
         </div>
       </div>
     </div>

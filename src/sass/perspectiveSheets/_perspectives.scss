@@ -11,7 +11,6 @@
         overflow-x: scroll;
         height:35vh;
         width:96%;
-        margin-left: 3vw;
         margin-top: 3vh;
         display:grid;
         grid-template-columns:repeat(6, minmax(350px,25%));
@@ -41,7 +40,6 @@
         min-width: 900px;
         background-color: $compBack;
         border-radius: 20px;
-        margin-left: 3vw;
         box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
         .contentWrapper{
             padding:3vh;

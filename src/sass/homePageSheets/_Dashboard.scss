@@ -7,7 +7,7 @@
     height:83vh;
     display: grid;
     gap:50px;
-    grid-template-columns:minmax(600px,1fr) minmax(800px,3fr);
+    grid-template-columns:minmax(500px,1fr) minmax(900px,3fr);
     grid-auto-rows: 80vh;
     
     .infoWrap{

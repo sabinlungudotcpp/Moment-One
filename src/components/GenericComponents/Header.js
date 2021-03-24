@@ -7,6 +7,8 @@ import { NavLink } from 'react-router-dom';
  * @param {props}:title - page title  |blueTitle - subitle that appears in blue text | grayTitle - subtitle that appears in gray text
  * @component App() - Returns JSX
  * @requires: npm install react-router-dom
+ * 
+ *           
  */
 const Dashboard = (props) => {
   return (
@@ -35,7 +37,15 @@ const Dashboard = (props) => {
         </NavLink>
       </li>
       </ul>
+      <NavLink className="profile_link" activeClassName="profile_link_active" to = "/profile">
+        <div className="linkWrap">
+          <div className="profileBackground">
+            <p className="text">Hello, "name"!</p>
+            </div>
+          <div className ="profilePicture"> </div>
+        </div>
 
+        </NavLink>
     </div>
     {/* page title */}
     <div className = "headerBottom">

@@ -7,6 +7,7 @@ import Wellbeing from './components/wellbeingComponents/Wellbeing'
 import Perspectives from './components/Perspectives/Perspectives';
 import Community from './components/communityComponents/Community'
 import LiveChat from './components/chatComponents/LiveChat';
+import Profile from './components/ProfileComponents/Profile';
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 
 /**
@@ -39,7 +40,9 @@ const App = () => { // Main App Component
             <Route path = "/about" exact component = {Home} />
             <Route path = "/tools" exact component = {Home} />
             <Route path = "/help" exact component = {Home} />
+            <Route path = "/profile" exact component = {Profile} />
         </Switch>
+
 
         </div>
       </div>

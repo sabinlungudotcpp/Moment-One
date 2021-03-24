@@ -1,0 +1,37 @@
+@import "../GenericSheets/Variables";
+@import "../GenericSheets/functions";
+.contactCard{
+    width:100%;
+    height:100%;
+    background-color: $compBack;
+    border-radius: 20px;
+    box-shadow: 0px 5px 6px rgba(141, 40, 173, 0.05);
+    display:flex;
+    flex-direction: column;
+    h2{
+        @include montserratFont(700,colour(F,bla),24px);
+        margin:5% auto 5% auto;
+    }
+    .icon{
+        margin:15% auto 5% auto;
+        height:125px;
+        width:125px;
+        background-color: colour(P,db);
+        border-radius: 50%;
+        display:flex;
+
+        p{
+            margin:auto;
+            @include montserratFont(600,white,55px);
+        }
+    }
+    .connect{
+        margin:auto auto 15% auto;
+        width:50%;
+        border:none;
+        border-radius:10px;
+        @include montserratFont(700,white,20px);
+        background-color: black;
+        padding:2.5%;
+    }
+}

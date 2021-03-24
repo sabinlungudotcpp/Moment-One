@@ -1,0 +1,26 @@
+@import "../GenericSheets/Variables";
+@import "../GenericSheets/functions";
+@import "./contentCard";
+.subtitle{
+    @include PoppinsFont(500,colour(P,db),22px);
+}
+
+.cardContainer{
+    display:grid;
+    grid-template-columns:repeat(10, minmax(300px,1fr));
+    grid-template-rows: minmax(95%,95%);
+    column-gap: 1vw;
+    height:80%;
+    margin-top: 1%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    
+}
+.therapistSection{
+    height:50%;
+    width:100%;
+}
+.indevidualSection{
+    height:50%;
+    width:100%;
+}

@@ -83,7 +83,7 @@ exports.editQuestion = async (request, response, next) => { // Allows admins to 
    }
 }
 
-exports.deleteQuestions = async (request, response, next) => {
+exports.deleteQuestions = async (request, response, next) => { // Middleware controller function that deletes all the questions
     try {
         const method = request.method;
 
@@ -99,15 +99,9 @@ exports.deleteQuestions = async (request, response, next) => {
     
     catch(error) {
 
+        if(error) {
+            return response.status(notFound).json({
+                message: error.toString()
+        });
     }
-};
-
-exports.deleteQuestionByID = async (request, response, next) => {
-    try {
-
-    } 
-    
-    catch(error) {
-
-    }
-};
+}};

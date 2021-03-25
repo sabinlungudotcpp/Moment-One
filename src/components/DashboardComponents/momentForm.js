@@ -92,9 +92,9 @@ class momentForm extends React.Component {
 
         this.setState({error:this.validate()});
 
-        if( this.state.error === '') {
+        if(this.state.error === ' ') {
 
-            await axios.post('http://localhost:8001/api/v1/momentone/posts',this.state.moment);
+            await axios.post('http://localhost:8001/api/v1/momentone/posts', this.state.moment);
             this.resState();   
         }
     }
@@ -144,8 +144,6 @@ class momentForm extends React.Component {
                             <img src={moodAwful} alt="Awful" className="feelingIcon" />
                             <p>Awful</p>
                         </label>
-
-
                     </div>
                 </div>
 

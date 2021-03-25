@@ -19,7 +19,7 @@ module.exports = async (io) => {
         console.log('User connected: ', socket.user.username);
         socket.join(socket.user.id); //Joining room based on user id
 
-        const contacts = socket.user.chats.between.filter(id, => id !== socket.user.id); //Getting u
+        const contacts = socket.user.chats.between.filter(id => id !== socket.user.id); //Getting u
         socket.emit('contacts', contacts);
         
         socket.on('message', async ({chat, content}) => {

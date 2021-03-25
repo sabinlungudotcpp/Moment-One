@@ -22,22 +22,22 @@ const Dashboard = (props) => {
       <ul className="navIcons">
         <li>
           {/* navigation links */}
-        <NavLink className="header_link" activeClassName="header_link_active" to = "/about">
+        <NavLink className="header_link" activeClassName="header_link_active" to = "/app/about">
           <p>About</p>
         </NavLink>
         </li>
         <li>
-        <NavLink className="header_link" activeClassName="header_link_active" to = "/tools">
+        <NavLink className="header_link" activeClassName="header_link_active" to = "/app/tools">
         <p>Tools</p>
         </NavLink>
         </li>
       <li>
-        <NavLink className="header_link" activeClassName="header_link_active" to = "/help">
+        <NavLink className="header_link" activeClassName="header_link_active" to = "/app/help">
           <p>Help</p>
         </NavLink>
       </li>
       </ul>
-      <NavLink className="profile_link" activeClassName="profile_link_active" to = "/profile">
+      <NavLink className="profile_link" activeClassName="profile_link_active" to = "/app/profile">
         <div className="linkWrap">
           <div className="profileBackground">
             <p className="text">Hello, "name"!</p>

@@ -22,7 +22,7 @@ const Navbar = () => { // Navigation Bar Component
         {/* Navigation Links */}
             <ul className="navbar_items">
                 <li>
-                    <NavLink activeClassName="navbar_link_active" className="navbar_link" to = "/home">
+                    <NavLink activeClassName="navbar_link_active" className="navbar_link" to = "/app/home">
                         <div className = "icon">
                             <div className ="homeIcon"></div>
                         </div>
@@ -32,7 +32,7 @@ const Navbar = () => { // Navigation Bar Component
                 </li>
 
                 <li>
-                    <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to = "/wellbeing">
+                    <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to = "/app/wellbeing">
 
                         <div className = "icon">
                             <div className ="wellbeingIcon"></div>
@@ -43,7 +43,7 @@ const Navbar = () => { // Navigation Bar Component
                 </li>
 
                 <li>
-                    <NavLink exact activeClassName = "navbar_link_active" className="navbar_link" to = "/perspectives">
+                    <NavLink exact activeClassName = "navbar_link_active" className="navbar_link" to = "/app/perspectives">
                         <div className = "icon">
                             <div className ="perspectivesIcon"></div>
                         </div>
@@ -54,7 +54,7 @@ const Navbar = () => { // Navigation Bar Component
                 
 
                 <li>
-                    <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to="/community">
+                    <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to="/app/community">
                         <div className = "icon">
                             <div className ="communityIcon"></div>
                         </div>
@@ -63,7 +63,7 @@ const Navbar = () => { // Navigation Bar Component
                 </li>
 
                 <li>
-                    <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to="livechat">
+                    <NavLink exact activeClassName="navbar_link_active" className="navbar_link" to="/app/livechat">
                         <div className = "icon">
                             <div className ="livechatIcon"></div>
                         </div>

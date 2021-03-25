@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "-": "^0.0.1",
+    "@babel/core": "^7.12.3",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.0",
@@ -67,6 +68,7 @@
     "mz": "^2.7.0",
     "supertest": "^6.1.1",
     "supertest-as-promised": "^4.0.2",
+    "webpack-dev-server": "^3.11.0",
     "xss-clean": "^0.1.1"
   },
   "keywords": [],

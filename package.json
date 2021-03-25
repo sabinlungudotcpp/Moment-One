@@ -26,6 +26,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1",
     "save": "^2.4.0",
+    "socket.io": "^4.0.0",
+    "socketio-jwt": "^4.6.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

@@ -119,7 +119,7 @@
     
 }
 .headerBottom{
-    height:3vh;
+    height:4vh;
     padding-top:2vh;
     padding-bottom: 2vh;
     display:flex;
@@ -131,7 +131,7 @@
         margin-right: auto;
         margin-left: 3vw;
         margin-left: 3vw;
-        @include PoppinsFont(600,colour(F,bla),28px);
+        @include PoppinsFont(600,colour(F,bla),24px);
         white-space: nowrap;
     }
     .subtitleWrapper{
@@ -142,14 +142,14 @@
             margin-top: auto;
             margin-bottom: auto;
             margin-left: 3vw;
-            @include PoppinsFont(500,colour(P,db),16px);
+            @include PoppinsFont(500,colour(P,db),14px);
             white-space: nowrap;
         }
         .grayTitle{
             margin-top: auto;
             margin-bottom: auto;
             margin-right: auto;
-            @include PoppinsFont(500,colour(F,gr),16px);
+            @include PoppinsFont(500,colour(F,gr),14px);
             white-space: nowrap;
         }
     }

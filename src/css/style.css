@@ -70,6 +70,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
@@ -510,7 +512,7 @@ h1 {
         margin-left: 140px; }
 
 .headerBottom {
-  height: 3vh;
+  height: 4vh;
   padding-top: 2vh;
   padding-bottom: 2vh;
   display: flex;
@@ -525,7 +527,7 @@ h1 {
     font-style: normal;
     font-weight: 600;
     color: black;
-    font-size: 28px;
+    font-size: 24px;
     white-space: nowrap; }
   .headerBottom .subtitleWrapper {
     display: flex;
@@ -539,7 +541,7 @@ h1 {
       font-style: normal;
       font-weight: 500;
       color: #2F4CDD;
-      font-size: 16px;
+      font-size: 14px;
       white-space: nowrap; }
     .headerBottom .subtitleWrapper .grayTitle {
       margin-top: auto;
@@ -549,7 +551,7 @@ h1 {
       font-style: normal;
       font-weight: 500;
       color: #A2A2A4;
-      font-size: 16px;
+      font-size: 14px;
       white-space: nowrap; }
 
 .momentForm {
@@ -575,7 +577,7 @@ h1 {
       font-weight: 600;
       font-weight: 700;
       color: #2F4CDD;
-      font-size: 25px; }
+      font-size: 22px; }
     .momentForm_top-section .feelingWrapper {
       height: 30%;
       display: flex;
@@ -590,7 +592,7 @@ h1 {
         font-weight: 600;
         font-weight: 700;
         color: #2F4CDD;
-        font-size: 20px;
+        font-size: 18px;
         height: 80px;
         width: 70px;
         margin: auto;
@@ -626,7 +628,7 @@ h1 {
       font-weight: 600;
       font-weight: 700;
       color: #2F4CDD;
-      font-size: 24px; }
+      font-size: 22px; }
     .momentForm_center-section .category_wrap {
       display: flex;
       align-content: center;
@@ -643,7 +645,7 @@ h1 {
           font-weight: 600;
           font-weight: 700;
           color: #2F4CDD;
-          font-size: 20px;
+          font-size: 18px;
           white-space: nowrap;
           display: flex;
           background-color: #ffff;
@@ -707,7 +709,7 @@ h1 {
       margin-bottom: 2%;
       outline: none; }
     .momentForm_bottom-section .selfAware_wrapper {
-      margin-top: 1%;
+      margin-top: 2%;
       display: flex;
       flex: row;
       align-items: center; }
@@ -765,11 +767,12 @@ h1 {
         font-weight: 600;
         font-weight: 700;
         color: black;
-        font-size: 28px;
+        font-size: 22px;
         margin: auto;
+        margin-top: 10px;
         background-color: #FEC339;
         width: 230px;
-        height: 70px;
+        height: 60px;
         border-radius: 48px;
         border: none;
         box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.33);
@@ -837,7 +840,7 @@ h1 {
       font-style: normal;
       font-weight: dark;
       color: black;
-      font-size: 40px; }
+      font-size: 35px; }
     .momentsAnswersWrap .textWrap .subTitle {
       margin-right: auto;
       font-family: 'Poppins', sans-serif;
@@ -947,7 +950,7 @@ h1 {
           font-weight: 600;
           font-weight: 700;
           color: black;
-          font-size: 28px;
+          font-size: 24px;
           margin-bottom: 1vh; }
         .journal .momentList .moment .momentText p {
           transition: 0.5s linear;
@@ -956,7 +959,7 @@ h1 {
           font-weight: 600;
           font-weight: 700;
           color: black;
-          font-size: 18px; }
+          font-size: 16px; }
         .journal .momentList .moment .momentText .dateText {
           margin-top: auto;
           margin-left: auto;
@@ -1833,6 +1836,31 @@ h1 {
         height: 20px;
         width: 20px; }
 
+.chatBubble {
+  display: flex;
+  margin-bottom: 2%; }
+  .chatBubble .icon {
+    margin: 10px 0% auto 1%;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #2F4CDD;
+    box-shadow: 2px 10px 14px -2px rgba(0, 0, 0, 0.26); }
+  .chatBubble .bubble {
+    margin-left: 1%;
+    background-color: #ffff;
+    border-radius: 20px;
+    width: 40%;
+    box-shadow: 2px 10px 14px -2px rgba(0, 0, 0, 0.26); }
+    .chatBubble .bubble p {
+      margin: 5%;
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      color: #3E4954;
+      font-size: 21px;
+      line-height: 37.8px; }
+
 .pageContent {
   display: flex;
   margin-top: 3vh; }
@@ -1847,6 +1875,7 @@ h1 {
     .pageContent .chatWindow .contacts {
       width: 20%;
       height: 100%;
+      min-width: 400px;
       z-index: 550; }
       .pageContent .chatWindow .contacts .searchbar {
         margin-top: 2vh;
@@ -1888,7 +1917,9 @@ h1 {
       background-color: rgba(249, 249, 249, 0.5); }
       .pageContent .chatWindow .chat .messageBox {
         height: 85%;
-        width: 100%; }
+        width: 100%;
+        display: flex;
+        flex-direction: column; }
         .pageContent .chatWindow .chat .messageBox .overlay {
           width: 72%;
           height: 10%;
@@ -1905,6 +1936,11 @@ h1 {
             font-weight: 500;
             color: #3E4954;
             font-size: 30px; }
+        .pageContent .chatWindow .chat .messageBox .message {
+          margin-top: auto;
+          width: 100%;
+          height: 100%;
+          overflow-y: scroll; }
       .pageContent .chatWindow .chat .messageInput {
         height: 10%; }
         .pageContent .chatWindow .chat .messageInput .messageBox {
@@ -1918,7 +1954,13 @@ h1 {
           background: #FDFDFD;
           border: 1px solid #EBEBEB;
           box-sizing: border-box;
-          border-radius: 8px; }
+          border-radius: 8px;
+          display: block;
+          font-family: 'Poppins', sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          color: black;
+          font-size: 20px; }
 
 .contact {
   width: 100%;
@@ -1962,13 +2004,15 @@ h1 {
 
 .profileContent {
   width: 100%;
-  height: 93%;
+  height: 83vh;
   display: flex;
-  margin-top: 3vh; }
+  margin-top: 3vh;
+  overflow-y: scroll;
+  overflow-x: hidden; }
   .profileContent .leftSection {
     min-width: 300px;
     width: 15vw;
-    height: 97%;
+    height: 130%;
     margin-right: auto;
     display: flex;
     flex-direction: column; }
@@ -1976,11 +2020,11 @@ h1 {
     display: flex;
     flex-direction: column;
     width: 70vw;
-    height: 97%;
+    height: 130%;
     margin-left: 3vh; }
 
 .userAndGoals {
-  height: 45vh;
+  height: 70%;
   width: 100%;
   box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
   border-radius: 20px;
@@ -2074,8 +2118,8 @@ h1 {
   width: 100%;
   background-color: #ffff;
   border-radius: 20px;
-  height: 35vh;
-  margin-top: auto;
+  height: 40%;
+  margin-top: 3vh;
   display: flex; }
   .levelTrack h2 {
     margin: 5% auto 5% 5%;
@@ -2086,7 +2130,7 @@ h1 {
     font-size: 20px; }
 
 .therAndSupport {
-  height: 35vh;
+  height: 30%;
   width: 100%;
   box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
   border-radius: 20px;

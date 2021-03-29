@@ -18,6 +18,7 @@ const loginRouter = require('./backend/routes/loginRoutes');
 const discussionRouter = require('./backend/routes/discussionRoutes');
 const questionRouter = require('./backend/routes/admin/questionRoutes');
 const assessmentRouter = require('./backend/routes/admin/assessmentRoutes');
+const contactRouter = require('./backend/routes/contactRoutes');
 
 app.use(bodyParser.json());
 app.use(express.json({limit: '27mb'}));
@@ -40,6 +41,7 @@ app.use('/api/v1/momentone/login', loginRouter);
 app.use('/api/v1/momentone/discussions', discussionRouter);
 //app.use('/api/v1/momentone/admin/questions', questionRouter);
 app.use('/api/v1/momentone/admin/assessment', assessmentRouter);
+app.use('/api/v1/momentone/contact', contactRouter);
 
 app.all('*', (request, response, next) => {
     return response.status(notFound).json({

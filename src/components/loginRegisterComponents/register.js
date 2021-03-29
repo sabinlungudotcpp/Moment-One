@@ -30,7 +30,7 @@ const register = (props) => { // Live Chat component
           <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
           <button type="submit" class="btn">Register</button>
-          <p>Already have an account? <a href="login.html">Sign in</a>.</p>
+          <p>Already have an account? <a href="login">Sign in</a>.</p>
         </section>
       </form>
 
@@ -62,7 +62,7 @@ const register = (props) => { // Live Chat component
           <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
           <button type="submit" class="btn">Register</button>
-          <p>Already have an account? <a href="login.html">Sign in</a>.</p>
+          <p>Already have an account? <a href="login">Sign in</a>.</p>
         </section>
       </form>
     </div>

@@ -21,7 +21,7 @@ const login = (props) => { // Live Chat component
           <p>Trouble <a href="#">logging in?</a>.</p>
 
           <button type="submit" class="btn">Login</button>
-          <p>Don't have an account? <a href="register.html">Register here</a>.</p>
+          <p>Don't have an account? <a href="register">Register here</a>.</p>
         </div>
       </form>
 
@@ -41,7 +41,7 @@ const login = (props) => { // Live Chat component
           <p>Trouble <a href="#">logging in?</a>.</p>
 
           <button type="submit" class="btn">Login</button>
-          <p>Don't have an account? <a href="register.html">Register here</a>.</p>
+          <p>Don't have an account? <a href="register">Register here</a>.</p>
         </section>
       </form>
     </div>

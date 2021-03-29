@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import axios from 'axios';
     /**
  * @fileoverview: returns a form which allows entry of discussion and upload to database
@@ -7,96 +7,99 @@ import axios from 'axios';
  * @requires: useState
  */
 
-const NewDiscussion = () => {
+class NewDiscussion extends React.Component{
     //creating state
-    const [state, setState] = useState({
-        discussion:{
-            title:'',
-            content:'',
-            date:Date.now(),
-            category:'',
-            likes:'0',
+    constructor(props) { // Constructor for the moment form
+        super(props);
+        
+        this.state = { // State for the moment form
+            discussion: {
+                title:'',
+                content:'',
+                date:Date.now(),
+                category:'',
+                likes:'0',
+            }
         }
-    });
-
+    }
     //updating the state whenever something is changed
-    const change = (e) => {
-        setState({
+    change = (e) => {
+        this.setState({
             discussion:{
-                ...state.discussion,
+                ...this.state.discussion,
                 [e.target.name]: e.target.value
             }
         })
     }
     //submitting to database
-    const onSubmit = async (e) => {
+    onSubmit = async (e) => {
         e.preventDefault();
-        console.log(state.discussion)
-        await axios.post('http://localhost:8001/api/v1/momentone/discussions',state.discussion);
+        console.log(this.state.discussion)
+        await axios.post('http://localhost:8001/api/v1/momentone/discussions',this.state.discussion);
     }
-
-    return (
-        <form className="newDiscussion" onSubmit={e => onSubmit(e)}>
-            <div className="userWrapper">
-                
-                <div className = "icon"></div>
-                <div className="textWrap">{/* user datails */}
-                    <h2 className="username">@username</h2>
-                    <h3 className = "level">level 2</h3>
+    render(){
+        return (
+            <form className="newDiscussion" onSubmit={e => this.onSubmit(e)}>
+                <div className="userWrapper">
+                    
+                    <div className = "icon"></div>
+                    <div className="textWrap">{/* user datails */}
+                        <h2 className="username">@username</h2>
+                        <h3 className = "level">level 2</h3>
+                    </div>
                 </div>
-            </div>
-
-            <div className="formWrapper">
-                {/* title */}
-                <h2>🔥 New Discussion</h2>
-                <p>Anything on your mind? Ask the community and expand your self-awarness knowledge.</p>
-                {/* title and description input */}
-                <textarea className="titleInput" name="title" rows="1" cols="50" placeholder="Title..." onChange={e => change(e)}/>
-                <textarea className="textInput" name="content" rows="5" cols="50" placeholder="Content..." onChange={e => change(e)}/>
-                </div>
-                {/* category input */}
-                <div className="category_wrap">
-
-                <label className="category_select">
-                    <input type="radio" name='category' value='Anxiety' onChange={e => change(e)} />
-                    <p className="categoryLabel">ANXIETY</p>
-                </label>
-
-                <label className="category_select">
-                    <input type="radio" name='category' value='Burnout' onChange={e => change(e)}/>
-                    <p className="categoryLabel">BURNOUT</p>
-                </label>
-
-                <label className="category_select">
-                    <input type="radio" name='category' value='PTSD' onChange={e => change(e)}/>
-                    <p className="categoryLabel">PTSD</p>
-                </label>
-
-                <label className="category_select">
-                    <input type="radio" name='category' value='Depression' onChange={e => change(e)}/>
-                    <p className="categoryLabel">DEPRESSION</p>
-                </label>
-
-                <label className="category_select">
-                    <input type="radio" name='category' value='Weight Loss' onChange={e => change(e)}/>
-                    <p className="categoryLabel">WEIGHT LOSS</p>
-                </label>
-                <label className="category_select">
-                    <input type="radio" name='category' value='Self Care' onChange={e => change(e)}/>
-                    <p className="categoryLabel">SELF CARE</p>
-                </label>
-                <label className="category_select">
-                    <input type="radio" name='category' value='Eating disorder' onChange={e => change(e)}/>
-                    <p className="categoryLabel">EATING DISORDER</p>
-                </label>
-
-            </div>
-            {/* submit button */}
-            <button className="submit">Ask the Community</button>
-
-        </form>
-    )
     
+                <div className="formWrapper">
+                    {/* title */}
+                    <h2>🔥 New Discussion</h2>
+                    <p>Anything on your mind? Ask the community and expand your self-awarness knowledge.</p>
+                    {/* title and description input */}
+                    <textarea className="titleInput" name="title" rows="1" cols="50" placeholder="Title..." onChange={e => this.change(e)}/>
+                    <textarea className="textInput" name="content" rows="5" cols="50" placeholder="Content..." onChange={e => this.change(e)}/>
+                    </div>
+                    {/* category input */}
+                    <div className="category_wrap">
+    
+                    <label className="category_select">
+                        <input type="radio" name='category' value='Anxiety' onChange={e => this.change(e)} />
+                        <p className="categoryLabel">ANXIETY</p>
+                    </label>
+    
+                    <label className="category_select">
+                        <input type="radio" name='category' value='Burnout' onChange={e => this.change(e)}/>
+                        <p className="categoryLabel">BURNOUT</p>
+                    </label>
+    
+                    <label className="category_select">
+                        <input type="radio" name='category' value='PTSD' onChange={e => this.change(e)}/>
+                        <p className="categoryLabel">PTSD</p>
+                    </label>
+    
+                    <label className="category_select">
+                        <input type="radio" name='category' value='Depression' onChange={e => this.change(e)}/>
+                        <p className="categoryLabel">DEPRESSION</p>
+                    </label>
+    
+                    <label className="category_select">
+                        <input type="radio" name='category' value='Weight Loss' onChange={e => this.change(e)}/>
+                        <p className="categoryLabel">WEIGHT LOSS</p>
+                    </label>
+                    <label className="category_select">
+                        <input type="radio" name='category' value='Self Care' onChange={e => this.change(e)}/>
+                        <p className="categoryLabel">SELF CARE</p>
+                    </label>
+                    <label className="category_select">
+                        <input type="radio" name='category' value='Eating disorder' onChange={e => this.change(e)}/>
+                        <p className="categoryLabel">EATING DISORDER</p>
+                    </label>
+    
+                </div>
+                {/* submit button */}
+                <button className="submit">Ask the Community</button>
+    
+            </form>
+        )
+    }
 }
 
 export default NewDiscussion;

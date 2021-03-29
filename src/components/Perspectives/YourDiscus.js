@@ -15,13 +15,13 @@ const Perspectives = () => {
     
     function getPosts() { // Getting top 10 posts
 
-       /* axios.get('http://localhost:8001/api/v1/momentone/discussions ').then(res =>{
+      axios.get('http://localhost:8001/api/v1/momentone/discussions ').then(res =>{
             console.log(res.data)
           setItems(
             res.data.data.posts,
           )
          
-        })*/
+        })
       }
 
     return (

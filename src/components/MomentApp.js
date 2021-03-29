@@ -8,7 +8,7 @@ import Perspectives from './Perspectives/Perspectives';
 import Community from './communityComponents/Community'
 import LiveChat from './chatComponents/LiveChat';
 import Profile from './ProfileComponents/Profile';
-import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
+import {Switch,Route} from 'react-router-dom';
 
 const momentApp = () => { // Live Chat component
 

@@ -11,26 +11,22 @@ class Community extends React.Component {
       users:[],
     }
     this.getTherapists();
+    this.getUsers();
 }
   getTherapists =() =>{
     axios.get('http://localhost:8001/api/v1/momentone/therapist').then(res =>{
-      
       this.setState({
-        therapists:res.data.allUsers,
+        therapists:res.data.allTherapists,
       })
-      
-      console.log(this.state.items);
     })
   }
 
   getUsers =() =>{
     axios.get('http://localhost:8001/api/v1/momentone/users').then(res =>{
-      
+      console.log(res);
       this.setState({
         users:res.data.allUsers,
       })
-      
-      console.log(this.state.items);
     })
   }
 

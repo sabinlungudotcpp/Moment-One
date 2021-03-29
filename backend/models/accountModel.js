@@ -48,10 +48,21 @@ const accountSchema = new mongoose.Schema({
 		ref: 'Posts' 
 	}],
 
-	//Arrey that will hold all of the users chats
-	chats: [{
+	contacts: [{
+		user: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Account'
+		},
+		
+		chat: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Chat'
+		}
+	}],
+
+	connectRequests: [{
 		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Chat'
+		ref: 'Account',
 	}],
     
     //Path to profile image 

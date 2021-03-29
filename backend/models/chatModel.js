@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const accountModel = require('./accountModel');
 
-const chat = mongoose.model('Chat', new mongoose.Schema({
+const chatSchema = new mongoose.Schema({
 
     between: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -14,6 +15,35 @@ const chat = mongoose.model('Chat', new mongoose.Schema({
 },
 {
     timestamps: true
-}));
+});
 
-module.exports = chat;
+
+chatSchema.post('save', async function() {
+    try {
+        const currentChat = this;
+        const [userOne, userTwo] = currentChat.between;
+
+        await accountModel.findByIdAndUpdate(userOne, {
+            $push: {
+                contacts: {
+                    user: userTwo,
+                    chat: currentChat.id
+                }
+            }
+        });
+        await accountModel.findByIdAndUpdate(userTwo, {
+            $push: {
+                contacts: {
+                    user: userOne,
+                    chat: currentChat.id
+                }
+            }
+        });
+
+    }
+    catch(error) {
+        return console.error(error);
+    }
+})
+
+module.exports = mongoose.model('Chat', chatSchema);

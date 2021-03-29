@@ -12,14 +12,12 @@ module.exports = async (io) => {
     }));
     
     io.on('connection', async (socket) => {
-        socket.user = await accountModel.findById(socket.decoded_token.id).populate({
-            path: 'chats',
-            populate: {path: 'between'}
-        }); //Registering user to socket object, populating chat and between reference.
+        socket.user = await accountModel.findById(socket.decoded_token.id); //Registering user to socket object
         console.log('User connected: ', socket.user.username);
         socket.join(socket.user.id); //Joining room based on user id
+        const contacts = await accountModel.findById(socket.user.id)
 
-        const contacts = socket.user.chats.between.filter(id => id !== socket.user.id); //Getting u
+        
         socket.emit('contacts', contacts);
         
         socket.on('message', async ({chat, content}) => {

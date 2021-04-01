@@ -15,9 +15,12 @@ const notFound = 404;
  */
 
 exports.checkBody = (request, response, next) => {
+
     if(!request.body) {
+
         return response.status(notFound).json({
-            message: 'Question body must have present data'
+            message: 'Question body must have present data',
+            sentAt: new Date().toISOString()
         });
     }
 
@@ -34,6 +37,7 @@ exports.checkBody = (request, response, next) => {
  */
 
 exports.getAllQuestions = async (request, response) => { 
+
     try {
         const method = request.method;
 

@@ -28,7 +28,7 @@ module.exports = async (request, response, next) => {
             const account = await accountModel.findById(payload.id); // Find the user by ID for the authentication
             
             request.account = account;
-            next();
+            return next();
         })
     } 
     

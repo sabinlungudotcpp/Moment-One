@@ -28,7 +28,7 @@ module.exports = async (io) => {
         socket.emit('contacts', contacts.contacts); //Send the users contacts
         
         socket.on('message', async ({chat, content}) => {
-            const newMessage = messageController.createMessage(chat.id, socket.user.id, content);
+            const newMessage = messageController.createMessageIo(chat.id, socket.user.id, content);
             const recipient = chat.between.filter(id => id !== socket.user.id); //getting the _id of the user the message is sent to
             socket.to(recipient).to(socket.user.id).emit('message', newMessage);
 

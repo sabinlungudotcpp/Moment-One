@@ -19,6 +19,7 @@ const discussionRouter = require('./backend/routes/discussionRoutes');
 const questionRouter = require('./backend/routes/admin/questionRoutes');
 const assessmentRouter = require('./backend/routes/admin/assessmentRoutes');
 const contactRouter = require('./backend/routes/contactRoutes');
+const messageRouter = require('./backend/routes/messageRoutes');
 
 // Middlewares used within the app.
 app.use(bodyParser.json());
@@ -43,6 +44,7 @@ app.use('/api/v1/momentone/discussions', discussionRouter);
 //app.use('/api/v1/momentone/admin/questions', questionRouter);
 app.use('/api/v1/momentone/admin/assessment', assessmentRouter);
 app.use('/api/v1/momentone/contact', contactRouter);
+app.use('/api/v1/momentone/message', messageRouter);
 
 /**
  * @author: Sabin Constantin Lungu

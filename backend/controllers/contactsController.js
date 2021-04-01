@@ -11,7 +11,12 @@ exports.getAllContacts = async (request, response) => {
                 select: 'messages',
                 populate: {
                     path: 'messages',
-                    select: 'message createdBy createdAt'
+                    select: 'message createdBy createdAt',
+                    options: {
+                        sort: {'createdAt': -1},
+                        limit: 1
+                    }
+                    
                 }
             });
             if(!allContacts.contacts) {

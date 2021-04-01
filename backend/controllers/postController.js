@@ -3,6 +3,15 @@ const okCode = 200;
 const createdCode = 201;
 const serverError = 500;
 
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @function: getAllPosts()
+ * @returns: Returns a response by the server with a status code of 200 OK if the request/response is successful, if an error occurs it returns a 404 not found status code
+ * @description: The getAllPosts() controller function is responsible for retrieving all of the posts from the database
+ */
+
 exports.getAllPosts = async (request, response) => { // Controller function to get all the posts
     try {
         const method = request.method;
@@ -29,6 +38,15 @@ exports.getAllPosts = async (request, response) => { // Controller function to g
         }
     }
 }
+
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @function: getPostByID(request, response)
+ * @returns: Returns a response by the server with a status code of 200 OK, if an error occurs it returns a 404 not found status code
+ * @description: getPostByID() - this middleware function is used to retrieve a specific post by its ID.
+ */
 
 exports.getPostByID = async (request, response) => { // Retrieves a POST BY ITS ID
     try {

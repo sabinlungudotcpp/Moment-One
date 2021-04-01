@@ -91,13 +91,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import 'https://fonts.googleapis.com/css?family=Open+Sans';
 .navbar {
-  background-color: #ffff;
+  background-color: #ff00d4;
   overflow: hidden;
   width: 100px;
   height: 100vh;
   position: absolute;
   float: left;
-  background-color: #ffff;
+  background-color: #ff00d4;
   transition: width 1s ease;
   transition-delay: 0.2s;
   z-index: 1000;
@@ -332,7 +332,7 @@ h1 {
     .contentGrid .infoWrap .therapists {
       margin-left: auto;
       margin-right: auto;
-      background-color: #ffff;
+      background-color: #ff00d4;
       width: 400px;
       height: 650px;
       display: flex;
@@ -386,7 +386,7 @@ h1 {
       margin-left: auto;
       margin-right: auto;
       margin-top: auto;
-      background-color: #ffff;
+      background-color: #ff00d4;
       height: 400px;
       width: 400px;
       display: flex;
@@ -415,7 +415,7 @@ h1 {
   align-items: center;
   width: 100%;
   height: 6vh;
-  background-color: #ffff; }
+  background-color: #ff00d4; }
   .headerTop .searchbar {
     display: flex;
     padding-left: 10px;
@@ -558,7 +558,7 @@ h1 {
 .momentForm {
   margin-left: auto;
   margin-right: auto;
-  background-color: #ffff;
+  background-color: #ff00d4;
   margin-left: auto;
   height: 100%;
   width: 100%;
@@ -587,7 +587,7 @@ h1 {
       margin-right: 10%; }
       .momentForm_top-section .feelingWrapper .feelingSelect {
         border: none;
-        background-color: #ffff;
+        background-color: #ff00d4;
         font-family: Montserrat, sans-serif;
         font-style: normal;
         font-weight: 600;
@@ -609,7 +609,7 @@ h1 {
           width: 50px;
           height: 50px;
           transition: 0.2s linear;
-          background-color: #ffff; }
+          background-color: #ff00d4; }
         .momentForm_top-section .feelingWrapper .feelingSelect .feelingButton {
           cursor: pointer;
           border: none; }
@@ -649,7 +649,7 @@ h1 {
           font-size: 18px;
           white-space: nowrap;
           display: flex;
-          background-color: #ffff;
+          background-color: #ff00d4;
           border-radius: 25px;
           height: 30;
           padding-right: 20px;
@@ -818,7 +818,7 @@ h1 {
     display: flex;
     height: 100%;
     width: 45%;
-    background-color: #ffff;
+    background-color: #ff00d4;
     box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
     border-radius: 20px; }
   .momentsAnswersWrap .answersRecieved {
@@ -826,7 +826,7 @@ h1 {
     margin-left: auto;
     height: 100%;
     width: 45%;
-    background-color: #ffff;
+    background-color: #ff00d4;
     box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
     border-radius: 20px; }
   .momentsAnswersWrap .textWrap {
@@ -926,7 +926,7 @@ h1 {
       width: 100%;
       padding: 20px 0px 20px 0px;
       display: flex;
-      background-color: #ffff;
+      background-color: #ff00d4;
       border-radius: 25px;
       margin-bottom: 2vh;
       transition: 0.5s linear;
@@ -1009,7 +1009,7 @@ h1 {
     width: 100%;
     height: 100%; }
     .journeyContentGrid .profileMomentsWrap .profile {
-      background-color: #ffff;
+      background-color: #ff00d4;
       border-radius: 75px 25px 25px 25px;
       width: 100%;
       height: 25%;
@@ -1059,9 +1059,9 @@ h1 {
       margin-top: 30px;
       height: 76%;
       width: 100%;
-      background-color: #ffff; }
+      background-color: #ff00d4; }
   .journeyContentGrid .community {
-    background-color: #ffff;
+    background-color: #ff00d4;
     width: 90%;
     height: 80vh;
     padding: 20px; }
@@ -1075,13 +1075,13 @@ h1 {
     width: 100%;
     height: 100%; }
     .journeyContentGrid .awarenessGrowthWrap .selfAwareness {
-      background-color: #ffff;
+      background-color: #ff00d4;
       height: 50%;
       width: 100%;
       margin-bottom: 5%; }
 
 .goals {
-  background-color: #ffff;
+  background-color: #ff00d4;
   height: 50%;
   width: 100%;
   text-align: left; }
@@ -1206,7 +1206,7 @@ h1 {
     height: 8vh;
     width: 8vh;
     border-radius: 50%;
-    background-color: #ffff;
+    background-color: #ff00d4;
     margin: auto;
     transition: 0.3s linear;
     display: flex;
@@ -1220,7 +1220,7 @@ h1 {
       height: 100px;
       width: 100px; }
   .momentOverlay .momentContainer {
-    background-color: #ffff;
+    background-color: #ff00d4;
     margin: auto;
     height: 70vh;
     width: 50vw;
@@ -1627,7 +1627,7 @@ h1 {
     height: 100vh;
     width: 70%;
     min-width: 900px;
-    background-color: #ffff;
+    background-color: #ff00d4;
     border-radius: 20px;
     box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04); }
     .pageScroll .moreDiscussions .contentWrapper {
@@ -1755,7 +1755,7 @@ h1 {
   height: 100%;
   width: 25%;
   min-width: 350px;
-  background-color: #ffff;
+  background-color: #ff00d4;
   box-shadow: 0px 5px 6px rgba(141, 40, 173, 0.05);
   border-radius: 20px;
   display: flex;
@@ -1849,7 +1849,7 @@ h1 {
     box-shadow: 2px 10px 14px -2px rgba(0, 0, 0, 0.26); }
   .chatBubble .bubble {
     margin-left: 1%;
-    background-color: #ffff;
+    background-color: #ff00d4;
     border-radius: 20px;
     width: 40%;
     box-shadow: 2px 10px 14px -2px rgba(0, 0, 0, 0.26); }
@@ -1869,7 +1869,7 @@ h1 {
     margin: auto;
     width: 90vw;
     height: 80vh;
-    background-color: #ffff;
+    background-color: #ff00d4;
     border-radius: 20px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     display: flex; }
@@ -1915,7 +1915,7 @@ h1 {
     .pageContent .chatWindow .chat {
       width: 80%;
       height: 100%;
-      background-color: rgba(249, 249, 249, 0.5); }
+      background-color: rgba(0, 132, 255, 0.5); }
       .pageContent .chatWindow .chat .messageBox {
         height: 85%;
         width: 100%;
@@ -1926,7 +1926,7 @@ h1 {
           height: 10%;
           border-radius: 0px 20px 0px 0px;
           position: absolute;
-          background-color: rgba(249, 249, 249, 0.5);
+          background-color: rgba(0, 132, 255, 0.5);
           box-shadow: 2px 10px 14px -2px rgba(0, 0, 0, 0.26);
           display: flex;
           z-index: 500; }
@@ -2029,7 +2029,7 @@ h1 {
   width: 100%;
   box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
   border-radius: 20px;
-  background-color: #ffff;
+  background-color: #ff00d4;
   display: flex;
   flex-direction: column; }
   .userAndGoals .profilePicture {
@@ -2094,7 +2094,7 @@ h1 {
       .userAndGoals .goal .progress .imgWrap {
         margin-top: auto;
         margin-bottom: auto;
-        background-color: #ffff;
+        background-color: #ff00d4;
         border-radius: 50%;
         height: 49px;
         width: 49px;
@@ -2117,7 +2117,7 @@ h1 {
 
 .levelTrack {
   width: 100%;
-  background-color: #ffff;
+  background-color: #ff00d4;
   border-radius: 20px;
   height: 40%;
   margin-top: 3vh;
@@ -2135,7 +2135,7 @@ h1 {
   width: 100%;
   box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
   border-radius: 20px;
-  background-color: #ffff; }
+  background-color: #ff00d4; }
   .therAndSupport h2 {
     margin: 5% auto 5% 5%;
     font-family: 'Poppins', sans-serif;
@@ -2150,7 +2150,7 @@ h1 {
   width: 100%;
   box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
   border-radius: 20px;
-  background-color: #ffff; }
+  background-color: #ff00d4; }
   .personalGrowth h2 {
     margin: 2% auto 0px 2%;
     font-family: 'Poppins', sans-serif;
@@ -2162,7 +2162,7 @@ h1 {
 .contactCard {
   width: 100%;
   height: 100%;
-  background-color: #ffff;
+  background-color: #ff00d4;
   border-radius: 20px;
   box-shadow: 0px 5px 6px rgba(141, 40, 173, 0.05);
   display: flex;
@@ -2335,4 +2335,4 @@ body {
   margin-top: 0vh;
   height: 100vh;
   width: 100vw;
-  background-color: #F9F9F9; }
+  background-color: #0084ff; }

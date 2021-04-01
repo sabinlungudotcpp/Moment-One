@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const notFound = 404;
 
-// Routes Imports
+// Imports the various routers from the routes folder
 const accountRouter = require('./backend/routes/accountRoutes');
 const commentRouter = require('./backend/routes/commentRoutes');
 const postsRouter = require('./backend/routes/postRoutes');
@@ -20,6 +20,7 @@ const questionRouter = require('./backend/routes/admin/questionRoutes');
 const assessmentRouter = require('./backend/routes/admin/assessmentRoutes');
 const contactRouter = require('./backend/routes/contactRoutes');
 
+// Middlewares used within the app.
 app.use(bodyParser.json());
 app.use(express.json({limit: '27mb'}));
 app.use(express.urlencoded({extended: true}));
@@ -43,6 +44,12 @@ app.use('/api/v1/momentone/discussions', discussionRouter);
 app.use('/api/v1/momentone/admin/assessment', assessmentRouter);
 app.use('/api/v1/momentone/contact', contactRouter);
 
+/**
+ * @author: Sabin Constantin Lungu
+ * @function: Middleware function that handles unspecified routes on the server, for example if an invalid route is specified it will return the error message below. 
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ */
 app.all('*', (request, response, next) => {
     return response.status(notFound).json({
         message: `Could not find ${request.originalUrl} on this route`

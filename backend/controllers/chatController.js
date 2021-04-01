@@ -94,6 +94,7 @@ exports.deleteChatByChatID = async (request, response) => {
 
             if(chat) {
                 deleteFromAccounts(chat);
+
                 return response.status(200).json({
                     message: 'Chat deleted'
                 });
@@ -116,16 +117,19 @@ exports.deleteChatByChatID = async (request, response) => {
 }
 
 exports.deleteChatByUsers = async (request, response) => {
-    try{
+    try {
         if(request.method === 'DELETE') {
+
             const accounts = [request.params.id, request.account.id];
             const chat = await chatModel.findOneAndDelete().where({between: accounts});
+
             if(chat) {
                 deleteFromAccounts(chat);
                 return response.status(200).json({
                     message: 'Chat deleted'
                 });
             }
+
             else {
                 return response.status(404).json({
                     message: 'chat not found'
@@ -135,6 +139,7 @@ exports.deleteChatByUsers = async (request, response) => {
     }
 
     catch(error) {
+        
         if(error) {
             return response.status(500).json({
                 message: error.message

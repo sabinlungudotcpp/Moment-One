@@ -125,8 +125,8 @@ exports.editQuestion = async (request, response, next) => { // Allows admins to 
         const id = request.params.id;
 
         if(method === 'PATCH') {
-            const updatedQuestion = await Question.findByIdAndUpdate(id, request.body);
-            await updatedQuestion.save();
+            const updatedQuestion = await Question.findByIdAndUpdate(id, request.body); // Update the question
+            await updatedQuestion.save(); // Save the question
 
             return response.status(okCode).json({
                 updatedQuestion

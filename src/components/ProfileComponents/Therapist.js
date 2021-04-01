@@ -11,7 +11,7 @@ const Therapist = (props) => {
             <h2>@username</h2>
             <p>Last Spoken to 2 mins ago</p>
         </div>
-        <img src={therChat} />
+        <img src={therChat} alt="chatIcon"/>
     </div>
   )
 }

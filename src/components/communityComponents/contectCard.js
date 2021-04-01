@@ -1,4 +1,4 @@
-import React,{useState}from "react";
+import React from "react";
 const ContactCard = (props) => {
     const items = props.items;
     const listItems = items.map(item =>{

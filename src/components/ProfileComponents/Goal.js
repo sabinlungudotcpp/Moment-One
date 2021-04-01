@@ -16,7 +16,7 @@ const Goal = (props) => {
             <p className ="desc">brief description about their goal, laurem ipsum laurem ipsum laurem ipsum</p>
         </div>
 
-        <img src={goalIcon} />
+        <img src={goalIcon} alt="goalIcon" />
     </div>
   )
 }

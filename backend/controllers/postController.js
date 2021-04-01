@@ -49,6 +49,7 @@ exports.getAllPosts = async (request, response) => { // Controller function to g
  */
 
 exports.getPostByID = async (request, response) => { // Retrieves a POST BY ITS ID
+
     try {
         const method = request.method;
         
@@ -61,7 +62,9 @@ exports.getPostByID = async (request, response) => { // Retrieves a POST BY ITS 
     } 
     
     catch(error) {
+
         if(error) {
+
             return response.json({
                 message: error.message
             });
@@ -107,6 +110,16 @@ exports.createNewPost = async(request, response) => { // Controller function to 
     }
 }
 
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @param {next}: Next is a function called that executes the next function in the middleware stack, if not called then requests made by clients to the server could hang.
+ * @function: checkBody(request, response)
+ * @returns: Returns a response by the server with a status code of 200 OK, if an error occurs it returns a 404 not found status code
+ * @description: checkBody() is used to verify that there is valid data passed into the body and returns an error if not there is no body.
+ */
+
 exports.editPost = async (request, response) => {
     try {
         const method = request.method;
@@ -136,6 +149,15 @@ exports.editPost = async (request, response) => {
     }
 }
 
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @function: checkBody(request, response)
+ * @returns: Returns a response by the server with a status code of 200 OK, if an error occurs it returns a 404 not found status code
+ * @description: checkBody() is used to verify that there is valid data passed into the body and returns an error if not there is no body.
+ */
+
 exports.deleteAllPosts = async (request, response) => { // Route for DELETING all posts
     try {
         const method = request.method;
@@ -158,6 +180,15 @@ exports.deleteAllPosts = async (request, response) => { // Route for DELETING al
         }
     }
 }
+
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @function: deletePostByID(request, response)
+ * @returns: Returns a response by the server with a status code of 204 No Content, if an error occurs it returns a 404 not found status code
+ * @description: This Middleware function is used to delete a post by specifying its ID.
+ */
 
 exports.deletePostByID = async (request, response) => {
     try {

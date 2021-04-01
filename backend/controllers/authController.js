@@ -47,6 +47,7 @@ exports.registerTherapist = async (request, response) => { // Middleware functio
     try {
         const method = request.method;
         const type = 'Therapist'
+        
         const { firstName, lastName, username, password, email, telephone, city, country} = request.body; // The data coming from the body
 
         if(method === 'POST') {

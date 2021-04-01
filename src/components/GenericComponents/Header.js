@@ -7,8 +7,7 @@ import { NavLink } from 'react-router-dom';
  * @param {props}:title - page title  |blueTitle - subitle that appears in blue text | grayTitle - subtitle that appears in gray text
  * @component App() - Returns JSX
  * @requires: npm install react-router-dom
- * 
- *           
+
  */
 const Dashboard = (props) => {
   return (

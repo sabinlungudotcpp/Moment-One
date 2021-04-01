@@ -47,7 +47,7 @@
         .number{
             margin-right: auto;
             margin-top: auto;
-            @include PoppinsFont(dark,black,40px);
+            @include PoppinsFont(dark,black,35px);
         }
         .subTitle{
             margin-right: auto;
@@ -156,12 +156,12 @@
                 h2{
                     transition:0.5s linear;
                     margin-top:1vh;
-                    @include montserratFont(dark,black,28px);
+                    @include montserratFont(dark,black,24px);
                     margin-bottom: 1vh;
                 }
                 p{
                     transition:0.5s linear;
-                    @include montserratFont(dark,colour(F,bla),18px);
+                    @include montserratFont(dark,colour(F,bla),16px);
                 }
 
                 .dateText{  

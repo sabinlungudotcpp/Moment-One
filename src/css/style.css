@@ -70,6 +70,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
@@ -87,6 +89,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
 .navbar {
   background-color: #ffff;
   overflow: hidden;
@@ -117,14 +120,13 @@
     box-shadow: 18px 4px 35px rgba(0, 0, 0, 0.02);
     height: 6vh;
     display: flex;
-    width: 290px;
-    margin-top: 1vh; }
+    width: 290px; }
     .navbar_header .NavLogo {
       background-image: url("../imageAssets/Logos/logo.svg");
       background-repeat: no-repeat, repeat;
-      background-size: 60px 60px;
-      width: 60px;
-      height: 60px;
+      background-size: 50px 50px;
+      width: 50px;
+      height: 50px;
       margin-top: 3vh;
       margin-top: auto;
       margin-bottom: auto;
@@ -484,7 +486,7 @@ h1 {
     text-decoration: none;
     transition: 0.3s linear;
     height: 60%;
-    width: 200px; }
+    width: 180px; }
     .headerTop .profile_link .linkWrap {
       width: 100%;
       height: 100%;
@@ -508,10 +510,10 @@ h1 {
         width: 3.2vh;
         height: 3.2vh;
         position: absolute;
-        margin-left: 150px; }
+        margin-left: 140px; }
 
 .headerBottom {
-  height: 3vh;
+  height: 4vh;
   padding-top: 2vh;
   padding-bottom: 2vh;
   display: flex;
@@ -526,7 +528,7 @@ h1 {
     font-style: normal;
     font-weight: 600;
     color: black;
-    font-size: 28px;
+    font-size: 24px;
     white-space: nowrap; }
   .headerBottom .subtitleWrapper {
     display: flex;
@@ -540,7 +542,7 @@ h1 {
       font-style: normal;
       font-weight: 500;
       color: #2F4CDD;
-      font-size: 16px;
+      font-size: 14px;
       white-space: nowrap; }
     .headerBottom .subtitleWrapper .grayTitle {
       margin-top: auto;
@@ -550,7 +552,7 @@ h1 {
       font-style: normal;
       font-weight: 500;
       color: #A2A2A4;
-      font-size: 16px;
+      font-size: 14px;
       white-space: nowrap; }
 
 .momentForm {
@@ -576,7 +578,7 @@ h1 {
       font-weight: 600;
       font-weight: 700;
       color: #2F4CDD;
-      font-size: 25px; }
+      font-size: 22px; }
     .momentForm_top-section .feelingWrapper {
       height: 30%;
       display: flex;
@@ -591,7 +593,7 @@ h1 {
         font-weight: 600;
         font-weight: 700;
         color: #2F4CDD;
-        font-size: 20px;
+        font-size: 18px;
         height: 80px;
         width: 70px;
         margin: auto;
@@ -627,7 +629,7 @@ h1 {
       font-weight: 600;
       font-weight: 700;
       color: #2F4CDD;
-      font-size: 24px; }
+      font-size: 22px; }
     .momentForm_center-section .category_wrap {
       display: flex;
       align-content: center;
@@ -644,7 +646,7 @@ h1 {
           font-weight: 600;
           font-weight: 700;
           color: #2F4CDD;
-          font-size: 20px;
+          font-size: 18px;
           white-space: nowrap;
           display: flex;
           background-color: #ffff;
@@ -708,7 +710,7 @@ h1 {
       margin-bottom: 2%;
       outline: none; }
     .momentForm_bottom-section .selfAware_wrapper {
-      margin-top: 1%;
+      margin-top: 2%;
       display: flex;
       flex: row;
       align-items: center; }
@@ -766,11 +768,12 @@ h1 {
         font-weight: 600;
         font-weight: 700;
         color: black;
-        font-size: 28px;
+        font-size: 22px;
         margin: auto;
+        margin-top: 10px;
         background-color: #FEC339;
         width: 230px;
-        height: 70px;
+        height: 60px;
         border-radius: 48px;
         border: none;
         box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.33);
@@ -838,7 +841,7 @@ h1 {
       font-style: normal;
       font-weight: dark;
       color: black;
-      font-size: 40px; }
+      font-size: 35px; }
     .momentsAnswersWrap .textWrap .subTitle {
       margin-right: auto;
       font-family: 'Poppins', sans-serif;
@@ -948,7 +951,7 @@ h1 {
           font-weight: 600;
           font-weight: 700;
           color: black;
-          font-size: 28px;
+          font-size: 24px;
           margin-bottom: 1vh; }
         .journal .momentList .moment .momentText p {
           transition: 0.5s linear;
@@ -957,7 +960,7 @@ h1 {
           font-weight: 600;
           font-weight: 700;
           color: black;
-          font-size: 18px; }
+          font-size: 16px; }
         .journal .momentList .moment .momentText .dateText {
           margin-top: auto;
           margin-left: auto;
@@ -1834,6 +1837,31 @@ h1 {
         height: 20px;
         width: 20px; }
 
+.chatBubble {
+  display: flex;
+  margin-bottom: 2%; }
+  .chatBubble .icon {
+    margin: 10px 0% auto 1%;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #2F4CDD;
+    box-shadow: 2px 10px 14px -2px rgba(0, 0, 0, 0.26); }
+  .chatBubble .bubble {
+    margin-left: 1%;
+    background-color: #ffff;
+    border-radius: 20px;
+    width: 40%;
+    box-shadow: 2px 10px 14px -2px rgba(0, 0, 0, 0.26); }
+    .chatBubble .bubble p {
+      margin: 5%;
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      color: #3E4954;
+      font-size: 21px;
+      line-height: 37.8px; }
+
 .pageContent {
   display: flex;
   margin-top: 3vh; }
@@ -1848,6 +1876,7 @@ h1 {
     .pageContent .chatWindow .contacts {
       width: 20%;
       height: 100%;
+      min-width: 400px;
       z-index: 550; }
       .pageContent .chatWindow .contacts .searchbar {
         margin-top: 2vh;
@@ -1889,7 +1918,9 @@ h1 {
       background-color: rgba(249, 249, 249, 0.5); }
       .pageContent .chatWindow .chat .messageBox {
         height: 85%;
-        width: 100%; }
+        width: 100%;
+        display: flex;
+        flex-direction: column; }
         .pageContent .chatWindow .chat .messageBox .overlay {
           width: 72%;
           height: 10%;
@@ -1906,6 +1937,11 @@ h1 {
             font-weight: 500;
             color: #3E4954;
             font-size: 30px; }
+        .pageContent .chatWindow .chat .messageBox .message {
+          margin-top: auto;
+          width: 100%;
+          height: 100%;
+          overflow-y: scroll; }
       .pageContent .chatWindow .chat .messageInput {
         height: 10%; }
         .pageContent .chatWindow .chat .messageInput .messageBox {
@@ -1919,7 +1955,13 @@ h1 {
           background: #FDFDFD;
           border: 1px solid #EBEBEB;
           box-sizing: border-box;
-          border-radius: 8px; }
+          border-radius: 8px;
+          display: block;
+          font-family: 'Poppins', sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          color: black;
+          font-size: 20px; }
 
 .contact {
   width: 100%;
@@ -1963,13 +2005,15 @@ h1 {
 
 .profileContent {
   width: 100%;
-  height: 93%;
+  height: 83vh;
   display: flex;
-  margin-top: 3vh; }
+  margin-top: 3vh;
+  overflow-y: scroll;
+  overflow-x: hidden; }
   .profileContent .leftSection {
     min-width: 300px;
     width: 15vw;
-    height: 97%;
+    height: 130%;
     margin-right: auto;
     display: flex;
     flex-direction: column; }
@@ -1977,11 +2021,11 @@ h1 {
     display: flex;
     flex-direction: column;
     width: 70vw;
-    height: 97%;
+    height: 130%;
     margin-left: 3vh; }
 
 .userAndGoals {
-  height: 45vh;
+  height: 70%;
   width: 100%;
   box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
   border-radius: 20px;
@@ -2075,8 +2119,8 @@ h1 {
   width: 100%;
   background-color: #ffff;
   border-radius: 20px;
-  height: 35vh;
-  margin-top: auto;
+  height: 40%;
+  margin-top: 3vh;
   display: flex; }
   .levelTrack h2 {
     margin: 5% auto 5% 5%;
@@ -2087,7 +2131,7 @@ h1 {
     font-size: 20px; }
 
 .therAndSupport {
-  height: 35vh;
+  height: 30%;
   width: 100%;
   box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
   border-radius: 20px;
@@ -2145,7 +2189,7 @@ h1 {
       color: white;
       font-size: 55px; }
   .contactCard .connect {
-    margin: auto auto 15% auto;
+    margin: auto auto 10% auto;
     width: 50%;
     border: none;
     border-radius: 10px;
@@ -2174,18 +2218,118 @@ h1 {
   grid-template-columns: repeat(10, minmax(300px, 1fr));
   grid-template-rows: minmax(95%, 95%);
   column-gap: 1vw;
-  height: 80%;
+  height: 83%;
   margin-top: 1%;
   overflow-x: scroll;
   overflow-y: hidden; }
 
 .therapistSection {
-  height: 50%;
+  height: 49%;
   width: 100%; }
 
 .indevidualSection {
-  height: 50%;
+  height: 49%;
   width: 100%; }
+
+body {
+  font-family: 'Cachet', sans-serif;
+  -webkit-font-smoothing: antialiased; }
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Cachet', sans-serif; }
+
+.register-container {
+  width: 450px;
+  height: 700px;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
+  color: black;
+  margin: auto;
+  margin-top: 70px;
+  position: relative;
+  padding: 20px;
+  text-align: left; }
+
+.login-container {
+  width: 450px;
+  height: 520px;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
+  color: black;
+  margin: auto;
+  margin-top: 70px;
+  position: relative;
+  padding: 20px;
+  text-align: left; }
+
+.field-container {
+  border-radius: 8px;
+  box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04); }
+
+.box-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 0px;
+  margin-top: 0px;
+  background-color: #F1F1F1; }
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #F1F1F1; }
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none; }
+
+hr {
+  height: 3px;
+  background-color: #000000;
+  border: none;
+  width: 100%;
+  margin: 20px;
+  margin-left: 0px; }
+
+h1 {
+  font-size: 28px;
+  color: black;
+  margin: auto; }
+
+.btn {
+  background: linear-gradient(155.54deg, #2F4CDD 15.63%, #D45BFF 136.34%);
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  opacity: 0.9;
+  justify-content: center;
+  border-radius: 20px;
+  box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
+  font-size: 18px;
+  font-weight: 500; }
+
+.btn:hover {
+  opacity: 1;
+  border-radius: 20px;
+  box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04); }
+
+a {
+  color: dodgerblue; }
+
+.signin {
+  background-color: #F1F1F1;
+  text-align: center; }
 
 body {
   margin-top: 0vh;

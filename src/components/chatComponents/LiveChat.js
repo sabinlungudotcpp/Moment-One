@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../GenericComponents/Header";
 import searchIcon from "../../imageAssets/Icons/General/search.png"
 import Contact from "./contact"
+import ChatBubble from "./chatBubble";
 
     /**
  * @fileoverview: returns the live chat page that displays a users contacts and allows chatting with a person
@@ -12,14 +13,13 @@ import Contact from "./contact"
 
 const LiveChat = () => { // Live Chat component
 
+
   return (
     <div className = "Page">
        <Header title="Chat" blueTitle="Chat " grayTitle="&nbsp;| current person?"/>
       <div className="pageContent">
         <div className = "chatWindow">
           <div className = "contacts">
-
-
 
             {/* allows user to search contacts */}
             <form className="searchbar">
@@ -39,6 +39,19 @@ const LiveChat = () => { // Live Chat component
               <div className = "overlay">
                 <h1>@username</h1>
               </div>
+              <div className="message">
+                <ChatBubble chat="Sup dude!"/>
+                <ChatBubble chat="Sup dude!"/>
+                <ChatBubble chat="Sup dude!"/>
+                <ChatBubble chat="Sup dude!"/>
+                <ChatBubble chat="Sup dude!"/>
+                <ChatBubble chat="Sup dude!"/>
+                <ChatBubble chat="Sup dude!"/>
+                <ChatBubble chat="Sup dude!"/>
+                <ChatBubble chat="Sup dude!"/>
+                <ChatBubble chat="Sup dude!"/>
+              </div>
+              
             </div>
             <form className="messageInput">
               <input type="text" id = "message" className = "messageBox" placeholder="Type a message..."></input>

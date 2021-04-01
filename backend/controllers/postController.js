@@ -3,6 +3,15 @@ const okCode = 200;
 const createdCode = 201;
 const serverError = 500;
 
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @function: getAllPosts()
+ * @returns: Returns a response by the server with a status code of 200 OK if the request/response is successful, if an error occurs it returns a 404 not found status code
+ * @description: The getAllPosts() controller function is responsible for retrieving all of the posts from the database
+ */
+
 exports.getAllPosts = async (request, response) => { // Controller function to get all the posts
     try {
         const method = request.method;
@@ -30,7 +39,17 @@ exports.getAllPosts = async (request, response) => { // Controller function to g
     }
 }
 
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @function: getPostByID(request, response)
+ * @returns: Returns a response by the server with a status code of 200 OK, if an error occurs it returns a 404 not found status code
+ * @description: getPostByID() - this middleware function is used to retrieve a specific post by its ID.
+ */
+
 exports.getPostByID = async (request, response) => { // Retrieves a POST BY ITS ID
+
     try {
         const method = request.method;
         
@@ -43,7 +62,9 @@ exports.getPostByID = async (request, response) => { // Retrieves a POST BY ITS 
     } 
     
     catch(error) {
+
         if(error) {
+
             return response.json({
                 message: error.message
             });
@@ -51,12 +72,22 @@ exports.getPostByID = async (request, response) => { // Retrieves a POST BY ITS 
     }
 }
 
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @param {next}: Next is a function called that executes the next function in the middleware stack, if not called then requests made by clients to the server could hang.
+ * @function: createNewPost()
+ * @returns: Returns a response by the server with a status code of 201 Created, if an error occurs it returns a 404 not found status code
+ * @description: Middleware function responsible for creating a new post on the server by passing the request body as data
+ */
+
+
 exports.createNewPost = async(request, response) => { // Controller function to create a new post
     try {
         const method = request.method;
         
         const {title, description, feeling, category, selfAware} = request.body;
-        //const createdBy = request.User.id; //Getting user _id for the user creating the post
 
         if(!title || !description || !feeling || !category || !selfAware) { // If there is no title or description
             return response.status(serverError).json({
@@ -65,8 +96,8 @@ exports.createNewPost = async(request, response) => { // Controller function to 
         }
         
         if(method === 'POST') {
-            const newPost = new postModel({title, description, feeling, category, selfAware});
-            await newPost.save();
+            const newPost = new postModel({title, description, feeling, category, selfAware}); // Creates a new post
+            await newPost.save(); // Save the post
 
             return response.status(createdCode).json({newPost, createdAt: Date.now()});
         }
@@ -78,6 +109,16 @@ exports.createNewPost = async(request, response) => { // Controller function to 
         }
     }
 }
+
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @param {next}: Next is a function called that executes the next function in the middleware stack, if not called then requests made by clients to the server could hang.
+ * @function: checkBody(request, response)
+ * @returns: Returns a response by the server with a status code of 200 OK, if an error occurs it returns a 404 not found status code
+ * @description: checkBody() is used to verify that there is valid data passed into the body and returns an error if not there is no body.
+ */
 
 exports.editPost = async (request, response) => {
     try {
@@ -108,6 +149,15 @@ exports.editPost = async (request, response) => {
     }
 }
 
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @function: checkBody(request, response)
+ * @returns: Returns a response by the server with a status code of 200 OK, if an error occurs it returns a 404 not found status code
+ * @description: checkBody() is used to verify that there is valid data passed into the body and returns an error if not there is no body.
+ */
+
 exports.deleteAllPosts = async (request, response) => { // Route for DELETING all posts
     try {
         const method = request.method;
@@ -130,6 +180,15 @@ exports.deleteAllPosts = async (request, response) => { // Route for DELETING al
         }
     }
 }
+
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @function: deletePostByID(request, response)
+ * @returns: Returns a response by the server with a status code of 204 No Content, if an error occurs it returns a 404 not found status code
+ * @description: This Middleware function is used to delete a post by specifying its ID.
+ */
 
 exports.deletePostByID = async (request, response) => {
     try {

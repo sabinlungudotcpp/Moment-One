@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Open+Sans';
++@import 'https://fonts.googleapis.com/css?family=Open+Sans';
 
 
 body {
@@ -14,7 +14,7 @@ body {
 }
 
 
-.register-container  {
+.register-container {
   width: 450px;
   height: 700px;
   max-width: 80%;
@@ -30,7 +30,7 @@ body {
 }
 
 
-.login-container  {
+.login-container {
   width: 450px;
   height: 520px;
   max-width: 80%;
@@ -47,14 +47,14 @@ body {
 
 
 .field-container {
-  border-radius: 8px;
-  box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
+  border-radius: 8px !important;
+  box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04) !important;
 }
 
 
 .box-grid {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, auto) ;
   gap: 0px;
   margin-top: 0px;
   background-color: #F1F1F1;
@@ -72,6 +72,36 @@ input[type=text], input[type=password] {
 
 
 input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+input[type=text], input[type=username] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #F1F1F1;
+}
+
+
+input[type=text]:focus, input[type=username]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+input[type=text], input[type=email] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #F1F1F1;
+}
+
+
+input[type=text]:focus, input[type=email]:focus {
   background-color: #ddd;
   outline: none;
 }

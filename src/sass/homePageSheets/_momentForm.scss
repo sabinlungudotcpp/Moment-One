@@ -11,6 +11,8 @@
     box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
     overflow:hidden;
     border-radius: 25px;
+    display:flex;
+    flex-direction: column;
         //top section where user selects their current feeling
         &_top-section{
 
@@ -74,6 +76,8 @@
         &_center-section{
             height:15%;
             padding:20px;
+            margin-top: auto;
+            margin-bottom: auto;
             p{
                 @include montserratFont(dark,colour(P,db),22px);
             }
@@ -118,7 +122,6 @@
         }
         //section for user text input and button submission of the form
         &_bottom-section{
-
             border-radius: 25px;
             height:55%;
             background-color: colour(P,db);
@@ -127,7 +130,7 @@
             padding-left:10%;
             padding-right: 10%;
             padding-top:3vh;
-            
+            margin-top: auto;
             p{
                 white-space: nowrap;
                 @include montserratFont(600,colour(F,wh),20px);

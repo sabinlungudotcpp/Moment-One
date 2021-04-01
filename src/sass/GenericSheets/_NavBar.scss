@@ -154,7 +154,7 @@
       &_active {
         background-color: #FAFBFF;
         border-left:5px solid colour(P,db);
-        @include PoppinsFont(600,colour(P,db),18px);
+        @include PoppinsFont(500,colour(P,db),18px);
         
       }
       &_active .icon{

@@ -7,9 +7,27 @@ const okCode = 200;
 const unauthorized = 401;
 const unprocessable = 422;
 
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @function: signToken(id)
+ * @returns: Returns a JSON Web Token that is signed with an expiry date
+ * @description: This function is used to sign a JWT token to enable therapist authentication
+ */
+
 const signToken = (id) => { // Signs the JWT token
     return jwt.sign({id}, process.env.TOKEN_SECRET, {expiresIn:'28d'});
 }
+
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @function: getPostByID(request, response)
+ * @returns: Returns a response by the server with a status code of 200 OK, if an error occurs it returns a 404 not found status code
+ * @description: getPostByID() - this middleware function is used to retrieve a specific post by its ID.
+ */
 
 exports.registerUser = async (request, response) => {
     try {

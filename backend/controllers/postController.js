@@ -54,6 +54,7 @@ exports.getPostByID = async (request, response) => { // Retrieves a POST BY ITS 
         const method = request.method;
         
         if(method === 'GET') {
+
             const id = request.params.id;
             const postId = await postModel.findById(id);
 
@@ -61,8 +62,7 @@ exports.getPostByID = async (request, response) => { // Retrieves a POST BY ITS 
         }
     } 
     
-    catch(error) {
-
+    catch(error) { // If there is an error
         if(error) {
 
             return response.json({
@@ -115,9 +115,9 @@ exports.createNewPost = async(request, response) => { // Controller function to 
  * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
  * @param {response}: Stores the response data sent back by the server
  * @param {next}: Next is a function called that executes the next function in the middleware stack, if not called then requests made by clients to the server could hang.
- * @function: checkBody(request, response)
+ * @function: editPost(request, response)
  * @returns: Returns a response by the server with a status code of 200 OK, if an error occurs it returns a 404 not found status code
- * @description: checkBody() is used to verify that there is valid data passed into the body and returns an error if not there is no body.
+ * @description: The Edit Post middleware function is used to modify an existing post by changing its request body, also the function is asynchronous which means that it could take some time to edit a post in the database
  */
 
 exports.editPost = async (request, response) => {
@@ -132,7 +132,7 @@ exports.editPost = async (request, response) => {
         }
 
         if(method === 'PATCH') {
-            const updatedPost = await postModel.findByIdAndUpdate(id, request.body);
+            const updatedPost = await postModel.findByIdAndUpdate(id, request.body); // Updates the post by awaiting the result
             
             return response.json({
                 updatedPost

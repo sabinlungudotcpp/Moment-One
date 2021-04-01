@@ -27,7 +27,7 @@ const PostSchema = new mongoose.Schema({
         required: true
     },
 
-    selfAware: {
+    selfAware: { // Stores either true or false if the individuals are self aware of their feelings
         type: Boolean,
         required: true
     },

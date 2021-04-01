@@ -191,9 +191,9 @@ class momentForm extends React.Component {
 
                     <div className="selfAware_wrapper">
                         <p>Do you feel self aware?</p>
-                        <label class="switch">
+                        <label className="switch">
                             <input type="checkbox" name="selfAware" onClick={e => this.awareToggle(e)} />
-                            <span class="slider round"></span>
+                            <span className="slider round"></span>
                         </label>
                     </div>
 

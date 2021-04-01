@@ -69,12 +69,22 @@ exports.getPostByID = async (request, response) => { // Retrieves a POST BY ITS 
     }
 }
 
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @param {next}: Next is a function called that executes the next function in the middleware stack, if not called then requests made by clients to the server could hang.
+ * @function: createNewPost()
+ * @returns: Returns a response by the server with a status code of 201 Created, if an error occurs it returns a 404 not found status code
+ * @description: Middleware function responsible for creating a new post on the server by passing the request body as data
+ */
+
+
 exports.createNewPost = async(request, response) => { // Controller function to create a new post
     try {
         const method = request.method;
         
         const {title, description, feeling, category, selfAware} = request.body;
-        //const createdBy = request.User.id; //Getting user _id for the user creating the post
 
         if(!title || !description || !feeling || !category || !selfAware) { // If there is no title or description
             return response.status(serverError).json({
@@ -83,8 +93,8 @@ exports.createNewPost = async(request, response) => { // Controller function to 
         }
         
         if(method === 'POST') {
-            const newPost = new postModel({title, description, feeling, category, selfAware});
-            await newPost.save();
+            const newPost = new postModel({title, description, feeling, category, selfAware}); // Creates a new post
+            await newPost.save(); // Save the post
 
             return response.status(createdCode).json({newPost, createdAt: Date.now()});
         }

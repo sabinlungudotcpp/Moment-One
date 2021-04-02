@@ -10,6 +10,7 @@ const notFound = 404;
  * @function: Exported middleware function that performs a search
  * @returns: Returns a JSON Web Token that is signed with an expiry date
  * @description: 1. A check is made to verify if a search has been performed, if not then the server responds with an error
+ * @description: 2. If there's a GET request, search for a username by selecting the username, otherwise if the result array length is 0, return no results found 404 error.
  */
 
 module.exports = async (request, response) => {
@@ -31,9 +32,7 @@ module.exports = async (request, response) => {
             }).select('username');
 
             if (result.length === 0) {
-                return response.status(404).json({ 
-                    message: 'No matching results'
-                });
+                return response.status(notFound).json({ message: 'No matching results'});
             }
            
             else {
@@ -44,6 +43,7 @@ module.exports = async (request, response) => {
     }
     
     catch(error) {
+        
         if(error) {
             return response.status(notFound).json({
                 message: error.message

@@ -37,9 +37,7 @@ exports.registerUser = async (request, response) => {
         const {username, password, email} = request.body;
 
         if(!username || !password || !email) {
-            return response.status(unprocessable).json({ // Send back an unprocessable response
-                message: 'You must provide an e-mail and password'
-            })
+            return response.status(unprocessable).json({message: 'You must provide an e-mail and password'})
         }
 
         if(method === 'POST') {

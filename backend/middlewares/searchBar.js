@@ -1,5 +1,6 @@
 //Backend code for implementing a search bar in the momentone platform
 const account = require('../models/accountModel');
+const badRequest = 400;
 
 module.exports = async (request, response) => {
     try {
@@ -8,7 +9,7 @@ module.exports = async (request, response) => {
         
         //Testing whether the search query is empty
         if(!search) { 
-            return response.status(400).json({ //returning a http bad request error 
+            return response.status(badRequest).json({ //returning a http bad request error 
                 message: 'Search query cannot be empty'
             });
         }

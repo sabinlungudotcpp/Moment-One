@@ -24,9 +24,10 @@ const signToken = (id) => { // Signs the JWT token
  * @author: Sabin Constantin Lungu
  * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
  * @param {response}: Stores the response data sent back by the server
- * @function: getPostByID(request, response)
+ * @function: async registerUser(request, response)
  * @returns: Returns a response by the server with a status code of 200 OK, if an error occurs it returns a 404 not found status code
- * @description: getPostByID() - this middleware function is used to retrieve a specific post by its ID.
+ * @description: 1. The Register User middleware function takes the type of user to register, their username, password and email from the request body and if there is no username, password or email specified then the server returns with a status code of 422
+ * @description: 2. The function is asynchronous which means that it will take a while to register a user by sending a POST request
  */
 
 exports.registerUser = async (request, response) => {
@@ -61,23 +62,36 @@ exports.registerUser = async (request, response) => {
     }
 };
 
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @function: async registerTherapist(request, response)
+ * @returns: Returns a response by the server with a status code of 200 OK, if an error occurs it returns a 404 not found status code
+ * @description: 1. The Register Therapist middleware function is used to register a therapist's account on the web app with their first name, last name, username, password, email address, telephone number, city and country
+ * @description: The function then signs a unique JWT for the therapist to uniquely identify itself.
+ * @description: 2. The function is asynchronous which means that it will take a while to register a user by sending a POST request
+ */
+
 exports.registerTherapist = async (request, response) => { // Middleware function to register a therapist
     try {
+
         const method = request.method;
         const type = 'Therapist'
         
         const { firstName, lastName, username, password, email, telephone, city, country} = request.body; // The data coming from the body
 
         if(method === 'POST') {
+
             const therapist = new therapistModel({firstName, lastName, username, password, email, telephone, city, country, type});
-            console.log(therapist)
             await therapist.save(); // Save the details to the database
 
-            const token = signToken(therapist._id);
+            const token = signToken(therapist._id); // Signs a JWT for a therapist
 
             return response.status(okCode).json({
                 status: 'Success',
                 data: {
+
                     therapist,
                     token,
                     createdAt: new Date().toISOString()

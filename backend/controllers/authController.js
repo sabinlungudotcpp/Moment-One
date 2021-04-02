@@ -108,12 +108,23 @@ exports.registerTherapist = async (request, response) => { // Middleware functio
     }
 };
 
-exports.login = catchAsync(async (request, response) => { // Controller function to log in users
-    try {
-        const method = request.method; // The request method
-        const {username, password} = request.body; // The request body
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @function: async registerTherapist(request, response)
+ * @returns: Returns a response by the server with a status code of 200 OK, if an error occurs it returns a 404 not found status code
+ * @description: The function then signs a unique JWT for the therapist to uniquely identify itself.
+ * @description: 2. The function is asynchronous which means that it will take a while to register a user by sending a POST request
+ * @description: 3. The function checks if the user provided a valid username or password, if not then it throws an error, otherwise it checks and compares the user password, if they don't match then an error is thrown, otherwise signs a unique JWT and logs that user in
+ */
 
-        if(!username || !password) { // If there is no e-mail or password
+exports.login = catchAsync(async (request, response) => { // Controller function to log in a user
+    try {
+        const method = request.method; 
+        const {username, password} = request.body; 
+
+        if(!username || !password) { 
             return response.status(unauthorized).json({
                 message: 'You must provide an e-mail or password',
                 sentAt: new Date().toISOString()
@@ -121,7 +132,7 @@ exports.login = catchAsync(async (request, response) => { // Controller function
         }
 
         if(method === 'POST') {
-            const user = await account.findOne({username}); // Find a user
+            const user = await account.findOne({username});
            
             if(!user || !(await user.comparePasswords(password, user.password))) {
                 
@@ -131,7 +142,8 @@ exports.login = catchAsync(async (request, response) => { // Controller function
                 })
             }
 
-            const token = signToken(user._id);
+            const token = signToken(user._id); // Sign the JWT
+
             return response.status(okCode).json({
                 message: `You are logged in as ${username} with token ${token}`
             });

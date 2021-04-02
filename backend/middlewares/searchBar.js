@@ -1,46 +1,51 @@
-//Backend code for implementing a search bar in the momentone platform
 const account = require('../models/accountModel');
+const okCode = 200;
 const badRequest = 400;
+const notFound = 404;
+
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @function: Exported middleware function that performs a search
+ * @returns: Returns a JSON Web Token that is signed with an expiry date
+ * @description: 1. A check is made to verify if a search has been performed, if not then the server responds with an error
+ */
 
 module.exports = async (request, response) => {
     try {
-        const search = request.body.search; //getting the search query from the request body 
-        const method = request.method; //getting the http request method 
+        const search = request.body.search;
+        const method = request.method;
         
-        //Testing whether the search query is empty
         if(!search) { 
-            return response.status(badRequest).json({ //returning a http bad request error 
-                message: 'Search query cannot be empty'
-            });
+            return response.status(badRequest).json({message: 'Search query cannot be empty'});
         }
 
-        //Testing to make sure that the request method is GET
         if(method === 'GET') {
            
             const result = await account.find({
-                username: { //Searching based on username
-                    $regex: search, //Using the regex option to look for users with the search query. This means that user only needs to enter part of the username
-                    $options: 'i' //Setting the regex to not be case sensitive
+                username: {
+                    $regex: search,
+                    $options: 'i' 
                 }
-            }).select('username'); //Telling the find query to only return the username field. _id is also included 
+            }).select('username');
 
-            //testing to check if the Array is empty
             if (result.length === 0) {
-                return response.status(404).json({ //returning an error if no matches were found
+                return response.status(404).json({ 
                     message: 'No matching results'
                 });
             }
-            //returning the list of usernames if the Array is not empty
+           
             else {
-                return response.status(200).json(result);
+                return response.status(okCode).json(result);
             }
 
         }
     }
-    //catching errors
+    
     catch(error) {
         if(error) {
-            return response.status(404).json({
+            return response.status(notFound).json({
                 message: error.message
             });
         }

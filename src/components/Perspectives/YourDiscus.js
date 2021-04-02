@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import FormCard from "./ForumCard";
 import axios from "axios";
 
-    /**
+/**
  * @fileoverview: returns the users form posts
  * @author: Ryan Spowart
  * @component App() - Returns JSX

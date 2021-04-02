@@ -25,7 +25,8 @@ class momentForm extends React.Component {
         date: new Date().toLocaleString()
       }
     }
-
+  }
+  componentDidMount() {
     //gets the posts on load
     this.getPosts();
   }

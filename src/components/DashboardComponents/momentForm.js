@@ -26,9 +26,12 @@ class momentForm extends React.Component {
                 category: '', // Category of the moment
                 feeling: '', // User feeling attribute
                 selfAware: false,
-            }
+            },
+            error:'',
         }
     }
+
+    
 
     // Resets the form after submission
     resState() {
@@ -49,7 +52,7 @@ class momentForm extends React.Component {
 
     validate() {
 
-        if(this.state.moment.title === ' ') { // If the title is empty
+        if(this.state.moment.title === '') { // If the title is empty
             return "Please enter whats on your mind";
         }
         
@@ -89,11 +92,9 @@ class momentForm extends React.Component {
     // Log the results and post the results over to the database
     onSubmit = async (e) => {
         e.preventDefault();
-
         this.setState({error:this.validate()});
 
-        if(this.state.error === ' ') {
-
+        if(this.state.error === '') {
             await axios.post('http://localhost:8001/api/v1/momentone/posts', this.state.moment);
             this.resState();   
         }
@@ -190,9 +191,9 @@ class momentForm extends React.Component {
 
                     <div className="selfAware_wrapper">
                         <p>Do you feel self aware?</p>
-                        <label class="switch">
+                        <label className="switch">
                             <input type="checkbox" name="selfAware" onClick={e => this.awareToggle(e)} />
-                            <span class="slider round"></span>
+                            <span className="slider round"></span>
                         </label>
                     </div>
 

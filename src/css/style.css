@@ -85,19 +85,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import 'https://fonts.googleapis.com/css?family=Open+Sans';
 .navbar {
-  background-color: #ff00d4;
+  background-color: white;
   overflow: hidden;
   width: 100px;
   height: 100vh;
   position: absolute;
   float: left;
-  background-color: #ff00d4;
+  background-color: white;
   transition: width 1s ease;
   transition-delay: 0.2s;
   z-index: 1000;
@@ -235,7 +241,7 @@
       border-left: 5px solid #2F4CDD;
       font-family: 'Poppins', sans-serif;
       font-style: normal;
-      font-weight: 600;
+      font-weight: 500;
       color: #2F4CDD;
       font-size: 18px; }
     .navbar .navbar_link_active .icon {
@@ -278,7 +284,6 @@
   height: 100vh;
   margin-left: 100px;
   float: left;
-  border-radius: 25px 25px 25px 25px;
   overflow-x: visible;
   overflow-y: hidden; }
 
@@ -332,7 +337,7 @@ h1 {
     .contentGrid .infoWrap .therapists {
       margin-left: auto;
       margin-right: auto;
-      background-color: #ff00d4;
+      background-color: white;
       width: 400px;
       height: 650px;
       display: flex;
@@ -386,7 +391,7 @@ h1 {
       margin-left: auto;
       margin-right: auto;
       margin-top: auto;
-      background-color: #ff00d4;
+      background-color: white;
       height: 400px;
       width: 400px;
       display: flex;
@@ -415,7 +420,7 @@ h1 {
   align-items: center;
   width: 100%;
   height: 6vh;
-  background-color: #ff00d4; }
+  background-color: white; }
   .headerTop .searchbar {
     display: flex;
     padding-left: 10px;
@@ -435,16 +440,16 @@ h1 {
       margin-top: auto;
       margin-bottom: auto;
       cursor: pointer; }
-    .headerTop .searchbar .search {
+    .headerTop .searchbar .searchHead {
       font-family: 'Poppins', sans-serif;
       font-style: normal;
       font-weight: 500;
       color: black;
       font-size: 20px;
       width: 95%;
-      margin: auto;
       background-color: #FDFDFD;
-      border: none; }
+      border: none;
+      padding: none; }
     .headerTop .searchbar textarea:focus, .headerTop .searchbar .search:focus {
       outline: none; }
   .headerTop .navIcons {
@@ -507,13 +512,13 @@ h1 {
         background-color: gray;
         border-radius: 50%;
         border: 3px solid white;
-        width: 3.2vh;
-        height: 3.2vh;
+        width: 3.5vh;
+        height: 3.5vh;
         position: absolute;
         margin-left: 140px; }
 
 .headerBottom {
-  height: 4vh;
+  height: 5vh;
   padding-top: 2vh;
   padding-bottom: 2vh;
   display: flex;
@@ -558,20 +563,24 @@ h1 {
 .momentForm {
   margin-left: auto;
   margin-right: auto;
-  background-color: #ff00d4;
+  background-color: white;
   margin-left: auto;
   height: 100%;
   width: 100%;
   box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
   overflow: hidden;
-  border-radius: 25px; }
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column; }
   .momentForm_top-section {
-    height: 20%;
+    height: 25%;
     border: 3px solid #2F4CDD;
     border-radius: 25px;
     text-align: center;
     padding-top: 2%;
-    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15); }
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column; }
     .momentForm_top-section h2 {
       font-family: Montserrat, sans-serif;
       font-style: normal;
@@ -580,14 +589,15 @@ h1 {
       color: #2F4CDD;
       font-size: 22px; }
     .momentForm_top-section .feelingWrapper {
-      height: 30%;
+      height: 50%;
       display: flex;
       flex: row;
+      margin: auto;
       margin-left: 10%;
       margin-right: 10%; }
       .momentForm_top-section .feelingWrapper .feelingSelect {
         border: none;
-        background-color: #ff00d4;
+        background-color: white;
         font-family: Montserrat, sans-serif;
         font-style: normal;
         font-weight: 600;
@@ -609,7 +619,7 @@ h1 {
           width: 50px;
           height: 50px;
           transition: 0.2s linear;
-          background-color: #ff00d4; }
+          background-color: white; }
         .momentForm_top-section .feelingWrapper .feelingSelect .feelingButton {
           cursor: pointer;
           border: none; }
@@ -621,8 +631,10 @@ h1 {
           height: 0px;
           width: 0px; }
   .momentForm_center-section {
-    height: 15%;
-    padding: 20px; }
+    height: 10%;
+    padding-left: 13%;
+    margin-top: auto;
+    margin-bottom: auto; }
     .momentForm_center-section p {
       font-family: Montserrat, sans-serif;
       font-style: normal;
@@ -634,8 +646,7 @@ h1 {
       display: flex;
       align-content: center;
       flex-wrap: wrap;
-      width: 100%;
-      margin-top: 2%; }
+      width: 100%; }
       .momentForm_center-section .category_wrap .category_select {
         margin: 1%;
         display: flex; }
@@ -649,7 +660,7 @@ h1 {
           font-size: 18px;
           white-space: nowrap;
           display: flex;
-          background-color: #ff00d4;
+          background-color: white;
           border-radius: 25px;
           height: 30;
           padding-right: 20px;
@@ -674,7 +685,8 @@ h1 {
     box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25);
     padding-left: 10%;
     padding-right: 10%;
-    padding-top: 3vh; }
+    padding-top: 3vh;
+    margin-top: auto; }
     .momentForm_bottom-section p {
       white-space: nowrap;
       font-family: Montserrat, sans-serif;
@@ -818,7 +830,7 @@ h1 {
     display: flex;
     height: 100%;
     width: 45%;
-    background-color: #ff00d4;
+    background-color: white;
     box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
     border-radius: 20px; }
   .momentsAnswersWrap .answersRecieved {
@@ -826,7 +838,7 @@ h1 {
     margin-left: auto;
     height: 100%;
     width: 45%;
-    background-color: #ff00d4;
+    background-color: white;
     box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
     border-radius: 20px; }
   .momentsAnswersWrap .textWrap {
@@ -926,7 +938,7 @@ h1 {
       width: 100%;
       padding: 20px 0px 20px 0px;
       display: flex;
-      background-color: #ff00d4;
+      background-color: white;
       border-radius: 25px;
       margin-bottom: 2vh;
       transition: 0.5s linear;
@@ -1009,7 +1021,7 @@ h1 {
     width: 100%;
     height: 100%; }
     .journeyContentGrid .profileMomentsWrap .profile {
-      background-color: #ff00d4;
+      background-color: white;
       border-radius: 75px 25px 25px 25px;
       width: 100%;
       height: 25%;
@@ -1059,9 +1071,9 @@ h1 {
       margin-top: 30px;
       height: 76%;
       width: 100%;
-      background-color: #ff00d4; }
+      background-color: white; }
   .journeyContentGrid .community {
-    background-color: #ff00d4;
+    background-color: white;
     width: 90%;
     height: 80vh;
     padding: 20px; }
@@ -1075,13 +1087,13 @@ h1 {
     width: 100%;
     height: 100%; }
     .journeyContentGrid .awarenessGrowthWrap .selfAwareness {
-      background-color: #ff00d4;
+      background-color: white;
       height: 50%;
       width: 100%;
       margin-bottom: 5%; }
 
 .goals {
-  background-color: #ff00d4;
+  background-color: white;
   height: 50%;
   width: 100%;
   text-align: left; }
@@ -1206,7 +1218,7 @@ h1 {
     height: 8vh;
     width: 8vh;
     border-radius: 50%;
-    background-color: #ff00d4;
+    background-color: white;
     margin: auto;
     transition: 0.3s linear;
     display: flex;
@@ -1220,7 +1232,7 @@ h1 {
       height: 100px;
       width: 100px; }
   .momentOverlay .momentContainer {
-    background-color: #ff00d4;
+    background-color: white;
     margin: auto;
     height: 70vh;
     width: 50vw;
@@ -1627,7 +1639,7 @@ h1 {
     height: 100vh;
     width: 70%;
     min-width: 900px;
-    background-color: #ff00d4;
+    background-color: white;
     border-radius: 20px;
     box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04); }
     .pageScroll .moreDiscussions .contentWrapper {
@@ -1755,7 +1767,7 @@ h1 {
   height: 100%;
   width: 25%;
   min-width: 350px;
-  background-color: #ff00d4;
+  background-color: white;
   box-shadow: 0px 5px 6px rgba(141, 40, 173, 0.05);
   border-radius: 20px;
   display: flex;
@@ -1849,7 +1861,7 @@ h1 {
     box-shadow: 2px 10px 14px -2px rgba(0, 0, 0, 0.26); }
   .chatBubble .bubble {
     margin-left: 1%;
-    background-color: #ff00d4;
+    background-color: white;
     border-radius: 20px;
     width: 40%;
     box-shadow: 2px 10px 14px -2px rgba(0, 0, 0, 0.26); }
@@ -1869,7 +1881,7 @@ h1 {
     margin: auto;
     width: 90vw;
     height: 80vh;
-    background-color: #ff00d4;
+    background-color: white;
     border-radius: 20px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     display: flex; }
@@ -1915,7 +1927,7 @@ h1 {
     .pageContent .chatWindow .chat {
       width: 80%;
       height: 100%;
-      background-color: rgba(0, 132, 255, 0.5); }
+      background-color: rgba(249, 249, 249, 0.5); }
       .pageContent .chatWindow .chat .messageBox {
         height: 85%;
         width: 100%;
@@ -1926,7 +1938,7 @@ h1 {
           height: 10%;
           border-radius: 0px 20px 0px 0px;
           position: absolute;
-          background-color: rgba(0, 132, 255, 0.5);
+          background-color: rgba(249, 249, 249, 0.5);
           box-shadow: 2px 10px 14px -2px rgba(0, 0, 0, 0.26);
           display: flex;
           z-index: 500; }
@@ -2009,7 +2021,11 @@ h1 {
   display: flex;
   margin-top: 3vh;
   overflow-y: scroll;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */ }
   .profileContent .leftSection {
     min-width: 300px;
     width: 15vw;
@@ -2029,7 +2045,7 @@ h1 {
   width: 100%;
   box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
   border-radius: 20px;
-  background-color: #ff00d4;
+  background-color: white;
   display: flex;
   flex-direction: column; }
   .userAndGoals .profilePicture {
@@ -2084,8 +2100,8 @@ h1 {
       line-height: 21px;
       margin: 5%; }
     .userAndGoals .goal .progress {
-      height: 20%;
-      width: 90%;
+      height: 30%;
+      width: 100%;
       background-color: #FF6D4D;
       border-radius: 20px;
       margin-top: auto;
@@ -2094,7 +2110,7 @@ h1 {
       .userAndGoals .goal .progress .imgWrap {
         margin-top: auto;
         margin-bottom: auto;
-        background-color: #ff00d4;
+        background-color: white;
         border-radius: 50%;
         height: 49px;
         width: 49px;
@@ -2117,7 +2133,7 @@ h1 {
 
 .levelTrack {
   width: 100%;
-  background-color: #ff00d4;
+  background-color: white;
   border-radius: 20px;
   height: 40%;
   margin-top: 3vh;
@@ -2131,26 +2147,45 @@ h1 {
     font-size: 20px; }
 
 .therAndSupport {
-  height: 30%;
+  height: 45%;
   width: 100%;
   box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
   border-radius: 20px;
-  background-color: #ff00d4; }
-  .therAndSupport h2 {
-    margin: 5% auto 5% 5%;
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    color: black;
-    font-size: 20px; }
+  background-color: white;
+  display: flex; }
+  .therAndSupport .titleSec {
+    height: 15%;
+    border-bottom: solid 3px #F9F9F9;
+    display: flex;
+    margin-bottom: auto;
+    margin-top: 0%; }
+    .therAndSupport .titleSec h2 {
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: 5%;
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      color: black;
+      font-size: 20px; }
+  .therAndSupport .favouriteTherapists {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; }
+  .therAndSupport .yourGoals {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; }
 
 .personalGrowth {
   margin-top: auto;
-  height: 45vh;
+  height: 50%;
   width: 100%;
   box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
   border-radius: 20px;
-  background-color: #ff00d4; }
+  background-color: white; }
   .personalGrowth h2 {
     margin: 2% auto 0px 2%;
     font-family: 'Poppins', sans-serif;
@@ -2159,10 +2194,115 @@ h1 {
     color: black;
     font-size: 20px; }
 
+.therapist {
+  height: 20%;
+  width: 90%;
+  margin-left: 2%;
+  margin: auto 0% auto 5%;
+  display: flex; }
+  .therapist .icon {
+    height: 90px;
+    width: 90px;
+    background-color: #2F4CDD;
+    border-radius: 12px;
+    margin-top: auto;
+    margin-bottom: auto; }
+  .therapist .textWrap {
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 75%; }
+    .therapist .textWrap .category {
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      color: #2F4CDD;
+      font-size: 12px;
+      margin-top: 0%; }
+    .therapist .textWrap h2 {
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      color: black;
+      font-size: 20px;
+      margin-top: 1%; }
+    .therapist .textWrap p {
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      color: #A2A2A4;
+      font-size: 12px;
+      margin-top: 1%;
+      margin-bottom: auto; }
+  .therapist img {
+    height: 44px;
+    width: 44px;
+    cursor: pointer;
+    margin: auto;
+    margin-right: 0%; }
+
+.goalList {
+  margin: auto 0% auto 5%;
+  display: flex;
+  width: 100%;
+  height: 20%;
+  margin-left: 5%; }
+  .goalList .icon {
+    height: 90px;
+    width: 90px;
+    background-color: #FF6D4D;
+    border-radius: 12px;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex; }
+    .goalList .icon .circle {
+      border-radius: 50%;
+      border: 3px solid white;
+      height: 80%;
+      width: 80%;
+      margin: auto;
+      display: flex; }
+      .goalList .icon .circle h1 {
+        margin: auto;
+        text-align: center;
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        color: #fff;
+        font-size: 16px; }
+  .goalList .contentWrap {
+    margin: auto auto auto 5%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 60%; }
+    .goalList .contentWrap .title {
+      margin-top: 5%;
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      color: black;
+      font-size: 20px; }
+    .goalList .contentWrap .desc {
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      color: black;
+      font-size: 14px;
+      width: 100%; }
+  .goalList img {
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    margin: auto;
+    margin-right: 10%; }
+
 .contactCard {
   width: 100%;
   height: 100%;
-  background-color: #ff00d4;
+  background-color: white;
   border-radius: 20px;
   box-shadow: 0px 5px 6px rgba(141, 40, 173, 0.05);
   display: flex;
@@ -2335,4 +2475,4 @@ body {
   margin-top: 0vh;
   height: 100vh;
   width: 100vw;
-  background-color: #0084ff; }
+  background-color: #F9F9F9; }

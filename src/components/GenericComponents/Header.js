@@ -14,7 +14,7 @@ const Dashboard = (props) => {
     <>
     <div className = "headerTop">
       <form className="searchbar">
-        <input type="text" id = "search" className = "search" placeholder="Search..."></input>
+        <input type="text" id = "search" className = "searchHead" placeholder="Search..."></input>
         <img className = "seachIcon" src = {searchIcon} alt="search"/>
       </form>
       

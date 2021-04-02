@@ -11,25 +11,29 @@
     box-shadow: 0px 4px 24px rgba(158, 158, 158, 0.25), 0px 4px 24px #C4C4C4;
     overflow:hidden;
     border-radius: 25px;
+    display:flex;
+    flex-direction: column;
         //top section where user selects their current feeling
         &_top-section{
 
-            height:20%;
+            height:25%;
             border:3px solid colour(P,db);
             border-radius: 25px;
             text-align: center;
             padding-top:2%;
             box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15);
-
+            display:flex;
+            flex-direction: column;
 
             h2{
                 @include montserratFont(dark,colour(P,db),22px);
             }
 
             .feelingWrapper{
-                height:30%;
+                height:50%;
                 display:flex;
                 flex:row;
+                margin:auto;
                 margin-left:10%;
                 margin-right:10%;
 
@@ -72,8 +76,10 @@
         }
         //section where user selects the category of the moment
         &_center-section{
-            height:15%;
-            padding:20px;
+            height:10%;
+            padding-left: 13%;
+            margin-top: auto;
+            margin-bottom: auto;
             p{
                 @include montserratFont(dark,colour(P,db),22px);
             }
@@ -82,7 +88,6 @@
                 align-content: center;
                 flex-wrap: wrap;
                 width:100%;
-                margin-top: 2%;
                 .category_select{
                     margin:1%;
                     display:flex;
@@ -118,7 +123,6 @@
         }
         //section for user text input and button submission of the form
         &_bottom-section{
-
             border-radius: 25px;
             height:55%;
             background-color: colour(P,db);
@@ -127,7 +131,7 @@
             padding-left:10%;
             padding-right: 10%;
             padding-top:3vh;
-            
+            margin-top: auto;
             p{
                 white-space: nowrap;
                 @include montserratFont(600,colour(F,wh),20px);

@@ -34,12 +34,12 @@
             cursor: pointer;
         }
 
-        .search {
+        .searchHead {
             @include PoppinsFont(500,colour(F,bla),20px);
             width:95%;
-            margin:auto;
             background-color: #FDFDFD;
             border:none;
+            padding:none;
         }
 
         textarea:focus, .search:focus{
@@ -107,8 +107,8 @@
                 background-color: gray;
                 border-radius: 50%;
                 border: 3px solid white;
-                width: 3.2vh;
-                height:3.2vh;
+                width: 3.5vh;
+                height:3.5vh;
                 position:absolute;
                 margin-left: 140px;
             }
@@ -119,7 +119,7 @@
     
 }
 .headerBottom{
-    height:4vh;
+    height:5vh;
     padding-top:2vh;
     padding-bottom: 2vh;
     display:flex;

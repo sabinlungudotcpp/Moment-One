@@ -71,6 +71,11 @@ const Navbar = () => { // Navigation Bar Component
                     </NavLink>
                 </li>
             </ul>
+
+            <div className="exercise">
+                <p>Make sure you shedule your next learning activity!</p>
+                <button className="exerciseButton">+ Add Exercise</button>
+            </div>
             {/* copyright information */}
             <div className="navFooter">
                 <p>MomentOne Dashboard</p>

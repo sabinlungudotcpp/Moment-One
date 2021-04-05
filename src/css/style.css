@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap");
@@ -122,6 +124,9 @@
   .navbar:hover .navTitle {
     visibility: visible;
     opacity: 1; }
+  .navbar:hover .exercise {
+    visibility: visible;
+    opacity: 1; }
   .navbar_header {
     box-shadow: 18px 4px 35px rgba(0, 0, 0, 0.02);
     height: 6vh;
@@ -154,7 +159,7 @@
     display: flex;
     flex-direction: column;
     align-items: left;
-    height: 65vh; }
+    height: 40vh; }
     .navbar_items .icon {
       width: 50px;
       height: 50px;
@@ -260,6 +265,39 @@
     margin-left: 25%;
     padding-top: 5px;
     padding-bottom: 5px; }
+  .navbar .exercise {
+    height: 180px;
+    width: 210px;
+    margin-left: 20px;
+    background: linear-gradient(155.54deg, #2F4CDD 15.63%, #D45BFF 136.34%);
+    border-radius: 26px;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s linear; }
+    .navbar .exercise p {
+      margin-left: 7%;
+      margin-right: 7%;
+      margin-top: 25%;
+      height: 30%;
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      color: #fff;
+      font-size: 13px; }
+    .navbar .exercise .exerciseButton {
+      margin-left: 7%;
+      margin-right: 7%;
+      margin-bottom: 7%;
+      width: 86%;
+      height: 30%;
+      background-color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      color: black;
+      font-size: 18px; }
   .navbar .navFooter {
     margin-top: auto;
     font-family: 'Poppins', sans-serif;

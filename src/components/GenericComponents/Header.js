@@ -59,9 +59,11 @@ const Dashboard = (props) => {
             </div>
           </li>
           <li className="notIcon">
-            <div className="settingIcon">
-              <img src={settingsIcon} alt="settings"/>
-            </div>
+            <NavLink to ="/app/settings">
+              <div className="settingIcon">
+                <img src={settingsIcon} alt="settings"/>
+              </div>
+            </NavLink>
           </li>
 
         </ul>

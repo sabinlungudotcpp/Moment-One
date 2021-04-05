@@ -1,12 +1,12 @@
 import React from "react";
+import Header from "../GenericComponents/Header";
+
 //page displays user with settings
 const Settings = () => {
   return (
     
     <div className = "Settings">
-      <header className = "Settings-header">
-        <h1>Settings</h1>
-      </header>
+      <Header title="Settings"/>
     </div>
   )
 }

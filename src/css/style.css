@@ -133,10 +133,9 @@
       background-size: 50px 50px;
       width: 50px;
       height: 50px;
-      margin-top: 3vh;
       margin-top: auto;
       margin-bottom: auto;
-      margin-left: 20px; }
+      margin-left: 25px; }
     .navbar_header .navTitle {
       font-family: 'Raleway', sans-serif;
       font-style: normal;
@@ -456,7 +455,7 @@ h1 {
     list-style: none;
     display: flex;
     height: 100%;
-    width: 30%; }
+    width: 20%; }
     .headerTop .navIcons .header_link {
       font-family: 'Poppins', sans-serif;
       font-style: normal;
@@ -469,9 +468,9 @@ h1 {
       display: flex;
       cursor: pointer;
       text-decoration: none;
-      transition: 0.3s linear; }
+      transition: 0.4s linear; }
       .headerTop .navIcons .header_link:hover {
-        background-color: #FAFBFF; }
+        background-color: rgba(47, 76, 221, 0.1); }
       .headerTop .navIcons .header_link p {
         margin: auto; }
       .headerTop .navIcons .header_link_active {
@@ -480,31 +479,75 @@ h1 {
         font-weight: 500;
         color: #2F4CDD;
         font-size: 14px; }
+  .headerTop .notificationIcons {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    width: 15%;
+    margin-left: auto;
+    margin-right: auto; }
+    .headerTop .notificationIcons .notIcon {
+      height: 50px;
+      margin: auto;
+      width: 50px;
+      cursor: pointer;
+      transition: 0.3s linear;
+      border-radius: 8px; }
+      .headerTop .notificationIcons .notIcon:hover {
+        translate: 0px -3px;
+        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.33); }
+      .headerTop .notificationIcons .notIcon img {
+        margin: auto; }
+      .headerTop .notificationIcons .notIcon .bellIcon {
+        height: 100%;
+        width: 100%;
+        border-radius: 8px;
+        background-color: #E9ECFF;
+        display: flex; }
+      .headerTop .notificationIcons .notIcon .chatIcon {
+        height: 100%;
+        width: 100%;
+        border-radius: 8px;
+        background-color: #E9ECFF;
+        display: flex; }
+      .headerTop .notificationIcons .notIcon .goalIcon {
+        height: 100%;
+        width: 100%;
+        border-radius: 8px;
+        background-color: #F1F1F1;
+        display: flex; }
+      .headerTop .notificationIcons .notIcon .settingIcon {
+        height: 100%;
+        width: 100%;
+        border-radius: 8px;
+        background-color: #FFEBE7;
+        display: flex; }
   .headerTop .profile_link {
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 500;
     color: #fff;
     font-size: 14px;
-    margin: auto 3vw auto auto;
+    margin: auto 3vw auto 0%;
     cursor: pointer;
     text-decoration: none;
     transition: 0.3s linear;
-    height: 60%;
+    height: 50px;
     width: 180px; }
+    .headerTop .profile_link:hover {
+      translate: 0px -3px;
+      box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.33); }
     .headerTop .profile_link .linkWrap {
+      margin-left: 0%;
       width: 100%;
       height: 100%;
       display: flex; }
       .headerTop .profile_link .linkWrap .profileBackground {
-        width: 80%;
+        width: 90%;
         height: 100%;
-        margin: auto;
         border-radius: 8px;
         background-color: #2F4CDD;
         display: flex; }
-        .headerTop .profile_link .linkWrap .profileBackground:hover {
-          background-color: rgba(47, 76, 221, 0.5); }
       .headerTop .profile_link .linkWrap .text {
         margin: auto;
         margin-left: 5%; }
@@ -512,17 +555,18 @@ h1 {
         background-color: gray;
         border-radius: 50%;
         border: 3px solid white;
-        width: 3.5vh;
-        height: 3.5vh;
+        width: 45px;
+        height: 45px;
         position: absolute;
-        margin-left: 140px; }
+        margin-left: 130px; }
 
 .headerBottom {
-  height: 5vh;
+  height: 3vh;
   padding-top: 2vh;
   padding-bottom: 2vh;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  z-index: 800; }
   .headerBottom h2 {
     margin-top: auto;
     margin-bottom: auto;
@@ -615,7 +659,6 @@ h1 {
           margin: auto;
           border-radius: 50%;
           padding: -1px;
-          transition: 0.2s linear;
           width: 50px;
           height: 50px;
           transition: 0.2s linear;
@@ -644,14 +687,12 @@ h1 {
       font-size: 22px; }
     .momentForm_center-section .category_wrap {
       display: flex;
-      align-content: center;
       flex-wrap: wrap;
-      width: 100%; }
+      width: 90%; }
       .momentForm_center-section .category_wrap .category_select {
         margin: 1%;
         display: flex; }
         .momentForm_center-section .category_wrap .category_select .categoryLabel {
-          margin: auto;
           font-family: Montserrat, sans-serif;
           font-style: normal;
           font-weight: 600;
@@ -668,7 +709,6 @@ h1 {
           padding-top: 5px;
           padding-bottom: 5px;
           border: 1.5px solid #201FDF;
-          margin-right: 5%;
           cursor: pointer;
           transition: 0.2s linear; }
         .momentForm_center-section .category_wrap .category_select [type=radio] {
@@ -2375,11 +2415,6 @@ body {
   font-family: 'Cachet', sans-serif;
   -webkit-font-smoothing: antialiased; }
 
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  font-family: 'Cachet', sans-serif; }
-
 .register-container {
   width: 450px;
   height: 700px;
@@ -2409,8 +2444,8 @@ body {
   text-align: left; }
 
 .field-container {
-  border-radius: 8px;
-  box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04); }
+  border-radius: 8px !important;
+  box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04) !important; }
 
 .box-grid {
   display: grid;
@@ -2428,6 +2463,30 @@ input[type=text], input[type=password] {
   background: #F1F1F1; }
 
 input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none; }
+
+input[type=text], input[type=username] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #F1F1F1; }
+
+input[type=text]:focus, input[type=username]:focus {
+  background-color: #ddd;
+  outline: none; }
+
+input[type=text], input[type=email] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #F1F1F1; }
+
+input[type=text]:focus, input[type=email]:focus {
   background-color: #ddd;
   outline: none; }
 

@@ -11,7 +11,7 @@ class NewDiscussion extends React.Component{
     //creating state
     constructor(props) { // Constructor for the moment form
         super(props);
-        
+
         this.state = { // State for the moment form
             discussion: {
                 title:'',
@@ -19,7 +19,8 @@ class NewDiscussion extends React.Component{
                 date:Date.now(),
                 category:'',
                 likes:'0',
-            }
+            },
+            error:'',
         }
     }
     //updating the state whenever something is changed
@@ -34,9 +35,39 @@ class NewDiscussion extends React.Component{
     //submitting to database
     onSubmit = async (e) => {
         e.preventDefault();
-        console.log(this.state.discussion)
-        await axios.post('http://localhost:8001/api/v1/momentone/discussions',this.state.discussion);
+        this.validate()
+
+        if(this.state.error===''){
+            console.log(this.state.discussion)
+            await axios.post('http://localhost:8001/api/v1/momentone/discussions',this.state.discussion);
+            this.reset();
+        }  
     }
+
+    reset(){
+        this.setState({
+            discussion:{
+                title:'',
+                content:'',
+                date:Date.now(),
+                category:'',
+                like:'0',
+            }
+        })
+    }
+
+    validate(){
+        if(this.state.title ===''){
+            this.setState({error:"Please enter a title"})
+        }else if(this.state.content===''){
+            this.setState({error:"please enter the content"})
+        }else if(this.state.category===''){
+            this.setState({error:"please enter a category"})
+        }else{
+            this.setState({error:''})
+        }
+    }
+
     render(){
         return (
             <form className="newDiscussion" onSubmit={e => this.onSubmit(e)}>
@@ -95,8 +126,7 @@ class NewDiscussion extends React.Component{
     
                 </div>
                 {/* submit button */}
-                <button className="submit">Ask the Community</button>
-    
+                <button className="submit">Ask the Community {this.state.error}</button>
             </form>
         )
     }

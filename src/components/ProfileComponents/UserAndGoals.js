@@ -12,7 +12,7 @@ const userAndGoals = (props) => {
             <h2 className>Weekly Goal</h2>
             <p className="description"> This is a brief description to remind user of their daily goals,
                  favourite quotes or anything it can help them stay motivated when accessing profile. </p>
-            <div className ="progress">
+            <div className ="progressSec">
                 <div className="imgWrap"><img src={progressIcon} alt="progressIcon"/></div>
                 <div className="textWrap">
                     <p>{props.progress}% Progress</p>

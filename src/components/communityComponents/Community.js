@@ -40,15 +40,11 @@ render() {
         <div className = "content">
           <div className ="therapistSection">
             <h2 className = "subtitle">Therapists</h2>
-            <div className = "cardContainer">
               <ContactCard items={this.state.therapists}/>
-            </div>
           </div>
           <div className ="indevidualSection">
             <h2 className = "subtitle">Individuals</h2>
-            <div className = "cardContainer">
               <ContactCard items={this.state.users}/>
-            </div>
           </div>
 
         </div>

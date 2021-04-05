@@ -12,7 +12,7 @@ const ContactCard = (props) => {
     })
 
   return (
-    <div>{listItems}</div>
+    <div className="cardContainer">{listItems}</div>
   )
 }
 

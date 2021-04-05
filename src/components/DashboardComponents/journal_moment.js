@@ -12,7 +12,7 @@ const Moment = (props) => {
 
                         <h2 className="momentTitle">{item.title}</h2>
                         <p rows="2">{item.description}</p>
-                        <p className="dateText">{item.createdAt}</p>
+                        <p className="dateText">{item.createdAt.substring(0, 10)}</p>
                     </div>
                     <MomentOverlay open={isOpen} onClose={() => setIsOpen(false)}/>
                 </div>

@@ -39,7 +39,7 @@ app.use('/api/v1/momentone/users', userRouter);
 app.use('/api/v1/momentone/therapist', therapistRouter);
 app.use('/api/v1/momentone/courses', courseRouter);
 app.use('/api/v1/momentone/search', searchRouter);
-app.use('/api/v1/momentone/login', loginRouter);
+app.use('/api/v1/momentone/users/login', loginRouter);
 app.use('/api/v1/momentone/discussions', discussionRouter);
 //app.use('/api/v1/momentone/admin/questions', questionRouter);
 app.use('/api/v1/momentone/admin/assessment', assessmentRouter);
@@ -52,6 +52,7 @@ app.use('/api/v1/momentone/message', messageRouter);
  * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
  * @param {response}: Stores the response data sent back by the server
  */
+
 app.all('*', (request, response, next) => {
     return response.status(notFound).json({
         message: `Could not find ${request.originalUrl} on this route`

@@ -23,6 +23,7 @@ exports.getAllComments = async (request, response) => {
     } 
     
     catch(error) {
+        
         if(error) {
             return response.status(serverError).json({
                 message: error.message

@@ -3,6 +3,15 @@ const PostModel = require('../models/PostsModel');
 const okCode = 200;
 const serverError = 500;
 
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @function: getAllComments(request, response)
+ * @returns: Returns a JSON Web Token that is signed with an expiry date
+ * @description: This function is used to sign a JWT token to enable therapist authentication
+ */
+
 exports.getAllComments = async (request, response) => {
     try {
         const method = request.method;
@@ -14,6 +23,7 @@ exports.getAllComments = async (request, response) => {
     } 
     
     catch(error) {
+        
         if(error) {
             return response.status(serverError).json({
                 message: error.message
@@ -24,11 +34,13 @@ exports.getAllComments = async (request, response) => {
 
  exports.getCommentByID = async (request, response) => {
     try {
+        
         const method = request.method;
 
         if(method === 'GET') {
             const id = request.id; 
             const commentId = await Comments.findById(id);
+
             return response.status(okCode).json({
                 commentId
             });
@@ -36,6 +48,7 @@ exports.getAllComments = async (request, response) => {
     } 
     
     catch(error) {
+
         if(error) {
             return response.status(serverError).json({
                 message: error.message

@@ -1,5 +1,5 @@
 const contactRouter = require('express').Router();
-const connectController = require('../controllers/connectRequestController');
+const connectController = require('../controllers/chatRequestController');
 const contactsController = require('../controllers/contactsController');
 const auth = require('../middlewares/authentication');
 
@@ -9,7 +9,6 @@ contactRouter.route('/request/respond/:id').patch(auth, connectController.accept
 
 contactRouter.route('/').get(auth, contactsController.getAllContacts);
 contactRouter.route('/:id').delete(auth, contactsController.deleteContact);
-
 contactRouter.route('/test/:id').post(auth, contactsController.testCreateAMessage);
 
 module.exports = contactRouter;

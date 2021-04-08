@@ -1,6 +1,10 @@
-@import "../GenericSheets/Variables";
-@import "../GenericSheets/functions";
-@import "./contentCard";
+@import "../functionsAndVariables/Variables";
+@import "../functionsAndVariables/functions";
+@import "./contentCardStyle";
+
+/*
+    Styles the Community page
+*/
 .subtitle{
     @include PoppinsFont(500,colour(P,db),22px);
 }

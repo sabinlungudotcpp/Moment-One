@@ -1,8 +1,8 @@
 import React from "react";
 import Discussion from "./Discussion";
 import loadMoreIcon from "../../imageAssets/Icons/General/ic_chevron.png";
-    /**
- * @fileoverview: returns component which displays most pupular discussions
+/**
+ * @fileoverview: moreDiscussions.js returns component which displays most pupular discussions in a list
  * @author: Ryan Spowart
  * @component App() - Returns JSX
  * @requires: react

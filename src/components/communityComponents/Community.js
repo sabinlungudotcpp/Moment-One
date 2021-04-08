@@ -2,6 +2,16 @@ import React from "react";
 import Header from "../GenericComponents/Header";
 import ContactCard from "./contectCard";
 import axios from "axios"
+
+/**
+ * @fileoverview: The comunity.js component file is resposnable for rendering the community page to the user, allowing the user to see therapists and other users
+ * @author: Ryan Spowart
+ * @param {props}: The props parameter is used to store properties from other components that are rendered on this screen
+ * @component App() - Returns JSX
+ * @requires: npm install axios
+ */
+
+
 class Community extends React.Component {
   constructor(props) { // Constructor for the moment form
     super(props);

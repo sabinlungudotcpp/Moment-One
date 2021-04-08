@@ -1,0 +1,37 @@
+/*
+styles the contact component for the live-chat page
+*/
+.contact{
+    width:100%;
+    height:120px;
+    border-bottom: 3px solid colour(P,lg);
+    display:flex;
+    flex-direction: row;
+    .icon{
+        height:87px;
+        width:87px;
+        border-radius: 50%;
+        background-color: brown; //placeholder
+        margin-left:5%;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .textContent{
+        margin:auto;
+        margin-left: 5%;
+        margin-right:5%;
+        .username{
+            @include PoppinsFont(500,colour(F,bla),22px);
+            display:flex;
+            p{
+                margin:auto 0px auto auto;
+                @include PoppinsFont(500,colour(F,bla),14px);
+            }
+        }
+
+        .lastmsg{
+            @include PoppinsFont(400,colour(F,bla),18px);
+            line-height: 22px
+        }
+    }
+}

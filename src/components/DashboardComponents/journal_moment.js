@@ -1,5 +1,12 @@
 import React,{useState} from 'react';
 import MomentOverlay from './momentOverlay';
+/**
+ * @fileoverview: Returns a list of divs for dispalying a users moments
+ * @author: Ryan Spowart
+ * @param {props}: items - array of moment items to be dispalyed
+ * @component App() - Returns JSX
+ * @requires: npm install react
+ */
 
 const Moment = (props) => {
 

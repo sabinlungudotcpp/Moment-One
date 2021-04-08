@@ -41,7 +41,7 @@ app.use('/api/v1/momentone/courses', courseRouter);
 app.use('/api/v1/momentone/search', searchRouter);
 app.use('/api/v1/momentone/login', loginRouter);
 app.use('/api/v1/momentone/discussions', discussionRouter);
-//app.use('/api/v1/momentone/admin/questions', questionRouter);
+app.use('/api/v1/momentone/admin/questions', questionRouter);
 app.use('/api/v1/momentone/admin/assessment', assessmentRouter);
 app.use('/api/v1/momentone/contact', contactRouter);
 app.use('/api/v1/momentone/message', messageRouter);

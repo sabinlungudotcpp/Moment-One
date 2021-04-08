@@ -42,7 +42,7 @@ exports.createGoal = catchAsync(async (request, response, next) => { // Function
         const {goal, reason, reward, length} = request.body; // Body of the request
         const createdBy = request.account.id; //Getting the user _id from the JWT that was verified by authentication.js
 
-        if(request.User.type !== 'User') {
+        if(request.account.type !== 'User') {
             return response.status(unprocessable).json({
                 message: 'Only users can create goals'
             });
@@ -60,7 +60,7 @@ exports.createGoal = catchAsync(async (request, response, next) => { // Function
             await newGoal.save(); // Save the goal
 
             //Add reference to goal to the user who created it
-            await userModel.findOneAndUpdate({_id: createdBy}, {$push: {goals: newGoal.id}});
+            await userModel.updateOne({_id: createdBy}, {$push: {goals: newGoal.id}});
             return response.status(createdCode).json(newGoal);
         }
     } 

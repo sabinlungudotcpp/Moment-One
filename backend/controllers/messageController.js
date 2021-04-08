@@ -30,6 +30,9 @@ exports.createMessage = async (request, response) => {
             });
 
             await newMessage.save()
+            //message reference then needs to be saved to the chat
+            await chatModel.updateOne({_id: newMessage.chat}, {$push: {messages: newMessage.id}});
+            
             return response.status(200).json(newMessage);
         }
     }

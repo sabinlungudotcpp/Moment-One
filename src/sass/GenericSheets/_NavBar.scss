@@ -38,6 +38,10 @@
       visibility: visible;
       opacity: 1;
     }
+    &:hover .exercise{
+      visibility: visible;
+      opacity: 1;
+    }
 
     &_header{
       box-shadow: 18px 4px 35px rgba(0, 0, 0, 0.02);
@@ -50,10 +54,9 @@
         background-size: 50px 50px;
         width:50px;
         height:50px;
-        margin-top: 3vh;
         margin-top: auto;
         margin-bottom:auto;
-        margin-left: 20px;
+        margin-left: 25px;
       }
 
       .navTitle{
@@ -73,7 +76,7 @@
       display:flex;
       flex-direction: column;
       align-items:left;
-      height: 65vh;
+      height: 40vh;
 
       //icon background
       .icon{
@@ -187,6 +190,35 @@
       padding-bottom:5px;
     }
 
+    .exercise{
+      height:180px;
+      width:210px;
+      margin-left:20px;
+      background: linear-gradient(155.54deg, #2F4CDD 15.63%, #D45BFF 136.34%);
+      border-radius: 26px;
+      visibility: hidden;
+      opacity: 0;
+      transition: .3s linear;
+      p{
+        margin-left: 7%;
+        margin-right:7%;
+        margin-top:25%;
+        height:30%;
+        @include PoppinsFont(400,colour(F,wh),13px);
+      }
+      .exerciseButton{
+        margin-left: 7%;
+        margin-right:7%;
+        margin-bottom: 7%;
+        width:86%;
+        height:30%;
+        background-color: white;
+        border:none;
+        border-radius: 8px;
+        @include PoppinsFont(500,colour(F,bla),18px);
+      }
+
+    }
     .navFooter{
       margin-top: auto;
       @include PoppinsFont(500,colour(F,gr),12px);

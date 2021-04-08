@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
 /**
- * @fileoverview: Component which returns the navigation bar to be rendered
+ * @fileoverview: NavBar component which returns the navigation bar to be rendered, along with a form for adding an excercise(non functional at the moment)
  * @author: Ryan Spowart
  * @component App() - Returns JSX
- * @requires: npm install react-router-dom
+ * @requires: npm install react-router-dom | npm install react
  */
 
 const Navbar = () => { // Navigation Bar Component
@@ -71,6 +71,11 @@ const Navbar = () => { // Navigation Bar Component
                     </NavLink>
                 </li>
             </ul>
+
+            <div className="exercise">
+                <p>Make sure you shedule your next learning activity!</p>
+                <button className="exerciseButton">+ Add Exercise</button>
+            </div>
             {/* copyright information */}
             <div className="navFooter">
                 <p>MomentOne Dashboard</p>

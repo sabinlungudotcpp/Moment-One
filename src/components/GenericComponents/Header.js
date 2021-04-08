@@ -1,6 +1,11 @@
 import React from "react";
 import searchIcon from "../../imageAssets/Icons/General/search.png"
 import { NavLink } from 'react-router-dom';
+
+import bellIcon from "../../imageAssets/Icons/Header/BellIcon.png"
+import chatIcon from "../../imageAssets/Icons/Header/ChatIcon.png"
+import presentIcon from "../../imageAssets/Icons/Header/presentIcon.png"
+import settingsIcon from "../../imageAssets/Icons/Header/settingsIcon.png"
 /**
  * @fileoverview: Component which returns the header for pages to render
  * @author: Ryan Spowart
@@ -36,7 +41,34 @@ const Dashboard = (props) => {
         </NavLink>
       </li>
       </ul>
-      <NavLink className="profile_link" activeClassName="profile_link_active" to = "/app/profile">
+
+        <ul className ="notificationIcons">
+          <li className="notIcon">
+            <div className="bellIcon">
+              <img src={bellIcon} alt="bell"/>
+            </div>
+          </li>
+          <li className="notIcon">
+            <div className="chatIcon">
+              <img src={chatIcon} alt="chat"/>
+            </div>
+          </li>
+          <li className="notIcon">
+            <div className="goalIcon">
+              <img src={presentIcon} alt="present"/>
+            </div>
+          </li>
+          <li className="notIcon">
+            <NavLink to ="/app/settings">
+              <div className="settingIcon">
+                <img src={settingsIcon} alt="settings"/>
+              </div>
+            </NavLink>
+          </li>
+
+        </ul>
+
+        <NavLink className="profile_link" activeClassName="profile_link_active" to = "/app/profile">
         <div className="linkWrap">
           <div className="profileBackground">
             <p className="text">Hello, "name"!</p>
@@ -44,8 +76,10 @@ const Dashboard = (props) => {
           <div className ="profilePicture"> </div>
         </div>
 
-        </NavLink>
+      </NavLink>
     </div>
+
+
     {/* page title */}
     <div className = "headerBottom">
       <h2> {props.title} </h2>

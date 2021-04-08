@@ -5,10 +5,10 @@ import Contact from "./contact"
 import ChatBubble from "./chatBubble";
 
     /**
- * @fileoverview: returns the live chat page that displays a users contacts and allows chatting with a person
+ * @fileoverview: The liveChat.js component returns the content of the live-chat page to the user
  * @author: Ryan Spowart
  * @component App() - Returns JSX
- * @requires: react axios
+ * @requires: npm install react | contact.js | chatBubble.js
  */
 
 const LiveChat = () => { // Live Chat component
@@ -39,6 +39,7 @@ const LiveChat = () => { // Live Chat component
               <div className = "overlay">
                 <h1>@username</h1>
               </div>
+              {/*chat messages */}
               <div className="message">
                 <ChatBubble chat="Sup dude!"/>
                 <ChatBubble chat="Sup dude!"/>

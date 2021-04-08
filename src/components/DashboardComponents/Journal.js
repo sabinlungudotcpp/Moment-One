@@ -26,10 +26,17 @@ class momentForm extends React.Component {
       }
     }
   }
+      /**
+     * @function: Component Did mount calls the getPosts function when the component is first mounted
+     */
   componentDidMount() {
     //gets the posts on load
     this.getPosts();
   }
+
+      /**
+     * @function: getPosts gets data from the database and sets the data retrieved into the component state
+     */
 
   getPosts() { // Getting moments from database
 
@@ -43,6 +50,10 @@ class momentForm extends React.Component {
      
     })
   }
+
+      /**
+     * @function: addItem adds a new item to the list of moments to be displayed
+     */
 
   addItem(e){
     e.preventDefault();

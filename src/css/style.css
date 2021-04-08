@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap");
@@ -122,6 +124,9 @@
   .navbar:hover .navTitle {
     visibility: visible;
     opacity: 1; }
+  .navbar:hover .exercise {
+    visibility: visible;
+    opacity: 1; }
   .navbar_header {
     box-shadow: 18px 4px 35px rgba(0, 0, 0, 0.02);
     height: 6vh;
@@ -133,10 +138,9 @@
       background-size: 50px 50px;
       width: 50px;
       height: 50px;
-      margin-top: 3vh;
       margin-top: auto;
       margin-bottom: auto;
-      margin-left: 20px; }
+      margin-left: 25px; }
     .navbar_header .navTitle {
       font-family: 'Raleway', sans-serif;
       font-style: normal;
@@ -155,7 +159,7 @@
     display: flex;
     flex-direction: column;
     align-items: left;
-    height: 65vh; }
+    height: 40vh; }
     .navbar_items .icon {
       width: 50px;
       height: 50px;
@@ -261,6 +265,39 @@
     margin-left: 25%;
     padding-top: 5px;
     padding-bottom: 5px; }
+  .navbar .exercise {
+    height: 180px;
+    width: 210px;
+    margin-left: 20px;
+    background: linear-gradient(155.54deg, #2F4CDD 15.63%, #D45BFF 136.34%);
+    border-radius: 26px;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s linear; }
+    .navbar .exercise p {
+      margin-left: 7%;
+      margin-right: 7%;
+      margin-top: 25%;
+      height: 30%;
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      color: #fff;
+      font-size: 13px; }
+    .navbar .exercise .exerciseButton {
+      margin-left: 7%;
+      margin-right: 7%;
+      margin-bottom: 7%;
+      width: 86%;
+      height: 30%;
+      background-color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      color: black;
+      font-size: 18px; }
   .navbar .navFooter {
     margin-top: auto;
     font-family: 'Poppins', sans-serif;
@@ -456,7 +493,7 @@ h1 {
     list-style: none;
     display: flex;
     height: 100%;
-    width: 30%; }
+    width: 20%; }
     .headerTop .navIcons .header_link {
       font-family: 'Poppins', sans-serif;
       font-style: normal;
@@ -469,9 +506,9 @@ h1 {
       display: flex;
       cursor: pointer;
       text-decoration: none;
-      transition: 0.3s linear; }
+      transition: 0.4s linear; }
       .headerTop .navIcons .header_link:hover {
-        background-color: #FAFBFF; }
+        background-color: rgba(47, 76, 221, 0.1); }
       .headerTop .navIcons .header_link p {
         margin: auto; }
       .headerTop .navIcons .header_link_active {
@@ -480,49 +517,98 @@ h1 {
         font-weight: 500;
         color: #2F4CDD;
         font-size: 14px; }
+  .headerTop .notificationIcons {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    width: 15%;
+    margin-left: auto;
+    margin-right: auto; }
+    .headerTop .notificationIcons .notIcon {
+      height: 50px;
+      margin: auto;
+      width: 50px;
+      cursor: pointer;
+      transition: 0.3s linear;
+      border-radius: 8px; }
+      .headerTop .notificationIcons .notIcon:hover {
+        translate: 0px -3px;
+        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.23); }
+      .headerTop .notificationIcons .notIcon img {
+        margin: auto; }
+      .headerTop .notificationIcons .notIcon .bellIcon {
+        height: 100%;
+        width: 100%;
+        border-radius: 8px;
+        background-color: #E9ECFF;
+        display: flex; }
+      .headerTop .notificationIcons .notIcon .chatIcon {
+        height: 100%;
+        width: 100%;
+        border-radius: 8px;
+        background-color: #E9ECFF;
+        display: flex; }
+      .headerTop .notificationIcons .notIcon .goalIcon {
+        height: 100%;
+        width: 100%;
+        border-radius: 8px;
+        background-color: #F1F1F1;
+        display: flex; }
+      .headerTop .notificationIcons .notIcon .settingIcon {
+        height: 100%;
+        width: 100%;
+        border-radius: 8px;
+        background-color: #FFEBE7;
+        display: flex; }
   .headerTop .profile_link {
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 500;
     color: #fff;
     font-size: 14px;
-    margin: auto 3vw auto auto;
+    margin: auto 3vw auto 0%;
     cursor: pointer;
     text-decoration: none;
-    transition: 0.3s linear;
-    height: 60%;
+    height: 50px;
     width: 180px; }
+    .headerTop .profile_link:hover .profileBackground {
+      translate: 0px -3px;
+      box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.23); }
+    .headerTop .profile_link:hover .profilePicture {
+      translate: 0px -3px;
+      box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.23); }
     .headerTop .profile_link .linkWrap {
+      margin-left: 0%;
       width: 100%;
       height: 100%;
       display: flex; }
       .headerTop .profile_link .linkWrap .profileBackground {
-        width: 80%;
+        transition: 0.3s linear;
+        width: 90%;
         height: 100%;
-        margin: auto;
         border-radius: 8px;
         background-color: #2F4CDD;
         display: flex; }
-        .headerTop .profile_link .linkWrap .profileBackground:hover {
-          background-color: rgba(47, 76, 221, 0.5); }
       .headerTop .profile_link .linkWrap .text {
         margin: auto;
         margin-left: 5%; }
       .headerTop .profile_link .linkWrap .profilePicture {
+        transition: 0.3s linear;
         background-color: gray;
         border-radius: 50%;
         border: 3px solid white;
-        width: 3.5vh;
-        height: 3.5vh;
+        width: 44px;
+        height: 44px;
         position: absolute;
-        margin-left: 140px; }
+        margin-left: 130px; }
 
 .headerBottom {
-  height: 5vh;
+  height: 3vh;
   padding-top: 2vh;
   padding-bottom: 2vh;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  z-index: 800; }
   .headerBottom h2 {
     margin-top: auto;
     margin-bottom: auto;
@@ -615,7 +701,6 @@ h1 {
           margin: auto;
           border-radius: 50%;
           padding: -1px;
-          transition: 0.2s linear;
           width: 50px;
           height: 50px;
           transition: 0.2s linear;
@@ -644,14 +729,12 @@ h1 {
       font-size: 22px; }
     .momentForm_center-section .category_wrap {
       display: flex;
-      align-content: center;
       flex-wrap: wrap;
-      width: 100%; }
+      width: 90%; }
       .momentForm_center-section .category_wrap .category_select {
         margin: 1%;
         display: flex; }
         .momentForm_center-section .category_wrap .category_select .categoryLabel {
-          margin: auto;
           font-family: Montserrat, sans-serif;
           font-style: normal;
           font-weight: 600;
@@ -668,7 +751,6 @@ h1 {
           padding-top: 5px;
           padding-bottom: 5px;
           border: 1.5px solid #201FDF;
-          margin-right: 5%;
           cursor: pointer;
           transition: 0.2s linear; }
         .momentForm_center-section .category_wrap .category_select [type=radio] {
@@ -2099,15 +2181,15 @@ h1 {
       font-size: 14px;
       line-height: 21px;
       margin: 5%; }
-    .userAndGoals .goal .progress {
+    .userAndGoals .goal .progressSec {
       height: 30%;
-      width: 100%;
+      width: 90%;
       background-color: #FF6D4D;
       border-radius: 20px;
       margin-top: auto;
       padding: 5%;
       display: flex; }
-      .userAndGoals .goal .progress .imgWrap {
+      .userAndGoals .goal .progressSec .imgWrap {
         margin-top: auto;
         margin-bottom: auto;
         background-color: white;
@@ -2116,15 +2198,15 @@ h1 {
         width: 49px;
         display: flex;
         box-shadow: 0px 10px 14px rgba(87, 16, 0, 0.12); }
-        .userAndGoals .goal .progress .imgWrap img {
+        .userAndGoals .goal .progressSec .imgWrap img {
           margin: auto;
           width: 28px; }
-      .userAndGoals .goal .progress .textWrap {
+      .userAndGoals .goal .progressSec .textWrap {
         width: 70%;
         margin-left: 5%;
         margin-top: auto;
         margin-bottom: auto; }
-        .userAndGoals .goal .progress .textWrap p {
+        .userAndGoals .goal .progressSec .textWrap p {
           font-family: 'Poppins', sans-serif;
           font-style: normal;
           font-weight: 500;
@@ -2375,11 +2457,6 @@ body {
   font-family: 'Cachet', sans-serif;
   -webkit-font-smoothing: antialiased; }
 
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  font-family: 'Cachet', sans-serif; }
-
 .register-container {
   width: 450px;
   height: 700px;
@@ -2409,8 +2486,8 @@ body {
   text-align: left; }
 
 .field-container {
-  border-radius: 8px;
-  box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04); }
+  border-radius: 8px !important;
+  box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04) !important; }
 
 .box-grid {
   display: grid;
@@ -2428,6 +2505,30 @@ input[type=text], input[type=password] {
   background: #F1F1F1; }
 
 input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none; }
+
+input[type=text], input[type=username] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #F1F1F1; }
+
+input[type=text]:focus, input[type=username]:focus {
+  background-color: #ddd;
+  outline: none; }
+
+input[type=text], input[type=email] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #F1F1F1; }
+
+input[type=text]:focus, input[type=email]:focus {
   background-color: #ddd;
   outline: none; }
 

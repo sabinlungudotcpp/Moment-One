@@ -1,5 +1,6 @@
 const postModel = require('../models/PostsModel');
 const account = require('../models/accountModel');
+const comment = require('../models/CommentsModel');
 const okCode = 200;
 const createdCode = 201;
 const serverError = 500;
@@ -121,6 +122,11 @@ exports.deleteAllPosts = async (request, response) => { // Route for DELETING al
 
         if(method === 'DELETE') {
             await postModel.deleteMany();
+
+            //All post references have to be deleted from accounts
+            await account.updateMany({},{$set: {posts: []}});
+            //Then all comments have to be deleted
+            await comment.deleteMany();
             
             return response.status(okCode).json({
                 message: 'All posts deleted successfully',
@@ -144,8 +150,17 @@ exports.deletePostByID = async (request, response) => {
         const id = request.params.id;
 
         if(method === 'DELETE') {
-            await postModel.findByIdAndDelete(id, request.body);
+            const post = await postModel.findByIdAndDelete(id);
 
+            //Post reference then needs to be deleted from the users account
+            await account.updateOne(
+                {_id: post.createdBy},
+                {$pull: {posts: post.id}}
+            );
+
+            //Then all comments created on the post have to be deleted
+            await comment.deleteMany({postedOn: post.id});
+            
             return response.status(okCode).json({
                 message: 'Post deleted successfully'
             });

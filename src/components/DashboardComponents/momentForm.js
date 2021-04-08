@@ -33,7 +33,9 @@ class momentForm extends React.Component {
 
     
 
-    // Resets the form after submission
+    /**
+     * @function: resState resets the state of the component to default values
+     */
     resState() {
         this.setState({
             moment : {
@@ -49,7 +51,6 @@ class momentForm extends React.Component {
     /**
      * @function: The validate function is used to validate the form entry fields. If they are left empty, an error message is displayed
      */
-
     validate() {
 
         if(this.state.moment.title === '') { // If the title is empty
@@ -73,7 +74,9 @@ class momentForm extends React.Component {
         }
     }
 
-    //updating the state whenever something is changed
+    /**
+     * @function: change updates the state using the item name it is called within and the value of the item
+     */
     change = (e) => {
 
         this.setState({// Sets the state of the variables by spreading all the values from the moment object
@@ -81,7 +84,9 @@ class momentForm extends React.Component {
         })
     }
 
-   // Update the state after the self aware toggle is toggled
+    /**
+     * @function: awareToggle states state using the item name and sets it to the checked value of the object it is called within
+     */
     awareToggle = (e) => {
 
         this.setState({
@@ -89,7 +94,9 @@ class momentForm extends React.Component {
         });
     }
     
-    // Log the results and post the results over to the database
+    /**
+     * @function: onSubmit calls the validate function, checks if there are any errors, submits the data to the posts database file then resets the state to default
+     */
     onSubmit = async (e) => {
         e.preventDefault();
         this.setState({error:this.validate()});

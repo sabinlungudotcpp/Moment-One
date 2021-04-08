@@ -59,6 +59,7 @@ exports.createGoal = catchAsync(async (request, response, next) => { // Function
             const newGoal = new goalsModel({goal, reason, reward, length, createdBy});
             await newGoal.save(); // Save the goal
 
+            //Add reference to goal to the user who created it
             await userModel.findOneAndUpdate({_id: createdBy}, {$push: {goals: newGoal.id}});
             return response.status(createdCode).json(newGoal);
         }
@@ -129,6 +130,9 @@ exports.deleteGoals = async (request, response) => { // Deletes all the goals
         if(method === 'DELETE' || url.startsWith(root)) {
             await goalsModel.deleteMany();
 
+            //Remove all goal references from user models
+            await userModel.updateMany({},{$set: {goals: []}});
+
             return response.status(okCode).json({
                 message: 'Goals deleted successfully',
                 sentAt: new Date().toISOString()
@@ -158,8 +162,14 @@ exports.deleteGoalByID = async (request, response) => { // Deletes a goal by its
         }
 
         if(method === 'DELETE' && url.startsWith(root)) {
-            await goalsModel.findByIdAndDelete(id);
+            const goal = await goalsModel.findByIdAndDelete(id);
            
+            //The goal reference then needs to be deleted from the usermodel
+            await userModel.updateOne(
+                {_id: goal.createdBy},
+                {$pull: {goals: goal.id}}
+            );
+            
             return response.status(okCode).json({
                 message: 'Goal Deleted',
                 sentAt: new Date().toISOString()

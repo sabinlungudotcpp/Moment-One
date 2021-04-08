@@ -1,6 +1,6 @@
 @import "../GenericSheets/Variables";
 @import "../GenericSheets/functions";
-@import "./contentCard";
+@import "./contentCardStyle";
 .subtitle{
     @include PoppinsFont(500,colour(P,db),22px);
 }

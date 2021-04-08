@@ -1,0 +1,43 @@
+.therapist{
+    height:20%;
+    width:90%;
+    margin-left: 2%;
+    margin:auto 0% auto 5%;
+    display:flex;
+    .icon{
+        height:90px;
+        width:90px;
+        background-color: colour(P,db);
+        border-radius: 12px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .textWrap{
+        margin-left: 5%;
+        display:flex;
+        flex-direction: column;
+        margin-top: auto;
+        margin-bottom: auto;
+        height:75%;
+        .category{
+            @include PoppinsFont(500,colour(P,db),12px);
+            margin-top: 0%
+        }
+        h2{
+            @include PoppinsFont(500,colour(F,bla),20px);
+            margin-top: 1%;
+        }
+        p{
+            @include PoppinsFont(400,colour(F,gr),12px);
+            margin-top: 1%;
+            margin-bottom:auto;
+        }
+    }
+    img{
+        height:44px;
+        width: 44px;
+        cursor: pointer;
+        margin:auto;
+        margin-right: 0%;
+    }
+}

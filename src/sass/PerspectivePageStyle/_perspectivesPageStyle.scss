@@ -1,7 +1,8 @@
 @import "../GenericSheets/Variables";
 @import "../GenericSheets/functions";
-@import "./newDiscussion";
-
+@import "./newDiscussionStyle";
+@import "./formCardStyle";
+@import "./discussionStyle";
 .pageScroll{
     overflow-y: scroll;
     overflow-x: hidden;
@@ -80,77 +81,6 @@
         p{
             margin:auto;
             margin-right: 0px;
-        }
-    }
-}
-
-.discussionContent{
-    height:100%;
-    width:100%;
-    border-bottom:1px solid #F0F1F5;
-    display:flex;
-
-    .icon{
-        margin:1% auto auto auto;
-        width:54px;
-        height:54px;
-        background-color: colour(P,db);
-        border-radius: 50%;
-    }
-    .textWrap{
-        margin:1.5vh auto auto auto;
-        width:75%;
-        height:85%;
-        .title{
-            @include PoppinsFont(600,colour(F,bla),18px);
-        }
-        .subTitle{
-            @include PoppinsFont(500,colour(F,gr),14px);
-        }
-        .textContent{
-            margin-top: 1.5vh;
-            @include PoppinsFont(500,#3E4954,16px);
-        }
-    }
-    .infoWrap{
-        margin:0px auto 0px 0px;
-        width:15%;
-        height:85%;
-        display:flex;
-        flex-direction: column;
-        .category{
-            margin-top: auto;;
-            width: 98px;
-            height: 31px;
-            background: rgba(255, 109, 77, 0.1);
-            border-radius: 17px;
-            display:flex;
-            p{
-                margin:auto;
-                @include PoppinsFont(500,#FF6D4D,13px);
-            }
-        }
-        .likes{
-            display:flex;
-            margin-bottom: auto;
-
-            margin-top: 10%;
-            width: 137px;
-            height: 41px;
-            background: rgba(47, 76, 221, 0.1);
-            border-radius: 60px;
-            p{
-                margin:auto;
-                margin-left: 0px;
-                @include PoppinsFont(600,colour(P,db),12px);
-                letter-spacing: -0.24px;
-            }
-            img{
-                margin:auto;
-                margin-right: 5%;
-                width:20px;
-                height:20px;
-            }
         }
     }
 }

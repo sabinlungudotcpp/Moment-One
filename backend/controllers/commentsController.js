@@ -62,6 +62,8 @@ exports.getAllComments = async (request, response) => {
             const newComment = new Comments({title, description, postedOn, createdBy});
 
             await newComment.save();
+
+            //Add reference to the post the comment is posted on 
             await PostModel.findOneAndUpdate({_id: postedOn}, {$push: {comments: newComment.id}});
 
             return response.status(okCode).json({
@@ -111,6 +113,9 @@ exports.deleteAllComments = async (request, response) => {
         if(method === 'DELETE') {
             await Comments.deleteMany();
 
+            //Remove all comment references on posts
+            await PostModel.updateMany({},{$set: {comments: []}});
+
             return response.status(okCode).json({
                 message: 'All comments deleted successfully',
                 deletedAt: new Date().toISOString()
@@ -133,7 +138,13 @@ exports.deleteCommentByID = async (request, response) => {
         const id = request.params.id;
 
         if(method === 'DELETE') {
-            await Comments.findByIdAndDelete(id);
+            const comment = await Comments.findByIdAndDelete(id);
+
+            //Remove comment reference from the post it was posted on
+            await PostModel.updateOne(
+                {_id: comment.postedOn},
+                {$pull: {comments: comment.id}}
+            );
             
             return response.status(200).json({
                 message: 'Comment deleted successfully',

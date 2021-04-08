@@ -1,26 +1,10 @@
 //accountController for the momentOne platform 
 const accountModel = require('../models/accountModel');
-<<<<<<< HEAD
-const okCode = 200;
-const notFound = 404;
-const serverError = 500;
-
-/**
- * @author: Jakub Kosarzecki
- * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
- * @param {response}: Stores the response data sent back by the server
- * @function: 
- * @returns:
- * @description: 
- * @description: 
- */
-=======
 const postModel = require('../models/PostsModel');
 const commentModel = require('../models/CommentsModel');
 const goalModel = require('../models/goalsModel');
 const chatModel = require('../models/chatModel');
 const messageModel = require('../models/messageModel');
->>>>>>> 8e19a97b7683c255a038fc3d0dab73d4fc82d177
 
 //Getting all accounts. Users and Therapists
 exports.getAllAccounts = async (request, response) => {
@@ -42,20 +26,7 @@ exports.getAllAccounts = async (request, response) => {
     }
 }
 
-<<<<<<< HEAD
-/**
- * @author: Sabin Constantin Lungu
- * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
- * @param {response}: Stores the response data sent back by the server
- * @function: getAllContacts(request, response)
- * @returns: Returns all of the contacts with a 200 OK status code
- * @description: 1. Retrieves an account by ID
- * @description: 2. If thre
- */
-
-=======
 //Getting an account by _id
->>>>>>> 8e19a97b7683c255a038fc3d0dab73d4fc82d177
 exports.getAccountById = async (request, response) => {
     try {
         //Testing request method

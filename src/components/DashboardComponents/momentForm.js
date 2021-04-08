@@ -28,7 +28,6 @@ class momentForm extends React.Component {
                 selfAware: false,
             },
             error:'',
-            test:'',
         }
     }
 
@@ -79,14 +78,9 @@ class momentForm extends React.Component {
      * @function: change updates the state using the item name it is called within and the value of the item
      */
     change = (e) => {
-        console.log(this.state.moment);
-        console.log(e.target.name + " " + e.target.value);
         this.setState({// Sets the state of the variables by spreading all the values from the moment object
             moment: {...this.state.moment,[e.target.name]: e.target.value}
         });
-        console.log(this.state.moment);
-
-
     }
 
     /**
@@ -117,7 +111,7 @@ class momentForm extends React.Component {
         return (
 
             <form className = "momentForm" onSubmit={e => this.onSubmit(e)}>
-                <div className="momentForm_top-section">
+                <div className="momentForm_top-section" >
 
                     <h2>Good afternoon, Username!</h2>
                     <h2>How are you feeling?</h2>

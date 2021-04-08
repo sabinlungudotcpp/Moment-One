@@ -1,7 +1,14 @@
 import React from "react";
 import Therapist from "./Therapist";
 import Goal from "./Goal";
-//displays user with wellbeing information
+/**
+ * @fileoverview: TherAndSupport.js returns a component containing two lists, one of therapist components and one of goal components
+ * @author: Ryan Spowart
+ * @param {props}: N/A
+ * @component App() - Returns JSX
+ * @requires: npm install react
+ */
+
 const therAndSupport = (props) => {
 
   return (
@@ -10,6 +17,7 @@ const therAndSupport = (props) => {
         <div className="titleSec">
           <h2>Favourite Therapists</h2>
         </div>
+        {/* therapist list */}
         <Therapist />
         <Therapist />
         <Therapist />
@@ -19,6 +27,7 @@ const therAndSupport = (props) => {
         <div className="titleSec">
           <h2>Your Goals</h2>
         </div>
+        {/* Goal list */}
         <Goal />
         <Goal />
         <Goal />

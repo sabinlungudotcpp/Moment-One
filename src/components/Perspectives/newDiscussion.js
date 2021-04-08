@@ -3,6 +3,7 @@ import axios from 'axios';
     /**
  * @fileoverview: returns a form which allows entry of discussion and upload to database
  * @author: Ryan Spowart
+ * @param: N/A
  * @component App() - Returns JSX
  * @requires: useState
  */
@@ -23,7 +24,9 @@ class NewDiscussion extends React.Component{
             error:'',
         }
     }
-    //updating the state whenever something is changed
+    /**
+     * @function: change updates the state using the item name it is called within and the value of the item
+     */
     change = (e) => {
         this.setState({
             discussion:{
@@ -32,7 +35,10 @@ class NewDiscussion extends React.Component{
             }
         })
     }
-    //submitting to database
+
+    /**
+     * @function: onSubmit calls the validate function, checks if there are any errors, submits the data to the posts database file then resets the state to default
+     */
     onSubmit = async (e) => {
         e.preventDefault();
         this.validate()
@@ -44,6 +50,9 @@ class NewDiscussion extends React.Component{
         }  
     }
 
+    /**
+     * @function: reset resets the state of the component to default values
+     */
     reset(){
         this.setState({
             discussion:{
@@ -56,6 +65,9 @@ class NewDiscussion extends React.Component{
         })
     }
 
+    /**
+     * @function: The validate function is used to validate the form entry fields. If they are left empty, an error message is displayed
+     */
     validate(){
         if(this.state.title ===''){
             this.setState({error:"Please enter a title"})
@@ -68,7 +80,7 @@ class NewDiscussion extends React.Component{
         }
     }
 
-    render(){
+    render(){ //returns jsx component
         return (
             <form className="newDiscussion" onSubmit={e => this.onSubmit(e)}>
                 <div className="userWrapper">

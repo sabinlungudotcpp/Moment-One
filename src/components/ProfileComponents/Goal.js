@@ -1,6 +1,13 @@
 import React from "react";
 import goalIcon from "../../imageAssets/Icons/General/goalIcon.png";
-//displays user with wellbeing information
+/**
+ * @fileoverview: Goal.js returns a users goal
+ * @author: Ryan Spowart
+ * @param {props}: goals will be passed in at some point -- nonfunctional at the moment
+ * @component App() - Returns JSX
+ * @requires: npm install react
+ */
+
 const Goal = (props) => {
 
   return (

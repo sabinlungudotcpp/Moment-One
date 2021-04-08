@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
 /**
- * @fileoverview: Component which returns the navigation bar to be rendered
+ * @fileoverview: NavBar component which returns the navigation bar to be rendered, along with a form for adding an excercise(non functional at the moment)
  * @author: Ryan Spowart
  * @component App() - Returns JSX
- * @requires: npm install react-router-dom
+ * @requires: npm install react-router-dom | npm install react
  */
 
 const Navbar = () => { // Navigation Bar Component

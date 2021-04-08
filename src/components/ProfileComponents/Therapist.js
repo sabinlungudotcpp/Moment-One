@@ -1,6 +1,6 @@
 import React from "react";
 import therChat from "../../imageAssets/Icons/General/therChat.png";
-//displays user with wellbeing information
+
 const Therapist = (props) => {
 
   return (

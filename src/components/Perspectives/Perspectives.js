@@ -4,10 +4,11 @@ import YourDiscussions from "./YourDiscus";
 import MoreDiscussions from "./moreDiscussions";
 import NewDiscussion from "./newDiscussion";
     /**
- * @fileoverview: returns the perspectives page that shows the users own discussions and the most popular discussions by likes
+ * @fileoverview: Perspectives.js returns the perspectives page that shows the users own discussions and the most popular discussions by likes
  * @author: Ryan Spowart
+ * @param: N/A
  * @component App() - Returns JSX
- * @requires: react
+ * @requires: npm install react
  */
 const Perspectives = () => {
   return (

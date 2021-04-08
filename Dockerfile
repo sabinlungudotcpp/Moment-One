@@ -4,6 +4,8 @@
 # 4. Run npm install to install packages
 # 5. Expose port 3000 for incoming traffic
 # 6. Execute the front-end wit the CMD command
+
+# Author: Sabin Constantin Lungu
 FROM node:alpine AS builder
 WORKDIR '/app'
 COPY package.json .

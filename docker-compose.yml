@@ -1,3 +1,8 @@
+      # Version: 3
+      # The services section defines the name of the service that will be used to build the docker file, in this case Web.
+
+      # Author: Sabin Constantin Lungu
+
 version: '3'
 services: 
   web:

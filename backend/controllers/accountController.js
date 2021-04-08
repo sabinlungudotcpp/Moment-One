@@ -4,7 +4,7 @@ const notFound = 404;
 const serverError = 500;
 
 /**
- * @author: Sabin Constantin Lungu
+ * @author: Jakub Kosarzecki
  * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
  * @param {response}: Stores the response data sent back by the server
  * @function: 
@@ -40,8 +40,8 @@ exports.getAllAccounts = async (request, response) => {
  * @param {response}: Stores the response data sent back by the server
  * @function: getAllContacts(request, response)
  * @returns: Returns all of the contacts with a 200 OK status code
- * @description: 
- * @description: 
+ * @description: 1. Retrieves an account by ID
+ * @description: 2. If thre
  */
 
 exports.getAccountById = async (request, response) => {
@@ -63,6 +63,7 @@ exports.getAccountById = async (request, response) => {
     }
 
     catch(error) {
+
         if(error) {
             return response.status(serverError).json({ 
                 message: error.message

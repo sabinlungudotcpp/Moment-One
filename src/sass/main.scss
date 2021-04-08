@@ -1,24 +1,14 @@
-@import "./GenericSheets/NavBar";
+@import "./HeaderNavStyle/NavBar";
 @import "App";
-@import "./GenericSheets/variables";
-@import "./GenericSheets/resets";
-@import "./homePageSheets/Dashboard";
-@import "./GenericSheets/Header";
-@import "./homePageSheets/momentForm";
-@import "./homePageSheets/Journal";
-@import "./yourJourneySheets/yourJourney";
-@import "./yourJourneySheets/goals";
-@import "./yourJourneySheets/goalComponent";
-@import "./homePageSheets/OverlayMoment";
-@import "./yourJourneySheets/selfAwareness";
-@import "./yourJourneySheets/_community";
-@import "./GenericSheets/userBubble";
-@import "./perspectiveSheets/perspectives";
-@import "./perspectiveSheets/formCard";
-@import "./ChatSheets/chat";
-@import "./profileSheets/profile";
-@import "./communitySheets/community";
-@import "./login-register-forums/login&register";
+@import "./functionsAndVariables/variables";
+@import "./functionsAndVariables/resets";
+@import "./HeaderNavStyle/Header";
+@import "./ChatPageStyle/chatPageStyle";
+@import "./CommunityPageStyle/communityPageStyle";
+@import "./DashboardPageStyle/DashboardPageStyle";
+@import "./login-RegisterPageStyle/login&register";
+@import "./PerspectivePageStyle/perspectivesPageStyle";
+@import "./ProfilePageStyle/profilePageStyle";
 
 body{
     margin-top:0vh;

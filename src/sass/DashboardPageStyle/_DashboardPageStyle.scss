@@ -1,5 +1,8 @@
-@import "../GenericSheets/functions";
-@import "../GenericSheets/variables";
+@import "../functionsAndVariables/functions";
+@import "../functionsAndVariables/variables";
+@import "./JournalStyle";
+@import "./momentFormStyle";
+@import "./OverlayMomentStyle";
 
 .contentGrid{
     margin-top: 5vh;

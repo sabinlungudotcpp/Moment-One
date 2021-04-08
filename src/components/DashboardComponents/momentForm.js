@@ -28,6 +28,7 @@ class momentForm extends React.Component {
                 selfAware: false,
             },
             error:'',
+            test:'',
         }
     }
 
@@ -78,10 +79,14 @@ class momentForm extends React.Component {
      * @function: change updates the state using the item name it is called within and the value of the item
      */
     change = (e) => {
-
+        console.log(this.state.moment);
+        console.log(e.target.name + " " + e.target.value);
         this.setState({// Sets the state of the variables by spreading all the values from the moment object
-            moment: { ...this.state.moment, [e.target.name]: e.target.value} 
-        })
+            moment: {...this.state.moment,[e.target.name]: e.target.value}
+        });
+        console.log(this.state.moment);
+
+
     }
 
     /**
@@ -121,7 +126,7 @@ class momentForm extends React.Component {
                     <div className="feelingWrapper">
 
                         <label className = "feelingSelect">
-                            <input type="radio" name='feeling' value ='Great' onChange = {e => e.target.value} />
+                            <input type="radio" name='feeling' value ='Great' onChange = {e => this.change(e)} />
                             <img src = {moodGreat} alt="Great" className="feelingIcon" />
                             <p>Great</p>
                         </label>

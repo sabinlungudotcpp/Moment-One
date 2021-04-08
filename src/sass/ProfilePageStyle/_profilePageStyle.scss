@@ -1,0 +1,89 @@
+@import "./userAndGoalsStyle";
+@import "./therAndSupStyle";
+@import "./levelTrackStyle";
+@import "./goalStyle";
+@import "./personalGrowthStyle";
+@import "./therapistStyle";
+
+.profileContent{
+    width:100%;
+    height:83vh;
+    display:flex;
+    margin-top: 3vh;
+    overflow-y:scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+    .leftSection{
+        min-width: 300px;
+        width:15vw;
+        height:130%;
+        margin-right: auto;
+        display:flex;
+        flex-direction: column;
+
+    }
+    .rightSection{
+        display:flex;
+        flex-direction: column;
+        width:70vw;
+        height:130%;
+        margin-left: 3vh;
+    }
+}
+
+
+
+.goalList{
+    margin:auto 0% auto 5%;
+    display:flex;
+    width:100%;
+    height:20%;
+    margin-left: 5%;
+    .icon{
+        height:90px;
+        width:90px;
+        background-color: colour(P,or);
+        border-radius: 12px;
+        margin-top: auto;
+        margin-bottom: auto;
+        display:flex;
+        .circle{
+            border-radius: 50%;
+            border:3px solid white;
+            height:80%;
+            width:80%;
+            margin:auto;
+            display:flex;
+            h1{
+                margin:auto;
+                text-align: center;
+                @include montserratFont(700,colour(F,wh),16px)
+
+            }
+        }
+    }
+    .contentWrap{
+        margin:auto auto auto 5%;
+        display:flex;
+        flex-direction: column;
+        height:100%;
+        width:60%;
+        .title{
+            margin-top: 5%;
+            @include PoppinsFont(600,colour(F,bla),20px);
+        }
+        .desc{
+            @include PoppinsFont(400,colour(F,bla),14px);
+            width:100%;
+        }
+    }
+    img{
+        height:25px;
+        width:25px;
+        cursor: pointer;
+        margin:auto;
+        margin-right: 10%;
+    }
+}

@@ -1,6 +1,6 @@
-@import "Variables";
-@import "functions";
-@import "images";
+@import "../functionsAndVariables/Variables";
+@import "../functionsAndVariables/functions";
+@import "../functionsAndVariables/images";
 
 .navbar {
     @include compSetup;

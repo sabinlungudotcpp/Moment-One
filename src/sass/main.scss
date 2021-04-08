@@ -1,9 +1,8 @@
-@import "./GenericSheets/NavBar";
+@import "./HeaderNavStyle/NavBar";
 @import "App";
-@import "./GenericSheets/variables";
-@import "./GenericSheets/resets";
-@import "./GenericSheets/Header";
-@import "./GenericSheets/userBubble";
+@import "./functionsAndVariables/variables";
+@import "./functionsAndVariables/resets";
+@import "./HeaderNavStyle/Header";
 @import "./ChatPageStyle/chatPageStyle";
 @import "./CommunityPageStyle/communityPageStyle";
 @import "./DashboardPageStyle/DashboardPageStyle";

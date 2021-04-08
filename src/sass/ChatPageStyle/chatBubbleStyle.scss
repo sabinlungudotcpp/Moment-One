@@ -1,5 +1,8 @@
-@import "../GenericSheets/Variables";
-@import "../GenericSheets/functions";
+@import "../functionsAndVariables/Variables";
+@import "../functionsAndVariables/functions";
+/*
+Styles the ChatBubble Component
+*/
 .chatBubble{
     display:flex;
     margin-bottom: 2%;

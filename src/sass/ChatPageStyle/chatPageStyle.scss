@@ -1,7 +1,10 @@
-@import "../GenericSheets/Variables";
-@import "../GenericSheets/functions";
-@import "./chatBubble.scss";
+@import "../functionsAndVariables/Variables";
+@import "../functionsAndVariables/functions";
+@import "./chatBubbleStyle.scss";
 @import "./contactStyle.scss";
+/*
+styles the live-chat page
+*/
 .pageContent{
     display:flex;
     margin-top: 3vh;

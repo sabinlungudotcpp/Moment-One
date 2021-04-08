@@ -1,47 +1,70 @@
-//accountController for the momentOne platform 
 const accountModel = require('../models/accountModel');
+const okCode = 200;
+const notFound = 404;
+const serverError = 500;
 
-//Getting all accounts. Users and Therapists
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @function: 
+ * @returns:
+ * @description: 
+ * @description: 
+ */
+
 exports.getAllAccounts = async (request, response) => {
-    try{
-        //Testing to check if the request method is GET
+
+    try {
+        
         if(request.method === 'GET') {
             
-            const allAccounts = await accountModel.find(); //Getting all accounts from the database
-            return response.status(200).json({allAccounts}); //Sending response with all accounts
+            const allAccounts = await accountModel.find();
+            return response.status(okCode).json({allAccounts}); 
         }
     }
-    //Catching all errors
+
     catch(error) { 
+
         if(error) {
-            return response.status(500).json({ //Internal server error
+            return response.status(serverError).json({ 
                 message: error.message
             });
         }
     }
 }
 
-//Getting an account by _id
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @function: getAllContacts(request, response)
+ * @returns: Returns all of the contacts with a 200 OK status code
+ * @description: 
+ * @description: 
+ */
+
 exports.getAccountById = async (request, response) => {
+
     try {
-        //Testing request method
+
         if(request.method === 'GET') {
 
-            const account = await accountModel.findById(request.params.id); //finding the account from the _id in the url
+            const account = await accountModel.findById(request.params.id);
 
-            if(!account){ //Testing to see if account was found
-                return response.status(404).json({ //Not found
+            if(!account){ 
+                return response.status(notFound).json({
                     message: 'Account not found'
                 });
             }
 
-            return response.status(200).json({account}); //Sending response with account
+            return response.status(okCode).json({account}); 
         }
     }
-    //catching all errors
+
     catch(error) {
         if(error) {
-            return response.status(500).json({ //Internat server error
+            return response.status(serverError).json({ 
                 message: error.message
             });
         }
@@ -49,17 +72,20 @@ exports.getAccountById = async (request, response) => {
 }
 
 exports.editAccount = async (request, response) => {
+
 	try {
-		//testing if the request method is patch
+		
 		if(request.method === 'PATCH') {
-			const updatedAccount = await accountModel.findByIdAndUpdate(request.params.id, request.body, {new: true}); //Finds user by id and then updates with content of request body.
-			return response.status(200).json({updatedAccount}); //Sending http code 200 (OK) and updated account
+
+			const updatedAccount = await accountModel.findByIdAndUpdate(request.params.id, request.body, {new: true});
+			return response.status(okCode).json({updatedAccount}); 
 		}
-	}
-	//Catching error
+    }
+    
 	catch(error) {
+
 		if(error) {
-			return response.status(500).json({ //internal server error
+			return response.status(serverError).json({
 				message: error.message
 			});
 		}
@@ -67,28 +93,33 @@ exports.editAccount = async (request, response) => {
 }
 
 exports.deleteAccountById = async (request, response) => {
+
     try {
+
         if(request.method === 'DELETE') {
 
             const check = await accountModel.findByIdAndDelete(request.params.id);
              
             if(check) { 
-                return response.status(200).json({ //Response with http ok code
+                return response.status(okCode).json({ 
                     message: 'Account deleted'
                 });
             } 
             
-            else { //if check is empty then account couldn't be found and deleted from the _id provided
-                return response.status(404).json({
+            else { 
+
+                return response.status(notFound).json({
                     message: 'Account not found'
                 });
             }
         }
     }
-    //catching all errors
+    
     catch(error) {
+
         if(error) {
-            return response.status(500).json({ //Internal server error
+
+            return response.status(serverError).json({ 
                 message: error.message
             });
         }

@@ -1,8 +1,13 @@
 const accountModel = require('../models/accountModel');
 const chatModel = require('../models/chatModel');
+const okCode = 200;
+const notFound = 404;
+const forbidden = 422;
+const serverError = 500;
 
 exports.connectRequest = async (request, response) => {
     try {
+
         if(request.method === 'POST') {
 
             const checkOne = await accountModel.findOne({
@@ -13,7 +18,7 @@ exports.connectRequest = async (request, response) => {
             });
 
             if(checkOne) {
-                return response.status(422).json({
+                return response.status(forbidden).json({
                     message: 'Connection request already sent'
                 });
             }
@@ -28,7 +33,7 @@ exports.connectRequest = async (request, response) => {
             });
 
             if(checkTwo) {
-                return response.status(422).json({
+                return response.status(forbidden).json({
                     message: 'User is already a contact'
                 });
             }
@@ -41,31 +46,35 @@ exports.connectRequest = async (request, response) => {
                     connectRequests: request.account.id
                 }
             });
-            return response.status(200).json({
+
+            return response.status(okCode).json({
                 message: 'Connect request sent'
             });
         }
-
     }
+
     catch(error) {
-        return response.status(500).json({
+        return response.status(serverError).json({
             message: error.message
         });
     }
 }
 
 exports.deleteConnectRequest = async (request, response) => {
+
     try {
         if(request.method === 'DELETE') {
-            await accountModel.updateOne({_id: request.params.id},{$pull: {connectRequests: request.account.id}});
-            return response.status(200).json({
+
+            await accountModel.updateOne({_id: request.params.id}, {$pull: {connectRequests: request.account.id}});
+
+            return response.status(okCode).json({
                 message: 'Connect request deleted'
             });
         }
-
     }
+
     catch(error) {
-        return response.status(500).json({
+        return response.status(serverError).json({
             message: error.message
         });
     }
@@ -77,16 +86,18 @@ exports.getAllConnectRequests = async (request, response) => {
             const connectRequests = await accountModel.findById(request.account.id).select('connectRequests');
 
             if(!connectRequests.connectRequest) {
-                return response.status(404).json({
+
+                return response.status(notFound).json({
                     message: 'No connect requests found'
                 });
             }
 
-            return response.status(200).json(connectRequests);
+            return response.status(okCode).json(connectRequests);
         }
     }
+
     catch(error) {
-        return response.status(500).json({
+        return response.status(serverError).json({
             message: error.message
         });
     }
@@ -114,14 +125,14 @@ exports.acceptConnectRequest = async (request, response) => {
             await newChat.save()
            
             await accountModel.updateOne({_id: request.account.id},{$pull: {connectRequests: request.params.id}});
-            return response.status(200).json({
+            return response.status(okCode).json({
                 message: 'Connect request accepted. New chat created'
             });
         }
     }
 
     catch(error) {
-        return response.status(500).json({
+        return response.status(serverError).json({
             message: error.message
         });
     }
@@ -134,7 +145,7 @@ exports.rejectConnectRequest = async (request, response) => {
 
             await accountModel.updateOne({_id: request.account.id},{$pull: {connectRequests: request.params.id}});
 
-            return response.status(200).json({
+            return response.status(okCode).json({
 
                 message: 'Connect request deleted'
             });
@@ -142,7 +153,7 @@ exports.rejectConnectRequest = async (request, response) => {
     }
 
     catch(error) {
-        return response.status(500).json({
+        return response.status(serverError).json({
             message: error.message
         })
     }

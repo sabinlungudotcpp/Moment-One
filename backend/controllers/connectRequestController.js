@@ -11,6 +11,7 @@ exports.connectRequest = async (request, response) => {
                     $in: request.account.id
                 }
             });
+
             if(checkOne) {
                 return response.status(422).json({
                     message: 'Connection request already sent'
@@ -25,6 +26,7 @@ exports.connectRequest = async (request, response) => {
                     }
                 }
             });
+
             if(checkTwo) {
                 return response.status(422).json({
                     message: 'User is already a contact'
@@ -93,7 +95,7 @@ exports.getAllConnectRequests = async (request, response) => {
 exports.acceptConnectRequest = async (request, response) => {
     try {
         if(request.method === 'PATCH') {
-            //First check if user is already in contacts
+            
             const check = await accountModel.findOne({
                 _id: request.params.id,
                 contacts: {
@@ -110,13 +112,14 @@ exports.acceptConnectRequest = async (request, response) => {
             //Create a chat between the two users. Function in chatMOdel will automatically create the contact
             const newChat = new chatModel({between: [request.params.id, request.account.id]});
             await newChat.save()
-            //Then remove the request
+           
             await accountModel.updateOne({_id: request.account.id},{$pull: {connectRequests: request.params.id}});
             return response.status(200).json({
                 message: 'Connect request accepted. New chat created'
             });
         }
     }
+
     catch(error) {
         return response.status(500).json({
             message: error.message
@@ -125,18 +128,22 @@ exports.acceptConnectRequest = async (request, response) => {
 }
 
 exports.rejectConnectRequest = async (request, response) => {
+
     try {
         if(request.method === 'DELETE') { 
+
             await accountModel.updateOne({_id: request.account.id},{$pull: {connectRequests: request.params.id}});
+
             return response.status(200).json({
+
                 message: 'Connect request deleted'
             });
         }
     }
+
     catch(error) {
         return response.status(500).json({
             message: error.message
         })
     }
 }
-

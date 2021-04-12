@@ -11,7 +11,8 @@ import JournalDis from "./Journal";
  * @requires: npm install react-router-dom
  */
 
-const Dashboard = (props) => { // Home Component
+const Dashboard = () => { // Home Component
+
   return (
     
     <div className = "Page">
@@ -23,11 +24,6 @@ const Dashboard = (props) => { // Home Component
           <MomentForm/>
           {/* displays the journal, total moments and answers */}
           <JournalDis/>
-
-          <div>
-            
-          </div>
-
         </div>
       </div>
     </div>

@@ -34,6 +34,9 @@ class momentForm extends React.Component {
     this.getPosts();
   }
 
+  update(){
+    this.JournalMoment();
+  }
       /**
      * @function: getPosts gets data from the database and sets the data retrieved into the component state
      */

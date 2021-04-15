@@ -17,7 +17,7 @@ class NewDiscussion extends React.Component{
             discussion: {
                 title: '',
                 content: '',
-                date: Date.now(),
+                //date: new Date().toLocaleString(),
                 category: '',
                 likes: 0,
             },
@@ -44,8 +44,10 @@ class NewDiscussion extends React.Component{
      */
     onSubmit = async (e) => {
         e.preventDefault();
-        
+        console.log(this.state.discussion);
         await axios.post('http://localhost:8001/api/v1/momentone/discussions', this.state.discussion);
+        this.reset();
+
     }
 
     /**
@@ -54,11 +56,12 @@ class NewDiscussion extends React.Component{
     reset(){
         this.setState({
             discussion:{
-                title: '',
-                content: '',
-                date: undefined,
-                category: '',
-                likes: 0,
+                title:'',
+                content:'',
+                //date:new Date().toLocaleString(),
+                category:'',
+                like:0,
+
             }
         })
     }

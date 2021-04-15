@@ -4,7 +4,7 @@ const badRequest = 400;
 const notFound = 404;
 
 /**
- * @author: Jakub Koszarzecki, Sabin Constantin Lungu
+ * @author: Jakub Koszarzecki
  * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
  * @param {response}: Stores the response data sent back by the server
  * @function: Exported middleware function that performs a search for a username

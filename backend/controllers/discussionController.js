@@ -41,7 +41,7 @@ exports.createDiscussion = async (request, response, next) => {
         const method = request.method;
 
         if(method === 'POST') {
-            const newDiscussion = new Discussion({title, content, category});
+            const newDiscussion = new Discussion({title, content, date, category});
             await newDiscussion.save();
 
             return response.status(created).json({

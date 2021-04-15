@@ -53,12 +53,9 @@ class NewDiscussion extends React.Component {
     reset(){
         this.setState({
             discussion:{
-                title:'',
-                content:'',
-                //date:new Date().toLocaleString(),
-                category:'',
-                likes:0,
-
+                title: '',
+                content: '',
+                category: ''
             }
         })
     }
@@ -95,6 +92,7 @@ class NewDiscussion extends React.Component {
 
                         <h2 className="username">@username</h2>
                         <h3 className = "level">level 2</h3>
+
                     </div>
                 </div>
     

@@ -27,6 +27,7 @@ const NewDiscussion = () => { // New Discussion Component
     
     const onSubmit = async (e) => { // Submits the discussion data to the database
         e.preventDefault();
+        
         await axios.post('http://localhost:8001/api/v1/momentone/discussions', state.discussion);
     }
 

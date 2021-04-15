@@ -28,7 +28,6 @@ class NewDiscussion extends React.Component {
     change = (e) => {
 
         this.setState({
-
             discussion: {
                 ...this.state.discussion,
                 [e.target.name]: e.target.value

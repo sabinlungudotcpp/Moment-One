@@ -11,10 +11,10 @@ const discussionSchema = new mongoose.Schema({
         required: [true, 'A discussion must content']
     },
 
-    // date: {
-    //     type: Date,
-    //     required: [true, 'A discussion must have a date']
-    // },
+    date: {
+         type: Date,
+         required: [true, 'A discussion must have a date']
+     },
 
     category: {
         type: String,

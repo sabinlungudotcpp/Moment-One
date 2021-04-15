@@ -8,7 +8,7 @@ import axios from 'axios';
  * @requires: useState
  */
 
-class NewDiscussion extends React.Component{
+class NewDiscussion extends React.Component {
     constructor(props) { // Constructor for the moment form
         super(props);
 

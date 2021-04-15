@@ -42,7 +42,6 @@ exports.createDiscussion = async (request, response, next) => {
 
         if(method === 'POST') {
             const newDiscussion = new Discussion({title, content, category});
-            console.log(newDiscussion);
             await newDiscussion.save();
 
             return response.status(created).json({
@@ -58,8 +57,6 @@ exports.createDiscussion = async (request, response, next) => {
         if(error) {
             return response.status(404).json({message: 'Unable to create discussion'})
         }
-
-
     }
 }
 
@@ -72,7 +69,10 @@ exports.editDiscussion = async (request, response, next) => { // Controller to e
             const editedDiscussion = await Discussion.findByIdAndUpdate(id, request.body);
             await editedDiscussion.save();
 
-
+            return response.status(okCode).json({
+                message: 'Discussion Updated',
+                updatedAt: new Date().toISOString()
+            });
         }
     } 
     

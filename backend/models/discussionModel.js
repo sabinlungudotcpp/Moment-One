@@ -11,10 +11,10 @@ const discussionSchema = new mongoose.Schema({
         required: [true, 'A discussion must content']
     },
 
-    date: {
-        type: Date,
-        required: [true, 'A discussion must have a date']
-    },
+    // date: {
+    //     type: Date,
+    //     required: [true, 'A discussion must have a date']
+    // },
 
     category: {
         type: String,
@@ -26,6 +26,8 @@ const discussionSchema = new mongoose.Schema({
         type: Number,
         required: [false, 'Discussion must have likes']
     }
+
+    
 });
 
 const DiscussionModel = mongoose.model('Discussion', discussionSchema); // Creates a discussion model to be exported

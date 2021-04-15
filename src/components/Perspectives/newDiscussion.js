@@ -45,6 +45,7 @@ class NewDiscussion extends React.Component{
         console.log(this.state.discussion);
         await axios.post('http://localhost:8001/api/v1/momentone/discussions', this.state.discussion);
         this.reset();
+
     }
 
     /**
@@ -66,13 +67,20 @@ class NewDiscussion extends React.Component{
      * @function: The validate function is used to validate the form entry fields. If they are left empty, an error message is displayed
      */
     validate(){
-        if(this.state.title ===''){
-            this.setState({error:"Please enter a title"})
-        }else if(this.state.content===''){
+
+        if(this.state.title === ''){
+            this.setState({error: "Please enter a title"})
+        }
+        
+        else if(this.state.content === ''){
             this.setState({error:"please enter the content"})
-        }else if(this.state.category===''){
+        }
+        
+        else if(this.state.category===''){
             this.setState({error:"please enter a category"})
-        }else{
+        }
+        
+        else{
             this.setState({error:''})
         }
     }

@@ -4,6 +4,7 @@ const created = 201;
 const notFound = 404;
 
 exports.getAllDiscussions = async (request, response, next) => {
+
     try {
         const discussions = await Discussion.find(); // Find all discussions
 
@@ -53,14 +54,18 @@ exports.createDiscussion = async (request, response, next) => {
     
     catch(error) {
         if(error) {
-
+            return response.status(404).json({message: 'Unable to create discussion'})
         }
     }
 }
 
 exports.editDiscussion = async (request, response, next) => { // Controller to edit
     try {
+        const method = request.method;
 
+        if(method === 'PATCH') {
+
+        }
     } 
     
     catch(error) {
@@ -72,10 +77,13 @@ exports.editDiscussion = async (request, response, next) => { // Controller to e
 
 exports.deleteDiscussions = async (request, response, next) => {
     try {
+        const method = request.method;
 
+        
     } 
     
     catch(error) {
+
         if(error) {
 
         }

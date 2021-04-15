@@ -55,7 +55,7 @@ exports.createDiscussion = async (request, response, next) => {
     catch(error) {
 
         if(error) {
-            return response.status(404).json({message: 'Unable to create discussion'})
+            return response.status(500).json({message: 'Unable to create discussion', error: error.message})
         }
     }
 }

@@ -9,7 +9,6 @@ import axios from 'axios';
  */
 
 class NewDiscussion extends React.Component{
-    //creating state
     constructor(props) { // Constructor for the moment form
         super(props);
 
@@ -60,7 +59,7 @@ class NewDiscussion extends React.Component{
                 content:'',
                 //date:new Date().toLocaleString(),
                 category:'',
-                like:0,
+                likes:0,
 
             }
         })

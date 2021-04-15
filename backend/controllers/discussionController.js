@@ -37,11 +37,11 @@ exports.getAllDiscussions = async (request, response, next) => {
 
 exports.createDiscussion = async (request, response, next) => {
     try {
-        const {title, content, category, likes} = request.body;
+        const {title, content, category} = request.body;
         const method = request.body;
 
         if(method === 'POST') {
-            const newDiscussion = new Discussion({title, content, category, likes});
+            const newDiscussion = new Discussion({title, content, category});
             await newDiscussion.save();
 
             return response.status(created).json({
@@ -71,7 +71,7 @@ exports.editDiscussion = async (request, response, next) => { // Controller to e
             const editedDiscussion = await Discussion.findByIdAndUpdate(id, request.body);
             await editedDiscussion.save();
 
-            
+
         }
     } 
     

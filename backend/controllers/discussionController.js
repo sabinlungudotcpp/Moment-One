@@ -53,18 +53,25 @@ exports.createDiscussion = async (request, response, next) => {
     } 
     
     catch(error) {
+
         if(error) {
             return response.status(404).json({message: 'Unable to create discussion'})
         }
+
+
     }
 }
 
 exports.editDiscussion = async (request, response, next) => { // Controller to edit
     try {
         const method = request.method;
+        const id = request.params.id;
 
         if(method === 'PATCH') {
+            const editedDiscussion = await Discussion.findByIdAndUpdate(id, request.body);
+            await editedDiscussion.save();
 
+            
         }
     } 
     

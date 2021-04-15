@@ -17,8 +17,7 @@ class NewDiscussion extends React.Component{
                 title: '',
                 content: '',
                 //date: new Date().toLocaleString(),
-                category: '',
-                likes: 0,
+                category: ''
             },
             
             error:'',

@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const account = require('../models/accountModel');
 const userModel = require('../models/userModel');
 const therapistModel = require('../models/therapistModel');
+const sendMail = require('../middlewares/sendGridEmail');
 const okCode = 200;
 const unauthorized = 401;
 const unprocessable = 422;
@@ -47,8 +48,10 @@ exports.registerUser = async (request, response) => {
         if(method === 'POST') {
             const user = new userModel({username, password, email, type});
             await user.save();
+            await sendMail.registerEmail(email, username);
 
             const token = signToken(user._id); // Sign the JWT token
+
             return response.status(okCode).json({token, user});
         }
     }
@@ -91,6 +94,7 @@ exports.registerTherapist = async (request, response) => { // Middleware functio
 
             const therapist = new therapistModel({firstName, lastName, username, password, email, telephone, city, country, type});
             await therapist.save(); // Save the details to the database
+            await sendMail.registerEmail(email, username);
 
             const token = signToken(therapist._id); // Signs a JWT for a therapist
 

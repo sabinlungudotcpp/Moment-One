@@ -37,11 +37,11 @@ exports.getAllDiscussions = async (request, response, next) => {
 
 exports.createDiscussion = async (request, response, next) => {
     try {
-        const {title, content, date, category, likes} = request.body;
+        const {title, content, category, likes} = request.body;
         const method = request.body;
 
         if(method === 'POST') {
-            const newDiscussion = new Discussion({title, content, date, category, likes});
+            const newDiscussion = new Discussion({title, content, category, likes});
             await newDiscussion.save();
 
             return response.status(created).json({
@@ -79,7 +79,7 @@ exports.deleteDiscussions = async (request, response, next) => {
     try {
         const method = request.method;
 
-        
+
     } 
     
     catch(error) {

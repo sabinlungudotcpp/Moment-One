@@ -80,18 +80,19 @@ class NewDiscussion extends React.Component{
             this.setState({error:"please enter a category"})
         }
         
-        else{
+        else {
             this.setState({error:''})
         }
     }
 
     render(){ //returns jsx component
         return (
-            <form className="newDiscussion" onSubmit={e => this.onSubmit(e)}>
+            <form className = "newDiscussion" onSubmit={e => this.onSubmit(e)}>
                 <div className="userWrapper">
                     
                     <div className = "icon"></div>
                     <div className="textWrap">{/* user datails */}
+
                         <h2 className="username">@username</h2>
                         <h3 className = "level">level 2</h3>
                     </div>

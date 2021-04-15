@@ -29,8 +29,10 @@ class NewDiscussion extends React.Component{
      * @function: change updates the state using the item name it is called within and the value of the item
      */
     change = (e) => {
+
         this.setState({
-            discussion:{
+
+            discussion: {
                 ...this.state.discussion,
                 [e.target.name]: e.target.value
             }
@@ -52,11 +54,11 @@ class NewDiscussion extends React.Component{
     reset(){
         this.setState({
             discussion:{
-                title:'',
-                content:'',
-                date:Date.now(),
-                category:'',
-                like:'0',
+                title: '',
+                content: '',
+                date: undefined,
+                category: '',
+                likes: 0,
             }
         })
     }

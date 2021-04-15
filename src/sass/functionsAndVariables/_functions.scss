@@ -1,0 +1,62 @@
+@import "Variables";
+@import "images";
+
+//set weights -light -normal - dark
+@function weight($wight-name){
+    @return map-get($font-wight, $wight-name )
+};
+//default settings for components
+@mixin compSetup{
+    background-color: $compBack;
+}
+//colours combined
+@function colour($set,$colour){
+
+    @if($set == "P"){
+        @return map-get($P-colour, $colour );
+    }
+    @if($set == "S"){
+        @return map-get($S-colour,$colour);
+    }
+    @if($set == "F"){
+        @return map-get($F-colour,$colour);
+    }
+
+}
+//font functionality
+@mixin montserratFont($wight-name,$colour,$size){
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-weight:weight($wight-name);
+    color:$colour;
+    font-size:$size;
+}
+
+@mixin RalewayFont($wight-name,$colour,$size){
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap');
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    color:$colour;
+    font-size:$size;
+}
+
+@mixin PoppinsFont($wight-name,$colour,$size){
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: $wight-name;
+    color:$colour;
+    font-size:$size;
+}
+
+@mixin navIcon($name){
+    width: 20px;
+    height: 20px;
+    margin:auto;
+    background-image: map-get($navIcons , $name );
+    background-repeat: no-repeat, repeat;
+    background-size: 20px 20px;
+}

@@ -3,6 +3,13 @@ const okCode = 200;
 const createdCode = 201;
 const notFound = 404;
 
+/**
+ * @author: Sabin Constantin Lungu
+ * @function: Middleware function that handles unspecified routes on the server, for example if an invalid route is specified it will return the error message below. 
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ */
+
 exports.getAllCourses = async (request, response, next) => {
     try {
         const method = request.method;
@@ -26,23 +33,30 @@ exports.getAllCourses = async (request, response, next) => {
     }
 }
 
-exports.createNewCourse = async (request, response, next) => { // Middleware controller function to create a new course
+/**
+ * @author: Sabin Constantin Lungu
+ * @function: Middleware controller function that enables users to create a new course on the server
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @description: 1. The asynchronous function is exported which is used within the courses routes that sends a POST request to create a new course then calls the .save() function to save it to the database
+ */
+
+exports.createNewCourse = async (request, response, next) => {
 
     try {
         const method = request.method;
-        const {title, description, image, isCompleted, inProgress, coursesCompleted} = request.body;
+        const {title, description, image, isCompleted, inProgress, coursesCompleted} = request.body; // Request body
 
         if(method === 'POST') {
             const newCourse =  new Course({title, description, image, isCompleted, inProgress, coursesCompleted});
-            await newCourse.save();
+            await newCourse.save(); // Save the new course
 
-            return response.status(createdCode).json({
-                newCourse
-            })
+            return response.status(createdCode).json({newCourse});
         }
     } 
     
     catch(error) {
+
         if(error) {
             return response.status(notFound).json({
                 status: 'Fail',
@@ -52,6 +66,13 @@ exports.createNewCourse = async (request, response, next) => { // Middleware con
         }
     }
 }
+
+/**
+ * @author: Sabin Constantin Lungu
+ * @function: Middleware function that handles unspecified routes on the server, for example if an invalid route is specified it will return the error message below. 
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ */
 
 exports.updateCourse = async (request, response, next) => {
     try {
@@ -81,6 +102,14 @@ exports.updateCourse = async (request, response, next) => {
             })
     }
 }
+
+/**
+ * @author: Sabin Constantin Lungu
+ * @function: Middleware function that retrieves a course by ID
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @description: 
+ */
 
 exports.getCourseById = async (request, response, next) => {
     try {

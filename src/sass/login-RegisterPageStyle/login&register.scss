@@ -1,0 +1,151 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+
+
+body {
+  font-family: 'Cachet', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.register-container {
+  width: 450px;
+  height: 700px;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
+  color: black;
+  margin: auto;
+  margin-top: 70px;
+  position: relative;
+  padding: 20px;
+  text-align: left;
+}
+
+
+.login-container {
+  width: 450px;
+  height: 520px;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
+  color: black;
+  margin: auto;
+  margin-top: 70px;
+  position: relative;
+  padding: 20px;
+  text-align: left;
+}
+
+
+.field-container {
+  border-radius: 8px !important;
+  box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04) !important;
+}
+
+
+.box-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto) ;
+  gap: 0px;
+  margin-top: 0px;
+  background-color: #F1F1F1;
+}
+
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #F1F1F1;
+}
+
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+input[type=text], input[type=username] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #F1F1F1;
+}
+
+
+input[type=text]:focus, input[type=username]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+input[type=text], input[type=email] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #F1F1F1;
+}
+
+
+input[type=text]:focus, input[type=email]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+hr {
+	height: 3px;
+	background-color: #000000;
+	border: none;
+	width: 100%;
+  margin: 20px;
+  margin-left: 0px;
+}
+
+
+h1 {
+	font-size: 28px;
+	color: black;
+  margin: auto;
+}
+
+
+.btn {
+  background: linear-gradient(155.54deg, #2F4CDD 15.63%, #D45BFF 136.34%);
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  opacity: 0.9;
+  justify-content: center;
+  border-radius: 20px;
+  box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+.btn:hover {
+  opacity: 1;
+  border-radius: 20px;
+  box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
+}
+
+
+a {
+  color: dodgerblue;
+}
+
+
+.signin {
+  background-color: #F1F1F1;
+  text-align: center;
+}

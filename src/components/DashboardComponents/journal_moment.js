@@ -1,5 +1,12 @@
 import React,{useState} from 'react';
 import MomentOverlay from './momentOverlay';
+/**
+ * @fileoverview: Returns a list of divs for dispalying a users moments
+ * @author: Ryan Spowart
+ * @param {props}: items - array of moment items to be dispalyed
+ * @component App() - Returns JSX
+ * @requires: npm install react
+ */
 
 const Moment = (props) => {
 
@@ -12,7 +19,7 @@ const Moment = (props) => {
 
                         <h2 className="momentTitle">{item.title}</h2>
                         <p rows="2">{item.description}</p>
-                        <p className="dateText">{item.createdAt}</p>
+                        <p className="dateText">{item.createdAt.substring(0, 10)}</p>
                     </div>
                     <MomentOverlay open={isOpen} onClose={() => setIsOpen(false)}/>
                 </div>

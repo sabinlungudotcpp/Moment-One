@@ -1,0 +1,232 @@
+@import "../functionsAndVariables/Variables";
+@import "../functionsAndVariables/functions";
+@import "../functionsAndVariables/images";
+
+.navbar {
+    @include compSetup;
+    overflow: hidden;
+    width: 100px;
+    height: 100vh;
+    position:absolute;
+    float: left;
+    background-color: $compBack;
+    transition: width 1s ease;
+    transition-delay: 0.2s;
+    z-index: 1000;
+    box-shadow: 18px 4px 35px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    //when a curser is hovered over the navbar div
+    &:hover{
+      width:250px;
+    }
+    //setting visability of username
+    &:hover .profile p{
+      opacity: 1;
+    }
+    //setting width of the navigation links
+    &:hover .navbar_link{
+      width : 290px;
+    }
+    //setting navigation labels to visible
+    &:hover .navbar_items-text {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &:hover .navTitle{
+      visibility: visible;
+      opacity: 1;
+    }
+    &:hover .exercise{
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &_header{
+      box-shadow: 18px 4px 35px rgba(0, 0, 0, 0.02);
+      height:6vh;
+      display:flex;
+      width:290px;
+      .NavLogo{
+        background-image: url("../imageAssets/Logos/logo.svg");
+        background-repeat: no-repeat, repeat;
+        background-size: 50px 50px;
+        width:50px;
+        height:50px;
+        margin-top: auto;
+        margin-bottom:auto;
+        margin-left: 25px;
+      }
+
+      .navTitle{
+        @include RalewayFont(dark,colour(F,db),22px);
+        margin-top: auto;
+        margin-bottom:auto;
+        margin-left: 14px;
+        opacity: 0;
+        transition: visibility 0.5s, opacity 0.5s linear;
+        transition-delay: 0.2s;
+      }
+    }
+
+     &_items {
+      margin-top: 3vh;
+      list-style: none;
+      display:flex;
+      flex-direction: column;
+      align-items:left;
+      height: 40vh;
+
+      //icon background
+      .icon{
+        
+        width: 50px;
+        height: 50px;
+        margin-top: auto;
+        margin-bottom:auto;
+        margin-left: 0px;
+        display: flex;
+        flex-direction: column;
+        filter: grayscale(100%);
+        transition: 0.5s ease-in-out;
+
+        .homeIcon {
+          @include navIcon(home);
+        }
+
+        .wellbeingIcon{
+          @include navIcon(wellbeing);
+        }
+
+        .perspectivesIcon{
+          @include navIcon(perspectives);
+        }
+
+        .communityIcon{
+          @include navIcon(community);
+        }
+
+        .livechatIcon{
+          @include navIcon(chat);
+        }
+
+        .logoutIcon{
+          @include navIcon(logout);
+       }
+
+      }
+    }
+
+    //navigation labels
+    &_items-text{
+      
+      white-space: nowrap;
+      margin-left:20px;
+      display:block;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.5s, opacity 0.5s linear;
+      transition-delay: 0.2s;
+    }
+    //moving logout button to the bottom of the menu
+    .logout{
+      margin-top: auto;
+    }
+    
+    //buttons on the bar
+    #{&}_link {
+      @include PoppinsFont(500,colour(F,gr),18px);
+      width : 220px;
+      overflow: hidden;
+      text-decoration: none;
+      display:flex;
+      align-items:center;
+      padding-left:17.5px;
+      margin-top:1vh;
+      border-left:5px solid #FFFF;
+      transition: .3s ease-in-out, color 0.5s ease-in-out;
+      
+      //changing link background colour
+      &:hover {
+        background-color: #FAFBFF;
+        border-left:5px solid colour(P,db);
+      }
+      
+      //displaying current page selected to user
+      &_active {
+        background-color: #FAFBFF;
+        border-left:5px solid colour(P,db);
+        @include PoppinsFont(500,colour(P,db),18px);
+        
+      }
+      &_active .icon{
+        filter: grayscale(0%);
+        
+      }
+    }
+
+    //style specific to the moment dropdown
+    .moments{
+      overflow:hidden;
+      height:70px;
+      transition: height 0.5s ease-in-out;
+      transition-delay:0.2s;
+
+      //extending menu
+      &:hover{
+        height:130px;
+      }
+    }
+
+    //sub item of moment menu
+    &_subitems-text{
+      margin-top:2%;
+      white-space: nowrap;
+      margin-left:10px;
+      display:block;
+      margin-left: 25%;
+      padding-top: 5px;
+      padding-bottom:5px;
+    }
+
+    .exercise{
+      height:180px;
+      width:210px;
+      margin-left:20px;
+      background: linear-gradient(155.54deg, #2F4CDD 15.63%, #D45BFF 136.34%);
+      border-radius: 26px;
+      visibility: hidden;
+      opacity: 0;
+      transition: .3s linear;
+      p{
+        margin-left: 7%;
+        margin-right:7%;
+        margin-top:25%;
+        height:30%;
+        @include PoppinsFont(400,colour(F,wh),13px);
+      }
+      .exerciseButton{
+        margin-left: 7%;
+        margin-right:7%;
+        margin-bottom: 7%;
+        width:86%;
+        height:30%;
+        background-color: white;
+        border:none;
+        border-radius: 8px;
+        @include PoppinsFont(500,colour(F,bla),18px);
+      }
+
+    }
+    .navFooter{
+      margin-top: auto;
+      @include PoppinsFont(500,colour(F,gr),12px);
+      width:90%;
+      margin-left: 5%;
+      margin-bottom: 1vh;
+      p{
+        margin-top: 0.5vh;
+      }
+    }
+  }

@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import ReactDom from 'react-dom';
+
 import tabRight from "../../imageAssets/Icons/General/tabRight.png";
 import tabLeft from "../../imageAssets/Icons/General/tabLeft.png";
 import moodGreat from "../../imageAssets/Mood Tracker/moodGreat.png";
@@ -7,9 +8,16 @@ import moodGood from "../../imageAssets/Mood Tracker/moodGood.png";
 import moodMeh from "../../imageAssets/Mood Tracker/moodMeh.png";
 import moodBad from "../../imageAssets/Mood Tracker/moodBad.png";
 import moodAwful from "../../imageAssets/Mood Tracker/moodAwful.png";
-//Generates an overlay over the top of the page where a full detailed moment is displayed
-const MomentOverlay = (props) => {
+/**
+ * @fileoverview: MomentOverlay creates a overlay over the other components of the page for displaying a moments full details to the user
+ * @author: Ryan Spowart
+ * @param {props}: open - returns whether the overlay is supposed to be open or not | onclose() function from the superclass is called to set open to false and close the overlay
+ * @component App() - Returns JSX
+ * @requires: npm install react-router-dom | npm install react
+ */
 
+const MomentOverlay = (props) => {
+    //creating the object state
     const[state, setState] = useState({
         feeling: "Great",
         title: "Title",
@@ -19,10 +27,14 @@ const MomentOverlay = (props) => {
         userLevel:"3",
     });
 
+
     //returns nothing if the open value is false
     if(!props.open) return null
 
-    //converts the feeling stored in state to a usable image
+    
+    /**
+     * @function: showFeel returns the image that displays the feeling value input
+     */
     function showFeel($feeling) {
         setState({feeling:"Great"});
         if($feeling ==="meh") {
@@ -54,6 +66,7 @@ const MomentOverlay = (props) => {
 
     }
     
+    //retuens the object to be displayed, creating a portal to the portal div in the index html file
     return ReactDom.createPortal(
         <>
         <div className="background" ></div>

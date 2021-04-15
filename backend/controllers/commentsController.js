@@ -1,5 +1,16 @@
 const Comments = require('../models/CommentsModel');
 const PostModel = require('../models/PostsModel');
+const okCode = 200;
+const serverError = 500;
+
+/**
+ * @author: Sabin Constantin Lungu
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ * @function: getAllComments(request, response)
+ * @returns: Returns a JSON Web Token that is signed with an expiry date
+ * @description: This function is used to sign a JWT token to enable therapist authentication
+ */
 
 exports.getAllComments = async (request, response) => {
     try {
@@ -7,13 +18,14 @@ exports.getAllComments = async (request, response) => {
 
         if(method === 'GET') {
             const allComments = await Comments.find();
-            return response.status(200).json({allComments});
+            return response.status(okCode).json({allComments});
         }
     } 
     
     catch(error) {
+        
         if(error) {
-            return response.status(500).json({
+            return response.status(serverError).json({
                 message: error.message
             });
         }
@@ -22,20 +34,23 @@ exports.getAllComments = async (request, response) => {
 
  exports.getCommentByID = async (request, response) => {
     try {
+        
         const method = request.method;
 
         if(method === 'GET') {
             const id = request.id; 
             const commentId = await Comments.findById(id);
-            return response.status(200).json({
+
+            return response.status(okCode).json({
                 commentId
             });
         }
     } 
     
     catch(error) {
+
         if(error) {
-            return response.status(500).json({
+            return response.status(serverError).json({
                 message: error.message
             });
         }
@@ -46,26 +61,25 @@ exports.getAllComments = async (request, response) => {
     try {
         const method = request.method;
         const {title, description} = request.body;
+
         const postedOn = request.params.postId; //Getting _id for the post the comment is made on
         const createdBy = request.account.id; //Getting _id for the user creating the comment
 
         if(!title || !description) { // If there is no title or description
-            return response.status(500).json({
+            return response.status(serverError).json({
                 message: 'You must provide a post title and description'
             });
         }
         
         if(method === 'POST') {
             const newComment = new Comments({title, description, postedOn, createdBy});
-            await newComment.save();
-            
-            //The new Goal also needs to be added to the user model 
-            await PostModel.findOneAndUpdate(
-                {_id: postedOn}, //Finding the user by _id
-                {$push: {comments: newComment.id}} //Adding the new goals _id to the posts arrey in the user model
-                );
 
-            return response.status(200).json({
+            await newComment.save();
+
+            //Add reference to the post the comment is posted on 
+            await PostModel.findOneAndUpdate({_id: postedOn}, {$push: {comments: newComment.id}});
+
+            return response.status(okCode).json({
                 message: 'Comment Created',
                 sentAt: new Date().toISOString()
             });
@@ -74,7 +88,7 @@ exports.getAllComments = async (request, response) => {
     
     catch(error) {
         if(error) {
-            return response.status(500).json({
+            return response.status(serverError).json({
                 message: error.message
             });
         }
@@ -89,7 +103,7 @@ exports.getAllComments = async (request, response) => {
         if(method === 'PATCH') {
             
             const updatedComment = await Comments.findByIdAndUpdate(id, request.body);
-            return response.status(200).json({
+            return response.status(okCode).json({
                updatedComment,
                updatedAt: new Date().toISOString()
             });
@@ -98,7 +112,7 @@ exports.getAllComments = async (request, response) => {
     
     catch(error) {
         if(error) {
-            return response.status(500).json({
+            return response.status(serverError).json({
                 message: error.message
             });
         }
@@ -112,7 +126,10 @@ exports.deleteAllComments = async (request, response) => {
         if(method === 'DELETE') {
             await Comments.deleteMany();
 
-            return response.status(200).json({
+            //Remove all comment references on posts
+            await PostModel.updateMany({},{$set: {comments: []}});
+
+            return response.status(okCode).json({
                 message: 'All comments deleted successfully',
                 deletedAt: new Date().toISOString()
             });
@@ -121,7 +138,7 @@ exports.deleteAllComments = async (request, response) => {
     
     catch(error) {
         if(error) {
-            return response.status(500).json({
+            return response.status(serverError).json({
                 message: error.message
             });
         }
@@ -134,7 +151,13 @@ exports.deleteCommentByID = async (request, response) => {
         const id = request.params.id;
 
         if(method === 'DELETE') {
-            await Comments.findByIdAndDelete(id);
+            const comment = await Comments.findByIdAndDelete(id);
+
+            //Remove comment reference from the post it was posted on
+            await PostModel.updateOne(
+                {_id: comment.postedOn},
+                {$pull: {comments: comment.id}}
+            );
             
             return response.status(200).json({
                 message: 'Comment deleted successfully',

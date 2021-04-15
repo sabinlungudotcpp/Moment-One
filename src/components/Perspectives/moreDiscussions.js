@@ -1,12 +1,18 @@
 import React from "react";
 import Discussion from "./Discussion";
 import loadMoreIcon from "../../imageAssets/Icons/General/ic_chevron.png";
-//the most popular discussion currently
+/**
+ * @fileoverview: moreDiscussions.js returns component which displays most pupular discussions in a list
+ * @author: Ryan Spowart
+ * @component App() - Returns JSX
+ * @requires: react
+ */
+
 const moreDiscussions = () => {
-    
+
     return (
         <div className="moreDiscussions">
-            <div className="contentWrapper">{/* title*/}
+            <div className="contentWrapper">{/*title*/}
                 <h2 className="title">More Discussions</h2>
                 <h3 className = "subTitle">Here are more user discussions to get inspired</h3>
             </div>

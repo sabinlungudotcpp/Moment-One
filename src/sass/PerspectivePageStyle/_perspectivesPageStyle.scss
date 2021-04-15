@@ -1,0 +1,86 @@
+@import "../functionsAndVariables/Variables";
+@import "../functionsAndVariables/functions";
+@import "./newDiscussionStyle";
+@import "./formCardStyle";
+@import "./discussionStyle";
+.pageScroll{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height:86vh;
+
+    .formContainer{
+        overflow-y: hidden;
+        overflow-x: scroll;
+        height:35vh;
+        width:96%;
+        margin-top: 3vh;
+        display:grid;
+        grid-template-columns:repeat(6, minmax(350px,25%));
+        column-gap: 3vw;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        
+        .overlay{
+            position:absolute;
+            width:10%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #F9F9F9 112.62%);
+            margin-left: 81%;
+            margin-right: 0px;
+            height:25vh;
+        }
+    }
+    .discussionWrap{
+        display:flex;
+    
+    }
+    .moreDiscussions{
+        display:flex;
+        flex-direction: column;
+        margin-top: 3vh;
+        height:100vh;
+        width:70%;
+        min-width: 900px;
+        background-color: $compBack;
+        border-radius: 20px;
+        box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
+        .contentWrapper{
+            padding:3vh;
+            height:5%;
+            width:90%;
+            .title{
+                @include PoppinsFont(600,colour(F,bla),28px);
+            }
+            .subTitle{
+                @include PoppinsFont(500,colour(F,gr),16px);
+            }
+        }
+   
+    }
+    .discussionsContainer{
+        height:80%;
+        width:100%;
+        display: grid;
+        grid-template-rows:repeat(6, minmax(15%,1fr));
+    }
+    .loadMore{
+        width: 168px;
+        height: 53px;
+        background-color: colour(P,db);
+        @include PoppinsFont(500,colour(F,wh),18px);
+        border:none;
+        border-radius: 6px;
+        margin:auto;
+        display:flex;
+        cursor: pointer;
+        img{
+            margin:auto;
+            margin-left: 5%;
+            width:24px;
+            height:24px;
+        }
+        p{
+            margin:auto;
+            margin-right: 0px;
+        }
+    }
+}

@@ -7,7 +7,7 @@ const account = require('./accountModel');
 const user = account.discriminator('User', new mongoose.Schema({
     
     //Arrey that hold the users Goals
-    Goals: [{
+    goals: [{
         type: mongoose.Schema.Types.ObjectId, //_id of the goals created by the user
         ref: 'Goals'
     }]

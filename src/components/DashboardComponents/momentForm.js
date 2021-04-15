@@ -26,11 +26,16 @@ class momentForm extends React.Component {
                 category: '', // Category of the moment
                 feeling: '', // User feeling attribute
                 selfAware: false,
-            }
+            },
+            error:'',
         }
     }
 
-    // Resets the form after submission
+    
+
+    /**
+     * @function: resState resets the state of the component to default values
+     */
     resState() {
         this.setState({
             moment : {
@@ -46,10 +51,9 @@ class momentForm extends React.Component {
     /**
      * @function: The validate function is used to validate the form entry fields. If they are left empty, an error message is displayed
      */
-
     validate() {
 
-        if(this.state.moment.title === ' ') { // If the title is empty
+        if(this.state.moment.title === '') { // If the title is empty
             return "Please enter whats on your mind";
         }
         
@@ -70,15 +74,18 @@ class momentForm extends React.Component {
         }
     }
 
-    //updating the state whenever something is changed
+    /**
+     * @function: change updates the state using the item name it is called within and the value of the item
+     */
     change = (e) => {
-
-        this.setState({
-            moment: { ...this.state.moment, [e.target.name]: e.target.value} // Sets the state of the variables by spreading all the values from the moment object
-        })
+        this.setState({// Sets the state of the variables by spreading all the values from the moment object
+            moment: {...this.state.moment,[e.target.name]: e.target.value}
+        });
     }
 
-   // Update the state after the self aware toggle is toggled
+    /**
+     * @function: awareToggle states state using the item name and sets it to the checked value of the object it is called within
+     */
     awareToggle = (e) => {
 
         this.setState({
@@ -86,15 +93,15 @@ class momentForm extends React.Component {
         });
     }
     
-    // Log the results and post the results over to the database
+    /**
+     * @function: onSubmit calls the validate function, checks if there are any errors, submits the data to the posts database file then resets the state to default
+     */
     onSubmit = async (e) => {
         e.preventDefault();
-
         this.setState({error:this.validate()});
 
-        if( this.state.error === '') {
-
-            await axios.post('http://localhost:8001/api/v1/momentone/posts',this.state.moment);
+        if(this.state.error === '') {
+            await axios.post('http://localhost:8001/api/v1/momentone/posts', this.state.moment);
             this.resState();   
         }
     }
@@ -104,7 +111,7 @@ class momentForm extends React.Component {
         return (
 
             <form className = "momentForm" onSubmit={e => this.onSubmit(e)}>
-                <div className="momentForm_top-section">
+                <div className="momentForm_top-section" >
 
                     <h2>Good afternoon, Username!</h2>
                     <h2>How are you feeling?</h2>
@@ -113,7 +120,7 @@ class momentForm extends React.Component {
                     <div className="feelingWrapper">
 
                         <label className = "feelingSelect">
-                            <input type="radio" name='feeling' value ='Great' onChange = {e => e.target.value} />
+                            <input type="radio" name='feeling' value ='Great' onChange = {e => this.change(e)} />
                             <img src = {moodGreat} alt="Great" className="feelingIcon" />
                             <p>Great</p>
                         </label>
@@ -144,8 +151,6 @@ class momentForm extends React.Component {
                             <img src={moodAwful} alt="Awful" className="feelingIcon" />
                             <p>Awful</p>
                         </label>
-
-
                     </div>
                 </div>
 
@@ -185,16 +190,16 @@ class momentForm extends React.Component {
                 {/* Section for inputing details of the users feelings into textboxes*/}
                 <div className="momentForm_bottom-section">
                     <p>What's on your mind today?</p>
-                    <textarea className="mind" value={this.state.moment.title} name="title" onChange={e => this.change(e)} rows="12" cols="50" />
+                    <textarea className="mind" value={this.state.moment.title} name="title" onChange={e => this.change(e)} rows="12" cols="50" required/>
 
                     <p>Tell us more about how you feel...</p>
-                    <textarea className="feelings" value={this.state.moment.description} name="description" onChange={e => this.change(e)} />
+                    <textarea className="feelings" value={this.state.moment.description} name="description" onChange={e => this.change(e)} required/>
 
                     <div className="selfAware_wrapper">
                         <p>Do you feel self aware?</p>
-                        <label class="switch">
+                        <label className="switch">
                             <input type="checkbox" name="selfAware" onClick={e => this.awareToggle(e)} />
-                            <span class="slider round"></span>
+                            <span className="slider round"></span>
                         </label>
                     </div>
 

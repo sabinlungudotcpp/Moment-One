@@ -27,7 +27,7 @@ const PostSchema = new mongoose.Schema({
         required: true
     },
 
-    selfAware: {
+    selfAware: { // Stores either true or false if the individuals are self aware of their feelings
         type: Boolean,
         required: true
     },
@@ -49,5 +49,5 @@ const PostSchema = new mongoose.Schema({
     timestamps: true
 });
 
-const Post = mongoose.model('Post', PostSchema);
-module.exports = Post;
+const Post = mongoose.model('Post', PostSchema); // Creates a model based on the schema above.
+module.exports = Post; // Exports the post model

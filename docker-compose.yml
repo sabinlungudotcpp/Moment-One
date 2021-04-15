@@ -1,3 +1,10 @@
+      # Version: 3
+      # The services section defines the name of the service that will be used to build the docker file, in this case Web.
+      # image: This specifies the name of the Docker image
+      # restart: always is used to always restart the container
+      # The mongo container is used to store the configuration details for starting a MongoDB database container with the root username and password.
+      # Author: Sabin Constantin Lungu
+
 version: '3'
 services: 
   web:

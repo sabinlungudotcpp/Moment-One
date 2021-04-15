@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "-": "^0.0.1",
+    "@babel/core": "^7.12.3",
+    "@sendgrid/mail": "^7.4.2",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.0",
@@ -25,6 +27,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1",
     "save": "^2.4.0",
+    "socket.io": "^4.0.1",
+    "socketio-jwt": "^4.6.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -54,7 +58,6 @@
       "last 1 safari version"
     ]
   },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "devDependencies": {
     "axios": "^0.21.1",
@@ -68,6 +71,7 @@
     "mz": "^2.7.0",
     "supertest": "^6.1.1",
     "supertest-as-promised": "^4.0.2",
+    "webpack-dev-server": "^3.11.0",
     "xss-clean": "^0.1.1"
   },
   "keywords": [],

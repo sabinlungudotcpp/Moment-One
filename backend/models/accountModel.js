@@ -47,6 +47,23 @@ const accountSchema = new mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId, //_id of the post will be stored here 
 		ref: 'Posts' 
 	}],
+
+	contacts: [{
+		user: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Account'
+		},
+		
+		chat: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Chat'
+		}
+	}],
+
+	connectRequests: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Account',
+	}],
     
     //Path to profile image 
     profileImage: String,

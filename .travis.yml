@@ -8,6 +8,7 @@ before_install:
 script:
  - docker run -e CI=true sabin2000/momentone npm run test -- --coverage
 
+# Travis CI deploy configuration code that deploys the app to AWS.
 deploy:
   provider: elasticbeanstalk
   region: "us-east-2"

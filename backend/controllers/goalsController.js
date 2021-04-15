@@ -42,7 +42,7 @@ exports.createGoal = catchAsync(async (request, response, next) => { // Function
         const {goal, reason, reward, length} = request.body; // Body of the request
         const createdBy = request.account.id; //Getting the user _id from the JWT that was verified by authentication.js
 
-        if(request.User.type !== 'User') {
+        if(request.account.type !== 'User') {
             return response.status(unprocessable).json({
                 message: 'Only users can create goals'
             });
@@ -59,12 +59,8 @@ exports.createGoal = catchAsync(async (request, response, next) => { // Function
             const newGoal = new goalsModel({goal, reason, reward, length, createdBy});
             await newGoal.save(); // Save the goal
 
-            //The new Goal also needs to be added to the user model 
-            await userModel.findOneAndUpdate(
-                {_id: createdBy}, //Finding the user by _id
-                {$push: {goals: newGoal.id}} //Adding the new goals _id to the posts arrey in the user model
-                );
-
+            //Add reference to goal to the user who created it
+            await userModel.updateOne({_id: createdBy}, {$push: {goals: newGoal.id}});
             return response.status(createdCode).json(newGoal);
         }
     } 
@@ -134,6 +130,9 @@ exports.deleteGoals = async (request, response) => { // Deletes all the goals
         if(method === 'DELETE' || url.startsWith(root)) {
             await goalsModel.deleteMany();
 
+            //Remove all goal references from user models
+            await userModel.updateMany({},{$set: {goals: []}});
+
             return response.status(okCode).json({
                 message: 'Goals deleted successfully',
                 sentAt: new Date().toISOString()
@@ -163,8 +162,14 @@ exports.deleteGoalByID = async (request, response) => { // Deletes a goal by its
         }
 
         if(method === 'DELETE' && url.startsWith(root)) {
-            await goalsModel.findByIdAndDelete(id);
+            const goal = await goalsModel.findByIdAndDelete(id);
            
+            //The goal reference then needs to be deleted from the usermodel
+            await userModel.updateOne(
+                {_id: goal.createdBy},
+                {$pull: {goals: goal.id}}
+            );
+            
             return response.status(okCode).json({
                 message: 'Goal Deleted',
                 sentAt: new Date().toISOString()

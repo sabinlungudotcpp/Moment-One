@@ -1,0 +1,82 @@
+.therAndSupport{
+    height:45%;
+    width:100%;
+    box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
+    border-radius: 20px;
+    background-color: $compBack;
+    display:flex;
+
+    .titleSec{
+        height:15%;
+        border-bottom: solid 3px $background;
+        display:flex;
+        margin-bottom: auto;
+        margin-top: 0%;
+        h2{
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 5%;
+            @include PoppinsFont(500,colour(F,bla),20px);
+        }
+        .inProgress{
+            @include PoppinsFont(500,colour(P,or),16px);
+            margin:auto 5% auto auto;
+            cursor: pointer;
+            transition:0.3s linear;
+            &:hover{
+                translate: 0px -3px;
+                text-shadow: rgb(187, 187, 187) 0px 5px 5px;
+            }
+        }
+        .achieved{
+            @include PoppinsFont(500,colour(F,gr),16px);
+            margin:auto 5% auto 0%;
+            cursor: pointer;
+            transition:0.3s linear;
+            &:hover{
+                translate: 0px -3px;
+                text-shadow: rgb(187, 187, 187) 0px 5px 5px;
+            }
+        }
+        .add{
+            @include PoppinsFont(500,colour(P,or),16px);
+            margin:auto 5% auto 0%;
+            cursor: pointer;
+            border:solid 2px colour(P,or);
+            border-radius: 50%;
+            padding-left: 7px;
+            padding-right: 7px;
+
+            transition:0.3s linear;
+            &:hover{
+                translate: 0px -3px;
+                text-shadow: rgb(187, 187, 187) 0px 5px 5px;
+            }
+        }
+    }
+    .favouriteTherapists{
+        width:50%;
+        height:100%;
+        display:flex;
+        flex-direction: column;
+    }
+    .yourGoals{
+        width:50%;
+        height:100%;
+        display:flex;
+        flex-direction: column;
+    }
+}
+.personalGrowth{
+    margin-top: auto;
+    height:50%;
+    width:100%;
+    box-shadow: 0px 12px 23px rgba(62, 73, 84, 0.04);
+    border-radius: 20px;
+    background-color: $compBack;
+
+    h2{
+        margin: 2% auto 0px 2%;
+        @include PoppinsFont(500,colour(F,bla),20px);
+    }
+}

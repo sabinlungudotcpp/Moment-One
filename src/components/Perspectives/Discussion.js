@@ -1,5 +1,12 @@
 import React from "react";
 import likeIcon from "../../imageAssets/Icons/General/likeIcon.png";
+/**
+ * @fileoverview: Discussions.js Component which returns a series of of divs displaying the discussions
+ * @author: Ryan Spowart
+ * @param {props}: items - and array of all the data needed to generate the discussions
+ * @component App() - Returns JSX
+ * @requires: npm install react
+ */
 
 const Discussion = (props) => {
 

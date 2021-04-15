@@ -1,0 +1,30 @@
+@import "../functionsAndVariables/Variables";
+@import "../functionsAndVariables/functions";
+@import "./contentCardStyle";
+
+/*
+    Styles the Community page
+*/
+.subtitle{
+    @include PoppinsFont(500,colour(P,db),22px);
+}
+
+.cardContainer{
+    display:grid;
+    grid-template-columns:repeat(10, minmax(300px,1fr));
+    grid-template-rows: minmax(95%,95%);
+    column-gap: 1vw;
+    height:83%;
+    margin-top: 1%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    
+}
+.therapistSection{
+    height:49%;
+    width:100%;
+}
+.indevidualSection{
+    height:49%;
+    width:100%;
+}

@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const notFound = 404;
 
-// Routes Imports
+// Imports the various routers from the routes folder
 const accountRouter = require('./backend/routes/accountRoutes');
 const commentRouter = require('./backend/routes/commentRoutes');
 const postsRouter = require('./backend/routes/postRoutes');
@@ -16,7 +16,12 @@ const courseRouter = require('./backend/routes/courseRoutes');
 const searchRouter = require('./backend/routes/searchRoutes');
 const loginRouter = require('./backend/routes/loginRoutes');
 const discussionRouter = require('./backend/routes/discussionRoutes');
+const questionRouter = require('./backend/routes/admin/questionRoutes');
+const assessmentRouter = require('./backend/routes/admin/assessmentRoutes');
+const contactRouter = require('./backend/routes/contactRoutes');
+const messageRouter = require('./backend/routes/messageRoutes');
 
+// Middlewares used within the app.
 app.use(bodyParser.json());
 app.use(express.json({limit: '27mb'}));
 app.use(express.urlencoded({extended: true}));
@@ -34,8 +39,19 @@ app.use('/api/v1/momentone/users', userRouter);
 app.use('/api/v1/momentone/therapist', therapistRouter);
 app.use('/api/v1/momentone/courses', courseRouter);
 app.use('/api/v1/momentone/search', searchRouter);
-app.use('/api/v1/momentone/login', loginRouter);
+app.use('/api/v1/momentone/users/login', loginRouter);
 app.use('/api/v1/momentone/discussions', discussionRouter);
+app.use('/api/v1/momentone/admin/questions', questionRouter);
+app.use('/api/v1/momentone/admin/assessment', assessmentRouter);
+app.use('/api/v1/momentone/contact', contactRouter);
+app.use('/api/v1/momentone/message', messageRouter);
+
+/**
+ * @author: Sabin Constantin Lungu
+ * @function: Middleware function that handles unspecified routes on the server, for example if an invalid route is specified it will return the error message below. 
+ * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
+ * @param {response}: Stores the response data sent back by the server
+ */
 
 app.all('*', (request, response, next) => {
     return response.status(notFound).json({

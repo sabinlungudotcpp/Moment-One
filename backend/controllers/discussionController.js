@@ -87,6 +87,15 @@ exports.deleteDiscussions = async (request, response, next) => {
     try {
         const method = request.method;
 
+        if(method === 'DELETE') {
+            await Discussion.deleteMany();
+
+            return response.status(204).json({
+                message: 'Discussions deleted successfully',
+                deletedAt: new Date().toISOString()
+            })
+        }
+
 
     } 
     

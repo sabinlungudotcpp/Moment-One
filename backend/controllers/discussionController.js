@@ -37,11 +37,11 @@ exports.getAllDiscussions = async (request, response, next) => {
 
 exports.createDiscussion = async (request, response, next) => {
     try {
-        const {title, content, date, category} = request.body;
+        const {title, content, category} = request.body;
         const method = request.method;
 
         if(method === 'POST') {
-            const newDiscussion = new Discussion({title, content, date, category});
+            const newDiscussion = new Discussion({title, content, category});
             await newDiscussion.save();
 
             return response.status(created).json({
@@ -55,7 +55,7 @@ exports.createDiscussion = async (request, response, next) => {
     catch(error) {
 
         if(error) {
-            return response.status(404).json({message: 'Unable to create discussion'})
+            return response.status(500).json({message: 'Unable to create discussion'})
         }
     }
 }

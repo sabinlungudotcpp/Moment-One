@@ -1,3 +1,12 @@
+# 1. The services section defines which services are used
+# 2. The before_install section builds the docker file
+# 3. The script section is used to run the docker container by building an image out of it
+# 4. The deploy section provides the required configuration to deploy the web application over to AWS
+# The provider of the deployment is AWS
+# The region specifies which region the app is being deployed in
+# app: Application name, env: Environment name, bucket_name: The name of the AWS bucket used, on: The current branch it is being pushed on, access_key_id: The AWS secure ACCESS KEY and the secret access key config
+# Author: Sabin Constantin Lungu
+
 sudo: required
 services:
   - docker

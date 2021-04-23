@@ -51,7 +51,7 @@ exports.getAllContacts = async (request, response) => {
 }
 
 /**
- * @author: Sabin Constantin Lungu
+ * @author: Jakub Kosarzecki
  * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
  * @param {response}: Stores the response data sent back by the server
  * @function: deleteContact(request, response)
@@ -85,7 +85,7 @@ exports.deleteContact = async (request, response) => {
 }
 
 /**
- * @author: Sabin Constantin Lungu
+ * @author: Jakub Kosarzecki
  * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
  * @param {response}: Stores the response data sent back by the server
  * @function: testCreateAMessage(request, response)

@@ -3,7 +3,7 @@ const okCode = 200;
 const serverError = 500;
 
 /**
- * @author: Sabin Constantin Lungu
+ * @author: Sabin Constantin Lungu, Jakub Kosarzecki
  * @function: Middleware function that retrieves all of the registered users from the database
  * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
  * @param {response}: Stores the response data sent back by the server

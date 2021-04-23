@@ -26,6 +26,9 @@ const therAndSupport = (props) => {
       <div className="yourGoals">
         <div className="titleSec">
           <h2>Your Goals</h2>
+          <h3 className = "inProgress">in progress</h3>
+          <h3 className = "achieved">achieved</h3>
+          <h3 className = "add">+</h3>
         </div>
         {/* Goal list */}
         <Goal />

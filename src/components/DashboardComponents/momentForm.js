@@ -190,10 +190,10 @@ class momentForm extends React.Component {
                 {/* Section for inputing details of the users feelings into textboxes*/}
                 <div className="momentForm_bottom-section">
                     <p>What's on your mind today?</p>
-                    <textarea className="mind" value={this.state.moment.title} name="title" onChange={e => this.change(e)} rows="12" cols="50" />
+                    <textarea className="mind" value={this.state.moment.title} name="title" onChange={e => this.change(e)} rows="12" cols="50" required/>
 
                     <p>Tell us more about how you feel...</p>
-                    <textarea className="feelings" value={this.state.moment.description} name="description" onChange={e => this.change(e)} />
+                    <textarea className="feelings" value={this.state.moment.description} name="description" onChange={e => this.change(e)} required/>
 
                     <div className="selfAware_wrapper">
                         <p>Do you feel self aware?</p>

@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const account = require('../models/accountModel');
 const userModel = require('../models/userModel');
 const therapistModel = require('../models/therapistModel');
+const sendMail = require('../middlewares/sendGridEmail');
 const okCode = 200;
 const unauthorized = 401;
 const unprocessable = 422;
@@ -21,7 +22,7 @@ const signToken = (id) => { // Signs the JWT token
 }
 
 /**
- * @author: Sabin Constantin Lungu
+ * @author: Sabin Constantin Lungu, Jakub Kosarzecki
  * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
  * @param {response}: Stores the response data sent back by the server
  * @function: async registerUser(request, response)
@@ -34,17 +35,23 @@ exports.registerUser = async (request, response) => {
     try {
         const method = request.method;
         const type = 'User'
-        const {username, password, email} = request.body;
+        const {username, password, passConfirm, email} = request.body;
+
+        if(password !== passConfirm) {
+            return response.status(unprocessable).json({message: 'Passwords do not match'});
+        }
 
         if(!username || !password || !email) {
-            return response.status(unprocessable).json({message: 'You must provide an e-mail and password'})
+            return response.status(unprocessable).json({message: 'Not enough detail'});
         }
 
         if(method === 'POST') {
             const user = new userModel({username, password, email, type});
             await user.save();
+            await sendMail.registerEmail(email, username);
 
             const token = signToken(user._id); // Sign the JWT token
+
             return response.status(okCode).json({token, user});
         }
     }
@@ -61,7 +68,7 @@ exports.registerUser = async (request, response) => {
 };
 
 /**
- * @author: Sabin Constantin Lungu
+ * @author: Sabin Constantin Lungu, Jakub Kosarzecki
  * @param {request}: Stores the request data as a variable that enables clients to make a request to the server
  * @param {response}: Stores the response data sent back by the server
  * @function: async registerTherapist(request, response)
@@ -77,12 +84,17 @@ exports.registerTherapist = async (request, response) => { // Middleware functio
         const method = request.method;
         const type = 'Therapist'
         
-        const { firstName, lastName, username, password, email, telephone, city, country} = request.body; // The data coming from the body
+        const { firstName, lastName, username, password, passConfirm, email, telephone, city, country} = request.body; // The data coming from the body
 
         if(method === 'POST') {
 
+            if(password !== passConfirm) {
+                return response.status(unprocessable).json({message: 'Passwords do not match'});
+            }
+
             const therapist = new therapistModel({firstName, lastName, username, password, email, telephone, city, country, type});
             await therapist.save(); // Save the details to the database
+            await sendMail.registerEmail(email, username);
 
             const token = signToken(therapist._id); // Signs a JWT for a therapist
 

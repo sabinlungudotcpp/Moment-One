@@ -18,6 +18,41 @@
             margin-left: 5%;
             @include PoppinsFont(500,colour(F,bla),20px);
         }
+        .inProgress{
+            @include PoppinsFont(500,colour(P,or),16px);
+            margin:auto 5% auto auto;
+            cursor: pointer;
+            transition:0.3s linear;
+            &:hover{
+                translate: 0px -3px;
+                text-shadow: rgb(187, 187, 187) 0px 5px 5px;
+            }
+        }
+        .achieved{
+            @include PoppinsFont(500,colour(F,gr),16px);
+            margin:auto 5% auto 0%;
+            cursor: pointer;
+            transition:0.3s linear;
+            &:hover{
+                translate: 0px -3px;
+                text-shadow: rgb(187, 187, 187) 0px 5px 5px;
+            }
+        }
+        .add{
+            @include PoppinsFont(500,colour(P,or),16px);
+            margin:auto 5% auto 0%;
+            cursor: pointer;
+            border:solid 2px colour(P,or);
+            border-radius: 50%;
+            padding-left: 7px;
+            padding-right: 7px;
+
+            transition:0.3s linear;
+            &:hover{
+                translate: 0px -3px;
+                text-shadow: rgb(187, 187, 187) 0px 5px 5px;
+            }
+        }
     }
     .favouriteTherapists{
         width:50%;

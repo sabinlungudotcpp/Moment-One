@@ -80,6 +80,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
@@ -2082,6 +2085,46 @@ a {
       font-weight: 500;
       color: black;
       font-size: 20px; }
+    .therAndSupport .titleSec .inProgress {
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      color: #FF6D4D;
+      font-size: 16px;
+      margin: auto 5% auto auto;
+      cursor: pointer;
+      transition: 0.3s linear; }
+      .therAndSupport .titleSec .inProgress:hover {
+        translate: 0px -3px;
+        text-shadow: #bbbbbb 0px 5px 5px; }
+    .therAndSupport .titleSec .achieved {
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      color: #A2A2A4;
+      font-size: 16px;
+      margin: auto 5% auto 0%;
+      cursor: pointer;
+      transition: 0.3s linear; }
+      .therAndSupport .titleSec .achieved:hover {
+        translate: 0px -3px;
+        text-shadow: #bbbbbb 0px 5px 5px; }
+    .therAndSupport .titleSec .add {
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      color: #FF6D4D;
+      font-size: 16px;
+      margin: auto 5% auto 0%;
+      cursor: pointer;
+      border: solid 2px #FF6D4D;
+      border-radius: 50%;
+      padding-left: 7px;
+      padding-right: 7px;
+      transition: 0.3s linear; }
+      .therAndSupport .titleSec .add:hover {
+        translate: 0px -3px;
+        text-shadow: #bbbbbb 0px 5px 5px; }
   .therAndSupport .favouriteTherapists {
     width: 50%;
     height: 100%;

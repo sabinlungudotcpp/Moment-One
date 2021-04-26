@@ -16,7 +16,7 @@ class NewDiscussion extends React.Component {
             discussion: {
                 title: '',
                 content: '',
-                category: ''
+                category: '',
             },
             
             error:'',
@@ -41,9 +41,12 @@ class NewDiscussion extends React.Component {
     onSubmit = async (e) => {
         e.preventDefault();
         console.log(this.state.discussion);
-        await axios.post('http://localhost:8001/api/v1/momentone/discussions', this.state.discussion);
-        this.reset();
-
+        if(this.state.discussion.category === ''){
+            this.setState({error:'Please Enter a category'})
+        }else{
+            await axios.post('http://localhost:8001/api/v1/momentone/discussions', this.state.discussion);
+            this.reset();
+        }
     }
 
     /**
@@ -54,31 +57,9 @@ class NewDiscussion extends React.Component {
             discussion:{
                 title: '',
                 content: '',
-                category: ''
+                category: '',
             }
         })
-    }
-
-    /**
-     * @function: The validate function is used to validate the form entry fields. If they are left empty, an error message is displayed
-     */
-    validate(){
-
-        if(this.state.title === ''){
-            this.setState({error: "Please enter a title"})
-        }
-        
-        else if(this.state.content === ''){
-            this.setState({error:"please enter the content"})
-        }
-        
-        else if(this.state.category===''){
-            this.setState({error:"please enter a category"})
-        }
-        
-        else {
-            this.setState({error:''})
-        }
     }
 
     render(){ //returns jsx component
@@ -100,8 +81,8 @@ class NewDiscussion extends React.Component {
                     <h2>🔥 New Discussion</h2>
                     <p>Anything on your mind? Ask the community and expand your self-awarness knowledge.</p>
                     {/* title and description input */}
-                    <textarea className="titleInput" name="title" rows="1" cols="50" placeholder="Title..." onChange={e => this.change(e)}/>
-                    <textarea className="textInput" name="content" rows="5" cols="50" placeholder="Content..." onChange={e => this.change(e)}/>
+                    <textarea className="titleInput" name="title" rows="1" cols="50" placeholder="Title..." onChange={e => this.change(e)} required/>
+                    <textarea className="textInput" name="content" rows="5" cols="50" placeholder="Content..." onChange={e => this.change(e)} required/>
                     </div>
                     {/* category input */}
                     <div className="category_wrap">
@@ -142,7 +123,8 @@ class NewDiscussion extends React.Component {
                     </label>
                 </div>
                 {/* submit button */}
-                <button className="submit">Ask the Community {this.state.error}</button>
+                <button className="submit">Ask the Community <p className ="error">{this.state.error}</p></button>
+                
             </form>
         )
     }

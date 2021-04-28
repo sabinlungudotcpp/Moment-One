@@ -18,5 +18,5 @@ deploy:
   bucket_path: "Moment-One-Platform"
   on:
     branch: main
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEYY"

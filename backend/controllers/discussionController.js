@@ -28,7 +28,7 @@ exports.getAllDiscussions = async (request, response, next) => {
     catch(error) {
         if(error) {
             return response.status(notFound).json({
-                status: 'fail',
+                status: 'failf',
                 error
             });
         }

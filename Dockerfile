@@ -7,6 +7,7 @@
 
 # Author: Sabin Constantin Lungu
 FROM node:alpine AS builder
+RUN apk update && apk add python make g++
 WORKDIR '/app'
 COPY package.json .
 RUN npm install

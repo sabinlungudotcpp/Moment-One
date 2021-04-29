@@ -91,7 +91,7 @@ exports.deleteDiscussions = async (request, response) => {
             await Discussion.deleteMany();
 
             return response.status(204).json({
-                message: 'Discussions deleted successfully',
+                message: 'Discussions deleted',
                 deletedAt: new Date().toISOString()
             })
         }

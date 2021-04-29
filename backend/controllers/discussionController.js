@@ -101,7 +101,7 @@ exports.deleteDiscussions = async (request, response) => {
 
         if(error) {
             return response.status(404).json({
-                message: 'Discussions could not be',
+                message: 'Discussions could not be deleted',
                 updatedAt: new Date().toISOString()
             });
         }

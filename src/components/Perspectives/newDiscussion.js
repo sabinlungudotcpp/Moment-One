@@ -17,10 +17,7 @@ class NewDiscussion extends React.Component {
                 title: '',
                 content: '',
                 category: '',
-<<<<<<< HEAD
                 likes: '0'
-=======
->>>>>>> acd83add40f39ac8ddefa1ee61578e3cf5e52ea4
             },
             
             error: '',
@@ -40,18 +37,8 @@ class NewDiscussion extends React.Component {
      */
     onSubmit = async (e) => {
         e.preventDefault();
-<<<<<<< HEAD
         await axios.post('http://localhost:8001/api/v1/momentone/discussions', this.state.discussion);
         this.reset();
-=======
-        console.log(this.state.discussion);
-        if(this.state.discussion.category === ''){
-            this.setState({error:'Please Enter a category'})
-        }else{
-            await axios.post('http://localhost:8001/api/v1/momentone/discussions', this.state.discussion);
-            this.reset();
-        }
->>>>>>> acd83add40f39ac8ddefa1ee61578e3cf5e52ea4
     }
 
     /**
@@ -67,7 +54,6 @@ class NewDiscussion extends React.Component {
         })
     }
 
-<<<<<<< HEAD
     /**
      * @function: The validate function is used to validate the form entry fields. If they are left empty, an error message is displayed
      */
@@ -91,8 +77,6 @@ class NewDiscussion extends React.Component {
         }
     }
 
-=======
->>>>>>> acd83add40f39ac8ddefa1ee61578e3cf5e52ea4
     render(){ //returns jsx component
         return (
             <form className = "newDiscussion" onSubmit={e => this.onSubmit(e)}>

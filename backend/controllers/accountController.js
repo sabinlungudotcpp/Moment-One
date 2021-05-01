@@ -5,6 +5,7 @@ const commentModel = require('../models/CommentsModel');
 const goalModel = require('../models/goalsModel');
 const chatModel = require('../models/chatModel');
 const messageModel = require('../models/messageModel');
+const sendMail = require('../middlewares/sendGridEmail');
 
 //Getting all accounts. Users and Therapists
 exports.getAllAccounts = async (request, response) => {
@@ -95,6 +96,7 @@ exports.deleteAccountById = async (request, response) => {
                 const chats = await chatModel.find({between: account.id}).select('_id');
                 await messageModel.deleteMany({chat: {$in: chats}});
                 await chatModel.deleteMany({between: account.id});
+                await sendMail.removeAccountEmail(account.email, account.username);
                 //Then all the goals for users
                 if(account.type === 'User') {
                     await goalModel.deleteMany({createdBy: account.id});
@@ -112,10 +114,11 @@ exports.deleteAccountById = async (request, response) => {
             }
         }
     }
-    //catching all errors
+
     catch(error) {
+        
         if(error) {
-            return response.status(500).json({ //Internal server error
+            return response.status(500).json({ 
                 message: error.message
             });
         }

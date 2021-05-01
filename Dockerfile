@@ -3,7 +3,7 @@
 # 3. Copy the contents of package.json to the root folder.
 # 4. Run npm install to install packages
 # 5. Expose port 3000 for incoming traffic
-# 6. Execute the front-end wit the CMD command
+# 6. Execute the front-end wit the CMD
 
 # Author: Sabin Constantin Lungu
 FROM node:alpine AS builder

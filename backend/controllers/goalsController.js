@@ -8,18 +8,18 @@ const unprocessable = 400;
 const notFound = 404;
 const root = '/';
 
-exports.getAllGoals = catchAsync(async (request, response, next) => { // Function that GETS all the goals from the database
-        const method = request.method; // Request method
+exports.getAllGoals = catchAsync(async (request, response, next) => {
+        const method = request.method;
         const url = request.url;
 
-        if(method === 'GET' && url.startsWith(root)) { // If there is a GET request
+        if(method === 'GET' && url.startsWith(root)) {
             const goals = await goalsModel.find();
 
             if(goals.length === 0) {
                 return next(new AppError('Goals not found'), 404);
             }
 
-            return response.status(okCode).json(goals); // Send back the goals
+            return response.status(okCode).json(goals);
         }
     } 
 );
@@ -36,11 +36,11 @@ exports.getGoalByID = catchAsync(async (request, response, next) => {
     }
 );
 
-exports.createGoal = catchAsync(async (request, response, next) => { // Function export that creates a new goal
+exports.createGoal = catchAsync(async (request, response, next) => { 
     try {
-        const method = request.method; // The request method
-        const {goal, reason, reward, length} = request.body; // Body of the request
-        const createdBy = request.account.id; //Getting the user _id from the JWT that was verified by authentication.js
+        const method = request.method; 
+        const {goal, reason, reward, length} = request.body; 
+        const createdBy = request.account.id;
 
         if(request.account.type !== 'User') {
             return response.status(unprocessable).json({
@@ -57,9 +57,8 @@ exports.createGoal = catchAsync(async (request, response, next) => { // Function
 
         if(method === 'POST') {
             const newGoal = new goalsModel({goal, reason, reward, length, createdBy});
-            await newGoal.save(); // Save the goal
+            await newGoal.save(); 
 
-            //Add reference to goal to the user who created it
             await userModel.updateOne({_id: createdBy}, {$push: {goals: newGoal.id}});
             return response.status(createdCode).json(newGoal);
         }

@@ -114,10 +114,11 @@ exports.deleteAccountById = async (request, response) => {
             }
         }
     }
-    //catching all errors
+
     catch(error) {
+        
         if(error) {
-            return response.status(500).json({ //Internal server error
+            return response.status(500).json({ 
                 message: error.message
             });
         }

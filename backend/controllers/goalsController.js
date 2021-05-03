@@ -133,7 +133,7 @@ exports.deleteGoals = async (request, response) => { // Deletes all the goals
             await userModel.updateMany({},{$set: {goals: []}});
 
             return response.status(okCode).json({
-                message: 'Goals deleted successfully',
+                message: 'Goals deleted',
                 sentAt: new Date().toISOString()
             });
         }

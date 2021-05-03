@@ -28,17 +28,17 @@ exports.getAllDiscussions = async (request, response, next) => {
     catch(error) {
         if(error) {
             return response.status(notFound).json({
-                status: 'Fail',
+                status: 'failf',
                 error
             });
         }
     }
 };
 
-exports.createDiscussion = async (request, response, next) => {
+exports.createDiscussion = async (request, response) => {
     try {
         const {title, content, category} = request.body;
-        const method = request.method;
+        const method = request.method; // Request method
 
         if(method === 'POST') {
             const newDiscussion = new Discussion({title, content, category});
@@ -60,7 +60,7 @@ exports.createDiscussion = async (request, response, next) => {
     }
 }
 
-exports.editDiscussion = async (request, response, next) => { // Controller to edit
+exports.editDiscussion = async (request, response) => { // Controller to edit
     try {
         const method = request.method;
         const id = request.params.id;
@@ -83,17 +83,27 @@ exports.editDiscussion = async (request, response, next) => { // Controller to e
     }
 };
 
-exports.deleteDiscussions = async (request, response, next) => {
+exports.deleteDiscussions = async (request, response) => {
     try {
         const method = request.method;
 
+        if(method === 'DELETE') {
+            await Discussion.deleteMany();
 
+            return response.status(204).json({
+                message: 'Discussions deleted',
+                deletedAt: new Date().toISOString()
+            })
+        }
     } 
     
     catch(error) {
 
         if(error) {
-
+            return response.status(404).json({
+                message: 'Discussions could not be deleted',
+                updatedAt: new Date().toISOString()
+            });
         }
     }
 };
